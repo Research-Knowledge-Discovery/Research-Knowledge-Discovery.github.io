@@ -1,0 +1,26 @@
+// Test
+/*
+.navbar.is-primary .navbar-start > .navbar-item, 
+.navbar.is-primary .navbar-start .navbar-link, 
+.navbar.is-primary .navbar-end > .navbar-item, 
+.navbar.is-primary .navbar-end .navbar-link {
+    color: #ff0000;
+}
+*/
+
+#custom-nav {
+    justify-content: space-between;
+    // Margin momentan so gelöst, statt den Grund, warum das nur auf nicht-Default
+    // Seiten so ist
+    margin: 0px auto;
+}
+
+#navMenu {
+    flex-grow: 0;
+}
+
+.sidebar-heading {
+    font-weight: bold;
+    font-size: 20px;
+}
+

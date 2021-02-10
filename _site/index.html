@@ -12,53 +12,116 @@
     <link rel="shortcut icon" type="image/png"
            href="/favicon.png" 
     />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
     
     <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Your awesome title | Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</title>
+<title>Research Focus Knowledge Discovery | [Placeholder-Description]</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Your awesome title" />
+<meta property="og:title" content="Research Focus Knowledge Discovery" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta name="description" content="[Placeholder-Description]" />
+<meta property="og:description" content="[Placeholder-Description]" />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:site_name" content="Research Focus Knowledge Discovery" />
 <script type="application/ld+json">
-{"@type":"WebSite","url":"http://localhost:4000/","headline":"Your awesome title","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","name":"Your awesome title","@context":"https://schema.org"}</script>
+{"@type":"WebSite","headline":"Research Focus Knowledge Discovery","url":"http://localhost:4000/","description":"[Placeholder-Description]","name":"Research Focus Knowledge Discovery","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <!-- head scripts --></head>
 
   <body>
+    <body>
     <nav class="navbar is-primary ">
-    <div class="container">
-        <div class="navbar-brand">
-            <a href="/" class="navbar-item">
-                Your awesome title
-            </a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div class="navbar-menu" id="navMenu">
-            <div class="navbar-start">
-                <a href="/" class="navbar-item is-active">Home</a>
-                
+        <div id="custom-nav" class="container">
+            <div class="navbar-brand">
+                <a href="/" class="navbar-item">
+                    Research Focus Knowledge Discovery
+                </a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-start">
+                    <a href="/" class="navbar-item is-active">Home</a>
+                    
+                    
+                        
+                        <div class="navbar-item has-dropdown ">
+                            <a class="navbar-link ">About Us</a>
+                            <div class="navbar-dropdown">
+                                
+                                <a href="/about-us/organisation.html" class="navbar-item ">Organisation</a>
+                                
+                                <a href="/about-us/people.html" class="navbar-item ">People</a>
+                                
+                                <a href="/about-us/infrastructure.html" class="navbar-item ">Infrastructure</a>
+                                
+                            </div>
+                        </div>
+                        
+                    
+                        
+                        <div class="navbar-item has-dropdown ">
+                            <a class="navbar-link ">Research</a>
+                            <div class="navbar-dropdown">
+                                
+                                <a href="/research/research-areas.html" class="navbar-item ">Research Areas</a>
+                                
+                                <a href="/research/projects.html" class="navbar-item ">Projects</a>
+                                
+                                <a href="/research/publications.html" class="navbar-item ">Publications</a>
+                                
+                            </div>
+                        </div>
+                        
+                    
+                        
+                        <div class="navbar-item has-dropdown ">
+                            <a class="navbar-link ">Theses &amp; Jobs</a>
+                            <div class="navbar-dropdown">
+                                
+                                <a href="/theses-and-jobs/bsc-msc-theses.html" class="navbar-item ">BSc-/MSc-Theses</a>
+                                
+                                <a href="/theses-and-jobs/open-positions.html" class="navbar-item ">Open Positions</a>
+                                
+                            </div>
+                        </div>
+                        
+                    
+                        
+                        <a href="/news.html" class="navbar-item ">News</a>
+                        
+                    
+                    
+                </div>
 
-            <div class="navbar-end">
-                
+                <div class="navbar-end">
+                    
+                </div>
+
             </div>
-
         </div>
-    </div>
-</nav>
-
+    </nav>
+    <script>
+        var elements = document.getElementsByClassName('navbar-item has-dropdown');
+        // Set initial state to 'none' on mobile
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', event => {
+                var dropdown = elements[i].children[1];
+                if (window.getComputedStyle(dropdown, null).display == 'none')
+                    dropdown.style.display = 'block';
+                else
+                    dropdown.style.display = 'none';
+            });
+        }
+    </script>
+</body>
     
         <section class="hero  is-medium  is-bold is-primary" >
     <div class="hero-body ">
@@ -77,12 +140,50 @@
         <div class="container">
             <div class="columns">
                 
-                <div class="column is-12">
+                <div class="column is-8">
                     
                     
                     
                     
                     
+
+                </div>
+                
+                <div class="column is-4-desktop is-12-tablet">
+                    <p class="title is-4">Latest Posts</p>
+
+<div class="columns is-multiline">
+    
+    <div class="column is-12">
+        <div class="card">
+    
+    <header class="card-header">
+        <a class="card-header-title" href="/jekyll/update/2021/01/28/welcome-to-jekyll.html">Welcome to Jekyll!</a>
+    </header>
+    
+    <div class="card-content">
+        <div class="content">
+            
+            
+                <p><p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+</p>
+            
+        </div>
+        <div class="has-text-centered">
+            <a href="/jekyll/update/2021/01/28/welcome-to-jekyll.html" class="button is-primary">Read more</a>
+        </div>
+    </div>
+    <footer class="card-footer">
+        <p class="card-footer-item">Published: Jan 28, 2021</p>
+    </footer>
+</div>
+    </div>
+    
+</div>
+
+
+
 
                 </div>
                 
@@ -104,4 +205,3 @@
     
     <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
 </html>
-

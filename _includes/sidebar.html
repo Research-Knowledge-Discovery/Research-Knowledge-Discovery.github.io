@@ -1,0 +1,26 @@
+<div class="sidebar column is-4-desktop is-12-tablet">
+    <!--<p>Test</p>-->
+    {% if site.data.navigation %}
+    <!--<strong>page url: {{ page.url }}</strong>-->
+        {% for item in site.data.navigation %}
+        <!--<p>{{ item.name }}</p>
+        <p>{{ item.name }}</p>-->
+            {% if page.url contains item.link %}
+            <h2 class="sidebar-heading">{{ item.name }}</h2>
+                {% if item.dropdown %}
+                    <ul>
+                    {% for subitem in item.dropdown %}
+                        {% if page.url contains subitem.link %} 
+                            <li>{{ subitem.name }}</li>
+                        {% else %}
+                            <li>
+                                <a href="{{ subitem.link }}">{{ subitem.name }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
