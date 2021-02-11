@@ -31,7 +31,6 @@ github_username:  jekyll
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-  - github-pages
 
 remote_theme:  "chrisrhymes/bulma-clean-theme"
 

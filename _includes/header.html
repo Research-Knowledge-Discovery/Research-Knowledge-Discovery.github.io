@@ -45,7 +45,7 @@
         </div>
     </nav>
     <script>
-        /*var menuitems = document.getElementsByClassName('navbar-item has-dropdown');
+        var menuitems = document.getElementsByClassName('navbar-item has-dropdown');
        
         function toggleMenu(menu) {
             if (window.getComputedStyle(menu, null).display == 'none')
@@ -54,44 +54,59 @@
                 menu.style.display = 'none';
         }
        
+       // Zum togglen wird das gerade geöffnete Menü zwischengespeichert,
+       // damit hergeleitet werden kann, welches Menü geschlossen werden soll,
+       // wenn woanders hingeklickt wird
         var open_menu;
 
         document.addEventListener('click', function(e){
             var clicked_target = e.target;
-            console.log("Clicked: ");
-            console.log(clicked_target);
-            console.log("Parent: ");
-            console.log(clicked_target.parentElement);
-            console.log("Open Menu: ");
-            console.log(open_menu);
+            
+            // Aufteilung auf zwei Grundfälle: 
+            // - Wenn das geklickte Element ein Dropdown ist 
+            // und 
+            // - wenn es kein Dropdown ist (woanders hingeklickt wurde)
+
+            // Wenn das geklickte Element ein Menüitem mit Dropdown ist...
             if (clicked_target.parentElement.className === "navbar-item has-dropdown ") {
-                console.log("same");
-                if (open_menu != "") {
-                    console.log("wrong");
-                    toggleMenu(open_menu);
-                    if (open_menu.innerHTML === clicked_target.innerHTML)
+                // Wenn bereits ein Dropdown-Menü offen war...
+                if (open_menu != null) {
+                    // Das geklickte Item ist das gleiche Item
+                    if (open_menu.innerText === clicked_target.innerText) {
+                        // Schließe das Menü und leere die Variable
                         toggleMenu(clicked_target.nextElementSibling);
-                        open_menu = clicked_target.nextElementSibling;
+                        open_menu = null;
+                    }
+                    // Es ist nicht das gleiche Item
+                    else {
+                        // Schließe das offene Menü und öffne das geklickte
+                        // Speichere, welches Menü jetzt offen ist
+                        toggleMenu(open_menu.nextElementSibling);
+                        toggleMenu(clicked_target.nextElementSibling);
+                        open_menu = clicked_target;
+                    }
                 }
+                // Wenn aber kein Dropdown-Menü geöffnet ist und das geklickte Element
+                // ein Dropdown hat...
                 else {
+                    // Öffne das geklickte Dropdown-Menü
+                    // Speichere, welches Menü jetzt offen ist
                     toggleMenu(clicked_target.nextElementSibling);
+                    open_menu = clicked_target;
                 }
             }
+            // Wenn das geklickte Element kein Dropdown hat, also entweder ein
+            // anderer Menüpunkt mit direktem Link oder einfach eine andere Stelle
+            // im Dokument ist...
             else {
-                if (open_menu != "") {
-                    toggleMenu(open_menu);
+                // Wenn bereits ein Dropdown-Menü offen war...
+                if (open_menu != null) {
+                    // Schließe das Menü und leere die Variable
+                    toggleMenu(open_menu.nextElementSibling);
+                    open_menu = null;
                 }
             }
                 
-        });*/
- /*       for (let i = 0; i < menuitems.length; i++) {
-            menuitems[i].addEventListener('click', event => {
-                var dropdown = menuitems[i].children[1];
-                toggleMenu(dropdown);
-            });
-        }
-        window.addEventListener('click', event => {
-
-        });*/
+        });
     </script>
 </body>
