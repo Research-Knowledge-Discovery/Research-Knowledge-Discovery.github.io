@@ -19,8 +19,26 @@
     flex-grow: 0;
 }
 
+@media screen and (min-width: 769px) {
+    .sidebar.column.is-4-desktop.is-12-tablet {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .sidebar.column.is-4-desktop.is-12-tablet {
+        width: 15%;
+    }
+}
+
 .sidebar-heading {
     font-weight: bold;
     font-size: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 7px;
+    border-bottom: 3px solid #4a4a4a;
 }
 
+.sidebar ul {
+    float: right;
+}

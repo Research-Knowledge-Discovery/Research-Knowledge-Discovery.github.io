@@ -28,11 +28,12 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-theme: bulma-clean-theme
-remote-theme:  chrisrhymes/bulma-clean-theme
-theme_color: '#ffffff'
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+  - github-pages
+
+remote_theme:  "chrisrhymes/bulma-clean-theme"
 
 defaults:
   -
@@ -41,6 +42,9 @@ defaults:
       type: pages
     values:
       show_sidebar: true
+
+collections:
+  - people
 
 # Exclude from processing.
 # The following items will not be processed, by default.
