@@ -32,6 +32,11 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
 
+# Default-Theme "Primer" wird von GitHub Pages immer eingefügt, wenn kein Theme mit dem
+# "theme"-Key definiert wurde. Um verwirrende Logs zu verhindern, wird theme hier null
+# gesetzt
+
+theme: null
 remote_theme:  "chrisrhymes/bulma-clean-theme"
 
 defaults:

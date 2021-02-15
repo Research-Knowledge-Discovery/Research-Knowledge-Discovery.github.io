@@ -11,7 +11,7 @@
 #custom-nav {
     justify-content: space-between;
     // Margin momentan so gelöst, statt den Grund, warum das nur auf nicht-Default
-    // Seiten so ist
+    // Seiten so ist, zu finden
     margin: 0px auto;
 }
 
@@ -41,4 +41,33 @@
 
 .sidebar ul {
     float: right;
+}
+
+@media screen and (min-width: 769px), print {
+    .column.is-12, .column.is-12-tablet {
+        flex: 0 1 auto;
+        width: 100%;
+    }
+}
+
+// Temporärer mobile Hero Style, noch zu erproben
+
+@media screen and (min-width: 769px), print {
+    .hero.is-medium .hero-body {
+        padding: 5rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 450px), print {
+    .hero.is-medium .hero-body {
+        padding: 5rem 1.5rem;
+    }
+}
+
+// Alle Menüs auf mobile anfangs zu
+
+@media screen and (max-width: 1024px) {
+    .navbar-item.has-dropdown div.navbar-dropdown {
+        display: none;
+    }
 }
