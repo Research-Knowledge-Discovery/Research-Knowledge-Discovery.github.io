@@ -42,13 +42,23 @@ remote_theme:  "chrisrhymes/bulma-clean-theme"
 defaults:
   -
     scope:
-      path: ""
+      path: "/*/"
       type: pages
     values:
       show_sidebar: true
+  -
+    scope:
+      path: ""
+    values:
+      layout: "custom_default"
 
 collections:
-  - people
+  people:
+    output: true
+    permalink: "/about-us/:collection/:name:output_ext"
+  projects:
+    output: true
+    permalink: "/research/:collection/:name:output_ext"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

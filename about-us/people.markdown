@@ -1,5 +1,5 @@
 ---
-layout: childpage
+
 ---
 <div>
     {% for person in site.people %}
@@ -8,5 +8,6 @@ layout: childpage
         <p>{{ person.contact.address }}, {{ person.contact.phone }}, {{ person.contact.fax }}, {{ person.contact.mail }}</p>
         <p>Social Media:</p>   
         <p>{{ person.social_media.linkedin }}, {{ person.social_media.twitter }}, {{ person.social_media.researchgate }}</p>   
+        <a href="{{ person.url }}">See profile</a>
     {% endfor %}
 </div>

@@ -19,6 +19,10 @@
     flex-grow: 0;
 }
 
+.column {
+    padding: 1.5rem;
+}
+
 @media screen and (min-width: 769px) {
     .sidebar.column.is-4-desktop.is-12-tablet {
         width: 100%;
@@ -41,6 +45,10 @@
 
 .sidebar ul {
     float: right;
+}
+
+.sidebar ul li {
+    margin: 3px 0px;
 }
 
 @media screen and (min-width: 769px), print {
