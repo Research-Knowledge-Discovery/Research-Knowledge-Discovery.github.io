@@ -1,12 +1,12 @@
 ---
-name: "Project A"
+name: "Project B"
 duration:
-  beginning: "2018"
-  end: "2021"
+  beginning: "2019"
+  end: "2022"
 partners:
-  - "a"
   - "b"
-  - "c"
+  - "e"
+  - "f"
 funding: "foundation"
 summary: "Text"
 people:
@@ -14,11 +14,11 @@ people:
     link: "/"
   - name: "person b"
     link: "/"
-  - name: "person c"
+  - name: "person e"
     link: "/"
 research-areas:
-  - name: "Data Science"
-    tag: "data_science"
+  - name: "Information Retrieval"
+    tag: "information_retrieval"
   - name: "NLP"
     tag: "nlp"
 ---

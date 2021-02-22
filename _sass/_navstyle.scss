@@ -72,10 +72,15 @@
     }
 }
 
-// Alle Menüs auf mobile anfangs zu
-
+// Styles for small devices
 @media screen and (max-width: 1024px) {
+    // Have all dropdowns be closed initially
     .navbar-item.has-dropdown div.navbar-dropdown {
         display: none;
     }
+    // Hide sidebar
+    .sidebar {
+        display: none;
+    }
+    // TODO: Show breadcrumb
 }

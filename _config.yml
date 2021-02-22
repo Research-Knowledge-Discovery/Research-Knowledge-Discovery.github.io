@@ -59,6 +59,9 @@ collections:
   projects:
     output: true
     permalink: "/research/:collection/:name:output_ext"
+  bsc-msc-theses:
+    output: true
+    permalink: "/theses-and-jobs/:collection/:name:output_ext"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
