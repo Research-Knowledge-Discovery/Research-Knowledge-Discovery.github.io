@@ -1,5 +1,7 @@
 ---
 ---
+# Projects
+{: #first-heading .title}
 <div>
     {% for project in site.projects %}
         {% for category in project.research-areas %}

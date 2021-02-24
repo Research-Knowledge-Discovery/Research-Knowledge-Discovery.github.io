@@ -84,3 +84,44 @@
     }
     // TODO: Show breadcrumb
 }
+
+#first-heading {
+    margin-bottom: 2.5rem
+}
+
+.image.small {
+    height: 100px;
+    width: 100px;
+}
+
+.image.profile {
+    height: 150px;
+    width: 150px;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.person {
+    margin-bottom: 2.5rem;
+    display: flex;
+}
+
+.person>div {
+    margin: 0.5rem 1rem;
+}
+
+.basicinfo {
+    //display: flex;
+    //flex-direction: column;
+}
+
+.contact ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact ul li {
+    flex-basis: 50%;
+}
