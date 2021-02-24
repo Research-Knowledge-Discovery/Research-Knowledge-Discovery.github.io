@@ -1,0 +1,127 @@
+// Test
+/*
+.navbar.is-primary .navbar-start > .navbar-item, 
+.navbar.is-primary .navbar-start .navbar-link, 
+.navbar.is-primary .navbar-end > .navbar-item, 
+.navbar.is-primary .navbar-end .navbar-link {
+    color: #ff0000;
+}
+*/
+
+#custom-nav {
+    justify-content: space-between;
+    // Margin momentan so gelöst, statt den Grund, warum das nur auf nicht-Default
+    // Seiten so ist, zu finden
+    margin: 0px auto;
+}
+
+#navMenu {
+    flex-grow: 0;
+}
+
+.column {
+    padding: 1.5rem;
+}
+
+@media screen and (min-width: 769px) {
+    .sidebar.column.is-4-desktop.is-12-tablet {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .sidebar.column.is-4-desktop.is-12-tablet {
+        width: 15%;
+    }
+}
+
+.sidebar-heading {
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 7px;
+    border-bottom: 3px solid #4a4a4a;
+}
+
+.sidebar ul {
+    float: right;
+}
+
+.sidebar ul li {
+    margin: 3px 0px;
+}
+
+@media screen and (min-width: 769px), print {
+    .column.is-12, .column.is-12-tablet {
+        flex: 0 1 auto;
+        width: 100%;
+    }
+}
+
+// Temporärer mobile Hero Style, noch zu erproben
+
+@media screen and (min-width: 769px), print {
+    .hero.is-medium .hero-body {
+        padding: 5rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 450px), print {
+    .hero.is-medium .hero-body {
+        padding: 5rem 1.5rem;
+    }
+}
+
+// Styles for small devices
+@media screen and (max-width: 1024px) {
+    // Have all dropdowns be closed initially
+    .navbar-item.has-dropdown div.navbar-dropdown {
+        display: none;
+    }
+    // Hide sidebar
+    .sidebar {
+        display: none;
+    }
+    // TODO: Show breadcrumb
+}
+
+#first-heading {
+    margin-bottom: 2.5rem
+}
+
+.image.small {
+    height: 100px;
+    width: 100px;
+}
+
+.image.profile {
+    height: 150px;
+    width: 150px;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.person {
+    margin-bottom: 2.5rem;
+    display: flex;
+}
+
+.person>div {
+    margin: 0.5rem 1rem;
+}
+
+.basicinfo {
+    //display: flex;
+    //flex-direction: column;
+}
+
+.contact ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact ul li {
+    flex-basis: 50%;
+}
