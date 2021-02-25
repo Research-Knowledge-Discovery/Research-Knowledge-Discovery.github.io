@@ -10,7 +10,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
             <th>Title</th><th>Advisor(s)</th><th>Type</th>
         </tr>
         <tr>
-            <td>{{ thesis.title }}</td>
+            <td><a href="{{ thesis.url }}">{{ thesis.title }}</a></td>
             <td>{{ thesis.advisors[0] }}{% if thesis.advisors.size == 2 %}, {{ thesis.advisors[1] }}{% endif %}</td>
             <td>{{ thesis.type }}</td>
         </tr>

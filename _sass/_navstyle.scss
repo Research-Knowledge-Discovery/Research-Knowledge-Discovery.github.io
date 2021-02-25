@@ -82,6 +82,10 @@
     .sidebar {
         display: none;
     }
+
+    .emptydiv {
+        display: none;
+    }
     // TODO: Show breadcrumb
 }
 
@@ -120,8 +124,24 @@
 .contact ul {
     display: flex;
     flex-wrap: wrap;
+    list-style: disc;
+    list-style-position: inside;
 }
 
 .contact ul li {
     flex-basis: 50%;
+}
+
+.recent-news {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0rem;
+}
+
+.new-activity {
+    margin: 0rem 1.5rem;
+}
+
+.emptydiv {
+    flex-shrink: 0;
 }

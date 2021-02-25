@@ -1,0 +1,12 @@
+<div class="new-activity card">
+    <div class="card-content">
+        <img src="{{ site.baseurl }}/{{ include.image }}"/>
+        <p>{{ include.title }}</p>
+        <p>{{ include.description }}</p>
+        <p>{{ include.time_posted }}</p>
+        <!-- If link href is empty, link will still be displayed. Proper handling will follow -->
+        {% if include.find_out_more != "" %}
+            <a href="{{ site.baseurl }}/{{ include.find_out_more }}">Find out more</a>
+        {% endif %}
+    </div>
+</div>

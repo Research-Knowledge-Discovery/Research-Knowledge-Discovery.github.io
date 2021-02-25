@@ -62,6 +62,8 @@ collections:
   bsc-msc-theses:
     output: true
     permalink: "/theses-and-jobs/:collection/:name:output_ext"
+  news:
+    output: false
 
 # Exclude from processing.
 # The following items will not be processed, by default.
