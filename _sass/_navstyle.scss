@@ -91,7 +91,7 @@
     .emptydiv {
         display: none;
     }
-    // TODO: Show breadcrumb
+    // TODO: Show breadcrumb (maybe)
 }
 
 #first-heading {
@@ -124,6 +124,22 @@
     margin: 0.5rem 1rem;
 }
 
+.singleproject {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+}
+
+// Kein Margin für singleproject wegen enthaltener div
+
+.singleproject * {
+    margin-bottom: 1rem;
+}
+
+.singleproject .image {
+    justify-self: center;
+}
+
 .basicinfo {
     //display: flex;
     //flex-direction: column;
@@ -135,6 +151,10 @@
     grid-template-rows: auto auto;
     list-style: disc;
     list-style-position: inside;
+}
+
+.lists ul li {
+    margin-right: 1rem;
 }
 
 .recent-news {
