@@ -83,6 +83,11 @@
         display: none;
     }
 
+    .lowerrow {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
     .emptydiv {
         display: none;
     }
@@ -99,8 +104,9 @@
 }
 
 .image.profile {
-    height: 150px;
-    width: 150px;
+    height: auto;
+    width: auto;
+    align-self: center;
 }
 
 .round {
@@ -109,7 +115,9 @@
 
 .person {
     margin-bottom: 2.5rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
 }
 
 .person>div {
@@ -121,15 +129,12 @@
     //flex-direction: column;
 }
 
-.contact ul {
-    display: flex;
-    flex-wrap: wrap;
+.lists ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     list-style: disc;
     list-style-position: inside;
-}
-
-.contact ul li {
-    flex-basis: 50%;
 }
 
 .recent-news {
@@ -140,8 +145,4 @@
 
 .new-activity {
     margin: 0rem 1.5rem;
-}
-
-.emptydiv {
-    flex-shrink: 0;
 }

@@ -4,10 +4,15 @@ duration:
   beginning: "2019"
   end: "2022"
 partners:
-  - "b"
-  - "e"
-  - "f"
-funding: "foundation"
+  - name: "b"
+    link: "/"
+  - name: "e"
+    link: "/"
+  - name: "f"
+    link: "/"
+funding:
+  name: "foundation"
+  link: "/"
 summary: "Text"
 people:
   - name: "person a"

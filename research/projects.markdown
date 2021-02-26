@@ -9,12 +9,37 @@
         <label for="{{ category.tag }}">{{ category.name }}</label>
         {% endfor %}
     {% endfor %}
+    <hr/>
     {% for project in site.projects %}
     <div class="singleproject {% for category in project.research-areas %}{{ category.tag }} {% endfor %}">
-        <p>{{ project.name }}: {{ project.duration.beginning }} - {{ project.duration.end }}</p>
-        {% for partner in project.partners %}
-            <p>{{ partner }}</p>
+        <h2 class="title is-5">{{ project.name }}</h2>
+        {% for category in project.research-areas %}
+            <button class="button">{{ category.name }}</button>
         {% endfor %}
+        <p>{{ project.summary }}</p>
+        <div class="lists">
+            <ul>
+                <li>Duration: {{ project.duration.beginning }} - {{ project.duration.end }}</li>
+                <li>Partners: {% for partner in project.partners %}<a href="{{ partner.link }}">{{ partner.name }}</a>{% if project.partners.size > 1 %}, {% endif %}{% endfor %}</li>
+                <li>
+                    People involved: 
+                    {% for person in project.people %}
+                        {% for member in site.people %}
+                            {% if member.name == person.name %}
+                                <a href="{{ member.url }}">{{ member.name }}</a>{% if project.people.size > 1 %}, {% endif %}
+                                {% break %}
+                            {% elsif person.externallink != null %}
+                                <a href="{{ person.externallink }}">{{ person.name }}</a>
+                            {% else %}
+                                {{ person.name }}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </li>
+                <li>Funded by: <a href="{{ project.funding.link }}">{{ project.funding.name }}</a></li>
+            </ul>
+        </div>
     </div>
     {% endfor %}
 </div>

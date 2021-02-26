@@ -6,21 +6,19 @@ title: "People"
 
 <div>
     {% for person in site.people %}
-        <div class="person" style="display: flex; flex-flow: row wrap;">
-            <div style="flex-basis: 30%; display: flex; justify-content: center;">
-                <img class="image profile round" src="../assets/images/testimage.png"/>
-            </div>
-            <div class="personalinfo" style="flex-basis: 50%">
+        <div class="person" style="">
+            <img class="image profile round" src="../assets/images/testimage.png"/>
+            <div class="personalinfo" style="">
                 <div class="name_desc">
                     <h2 class="title is-5">{{ person.name }}</h2>
                     <h3 class="subtitle">{{ person.position }}</h3>
                     <!--Eventuell später Beschreibung--><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
                 </div>
             </div>
-            <div class="emptydiv" style="flex-basis: 30%"></div>
-            <div>
-                <div class="contact" style="flex-basis: 70%; display: flex">
-                    <div style="display: flex; flex-direction: column">
+            <div class="emptydiv" style=""></div>
+            <div class="lowerrow">
+                <div class="lists" style="">
+                    <div class ="contact" style="">
                         <p>Contact:</p>
                         <ul>
                             <li>{{ person.contact.address }}</li>
@@ -29,7 +27,7 @@ title: "People"
                             <li>{{ person.contact.mail }}</li>
                         </ul>
                     </div>
-                    <div style="display: flex; flex-direction: column">
+                    <div class="socialmedia" style="">
                         <p>Social Media:</p> 
                         <ul>
                             <li>{{ person.social_media.linkedin }}</li>
