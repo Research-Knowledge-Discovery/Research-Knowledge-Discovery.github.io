@@ -18,29 +18,30 @@
                 <button class="button">{{ category.name }}</button>
             {% endfor %}
             <p>{{ project.summary }}</p>
-            <div class="lists">
-                <ul>
-                    <li>Duration: {{ project.duration.beginning }} - {{ project.duration.end }}</li>
-                    <li>Partners: {% for partner in project.partners %}<a href="{{ partner.link }}">{{ partner.name }}</a>{% if project.partners.size > 1 %}, {% endif %}{% endfor %}</li>
-                    <li>People involved: 
-                        {% for person in project.people %}
-                            {% for member in site.people %}
-                                {% if member.name == person.name %}
-                                    <a href="{{ member.url }}">{{ member.name }}</a>{% if project.people.size > 1 %}, {% endif %}
-                                    {% break %}
-                                {% elsif person.externallink != null %}
-                                    <a href="{{ person.externallink }}">{{ person.name }}</a>
-                                {% else %}
-                                    {{ person.name }}
-                                    {% break %}
-                                {% endif %}
-                            {% endfor %}
-                        {% endfor %}</li>
-                    <li>Funded by: <a href="{{ project.funding.link }}">{{ project.funding.name }}</a></li>
-                </ul>
-            </div>
         </div>
         <img class="image" src="../assets/images/testimage.png"/>
+        <div class="lists">
+            <ul>
+                <li>Duration: {{ project.duration.beginning }} - {{ project.duration.end }}</li>
+                <li>Partners: {% for partner in project.partners %}<a href="{{ partner.link }}">{{ partner.name }}</a>{% if project.partners.size > 1 %}, {% endif %}{% endfor %}</li>
+                <li>People involved: 
+                    {% for person in project.people %}
+                        {% for member in site.people %}
+                            {% if member.name == person.name %}
+                                <a href="{{ member.url }}">{{ member.name }}</a>{% if project.people.size > 1 %}, {% endif %}
+                                {% break %}
+                            {% elsif person.externallink != null %}
+                                <a href="{{ person.externallink }}">{{ person.name }}</a>
+                            {% else %}
+                                {{ person.name }}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}</li>
+                <li>Funded by: <a href="{{ project.funding.link }}">{{ project.funding.name }}</a></li>
+            </ul>
+        </div>
+        <div class="emptydiv"></div>
     </div>
     {% endfor %}
 </div>

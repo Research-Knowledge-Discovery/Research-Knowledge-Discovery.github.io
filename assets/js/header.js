@@ -19,13 +19,16 @@ var open_menu;
 document.addEventListener('click', function(e){
 
     var clicked_target = e.target;
-    
-    if (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024) {
-        // Aufteilung auf zwei Grundfälle: 
-        // - Wenn das geklickte Element ein Dropdown ist 
-        // und 
-        // - wenn es kein Dropdown ist (woanders hingeklickt wurde)
-        if (clicked_target != null) {
+    console.log(clicked_target);
+
+    if (clicked_target != null) {
+        // LANDSCAPE
+        if (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024) {
+            // Aufteilung auf zwei Grundfälle: 
+            // - Wenn das geklickte Element ein Dropdown ist 
+            // und 
+            // - wenn es kein Dropdown ist (woanders hingeklickt wurde)
+            
             // Wenn das geklickte Element ein Menüitem mit Dropdown ist...
             if (clicked_target.parentElement.className === "navbar-item has-dropdown ") {
                 // Wenn bereits ein Dropdown-Menü offen war...
@@ -69,6 +72,7 @@ document.addEventListener('click', function(e){
                 }
             }
         }
+        // MOBILE
         else {
             console.log("too small");
             if (clicked_target.parentElement.className === "navbar-item has-dropdown ") {
