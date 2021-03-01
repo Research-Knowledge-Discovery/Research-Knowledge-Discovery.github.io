@@ -150,7 +150,7 @@
     //flex-direction: column;
 }
 
-.lists ul {
+.lists ul{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -158,8 +158,26 @@
     list-style-position: inside;
 }
 
-.lists ul li {
+.singlelist{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    list-style: disc;
+    list-style-position: inside;
+}
+
+.lists ul li{
     margin-right: 1rem;
+}
+
+.newslist {
+    margin-bottom: 1.5rem;
+}
+
+.newsimage {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .recent-news {

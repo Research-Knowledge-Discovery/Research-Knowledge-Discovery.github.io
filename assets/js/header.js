@@ -16,6 +16,39 @@ function toggleMenu(menu) {
 // wenn woanders hingeklickt wird
 var open_menu;
 
+function changeSize(mediaQuery) {
+    if (mediaQuery.matches) {
+        // Evtl. TODO: Menü auf Mobile nach resize schließen (wie?)
+        var all_dropdowns = document.getElementsByClassName("has-dropdown");
+        for (let i = 0; i < all_dropdowns.length; i++) {
+            console.log(all_dropdowns[i].children[1]);
+            if (window.getComputedStyle(all_dropdowns[i].children[1], null).display == 'block') {
+                all_dropdowns[i].children[1].style.display = 'none';
+            }
+        }
+        open_menu = null;
+    }
+  }
+
+var mediaQuery_mobile = window.matchMedia("(max-width: 1024px)");
+var mediaQuery_desktop = window.matchMedia("(min-width: 1024px)");
+mediaQuery_mobile.addListener(changeSize);
+mediaQuery_desktop.addListener(changeSize);
+
+/*window.addEventListener('resize', function(event){
+    console.log("resized");
+    if (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024) {
+        var all_dropdowns = document.getElementsByClassName("has-dropdown");
+        for (let i = 0; i < all_dropdowns.length; i++) {
+            console.log(all_dropdowns[i].children[1]);
+            if (window.getComputedStyle(all_dropdowns[i].children[1], null).display == 'block') {
+                all_dropdowns[i].children[1].style.display = 'none';
+            }
+        }
+        open_menu = null;
+    }
+});*/
+
 document.addEventListener('click', function(e){
 
     var clicked_target = e.target;
@@ -30,7 +63,8 @@ document.addEventListener('click', function(e){
             // - wenn es kein Dropdown ist (woanders hingeklickt wurde)
             
             // Wenn das geklickte Element ein Menüitem mit Dropdown ist...
-            if (clicked_target.parentElement.className === "navbar-item has-dropdown ") {
+            // Anmerkung: parentElement kann null sein, wenn irgendwie <html> geklickt wird.
+            if (clicked_target.parentElement != null && clicked_target.parentElement.className === "navbar-item has-dropdown ") {
                 // Wenn bereits ein Dropdown-Menü offen war...
                 if (open_menu != null) {
                     // Das geklickte Item ist das gleiche Item

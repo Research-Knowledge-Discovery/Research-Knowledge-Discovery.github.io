@@ -13,9 +13,9 @@
     {% for project in site.projects %}
     <div class="singleproject {% for category in project.research-areas %}{{ category.tag }} {% endfor %}">
         <div class="projectcontainer">
-            <h2 class="title is-5">{{ project.name }}</h2>
+            <h2 class="title is-5"><a href="{{ project.url }}">{{ project.name }}</a></h2>
             {% for category in project.research-areas %}
-                <button class="button">{{ category.name }}</button>
+                <button class="button {{ category.tag }}" onclick="setFilters('{{ category.tag }}')">{{ category.name }}</button>
             {% endfor %}
             <p>{{ project.summary }}</p>
         </div>
@@ -50,7 +50,8 @@
     var checkboxes = document.getElementsByClassName("filter");
     for (var j = 0; j < checkboxes.length; j++) {
         let checkbox = checkboxes[j];
-        checkbox.addEventListener('click', function() {
+        // Change ermöglicht Ankreuzen der Checkbox etwa mit der Tastatur
+        checkbox.addEventListener('change', function() {
             if (checkbox.checked == true) {
                 for (var i = 0; i < shown.length; i++) {
                     if (shown[i].classList.contains(checkbox.id)) {
@@ -66,5 +67,8 @@
                 }
             }
         });
+    }
+    function setFilters(tag) {
+        console.log(tag);
     }
 </script>

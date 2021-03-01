@@ -7,18 +7,31 @@
         <p>{{ item.name }}</p>-->
             {% if page.url contains item.link %}
             <h2 class="sidebar-heading">{{ item.name }}</h2>
-                {% if item.dropdown %}
-                    <ul>
-                    {% for subitem in item.dropdown %}
-                        {% if page.url contains subitem.link %} 
-                            <li>{{ subitem.name }}</li>
-                        {% else %}
-                            <li>
-                                <a href="{{ subitem.link }}">{{ subitem.name }}</a>
-                            </li>
-                        {% endif %}
+                {% if page.title == 'News' %}
+                    {% assign years = "" %}
+                    {% for post in site.posts %}
+                        {% capture post_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+                        {{ years | append: post_year + ',' }}
                     {% endfor %}
-                    </ul>
+                    {% assign years_arr = years | split: "," %}
+                    {{ years_arr | uniq }}
+                    {% for item in years_arr %}
+                        <p>{{ item }}</p>
+                    {% endfor %}
+                {% else %}
+                    {% if item.dropdown %}
+                        <ul>
+                        {% for subitem in item.dropdown %}
+                            {% if page.url contains subitem.link %} 
+                                <li>{{ subitem.name }}</li>
+                            {% else %}
+                                <li>
+                                    <a href="{{ subitem.link }}">{{ subitem.name }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
                 {% endif %}
             {% endif %}
         {% endfor %}

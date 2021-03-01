@@ -1,4 +1,5 @@
 ---
+title: Erika Mustermann
 name: "Erika Mustermann"
 position: "Developer"
 contact:

@@ -1,0 +1,31 @@
+---
+layout: custom_default
+---
+<h2 class="title is-5">{{ page.name }}</h1>
+<h3 class="title is-6">{{ page.position }}</h3>
+<div class="person">
+    <p>{{ page.description }}</p>
+    <img class="image round" src="../../assets/images/testimage.png"/>
+    <div class="emptydiv"></div>
+    <div class ="contact">
+        <p>Contact:</p>
+        <ul class="singlelist">
+            <li>{{ page.contact.address }}</li>
+            <li>{{ page.contact.phone }}</li>
+            <li>{{ page.contact.fax }}</li>
+            <li>{{ page.contact.mail }}</li>
+        </ul>
+    </div>
+    <div class="socialmedia" style="grid-column-start: 1; grid-column-end: 3;">
+        <p>Social Media:</p> 
+        <ul class="singlelist">
+            <li>{{ page.social_media.linkedin }}</li>
+            <li>{{ page.social_media.twitter }}</li>
+            <li>{{ page.social_media.researchgate }}</li>
+        </ul>
+    </div>
+    <h2 class="title is-6">Publications</h2>
+    <ul>
+        <li>...</li>
+    </ul>
+</div>
