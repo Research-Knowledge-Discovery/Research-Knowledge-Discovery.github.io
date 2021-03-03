@@ -1,5 +1,5 @@
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 console.log("Viewport-Width: " + vw);
 console.log("Viewport-Height: " + vh);
 var menuitems = document.getElementsByClassName('navbar-item has-dropdown');

@@ -8,16 +8,18 @@
             {% if page.url contains item.link %}
             <h2 class="sidebar-heading">{{ item.name }}</h2>
                 {% if page.title == 'News' %}
+                    <ul>
                     {% assign years = "" %}
                     {% for post in site.posts %}
-                        {% capture post_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-                        {{ years | append: post_year + ',' }}
+                        {% capture post_m_y %}{{ post.date | date: "%b %Y" }}{% endcapture %}
+                        {% assign dates = dates | append: post_m_y | append: ',' %}
                     {% endfor %}
-                    {% assign years_arr = years | split: "," %}
-                    {{ years_arr | uniq }}
-                    {% for item in years_arr %}
-                        <p>{{ item }}</p>
+                    {% assign dates_arr = dates | split: ',' %}
+                    {% assign dates_arr_unique = dates_arr | uniq %}
+                    {% for item in dates_arr_unique %}
+                        <li><a href="?date={{ item | date: "%m-%Y" }}">{{ item }}</a></li>
                     {% endfor %}
+                    </ul>
                 {% else %}
                     {% if item.dropdown %}
                         <ul>

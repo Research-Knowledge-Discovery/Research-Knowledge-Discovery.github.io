@@ -3,13 +3,13 @@
 # Projects
 {: #first-heading .title}
 <div>
-    {% for project in site.projects %}
+    <!--{% for project in site.projects %}
         {% for category in project.research-areas %}
         <input type="checkbox" class="filter" id="{{ category.tag }}" checked/>
         <label for="{{ category.tag }}">{{ category.name }}</label>
         {% endfor %}
     {% endfor %}
-    <hr/>
+    <hr/>-->
     {% for project in site.projects %}
     <div class="singleproject {% for category in project.research-areas %}{{ category.tag }} {% endfor %}">
         <div class="projectcontainer">
