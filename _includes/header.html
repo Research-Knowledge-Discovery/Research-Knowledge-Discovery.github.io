@@ -13,11 +13,6 @@
             </div>
             <div class="navbar-menu" id="navMenu" :class="{ 'is-active': openNav }">
                 <div class="navbar-start">
-                    <form action="/search.html" method="get">
-                        <label for="search-box">Search</label>
-                        <input type="text" id="search-box" name="query">
-                        <input type="submit" value="search">
-                    </form>
                     <a href="{{ site.baseurl }}/" class="navbar-item {% if page.url == "/" %}is-active{% endif %}">Home</a>
                     {% if site.data.navigation %}
                     {% for item in site.data.navigation %}
@@ -36,7 +31,6 @@
                     {% endfor %}
                     {% endif %}
                 </div>
-
                 <div class="navbar-end">
                     {% if site.gh_sponsor %}
                     <a class="navbar-item" href="https://github.com/sponsors/{{ site.gh_sponsor }}">
@@ -44,8 +38,11 @@
                         <span>Sponsor</span>
                     </a>
                     {% endif %}
+                    <form class="navbar-item" action="/search.html" method="get">
+                        <input type="text" id="search-box" name="query">
+                        <input type="submit" value="search">
+                    </form>
                 </div>
-
             </div>
         </div>
     </nav>

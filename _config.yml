@@ -32,12 +32,18 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
 
-# Default-Theme "Primer" wird von GitHub Pages immer eingefügt, wenn kein Theme mit dem
-# "theme"-Key definiert wurde. Um verwirrende Logs zu verhindern, wird theme hier null
-# gesetzt
+# Default-Theme "Primer" is automatically added by GitHub Pages when no theme has been
+# defined using the "theme" key even when a remote theme is set. To prevent confusing logs 
+# in development (as the used theme is logged in the terminal), theme is set null here.
 
 theme: null
 remote_theme:  "chrisrhymes/bulma-clean-theme"
+
+# Defining front matter defaults. This provides default values for front matters and prevents 
+# having to manually set, for example, a layout on every file. Empty front matters must still
+# be given on pages that should be processed by Jekyll and output in the _site directory.
+
+# Front matter defaults can override one another by specifity of the path given and page types.
 
 defaults:
   -
@@ -45,18 +51,23 @@ defaults:
       path: ""
       types: "pages"
     values:
-      show_sidebar: true
+      show_sidebar: true # Enabling a sidebar on all files of type "pages" (not posts or collections)
   -
     scope:
       path: ""
     values:
-      layout: "custom_default"
+      layout: "custom_default" # Setting a default layout to all pages
   -
     scope:
       path: ""
       type: "people"
     values:
       layout: "person"
+
+# Adding collections. Collections provide an easy to set up an architecture for group related
+# content, such as members of a group or talks at a conference. New entries to a collection
+# can be given by creating a new file in the directory the collection is stored in and providing
+# data in the frot matter.
 
 collections:
   people:

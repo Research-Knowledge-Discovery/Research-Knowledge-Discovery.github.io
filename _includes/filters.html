@@ -1,0 +1,18 @@
+<div class="filters">
+    {% assign all_tags = "" %}
+    {% assign all_names = "" %}
+    {% for project in site.projects %}
+        {% for category in project.research-areas %}
+            {% assign all_tags = all_tags | append: category.tag | append: ";" %}
+            {% assign all_names = all_names | append: category.name | append: ";" %}
+        {% endfor %}
+    {% endfor %}
+    {% assign all_tags = all_tags | split: ";" %}
+    {% assign all_names = all_names | split: ";" %}
+    {% assign all_tags = all_tags | uniq %}
+    {% assign all_names = all_names | uniq %}
+    {% for single_tag in all_tags %}
+        <input type="checkbox" class="filter" id="{{ single_tag }}" checked/>
+        <label for="{{ single_tag }}">{{ all_names[forloop.index0] }}</label>
+    {% endfor %}
+</div>
