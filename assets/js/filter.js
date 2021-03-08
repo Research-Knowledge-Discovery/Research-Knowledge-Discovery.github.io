@@ -26,10 +26,10 @@ for (var i = 0; i < checkboxes.length; i++) {
             for (var l = 0; l < unchecked_boxes.length; l++) {
                 // ... and check if the current project contains any tag that is filtered out
                 if (all_projects[x].classList.contains(unchecked_boxes[l].id)) {
-                    // If so, set 'filtered' to true and don't continue searching as it could
-                    // potentially corrupt results. For instance, if the next tag did not match
-                    // an unchecked box, 'filtered' would be set back to false causing the
-                    // project to display even though it should not
+                    // If so, set 'filtered' to true and don't continue look at the project's next tags
+                    // as it could potentially corrupt results. Immediately move on to the next project.
+                    // For instance, if the next tag does not match an unchecked box, 'filtered' would 
+                    // be set back to false causing the project to display even though it should not
                     filtered = true;
                     break;
                 }
@@ -38,13 +38,13 @@ for (var i = 0; i < checkboxes.length; i++) {
                     filtered = false;
                 }
             }
-            // Check if a filtered tag was found
+            // Check if a filtered tag was found on this project
             if (filtered == true)
-                // Hide the project
+            // Hide the project
                 all_projects[x].style.display = 'none';
             else
-                // Display the project
-                all_projects[x].style.display = 'block';
+            // Display the project
+                all_projects[x].style.display = 'grid';
         }
     });
 }

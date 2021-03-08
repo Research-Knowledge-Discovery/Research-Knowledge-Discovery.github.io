@@ -22,9 +22,9 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <!-- Sidebar an den Anfang verschoben, um sie links zu haben,
-                anstatt das über Styles wie flex-direction für alle Columns
-                zu ändern -->
+                <!-- Moved sidebar up in the code to display it on the left
+                side instead of the right side without defining its position
+                in CSS by using flex properties -->
                 {% if page.show_sidebar %}
                     {% include sidebar.html %}
                 {% endif %}

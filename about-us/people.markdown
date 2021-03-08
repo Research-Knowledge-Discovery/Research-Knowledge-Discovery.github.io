@@ -10,9 +10,9 @@ title: "People"
             <img class="image profile round" src="../assets/images/testimage.png"/>
             <div class="personalinfo" style="">
                 <div class="name_desc">
-                    <h2 class="title is-5">{{ person.name }}</h2>
+                    <h2 class="title is-5"><a href="{{ person.url }}">{{ person.name }}</a></h2>
                     <h3 class="subtitle">{{ person.position }}</h3>
-                    <!--Eventuell später Beschreibung--><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
+                    <!-- Maybe add a description to every person --><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
                 </div>
             </div>
             <div class="emptydiv" style=""></div>

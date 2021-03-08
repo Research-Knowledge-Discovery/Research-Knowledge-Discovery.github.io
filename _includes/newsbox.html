@@ -1,14 +1,22 @@
-<div class="new-activity card">
-    {% if include.find_out_more != "" %}
-        <a href="{{ site.baseurl }}/{{ include.find_out_more }}">
-    {% endif %}
-    <div class="card-content">
-        <img src="{{ site.baseurl }}/{{ include.image }}"/>
-        <p>{{ include.title }}</p>
-        <p>{{ include.description }}</p>
-        <p>{{ include.time_posted }}</p>
+<div class="column recent is-4 has-text-centered">
+    <div class="new-activity card">
+        {% if include.find_out_more != "" %}
+            <a href="{{ site.baseurl }}/{{ include.find_out_more }}">
+        {% endif %}
+        <div class="card-image">
+            <figure class="image is-4by3">
+                <img src="{{ site.baseurl }}/{{ include.image }}"/>
+            </figure>
+        </div>
+        <div class="card-content">
+            <p class="title is-4">{{ include.title }}</p>
+            <div class="content">
+                <p>{{ include.description }}</p>
+                <p>{{ include.time_posted }}</p>
+            </div>
+        </div>
+        {% if include.find_out_more != "" %}
+            </a>
+        {% endif %}
     </div>
-    {% if include.find_out_more != "" %}
-        </a>
-    {% endif %}
 </div>

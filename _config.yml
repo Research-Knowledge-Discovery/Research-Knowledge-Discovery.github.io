@@ -68,12 +68,19 @@ defaults:
 # content, such as members of a group or talks at a conference. New entries to a collection
 # can be given by creating a new file in the directory the collection is stored in and providing
 # data in the frot matter.
+# output needs to be set to true so collection pages are rendered. output is set to false by
+# default.
+# Collection "news" refers so short news displayed on page "home".
+# A permalink is set to manage the output path of collection item output pages.
 
 collections:
   people:
     output: true
     permalink: "/about-us/:collection/:name:output_ext"
   projects:
+    output: true
+    permalink: "/research/:collection/:name:output_ext"
+  publications:
     output: true
     permalink: "/research/:collection/:name:output_ext"
   bsc-msc-theses:

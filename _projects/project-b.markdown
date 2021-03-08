@@ -16,11 +16,11 @@ funding:
 summary: "Text"
 people:
   - name: "person a"
-    link: "/"
+    externallink: "/"
   - name: "person b"
-    link: "/"
+    externallink: "/"
   - name: "person e"
-    link: "/"
+    externallink: "/"
 research-areas:
   - name: "Information Retrieval"
     tag: "information_retrieval"

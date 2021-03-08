@@ -95,7 +95,8 @@
     .lists {
         grid-column-start: 1;
         grid-column-end: 3;
-    }
+    }    
+
     // TODO: Show breadcrumb (maybe)
 }
 
@@ -170,7 +171,7 @@
     margin-right: 1rem;
 }
 
-.newslist {
+.singlenews {
     margin-bottom: 1.5rem;
 }
 
@@ -181,11 +182,20 @@
 }
 
 .recent-news {
-    display: flex;
-    justify-content: center;
     margin: 2.5rem 0rem;
 }
 
+.column.recent {
+    padding: 1.5rem 1.5rem;
+}
+
 .new-activity {
-    margin: 0rem 1.5rem;
+    max-width: 350px;
+    margin: auto;
+}
+
+.presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center
 }
