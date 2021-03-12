@@ -21,7 +21,12 @@ people:
     externallink: "/"
 research-areas:
   - name: "Data Science"
-    tag: "data_science"
-  - name: "NLP"
+    tag: "ds"
+  - name: "Natural Language Processing"
     tag: "nlp"
+topics:
+  - name: "Tag 2 DS"
+    tag: "tag2_ds"
+  - name: "Tag 2 NLP"
+    tag: "tag2_nlp"
 ---

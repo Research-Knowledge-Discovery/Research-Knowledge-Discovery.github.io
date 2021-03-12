@@ -23,7 +23,12 @@ people:
     externallink: "/"
 research-areas:
   - name: "Information Retrieval"
-    tag: "information_retrieval"
-  - name: "NLP"
+    tag: "ir"
+  - name: "Natural Language Processing"
     tag: "nlp"
+topics:
+  - name: "Tag 1 IR"
+    tag: "tag1_ir"
+  - name: "Tag 3 NLP"
+    tag: "tag3_nlp"
 ---

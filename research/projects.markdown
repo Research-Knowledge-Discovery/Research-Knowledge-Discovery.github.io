@@ -11,7 +11,8 @@
         <div class="projectcontainer">
             <h2 class="title is-5"><a href="{{ project.url }}">{{ project.name }}</a></h2>
             {% for category in project.research-areas %}
-                <button class="button {{ category.tag }}" onclick="setFilters('{{ category.tag }}')">{{ category.name }}</button>
+            <!-- Temporary: Display tags as buttons -->
+                <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
             {% endfor %}
             <p>{{ project.summary }}</p>
         </div>

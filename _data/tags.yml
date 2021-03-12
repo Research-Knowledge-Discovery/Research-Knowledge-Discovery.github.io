@@ -1,0 +1,30 @@
+---
+research-areas:
+  - name: "Data Science"
+    tag: "ds"
+    topics:
+      - name: "Tag 1 DS"
+        tag: "tag1_ds"
+      - name: "Tag 2 DS"
+        tag: "tag2_ds"
+      - name: "Tag 3 DS"
+        tag: "tag3_ds"
+  - name: "Natural Language Processing"
+    tag: "nlp"
+    topics:
+      - name: "Tag 1 NLP"
+        tag: "tag1_nlp"
+      - name: "Tag 2 NLP"
+        tag: "tag2_nlp"
+      - name: "Tag 3 NLP"
+        tag: "tag3_nlp"
+  - name: "Information Retrieval"
+    tag: "ir"
+    topics:
+      - name: "Tag 1 IR"
+        tag: "tag1_ir"
+      - name: "Tag 2 IR"
+        tag: "tag2_ir"
+      - name: "Tag 3 IR"
+        tag: "tag3_ir"
+---
