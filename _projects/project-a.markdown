@@ -1,4 +1,5 @@
 ---
+nr: "1"
 name: "Project A"
 duration:
   beginning: "2018"
@@ -22,11 +23,12 @@ people:
 research-areas:
   - name: "Data Science"
     tag: "ds"
+    topics:
+      - name: "Tag 2 DS"
+        tag: "tag2_ds"
   - name: "Natural Language Processing"
     tag: "nlp"
-topics:
-  - name: "Tag 2 DS"
-    tag: "tag2_ds"
-  - name: "Tag 2 NLP"
-    tag: "tag2_nlp"
+    topics:
+      - name: "Tag 2 NLP"
+        tag: "tag2_nlp"
 ---

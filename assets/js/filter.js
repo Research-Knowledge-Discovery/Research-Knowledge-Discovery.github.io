@@ -19,7 +19,7 @@ for (var i = 0; i < checkboxes.length; i++) {
         // Iterate through all projects and their tags
         for (var x = 0; x < all_projects.length; x++) {
             // Set a boolean to determine whether or not the project contains a tag
-            // that has been filtered out which means the project needs to be hidden
+            // that has been filtered out which means the project needs to be hidden.
             // Initially set to false since projects are not filtered when the page is loaded
             var filtered = false;
             // Iterate through all unchecked checkboxes...
