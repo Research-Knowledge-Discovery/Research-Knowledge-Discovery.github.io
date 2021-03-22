@@ -1,4 +1,5 @@
-<div class="filter-area">
+<p class="toggle main-toggle">- Show filters -</p>
+<div class="filter-container">
     <div class="filters">
         {% assign all_tags = "" %}
         {% assign all_names = "" %}
@@ -15,10 +16,12 @@
         {% if site.data.tags %}
         {% for area in site.data.tags.research-areas %}
                 <div class="area {{ area.tag }}">
-                    <input type="checkbox" class="filter" id="{{ area.tag }}" checked/>
-                    <label for="{{ area.tag }}">{{ area.name }}</label>
+                    <label for="{{ area.tag }}">
+                        <input type="checkbox" class="filter" id="{{ area.tag }}" checked/>
+                        <span>{{ area.name }}</span>
+                    </label>
                 </div>
-                <p class="toggle {{ area.tag }}">Filter by topic ></p>
+                <p class="toggle {{ area.tag }}">Filter by topic v</p>
                 <div class="second-level {{ area.tag }}">
                 {% for topic in area.topics %}
                     <div>
