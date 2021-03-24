@@ -65,3 +65,46 @@
     </div>
 </div>
 <script src="{{ site.baseurl }}/assets/js/filter.js"></script>
+<script>
+    // Hide certain filters based on whether or not the corresponding tags have been used in the
+    // elements on this page (in this case, projects)
+    // Retrieve all project research areas and topics and store them in an array...
+    // (In Liquid, they need to be appended to a string first and then split to form an array)
+    {% assign used_tags = "" %}
+    {% for project in site.projects %}
+        {% for area in project.research-areas %}
+            {% assign used_tags = used_tags | append: area.tag | append: ";"%}
+            {% for topic in area.topics %}
+                {% assign used_tags = used_tags | append: topic.tag | append: ";" %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    {% assign used_tags_arr = used_tags | split: ";" | uniq %}
+    // Jsonify the result and save it in a JavaScript variable
+    var used_tags_projects = {{ used_tags_arr | jsonify }};
+    console.log(used_tags_projects);
+    // Get all filter checkboxes. Since checkboxes are built from all available tags, their
+    // IDs will represent a list of all possible tags.
+    var all_boxes = document.getElementsByClassName("filter");
+    // Prepare an array to store these tags
+    var all_tags = [];
+    // Iterate over boxes and store their IDs in the array
+    for (var boxnr = 0; boxnr < all_boxes.length; boxnr++) {
+        all_tags.push(all_boxes[boxnr].id);
+    }
+    // Filter all tags but those that have acutally been used in this page's elements (projects)
+    var to_disable = all_tags.filter(function(element) {
+        // Return elements that have not been found in the used tags array, which are those that were not used
+        return used_tags_projects.indexOf(element) < 0;
+    });
+    // Iterate over checkboxes to disable and all boxes to match IDs
+    for (var n = 0; n < to_disable.length; n++) {
+        for (var m = 0; m < all_boxes.length; m++) {
+            if (all_boxes[m].id == to_disable[n])
+                // If IDs match, hide the box's parent element which in this HTML structure is
+                // the div holding the checkbox and its label. If only the box itself were hidden,
+                // the label would remain visible.
+                all_boxes[m].parentElement.style.display = 'none';
+        }
+    }
+</script>

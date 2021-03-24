@@ -13,8 +13,8 @@
         {% assign all_names = all_names | split: ";" %}
         {% assign all_tags = all_tags | uniq %}
         {% assign all_names = all_names | uniq %}
-        {% if site.data.tags %}
-        {% for area in site.data.tags.research-areas %}
+        {% if site.data.auto_tags %}
+        {% for area in site.data.auto_tags.research-areas %}
                 <div class="area {{ area.tag }}">
                     <label for="{{ area.tag }}">
                         <input type="checkbox" class="filter" id="{{ area.tag }}" checked/>

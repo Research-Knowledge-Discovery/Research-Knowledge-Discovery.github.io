@@ -336,3 +336,21 @@
 #noresults {
     display:none;
 }
+
+.basicinfo {
+    grid-area: basic-info1;
+}
+
+.person.image {
+    grid-area: image;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-areas:
+            "basic-info1 image"
+            ". ."
+            "projects contact"
+            ". social-media"
+            "publications ."
+}

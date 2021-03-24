@@ -93,7 +93,6 @@ liquid_projects.push({
 console.log(liquid_projects);
 
 var tmp_liquid_projects = liquid_projects;
-//for (var i = 0; i < checkboxes.length; i++) {
 
 // Adding event listeners to fiter checkboxes.
 // Using the 'change' event in this handler allows for multiple types of user inputs
@@ -140,13 +139,13 @@ submit_button.addEventListener('click', function () {
     // Apply fade out effect, filter and fade back in, after one another. By utilizing
     // a callback structure, the next function in line will only execute when the previous
     // function has been completed. This is necessary due to the async nature of animations.
-    // 'fadeOutEffect' and 'filterProjects' both take a callback function as second parameter 
+    // 'fadeOut' and 'filterProjects' both take a callback function as second parameter 
     // which needs to be wrapped in an anonymous function since it itself contains a parameter 
-    // ('fadeInEffect'). If it were not wrapped, the function would not be passed as a
+    // ('fadeIn'). If it were not wrapped, the function would not be passed as a
     // parameter but rather executed immediately.
-    fadeOutEffect(projectdiv, function () {
+    fadeOut(projectdiv, function () {
         filterProjects(function () {
-            fadeInEffect(projectdiv);
+            fadeIn(projectdiv);
         });
     });
 });
@@ -207,12 +206,11 @@ function filterProjects(callback) {
     }
     // If there are unchecked boxes
     else {
-        // Set a boolean to determine whether or not any project has been filtered
-        // a message can be displayed if no results have been found.
-        // Initially set to false since projects are not filtered when the page is loaded
-        var results_found = false;
-        // An array to hold projects that have been filtered out
+        // Create an array to hold projects that have been filtered out
         var filtered_projects = [];
+        // This boolean will track if any projects matched any unchecked box at all. This is
+        // for future debug purposes only.
+        var results_found = false;
         // Start a loop through all projects and their tags
         for (var x = 0; x < tmp_liquid_projects.length; x++) {
             console.log("Project Nr." + tmp_liquid_projects[x].nr + ":");
@@ -221,26 +219,24 @@ function filterProjects(callback) {
             // specific loop later)
             checkboxes_check:
             for (var l = 0; l < unchecked_boxes.length; l++) {
-                // ... and check if the current project contains any tag that is filtered out
-                // by toggling a boolean
-                var filtered = false;
+                // ... and check if the current project contains any tag that is filtered out,
+                // if it does, add it to the array
                 // If the current unchecked box is a first-level filter and describes a research area
                 if (unchecked_boxes[l].classList.contains('second') == false) {
                     // Check current project's areas...
                     for (var a = 0; a < tmp_liquid_projects[x].areas.length; a++) {
                         // If the current area's tag matches the unchecked box's ID...
                         if (tmp_liquid_projects[x].areas[a].tag == unchecked_boxes[l].id) {
-                            // ... set 'filtered' to true and don't continue looking at the project's next areas
-                            // to save time.
-                            filtered = true;
-                            results_found = true;
                             // Save the current project to array
                             filtered_projects.push(tmp_liquid_projects[x]);
-                            // Break back to the checkbox loop to check the next checkbox against this project
+                            // Set boolean to true since a project has been filtered, 
+                            // value will be assessed later
+                            results_found = true;
+                            // Don't continue looking at this project's next areas and instead
+                            // break back to the checkbox loop to check the next checkbox against this project
                             break checkboxes_check;
                         }
                         // If the project in question does not contain any prohibited tag, do nothing.
-                        // Filtered can keep its initial value.
                     }
                 }
                 // If the current checkbox is a second-level filter, go through the same process 
@@ -251,19 +247,14 @@ function filterProjects(callback) {
                         // Iterate through area's topics
                         for (var u = 0; u < tmp_liquid_projects[x].areas[a].topics.length; u++) {
                             if (tmp_liquid_projects[x].areas[a].topics[u].tag == unchecked_boxes[l].id) {
-                                // If so, set 'filtered' to true and don't continue looking at the project's 
-                                // next areas to save time.
-                                filtered = true;
-                                results_found = true;
+                                // Same procedure as with first-level tags
                                 filtered_projects.push(tmp_liquid_projects[x]);
+                                results_found = true;
                                 break checkboxes_check;
                             }
                             // If it does not contain any prohibited tag, do nothing again
                         }
                     }
-                }
-                if (filtered == false) {
-                    //filtered_projects.push([tmp_liquid_projects[x].nr, "show"]);
                 }
             }
         }
@@ -274,8 +265,9 @@ function filterProjects(callback) {
         if (results_found == true) {
             // Find projects to display ('leftovers', i.e. projects that have not been filtered out)
             // by comparing filtered projects agains the unfiltered list of projects
-            var leftovers = tmp_liquid_projects.filter(function(to_delete) {
-                return filtered_projects.indexOf(to_delete) < 0;
+            var leftovers = tmp_liquid_projects.filter(function(element) {
+                // The project is returned if it has not been found in the array of filtered projects
+                return filtered_projects.indexOf(element) < 0;
             });
             // Iterate over all filtered projects and check every project's corresponding 
             // DOM element ('all_projects', by ID) against every filtered project. If IDs match,
@@ -309,48 +301,60 @@ function filterProjects(callback) {
             }
         }
         else {
-            // If by any chance there have been errors while filtering because results_found is
-            // false
+            // If results_found is false, something went wrong. This will likely become
+            // relevant with a future update.
             console.log("Nothing found");
         }
     }
     // Execute callback function.
     callback();
 }
+// The function handling the fade out. When the fade out animation has completed,
+// the callback function that needs to be passed as a parameter, is executed.
+function fadeOut(target, callback) {
+        console.log("fading out");
+        // Set opacity to 1 to represent the initial opacity of the target
+        var new_opacity = 1;
+        // Create a timer that executes the anonymous function every 50 milliseconds  
+        var timer = setInterval(function() {
+            // If the opacity is lower than 0.1 (since in this fade out, the fade out effect
+            // is created by lowering opacity in steps of 0.1)...
+            if (new_opacity < 0.1) {
+                // ... stop the timer and execute the next function (will be filterProjects)
+                clearInterval(timer);
+                callback();
+            }
+            // If opacity is too high of a value, further lower the opacity 
+            // and apply the new opacity value to the target's style
+            new_opacity -=  0.1;
+            target.style.opacity = new_opacity;
+        }, 50);
+}
 
-    function fadeOutEffect(target, callback) {
-            console.log("fading out");
-            var opacity = 1;
-            var timer = setInterval(function(){
-                if(opacity < 0.1){
-                    clearInterval(timer);
-                    callback();
-                }
-                target.style.opacity = opacity;
-                opacity -=  0.1;
-            }, 50);
-    }
+// The function handling the fade in. This function does not take a callback function as
+// parameter as it is the last function to execute in the callback chain.
+// The process is the same as with the fade out function but the opacity is increased instead
+// of decreased over time.
+function fadeIn(target) {
+        console.log("fading in");
+        var new_opacity = 0.1;
+        var timer = setInterval(function () {
+            if (new_opacity >= 1) {
+                clearInterval(timer);
+            }
+            target.style.opacity = new_opacity;
+            new_opacity += 0.1;
+        }, 10);
+}
 
-    function fadeInEffect(target) {
-            console.log("fading in");
-            var op = 0.1;
-            var timer = setInterval(function () {
-                if (op >= 1){
-                    clearInterval(timer);
-                }
-                target.style.opacity = op;
-                op += 0.1;
-            }, 10);
-    }
+// Define function to check different elements' current visibility status since the original
+// way of checking is quite a long line of code and is repeated often.
+function checkVisibility(target) {
+    return window.getComputedStyle(target, null).display;
+}
 
-    // Define function to check different elements' current visibility status since the original
-    // way of checking is quite a long line of code and is repeated often.
-    function checkVisibility(target) {
-        return window.getComputedStyle(target, null).display;
-    }
-
-    // Define function to toggle different elements' visibility. Second parameter given
-    // should be a string containing the display type ('grid', 'block', 'none', ...)
-    function toggleVisibility(target, type) {
-        target.style.display = type;
-    }
+// Define function to toggle different elements' visibility. Second parameter given
+// should be a string containing the display type ('grid', 'block', 'none', ...)
+function toggleVisibility(target, type) {
+    target.style.display = type;
+}
