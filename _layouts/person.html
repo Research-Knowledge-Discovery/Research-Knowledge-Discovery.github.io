@@ -27,9 +27,16 @@ layout: custom_default
         </div>
         <div class="projects">
             <h2 class="title is-6">Projects</h2>
-            <ul>
-                <li>...</li>
-            </ul>
+            {%- for project in site.projects -%}
+                {%- for person in project.people -%}
+                    {%- if person.name == page.name -%}
+                    <p>
+                        <a href="{{ site.baseurl }}{{ project.url }}">{{ project.name }}</a>
+                    </p>
+                    {%- break -%}
+                    {%- endif -%}
+                {%- endfor -%}
+            {%- endfor -%}
         </div>
         <div class="publications">
             <h2 class="title is-6">Publications</h2>

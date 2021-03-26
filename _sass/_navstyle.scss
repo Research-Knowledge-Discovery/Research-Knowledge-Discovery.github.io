@@ -368,6 +368,7 @@
 
 .main-grid {
     display: grid;
+    grid-template-columns: 4fr auto;
     row-gap: 2rem;
     column-gap: 2rem;
     justify-content: center;
@@ -392,6 +393,7 @@
     }
 
     .main-grid {
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
                 "basic-info image"
                 "description description"

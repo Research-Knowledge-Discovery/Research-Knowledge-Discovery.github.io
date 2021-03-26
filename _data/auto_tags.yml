@@ -21,5 +21,7 @@ research-areas:
   topics:
   - name: Tag 1 IR
     tag: tag1_ir
+  - name: Tag 2 IR
+    tag: tag2_ir
   - name: Tag 3 IR
     tag: tag3_ir
