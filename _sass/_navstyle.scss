@@ -338,19 +338,66 @@
 }
 
 .basicinfo {
-    grid-area: basic-info1;
+    grid-area: basic-info;
 }
 
-.person.image {
+.main-grid .image {
     grid-area: image;
+    align-self: center;
+}
+
+.contact {
+    grid-area: contact
+}
+
+.socialmedia {
+    grid-area: social-media
+}
+
+.projects {
+    grid-area: projects
+}
+
+.publications {
+    grid-area: publications
+}
+
+.description {
+    grid-area: description;
 }
 
 .main-grid {
     display: grid;
+    row-gap: 2rem;
+    column-gap: 2rem;
+    justify-content: center;
     grid-template-areas:
-            "basic-info1 image"
-            ". ."
+            "basic-info image"
+            "description image"
             "projects contact"
-            ". social-media"
-            "publications ."
+            "projects social-media"
+            "publications publications"
+}
+
+
+@media screen and (max-width: 1024px) {
+    .main-grid .image {
+        grid-area: image;
+        grid-row: 1 / span 1;
+        justify-self: end;
+    }
+
+    .basicinfo {
+        align-self: center;
+    }
+
+    .main-grid {
+        grid-template-areas:
+                "basic-info image"
+                "description description"
+                "contact contact"
+                "social-media social-media"
+                "projects projects"
+                "publications publications"
+    }
 }
