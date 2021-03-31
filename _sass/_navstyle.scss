@@ -163,8 +163,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
+    column-gap: 1rem;
     list-style: disc;
     list-style-position: inside;
+}
+
+.no-icon {
+    list-style: none;
 }
 
 .lists ul li{
@@ -346,20 +351,20 @@
     align-self: center;
 }
 
-.contact {
-    grid-area: contact
+.factlist-1 {
+    grid-area: factlist-1
 }
 
-.socialmedia {
-    grid-area: social-media
+.factlist-2 {
+    grid-area: factlist-2
 }
 
-.projects {
-    grid-area: projects
+.content-1 {
+    grid-area: content-1
 }
 
-.publications {
-    grid-area: publications
+.content-2 {
+    grid-area: content-2
 }
 
 .description {
@@ -375,9 +380,9 @@
     grid-template-areas:
             "basic-info image"
             "description image"
-            "projects contact"
-            "projects social-media"
-            "publications publications"
+            "content-1 factlist-1"
+            "content-1 factlist-2"
+            "content-2 content-2"
 }
 
 
@@ -397,9 +402,9 @@
         grid-template-areas:
                 "basic-info image"
                 "description description"
-                "contact contact"
-                "social-media social-media"
-                "projects projects"
-                "publications publications"
+                "factlist-1 factlist-1"
+                "factlist-2 factlist-2"
+                "content-1 content-1"
+                "content-2 content-2"
     }
 }

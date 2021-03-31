@@ -8,7 +8,7 @@ layout: custom_default
     </div>
     <p class="description">{{ page.description }}</p>
         <img class="image round" src="../../assets/images/testimage.png"/>
-        <div class ="contact">
+        <div class ="factlist-1">
             <p>Contact:</p>
             <ul class="singlelist">
                 <li>{{ page.contact.address }}</li>
@@ -17,7 +17,7 @@ layout: custom_default
                 <li>{{ page.contact.mail }}</li>
             </ul>
         </div>
-        <div class="socialmedia">
+        <div class="factlist-2">
             <p>Social Media:</p> 
             <ul class="singlelist">
                 <li>{{ page.social_media.linkedin }}</li>
@@ -25,7 +25,7 @@ layout: custom_default
                 <li>{{ page.social_media.researchgate }}</li>
             </ul>
         </div>
-        <div class="projects">
+        <div class="content-1">
             <h2 class="title is-6">Projects</h2>
             {%- for project in site.projects -%}
                 {%- for person in project.people -%}
@@ -38,7 +38,7 @@ layout: custom_default
                 {%- endfor -%}
             {%- endfor -%}
         </div>
-        <div class="publications">
+        <div class="content-2">
             <h2 class="title is-6">Publications</h2>
             <ul>
                 <li>...</li>

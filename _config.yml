@@ -63,6 +63,12 @@ defaults:
       type: "people"
     values:
       layout: "person"
+  -
+    scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
 
 # Adding collections. Collections provide an easy to set up an architecture for group related
 # content, such as members of a group or talks at a conference. New entries to a collection

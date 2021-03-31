@@ -1,5 +1,5 @@
-=begin
-# (Begin starts a multiline comment, =end ends it)
+#=begin
+# (=begin starts a multiline comment, =end ends it)
 # YAML: needed to convert result array to yaml file later
 require 'yaml'
 # Specifies the hook. This determines in which step of the build process this script will be run.
@@ -73,4 +73,4 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     # Convert the array to YAML and write to file
     File.open("_data/auto_tags.yml", 'w') {|f| f.write($alltags.to_yaml) }
 end
-=end
+#=end

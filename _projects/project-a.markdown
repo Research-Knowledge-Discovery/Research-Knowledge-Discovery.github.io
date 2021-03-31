@@ -14,7 +14,7 @@ partners:
 funding: 
   name: "foundation"
   link: "/"
-summary: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"
+description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat"
 people:
   - name: "Max Mustermann"
   - name: "person b"

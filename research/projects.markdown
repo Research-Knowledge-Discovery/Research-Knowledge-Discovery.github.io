@@ -18,7 +18,7 @@
                 <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
                 {% endfor %}
             {% endfor %}
-            <p>{{ project.summary }}</p>
+            <p>{{ project.description }}</p>
         </div>
         <img class="image" src="../assets/images/testimage.png"/>
         <div class="lists">

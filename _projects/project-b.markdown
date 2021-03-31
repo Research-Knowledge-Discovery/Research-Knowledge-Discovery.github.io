@@ -14,7 +14,7 @@ partners:
 funding:
   name: "foundation"
   link: "/"
-summary: "Text"
+description: "Text"
 people:
   - name: "person a"
     externallink: "/"

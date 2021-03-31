@@ -1,0 +1,62 @@
+---
+layout: custom_default
+---
+<div class="main-grid">
+    <div class="basicinfo">
+        <h2 class="name title is-5">{{ page.name }}</h1>
+    </div>
+    <p class="description">{{ page.description }}</p>
+    <img class="image" src="../../assets/images/testimage.png"/>
+    <div class ="factlist-1">
+        <ul class="singlelist no-icon">
+            <li>Duration:</li>
+            <li>{{ page.duration.beginning }} - {{ page.duration.end }}</li>
+            <li>Funded by:</li>
+            <li>{{ page.funding.name }}</li>
+            <li>Contact:</li>
+            <li>Abc</li>
+        </ul>
+    </div>
+    <div class="factlist-2">
+        <p>Partners:</p> 
+        <ul class="singlelist">
+            {%- for partner in page.partners -%}
+                <li>{{ partner.name }}</li>
+            {%- endfor -%}
+        </ul>
+    </div>
+    <div class="content-1">
+        <h2 class="title is-6">People involved</h2>
+        {%- for person in page.people -%}
+            {%- if person.externallink != null -%}
+                <p>
+                    <a href="{{ person.externallink }}">{{ person.name }}</a>
+                </p>
+            {%- else -%} <!-- If no external link is given, the person in question is either a staff member or no further personal data can be provided -->
+                <!-- Check if person's name can be found in collection 'people' -->
+                {%- assign found = false -%}
+                {%- for member in site.people -%}
+                    <!-- If the names match, add a link to the member's personal data -->
+                    {%- if member.name == person.name -%}
+                        <p>
+                            <a href="{{ member.url }}">{{ member.name }}</a>
+                        </p>
+                        {%- assign found = true -%}
+                        <!-- Break to prevent further execution of the for loop if the according member has already been found -->
+                        {%- break -%}
+                    {%- endif -%}
+                {%- endfor -%}
+                <!-- If the person's name did not match any of the staff members, simply add the name in plain text -->
+                {%- if found != true -%}
+                    {{- person.name -}}
+                {%- endif -%}
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+    <div class="content-2">
+        <h2 class="title is-6">Resources</h2>
+        <ul>
+            <li>...</li>
+        </ul>
+    </div>
+</div>
