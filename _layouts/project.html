@@ -4,6 +4,14 @@ layout: custom_default
 <div class="main-grid">
     <div class="basicinfo">
         <h2 class="name title is-5">{{ page.name }}</h1>
+    {% for category in page.research-areas %}
+        <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
+    {% endfor %}<br/>
+    {% for category in page.research-areas %}
+        {% for topic in category.topics %}
+        <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
+        {% endfor %}
+    {% endfor %}
     </div>
     <p class="description">{{ page.description }}</p>
     <img class="image" src="../../assets/images/testimage.png"/>
