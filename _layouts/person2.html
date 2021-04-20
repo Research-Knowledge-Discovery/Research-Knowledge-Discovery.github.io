@@ -1,12 +1,15 @@
 ---
 layout: custom_default
 ---
-<div class="main-grid">
-    <div class="basicinfo">
-        <h1 class="name title is-5">{% if page.titles %}{{ page.titles }} {% endif %}{{ page.firstname }} {{ page.lastname }}</h1>
-        <h3 class="position title is-6">{{ page.role }}</h3>
+<div class="columns">
+    <div class="column">
+        <div class="basicinfo">
+            <h1 class="name title is-5">{% if page.titles %}{{ page.titles }} {% endif %}{{ page.firstname }} {{ page.lastname }}</h1>
+            <h3 class="position title is-6">{{ page.role }}</h3>
+        </div>
+        <p class="description">{{ page.description }}</p>
     </div>
-    <p class="description">{{ page.description }}</p>
+    <div class="column is-narrow">
         {% assign escaped_fn = page.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
         {% assign escaped_ln = page.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
         <img class="image center-cropped profile detail" src="../../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
@@ -27,23 +30,26 @@ layout: custom_default
                 <li>{{ page.social_media.researchgate }}</li>
             </ul>
         </div>
-        <div class="content-1">
-            <h2 class="title is-6">Projects</h2>
-            {%- for project in site.projects -%}
-                {%- for person in project.people -%}
-                    {%- if person.name == page.title -%}
-                    <p>
-                        <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
-                    </p>
-                    {%- break -%}
-                    {%- endif -%}
-                {%- endfor -%}
+    </div>
+</div>
+<div>
+    <div class="content-1">
+        <h2 class="title is-6">Projects</h2>
+        {%- for project in site.projects -%}
+            {%- for person in project.people -%}
+                {%- if person.name == page.title -%}
+                <p>
+                    <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+                </p>
+                {%- break -%}
+                {%- endif -%}
             {%- endfor -%}
-        </div>
-        <div class="content-2">
-            <h2 class="title is-6">Publications</h2>
-            <ul>
-                <li>...</li>
-            </ul>
-        </div>
+        {%- endfor -%}
+    </div>
+    <div class="content-2">
+        <h2 class="title is-6">Publications</h2>
+        <ul>
+            <li>...</li>
+        </ul>
+    </div>
 </div>

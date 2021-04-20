@@ -6,10 +6,11 @@
     {% include filters.html %}
     <hr/>
     <div>
-    {% for project in site.projects %}
+    {% assign sorted_projects = site.projects | sort: 'duration.beginning' | reverse %}
+    {% for project in sorted_projects %}
     <div id="{{ project.nr }}" class="singleproject">
         <div class="projectcontainer">
-            <h2 class="title is-5"><a href="{{ project.url }}">{{ project.name }}</a></h2>
+            <h2 class="title is-5"><a href="{{ project.url }}">{{ project.title }}</a></h2>
             {% for category in project.research-areas %}
                 <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
             {% endfor %}<br/>
@@ -18,9 +19,10 @@
                 <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
                 {% endfor %}
             {% endfor %}
-            <p>{{ project.description }}</p>
+            {%- assign excerpt = project.content | split: site.excerpt_separator -%}
+            <p>{%- if excerpt.size > 1 -%}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" }}{%- elsif project.content != null -%}{{ project.content }}{%- else -%}{%- endif -%}</p>
         </div>
-        <img class="image" src="../assets/images/testimage.png"/>
+        <img class="image main-logo" src="{{ project.main-logo }}"/>
         <div class="lists">
             <ul>
                 <li>Duration: {{ project.duration.beginning }} - {{ project.duration.end }}</li>
@@ -39,8 +41,8 @@
                             {%- assign found = false -%}
                             {%- for member in site.people -%}
                                 <!-- If the names match, add a link to the member's personal data -->
-                                {%- if member.name == person.name -%}
-                                    <a href="{{ member.url }}">{{ member.name }}</a>
+                                {%- if member.title == person.name -%}
+                                    <a href="{{ member.url }}">{{ person.name }}</a>
                                     {%- assign found = true -%}
                                     <!-- Break to prevent further execution of the for loop if the according member has already been found -->
                                     {%- break -%}

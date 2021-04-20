@@ -62,13 +62,13 @@ defaults:
       path: ""
       type: "people"
     values:
-      layout: "person"
+      layout: "person2"
   -
     scope:
       path: ""
       type: "projects"
     values:
-      layout: "project"
+      layout: "project2"
 
 # Adding collections. Collections provide an easy to set up an architecture for group related
 # content, such as members of a group or talks at a conference. New entries to a collection
@@ -94,6 +94,8 @@ collections:
     permalink: "/theses-and-jobs/:collection/:name:output_ext"
   news:
     output: false
+
+excerpt_separator: "<!--more-->"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

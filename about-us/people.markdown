@@ -7,37 +7,35 @@ title: "People"
 <div>
     {% for person in site.people %}
         <div class="person" style="">
-            <img class="image profile round" src="../assets/images/testimage.png"/>
-            <div class="personalinfo" style="">
+         {% assign escaped_fn = person.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
+        {% assign escaped_ln = person.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
+            <img class="image center-cropped profile overview round" src="../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
                 <div class="name_desc">
-                    <h2 class="title is-5"><a href="{{ person.url }}">{{ person.name }}</a></h2>
-                    <h3 class="subtitle">{{ person.position }}</h3>
-                    <!-- Maybe add a description to every person --><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt</p>
+                    <h2 class="title is-5"><a href="{{ person.url }}">{{ person.firstname }} {{ person.lastname }}</a></h2>
+                    <h3 class="subtitle">{{ person.role }}</h3>
                 </div>
-            </div>
+                <!-- Maybe add a description to every person -->
+                {% assign excerpt = person.description | split: site.excerpt_separator %}
+                <p class="description overview to-hide">{% if excerpt.size > 0 %}{{ excerpt[0] }}{% elsif person.description != null %}{{ person.description }}{% else %}{% endif %}</p>
             <div class="emptydiv" style=""></div>
-            <div class="lowerrow">
-                <div class="lists" style="">
-                    <div class ="contact" style="">
+                    <div class ="contact">
                         <p>Contact:</p>
-                        <ul>
+                        <ul class="singlelist">
                             <li>{{ person.contact.address }}</li>
                             <li>{{ person.contact.phone }}</li>
                             <li>{{ person.contact.fax }}</li>
                             <li>{{ person.contact.mail }}</li>
                         </ul>
                     </div>
-                    <div class="socialmedia" style="">
+                    <div class="socialmedia">
                         <p>Social Media:</p> 
-                        <ul>
+                        <ul class="singlelist">
                             <li>{{ person.social_media.linkedin }}</li>
                             <li>{{ person.social_media.twitter }}</li>
                             <li>{{ person.social_media.researchgate }}</li>
                         </ul>
                     </div>
-                </div>
-                <a href="{{ person.url }}">> See profile</a> 
-            </div>
+                <a class="personlink" href="{{ person.url }}">> See profile</a> 
         </div>
     {% endfor %}
 </div>

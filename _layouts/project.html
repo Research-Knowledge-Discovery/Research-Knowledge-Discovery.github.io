@@ -3,7 +3,7 @@ layout: custom_default
 ---
 <div class="main-grid">
     <div class="basicinfo">
-        <h2 class="name title is-5">{{ page.name }}</h1>
+        <h2 class="name title is-5">{{ page.title }}</h1>
     {% for category in page.research-areas %}
         <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
     {% endfor %}<br/>
@@ -13,7 +13,7 @@ layout: custom_default
         {% endfor %}
     {% endfor %}
     </div>
-    <p class="description">{{ page.description }}</p>
+    <div class="description content"><p>{{ page.description }}</p></div>
     <img class="image" src="../../assets/images/testimage.png"/>
     <div class ="factlist-1">
         <ul class="singlelist no-icon">
@@ -29,7 +29,13 @@ layout: custom_default
         <p>Partners:</p> 
         <ul class="singlelist">
             {%- for partner in page.partners -%}
-                <li>{{ partner.name }}</li>
+                <li>
+                    {% if partner.link != null and partner.link != '#' %}
+                    <a href="{{ partner.link }}">{{ partner.name }}</a>
+                    {% else %}
+                    {{ partner.name }}
+                    {% endif %}
+                </li>
             {%- endfor -%}
         </ul>
     </div>
@@ -45,9 +51,9 @@ layout: custom_default
                 {%- assign found = false -%}
                 {%- for member in site.people -%}
                     <!-- If the names match, add a link to the member's personal data -->
-                    {%- if member.name == person.name -%}
+                    {%- if member.title == person.name -%}
                         <p>
-                            <a href="{{ member.url }}">{{ member.name }}</a>
+                            <a href="{{ member.url }}">{{ person.name }}</a>
                         </p>
                         {%- assign found = true -%}
                         <!-- Break to prevent further execution of the for loop if the according member has already been found -->
@@ -56,7 +62,7 @@ layout: custom_default
                 {%- endfor -%}
                 <!-- If the person's name did not match any of the staff members, simply add the name in plain text -->
                 {%- if found != true -%}
-                    {{- person.name -}}
+                    <p>{{- person.name -}}</p>
                 {%- endif -%}
             {%- endif -%}
         {%- endfor -%}

@@ -104,7 +104,11 @@ body {
         grid-column-start: 1;
         grid-column-end: 3;
     }    
-
+    
+    .description.overview.to-hide {
+        display: none;
+        margin-left: 1rem;
+    }
     // TODO: Show breadcrumb (maybe)
 }
 
@@ -117,11 +121,22 @@ body {
     width: 100px;
 }
 
-.image.profile {
-    height: auto;
-    width: auto;
+.image.profile.detail {
     align-self: center;
+    height: auto;
+    box-shadow: 5px 5px 10px #bbb;
 }
+
+.image.profile.overview {
+    align-self: start;
+}
+
+.image.center-cropped {
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 150px;
+    width: 150px;
+  }
 
 .round {
     border-radius: 50%;
@@ -130,12 +145,56 @@ body {
 .person {
     margin-bottom: 2.5rem;
     display: grid;
-    grid-template-columns: auto auto;
+    // Ensure correct display of columns when image is missing. Without specifying a
+    // width for the second column, grid sizes will vary if description texts are
+    // too short to wrap. In that case, less than the full container width will be
+    // used.
+    grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
 }
 
 .person>div {
     margin: 0.5rem 1rem;
+}
+
+.description.overview {
+    display: block;
+    margin-left: 1rem;
+}
+
+.name_desc {
+    grid-area: basicinfo;
+}
+
+.image.profile {
+    grid-area: image;
+}
+
+.description {
+    grid-area: description;
+}
+
+.contact {
+    grid-area: factlist-1;
+}
+
+.socialmedia {
+    grid-area: factlist-2;
+}
+
+.personlink {
+    grid-area: link;
+}
+
+.person {
+    margin-bottom: 2.5rem;
+    display: grid;
+    grid-template-areas:
+        "image basicinfo"
+        "image description"
+        "image factlist-1"
+        "image factlist-2"
+        ". link";
 }
 
 .singleproject {
@@ -169,7 +228,7 @@ body {
 
 .singlelist{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
     column-gap: 1rem;
     list-style: disc;
@@ -261,8 +320,8 @@ body {
 }
 
 .filter-container {
-    display: none;
     flex-direction: column;
+    display: block;
 }
 
 @media screen and (max-width: 1024px) {
@@ -282,6 +341,61 @@ body {
 
     .second-level {
         margin-top: -5px;
+    }
+
+    .name_desc {
+        grid-area: basicinfo;
+    }
+
+    .image.profile {
+        grid-area: image;
+    }
+
+    .description {
+        grid-area: description;
+    }
+
+    .contact {
+        grid-area: factlist-1;
+    }
+
+    .socialmedia {
+        grid-area: factlist-2;
+    }
+
+    .personlink {
+        grid-area: link;
+    }
+
+    .person {
+        margin-bottom: 2.5rem;
+        display: grid;
+        grid-template-areas:
+            "basicinfo image"
+            "description description"
+            "factlist-1 factlist-1"
+            "factlist-2 factlist-2"
+            "link .";
+    }
+
+    .projectcontainer {
+        grid-area: basicinfo;
+    }
+
+    .image.main-logo {
+        grid-area: image;
+    }
+
+    .lists {
+        grid-area: lists;
+    }
+
+    .singleproject {
+        display: grid;
+        grid-template-areas:
+            "basicinfo basicinfo"
+            "image image"
+            "lists lists"
     }
 }
 
@@ -337,6 +451,7 @@ body {
 
 .toggle.main-toggle {
     margin-bottom: 1.5rem;
+    display: none;
 }
 
 #submit_filters {
@@ -347,7 +462,7 @@ body {
 }
 
 #noresults {
-    display:none;
+    display: none;
 }
 
 .basicinfo {
@@ -357,6 +472,10 @@ body {
 .main-grid .image {
     grid-area: image;
     align-self: center;
+}
+
+.image.main-logo {
+    max-width: 250px;
 }
 
 .factlist-1 {
@@ -379,7 +498,12 @@ body {
     grid-area: description;
 }
 
-.main-grid {
+.factlist-1 {
+    font-size: 0.8em;
+    max-width: 250px;
+}
+
+/*.main-grid {
     display: grid;
     grid-template-columns: 4fr auto;
     row-gap: 2rem;
@@ -387,12 +511,16 @@ body {
     justify-content: center;
     grid-template-areas:
             "basic-info image"
-            "description image"
-            "content-1 factlist-1"
-            "content-1 factlist-2"
+            "description factlist-1"
+            "factlist-2 factlist-2"
+            "content-1 content-1"
             "content-2 content-2"
 }
+*/
 
+.column div {
+    margin-bottom: 1.5rem;
+}
 
 @media screen and (max-width: 1024px) {
     .main-grid .image {
@@ -406,6 +534,7 @@ body {
     }
 
     .main-grid {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
                 "basic-info image"
@@ -415,4 +544,43 @@ body {
                 "content-1 content-1"
                 "content-2 content-2"
     }
+    
+    .toggle.main-toggle {
+        display: block;
+    }
+    
+    .filter-container {
+        display: none;
+    }
+
+    .factlist-1 {
+        font-size: 1em;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    
+    .factlist-1 {
+        font-size: 1em;
+        max-width: 100%;
+    }
+    
+   
+}
+
+@media screen and (max-width: 1300px) {
+  
+    .columns.is-desktop.custom {
+        display: block;
+    }
+
+}
+
+@media screen and (min-width: 1300px) {
+  
+    .columns.is-desktop.custom {
+        display: flex;
+    }
+
 }
