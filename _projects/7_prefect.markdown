@@ -23,13 +23,10 @@ people:
   - name: "M.Sc. Sven Wöhrle"
   - name: "Lars Caspersen"
 research-areas:
-  - name: ""
-    tag: ""
-    topics:
-      - name: ""
-        tag: ""
-      - name: ""
-        tag: ""
+  areas: 
+    - name: ""
+      tag: ""
+  topics: ""
 ---
 <!--more-->This project aims at increasing the lead time prior to famine catastrophes, and thus supporting aid organizations in consistent and sustainable planning of countermeasures, by developing a mathematical prediction model that is able to compute the probability of a famine catastrophe by learning from data.
 <!--more-->

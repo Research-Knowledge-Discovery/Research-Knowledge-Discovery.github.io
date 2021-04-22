@@ -5,12 +5,9 @@ require 'yaml'
 # Specifies the hook. This determines in which step of the build process this script will be run.
 Jekyll::Hooks.register :site, :pre_render do |site|
     # Create arrays to hold area names and tags and topic names and tags
-    $ds = []
-    $dstopics = []
-    $nlp = []
-    $nlptopics = []
-    $ir = []
-    $irtopics = []
+    $first_level = []
+    $second_level = []
+    $debug = ""
     # Iterate over all collections (first level is a container holding single collections)
     site.collections.each do |collcontainer|
         # This is the actual collection
@@ -23,26 +20,25 @@ Jekyll::Hooks.register :site, :pre_render do |site|
                     # and save them to arrays
                     collection.docs.each do |item|
                         if item['research-areas']
-                            if item['research-areas'].respond_to?("each")
-                                item['research-areas'].each do |area|
-                                    # Save tags by area
-                                    case area['tag']
-                                    when 'ds'
+                            if item['research-areas']['areas']
+                                #puts item['research-areas']['areas']
+                                if item['research-areas']['areas'].respond_to?("each")
+                                    #puts item['research-areas']['areas']                                
+                                    item['research-areas']['areas'].each do |area|
+                                        puts area
                                         # Use a hash to be able to differntiate tag names and their actual tags later
-                                        $ds << {'name' => area['name'], 'tag' => area['tag']}
-                                        # Do the same for topics
-                                        area['topics'].each do |topic|
-                                            $dstopics << {'name' => topic['name'], 'tag' => topic['tag']}
+                                        if area['name'] != '' and area['tag'] != ''
+                                            $first_level << {'name' => area['name'], 'tag' => area['tag']}
                                         end
-                                    when 'nlp'
-                                        $nlp << {'name' => area['name'], 'tag' => area['tag']}
-                                        area['topics'].each do |topic|
-                                            $nlptopics << {'name' => topic['name'], 'tag' => topic['tag']}
-                                        end
-                                    when 'ir'
-                                        $ir << {'name' => area['name'], 'tag' => area['tag']}
-                                        area['topics'].each do |topic|
-                                            $irtopics << {'name' => topic['name'], 'tag' => topic['tag']}
+                                    end
+                                end
+                            end
+                            if item['research-areas']['topics']
+                                if item['research-areas']['topics'].respond_to?("each")
+                                    # Do the same for topics
+                                    item['research-areas']['topics'].each do |topic|
+                                        if topic['name'] != '' and topic['tag'] != ''
+                                            $second_level << {'name' => topic['name'], 'tag' => topic['tag']}
                                         end
                                     end
                                 end
@@ -54,22 +50,15 @@ Jekyll::Hooks.register :site, :pre_render do |site|
         end
     end
     # Remove duplicates from arrays
-    $ds = $ds.uniq
-    $nlp = $nlp.uniq
-    $ir = $ir.uniq
-    $dstopicsuniq = $dstopics.uniq
-    $nlptopicsuniq = $nlptopics.uniq
-    $irtopicsuniq = $irtopics.uniq
+    $first_level_uniq = $first_level.uniq
+    $second_level_uniq = $second_level.uniq
     # Sort arrays by 'name' property
-    $dstopicsuniq = $dstopicsuniq.sort_by { |hsh| hsh['name'] }
-    $nlptopicsuniq = $nlptopicsuniq.sort_by { |hsh| hsh['name'] }
-    $irtopicsuniq = $irtopicsuniq.sort_by { |hsh| hsh['name'] }
-    # Add them to the result array in a more elaborate hash structure that matches a certain format
+    $first_level_sorted = $first_level_uniq.sort_by { |hsh| hsh['name'] }
+    $second_level_sorted = $second_level_uniq.sort_by { |hsh| hsh['name'] }
+    # Add them to the result array in a certain hash structure that matches the needed YAML format
     # so it can be converted to YAML seamlessly and be processed by pages using the filtering 
     # funtion later
-    $alltags = {  'research-areas' => [{ 'name' => $ds[0]['name'], 'tag' => $ds[0]['tag'], 'topics' => $dstopicsuniq },
-        { 'name' => $nlp[0]['name'], 'tag' => $nlp[0]['tag'], 'topics' => $nlptopicsuniq },
-        { 'name' => $ir[0]['name'], 'tag' => $ir[0]['tag'], 'topics' => $irtopicsuniq }]}
+    $alltags = {  'research-areas' => { 'areas' => $first_level_sorted, 'topics' => $second_level_sorted }}
     # Convert the array to YAML and write to file
     File.open("_data/auto_tags.yml", 'w') {|f| f.write($alltags.to_yaml) }
 end

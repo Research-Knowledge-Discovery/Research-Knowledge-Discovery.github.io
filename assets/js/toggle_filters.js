@@ -21,11 +21,11 @@ for (var z = 0; z < to_toggle.length; z++) {
         // the visibility of second level tags
         else {
             // Get the research area the toggle button corresponds to...
-            var field = e.target.classList[1];
-            console.log(field);
+            //var field = e.target.classList[1];
+            //console.log(field);
             // ... and use it to get the "dropdown" containing the filters themselves
-            var second_filters = document.getElementsByClassName("second-level " + field);
-            console.log(second_filters);
+            var second_filters = document.getElementsByClassName("second-level");
+            //console.log(second_filters);
             // getElementsByClassName should only ever match a single dropdown. Check for length...
             if (second_filters.length == 1) {
                 // ... and toggle visibility as usual

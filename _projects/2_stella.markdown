@@ -26,15 +26,17 @@ people:
   - name: "Narges Tavakolpoursaleh (GESIS)"
     externallink: "https://www.gesis.org/person/narges.tavakolpoursaleh"
 research-areas:
-  - name: "Information Retrieval"
-    tag: "ir"
+    areas:
+      - name: "Information Retrieval"
+        tag: "ir"
     topics:
-      - name: "Tag 1 IR"
-        tag: "tag1_ir"
-  - name: "Natural Language Processing"
-    tag: "nlp"
-    topics:
-      - name: "Tag 3 NLP"
-        tag: "tag3_nlp"
+      - name: "Recommendation Services"
+        tag: "recommendation_services"
+      - name: "Evaluation"
+        tag: "evaluation"
+      - name: "Online Evaluation"
+        tag: "online_evaluation"
+      - name: "e-Research"
+        tag: "e-research"
 ---
 The STELLA project aims to create an evaluation infrastructure that allows to evaluate search and recommendation services within productive web-based search systems with real users. STELLA provides an integrated e-Research environment that allows researchers in the field of information retrieval and recommendation services to conduct studies with real users in real environments. The experimental set-ups differ considerably from classical TREC studies, which can only be carried out offline, or also from user studies, which only allow laboratory experiments, and thus enable researchers to use an evaluation method that was previously reserved only for industrial research or the operators of large online platforms.

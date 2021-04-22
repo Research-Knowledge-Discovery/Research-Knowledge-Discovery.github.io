@@ -11,13 +11,11 @@
     <div id="{{ project.nr }}" class="singleproject">
         <div class="projectcontainer">
             <h2 class="title is-5"><a href="{{ project.url }}">{{ project.title }}</a></h2>
-            {% for category in project.research-areas %}
+            {% for category in project.research-areas.areas %}
                 <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
             {% endfor %}<br/>
-            {% for category in project.research-areas %}
-                {% for topic in category.topics %}
+            {% for topic in project.research-areas.topics %}
                 <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
-                {% endfor %}
             {% endfor %}
             {%- assign excerpt = project.content | split: site.excerpt_separator -%}
             <p>{%- if excerpt.size > 1 -%}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" }}{%- elsif project.content != null -%}{{ project.content }}{%- else -%}{%- endif -%}</p>
@@ -74,11 +72,11 @@
     // (In Liquid, they need to be appended to a string first and then split to form an array)
     {% assign used_tags = "" %}
     {% for project in site.projects %}
-        {% for area in project.research-areas %}
+        {% for area in project.research-areas.areas %}
             {% assign used_tags = used_tags | append: area.tag | append: ";"%}
-            {% for topic in area.topics %}
-                {% assign used_tags = used_tags | append: topic.tag | append: ";" %}
-            {% endfor %}
+        {% endfor %}
+        {% for topic in project.research-areas.topics %}
+            {% assign used_tags = used_tags | append: topic.tag | append: ";" %}
         {% endfor %}
     {% endfor %}
     {% assign used_tags_arr = used_tags | split: ";" | uniq %}

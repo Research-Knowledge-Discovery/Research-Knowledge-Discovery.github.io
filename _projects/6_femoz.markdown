@@ -30,23 +30,24 @@ people:
   - name: "Prof. Dr. Gernot Heisenberg"
   - name: "M.Sc. Sven Wöhrle"
 research-areas:
-  - name: "Data Science"
-    tag: "ds"
-    topics:
-      - name: "Food Security"
-        tag: "food_security"
-      - name: "Nutrition"
-        tag: "nutrition"
-      - name: "Disaster Risk Management"
-        tag: "disaster_risk_management"
-      - name: "Upscaling"
-        tag: "upscaling"
-      - name: "ANN"
-        tag: "ann"
-      - name: "CNN"
-        tag: "cnn"
-      - name: "Asset Wealth"
-        tag: "asset_wealth"
+  areas: 
+    - name: "Data Science"
+      tag: "ds"
+  topics:
+    - name: "Food Security"
+      tag: "food_security"
+    - name: "Nutrition"
+      tag: "nutrition"
+    - name: "Disaster Risk Management"
+      tag: "disaster_risk_management"
+    - name: "Upscaling"
+      tag: "upscaling"
+    - name: "ANN"
+      tag: "ann"
+    - name: "CNN"
+      tag: "cnn"
+    - name: "Asset Wealth"
+      tag: "asset_wealth"
 ---
 <!--more-->The FEMOZ project aims at strengthening the resilience of rural food environments in the context of disaster risk and climate Change in Mozambique. The “Food Environment” mediates the interactions between consumers and markets and influences consumer’s decisions.<!--more-->
 

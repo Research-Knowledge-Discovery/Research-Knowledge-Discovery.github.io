@@ -4,7 +4,7 @@
         {% assign all_tags = "" %}
         {% assign all_names = "" %}
         {% for project in site.projects %}
-            {% for category in project.research-areas %}
+            {% for category in project.research-areas.areas %}
                 {% assign all_tags = all_tags | append: category.tag | append: ";" %}
                 {% assign all_names = all_names | append: category.name | append: ";" %}
             {% endfor %}
@@ -14,23 +14,23 @@
         {% assign all_tags = all_tags | uniq %}
         {% assign all_names = all_names | uniq %}
         {% if site.data.auto_tags %}
-        {% for area in site.data.auto_tags.research-areas %}
+            {% for area in site.data.auto_tags.research-areas.areas %}
                 <div class="area {{ area.tag }}">
                     <label for="{{ area.tag }}">
                         <input type="checkbox" class="filter" id="{{ area.tag }}" checked/>
                         <span>{{ area.name }}</span>
                     </label>
                 </div>
-                <p class="toggle {{ area.tag }}">Filter by topic v</p>
-                <div class="second-level {{ area.tag }}">
-                {% for topic in area.topics %}
-                    <div>
-                        <input type="checkbox" name="{{ area.tag }}" class="filter second" id="{{ topic.tag }}" checked/>
+            {% endfor %}
+                <p class="toggle">Filter by topic v</p>
+                <div class="second-level">
+                {% for topic in site.data.auto_tags.research-areas.topics %}
+                    <div class="tagcontainer">
+                        <input type="checkbox" class="filter second" id="{{ topic.tag }}" checked/>
                         <label for="{{ topic.tag }}">{{ topic.name }}</label>
                     </div>
                 {% endfor %}
-                </div>
-        {% endfor %}
+            </div>
         {% endif %}
     </div>
     <button id="submit_filters">Filter</button>

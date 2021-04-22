@@ -19,8 +19,9 @@ people:
   - name: "Mandy Neumann (Technische Hochschule Köln)"
     externallink: "#"
 research-areas:
-  - name: "Information Retrieval"
-    tag: "ir"
+    areas: 
+      - name: "Information Retrieval"
+        tag: "ir"
     topics:
       - name: "Tag 3 IR"
         tag: "tag3_ir"

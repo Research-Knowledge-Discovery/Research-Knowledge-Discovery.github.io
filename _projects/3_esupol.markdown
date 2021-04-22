@@ -22,16 +22,18 @@ people:
   - name: "M.Sc. Malte Bonart (until 12/2019) (Technische Hochschule Köln)"
     externallink: "https://ir.web.th-koeln.de/people/malte-bonart"
 research-areas:
-  - name: "Information Retrieval"
-    tag: "ir"
+    areas:
+      - name: "Information Retrieval"
+        tag: "ir"
+      - name: "Natural Language Processing"
+        tag: "nlp"
     topics:
-      - name: "Tag 2 IR"
-        tag: "tag2_ir"
-  - name: "Data Science"
-    tag: "ds"
-    topics:
-      - name: "Tag 2 DS"
-        tag: "tag2_ds"
+      - name: "Digital Societies"
+        tag: "digital_societies"
+      - name: "Computers and Society"
+        tag: "computers_society"
+      - name: "Ranking"
+        tag: "ranking"
 ---
 Influence of Web Search Engines on Political Opinion Formation
 

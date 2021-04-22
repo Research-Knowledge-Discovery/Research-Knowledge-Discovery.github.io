@@ -18,16 +18,16 @@ people:
   - name: "Dr. Meik Bittkowski (Science Media Center)"
     externallink: "https://www.sciencemediacenter.de/das-smc/team/"
 research-areas:
-  - name: "Data Science"
-    tag: "ds"
+    areas: 
+      - name: "Information Retrieval"
+        tag: "ir"
     topics:
-      - name: "Tag 2 DS"
-        tag: "tag2_ds"
-  - name: "Natural Language Processing"
-    tag: "nlp"
-    topics:
-      - name: "Tag 2 NLP"
-        tag: "tag2_nlp"
+      - name: "Data Journalism"
+        tag: "data_journalism"
+      - name: "Human-Computer-Interaction"
+        tag: "hci"
+      - name: "Information Extraction"
+        tag: "information_extraction"
 ---
 Data journalism is a new journalistic discipline that focuses particularly on data-driven research and presentation formats. However, a fundamental problem of data journalism, but also of classical journalism, is that much data of journalistic interest is only available in unstructured form: as texts, tables and graphics in documents of various types (Word, PDF, e-mail, etc.) or on websites.
 

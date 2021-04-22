@@ -23,16 +23,14 @@ people:
   - name: "Ralph Willrich (Technische Hochschule Köln)"
     externallink: "#"
 research-areas:
-  - name: "Information Retrieval"
-    tag: "ir"
-    topics:
-      - name: "Tag 3 IR"
-        tag: "tag3_ir"
-  - name: "Data Science"
-    tag: "ds"
-    topics:
-      - name: "Tag 1 DS"
-        tag: "tag1_ds"
+  areas:
+    - name: "Data Science"
+      tag: "ds"
+    - name: "Information Retrieval"
+      tag: "ir"
+  topics:
+    - name: "Topic 1"
+      tag: "topic1"
 ---
 Journalists who report about science or fight “alternative facts” need fast access to up-to-date and reliable scientific information. Nowadays one research paper is published every 13 seconds. Due to this ever increasing amount of new scientific papers published every day journalists face the issue of information overload. PRIOR will be a tool to ease this problem by identifying relevant studies within an incoming stream of announcements of scientific publications. It will increase the probability for science journalists to identify the major breakthroughs relevant to the broader public.
 

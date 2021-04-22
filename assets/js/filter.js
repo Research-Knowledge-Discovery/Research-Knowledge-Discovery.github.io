@@ -36,10 +36,10 @@ for (var z = 0; z < to_toggle.length; z++) {
         // the visibility of second level tags
         else {
             // Get the research area the toggle button corresponds to...
-            var field = e.target.classList[1];
-            console.log(field);
+            //var field = e.target.classList[1];
+            //console.log(field);
             // ... and use it to get the "dropdown" containing the filters themselves
-            var second_filters = document.getElementsByClassName("second-level " + field);
+            var second_filters = document.getElementsByClassName("second-level");
             console.log(second_filters);
             // getElementsByClassName should only ever match a single dropdown. Check for length...
             if (second_filters.length == 1) {
@@ -75,18 +75,18 @@ var liquid_projects = [];
 {% for project in site.projects %}
 liquid_projects.push({
     "nr": "{{ project.nr }}",
-    "name": "{{ project.name }}",
-    "summary": "{{ project.summary }}",
-    "areas": [{%- for area in project.research-areas -%}{
+    "name": "{{ project.title }}",
+    "summary": "{{ project.description }}",
+    "areas": [{%- for area in project.research-areas.areas -%}{
         "name": "{{ area.name }}",
-        "tag": "{{ area.tag }}"{% if area.topics != null %},
-        "topics": [{% for topic in area.topics -%}{
-            "name": "{{ topic.name }}",
-            "tag": "{{ topic.tag }}"
-        }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{%- endif %}
-    }{%- unless forloop.last -%},{%- endunless -%}
-    {% endfor %}
-]});
+        "tag": "{{ area.tag }}"
+    }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
+    {% if project.research-areas.topics != null %},
+    "topics": [{% for topic in project.research-areas.topics -%}{
+        "name": "{{ topic.name }}",
+        "tag": "{{ topic.tag }}"
+    }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{%- endif %}
+});
 {% endfor %}
 // This jsonlike output is injected directly into the JavaScript code. The output can be observed 
 // by inspecting this file in the browser. It produces an array of objects.
@@ -97,7 +97,11 @@ var tmp_liquid_projects = liquid_projects;
 // Adding event listeners to fiter checkboxes.
 // Using the 'change' event in this handler allows for multiple types of user inputs
 // to be used to check checkboxes, such as keyboard inputs
-for (var i = 0; i < checkboxes.length; i++) {
+
+// --- Commented out after removal of connection between first and second level
+// tags ---
+
+/*for (var i = 0; i < checkboxes.length; i++) {
 checkboxes[i].addEventListener('change', function (e) {
     // If the clicked box has been unchecked, disable any other checkboxes that utilize the same id
     // as a name property value. Matching elements are second-level filters. They should be
@@ -122,7 +126,7 @@ checkboxes[i].addEventListener('change', function (e) {
         }
     }
 });
-}
+}*/
 
 // Third: Add filter logic
 
@@ -143,6 +147,16 @@ submit_button.addEventListener('click', function () {
     // which needs to be wrapped in an anonymous function since it itself contains a parameter 
     // ('fadeIn'). If it were not wrapped, the function would not be passed as a
     // parameter but rather executed immediately.
+
+    // Hide possibly open second-level filters first
+    var second_levels = document.getElementsByClassName("second-level");
+
+    // To be removed in future update (as there now is only one second-level
+    // dropdown. This still works, though.)
+    for (var p = 0; p < second_levels.length; p++) {
+        if (checkVisibility(second_levels[p]) != 'none')
+            toggleVisibility(second_levels[p], 'none');
+    }
     fadeOut(projectdiv, function () {
         filterProjects(function () {
             fadeIn(projectdiv);
@@ -160,12 +174,7 @@ submit_button.addEventListener('click', function () {
 
 function filterProjects(callback) {
     console.log("done fading out");
-    // Hide possibly open second-level filters first
-    var second_levels = document.getElementsByClassName("second-level");
-    for (var p = 0; p < second_levels.length; p++) {
-        if (checkVisibility(second_levels[p]) != 'none')
-            toggleVisibility(second_levels[p], 'none');
-    }
+    
     var tmp_liquid_projects = liquid_projects;
     console.log("Handler. ");
     console.log(tmp_liquid_projects);
@@ -178,21 +187,21 @@ function filterProjects(callback) {
             // If an element contains the checkbox' ID as the value of its name property,
             // it is a second-level filter belonging to the area in question and needs to
             // be disabled if the area's checkbox has been unchecked
-            if (document.getElementsByName(checkboxes[j].id)) {
+            /*if (document.getElementsByName(checkboxes[j].id)) {
                 var to_disable = document.getElementsByName(checkboxes[j].id);
                 for (var e = 0; e < to_disable.length; e++) {
                     to_disable[e].disabled = true;
                 }
-            }
+            }*/
         }
         // If the checkbox in question is checked, enable the area's second-level filters
-        else {
+        /*else {
             var to_enable = document.getElementsByName(checkboxes[j].id);
             for (var e = 0; e < to_enable.length; e++) {
                 if (to_enable[e].disabled == true)
                     to_enable[e].disabled = false;
             }
-        }
+        }*/
     }
     console.log(unchecked_boxes);
     // If all boxes are checked, simply display all projects
@@ -243,10 +252,11 @@ function filterProjects(callback) {
                 // as above, but compare against the project's topics instead
                 else {
                     // Iterate through this project's areas
-                    for (var a = 0; a < tmp_liquid_projects[x].areas.length; a++) {
+                    // Deprecated
+                    //for (var a = 0; a < tmp_liquid_projects[x].areas.length; a++) {
                         // Iterate through area's topics
-                        for (var u = 0; u < tmp_liquid_projects[x].areas[a].topics.length; u++) {
-                            if (tmp_liquid_projects[x].areas[a].topics[u].tag == unchecked_boxes[l].id) {
+                        for (var u = 0; u < tmp_liquid_projects[x].topics.length; u++) {
+                            if (tmp_liquid_projects[x].topics[u].tag == unchecked_boxes[l].id) {
                                 // Same procedure as with first-level tags
                                 filtered_projects.push(tmp_liquid_projects[x]);
                                 results_found = true;
@@ -254,7 +264,7 @@ function filterProjects(callback) {
                             }
                             // If it does not contain any prohibited tag, do nothing again
                         }
-                    }
+                    //}
                 }
             }
         }

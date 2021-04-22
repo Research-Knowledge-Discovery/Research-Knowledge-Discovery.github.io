@@ -1,7 +1,12 @@
 ---
 research-areas:
-- name: Data Science
-  tag: ds
+  areas:
+  - name: Data Science
+    tag: ds
+  - name: Information Retrieval
+    tag: ir
+  - name: Natural Language Processing
+    tag: nlp
   topics:
   - name: ANN
     tag: ann
@@ -9,35 +14,43 @@ research-areas:
     tag: asset_wealth
   - name: CNN
     tag: cnn
+  - name: Computers and Society
+    tag: computers_society
+  - name: Data Journalism
+    tag: data_journalism
+  - name: Digital Societies
+    tag: digital_societies
   - name: Disaster Risk Management
     tag: disaster_risk_management
+  - name: Evaluation
+    tag: evaluation
   - name: Food Security
     tag: food_security
+  - name: Human-Computer-Interaction
+    tag: hci
+  - name: Information Extraction
+    tag: information_extraction
   - name: Nutrition
     tag: nutrition
+  - name: Online Evaluation
+    tag: online_evaluation
+  - name: Ranking
+    tag: ranking
+  - name: Recommendation Services
+    tag: recommendation_services
   - name: Tag 1 DS
     tag: tag1_ds
-  - name: Tag 2 DS
-    tag: tag2_ds
   - name: Tag 3 DS
     tag: tag3_ds
-  - name: Upscaling
-    tag: upscaling
-- name: Natural Language Processing
-  tag: nlp
-  topics:
-  - name: Tag 2 NLP
-    tag: tag2_nlp
-  - name: Tag 3 NLP
-    tag: tag3_nlp
-- name: Information Retrieval
-  tag: ir
-  topics:
-  - name: Tag 1 IR
-    tag: tag1_ir
-  - name: Tag 2 IR
-    tag: tag2_ir
   - name: Tag 3 IR
     tag: tag3_ir
+  - name: Tag 3 NLP
+    tag: tag3_nlp
   - name: Tag 4 IR
     tag: tag4_ir
+  - name: Topic 1
+    tag: topic1
+  - name: Upscaling
+    tag: upscaling
+  - name: e-Research
+    tag: e-research
