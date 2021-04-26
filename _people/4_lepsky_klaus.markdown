@@ -3,7 +3,7 @@ title: "Prof. Dr. Klaus Lepsky"
 titles: "Prof. Dr."
 firstname: "Klaus"
 lastname: "Lepsky"
-role: "[Position]"
+role: "Professor"
 research-interests:
 description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor"
 contact:

@@ -1,6 +1,7 @@
 ---
 nr: "2"
 title: "STELLA - Infrastructures for Living Labs"
+abbr: "stella"
 duration:
   beginning: "2018"
   end: "2021"
@@ -10,8 +11,8 @@ partners:
   - name: "ZB MED - Information Centre for Life Sciences"
     link: "https://www.zbmed.de/"
 funding:
-  name: "DFG - Deutsche Forschungsgemeinschaft"
-  link: "http://www.dfg.de/"
+  - name: "DFG - Deutsche Forschungsgemeinschaft"
+    link: "http://www.dfg.de/"
 description: ""
 main-logo: "../assets/images/projects/logos/dfg.png"
 people:

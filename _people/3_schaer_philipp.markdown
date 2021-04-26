@@ -3,7 +3,7 @@ title: "Prof. Dr. Philipp Schaer"
 titles: "Prof. Dr."
 firstname: "Philipp"
 lastname: "Schaer"
-role: "[Position]"
+role: "Professor"
 research-interests:
 description: "Philipp Schaer is Professor for Information Retrieval with the Institute of Information Science at TH Köln (University of Applied Sciences) where he teaches courses on Information Retrieval, Database Systems, and Search Engine Technology. <!--more-->
 He was team leader and postdoctoral researcher at the GESIS department Computational Social Science (CSS) where he led a team of computer, social and information scientist. His professional work was on topics like semi-/automatic indexing, semantic annotation, and using knowledge organization systems to enhance information retrieval. 

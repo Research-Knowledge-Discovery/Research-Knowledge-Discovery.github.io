@@ -36,7 +36,7 @@ plugins:
 # defined using the "theme" key even when a remote theme is set. To prevent confusing logs 
 # in development (as the used theme is logged in the terminal), theme is set null here.
 
-# theme: bulma-clean-theme
+#theme: bulma-clean-theme
 remote_theme:  "chrisrhymes/bulma-clean-theme"
 
 # Defining front matter defaults. This provides default values for front matters and prevents 

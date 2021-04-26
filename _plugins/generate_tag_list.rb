@@ -3,7 +3,8 @@
 # YAML: needed to convert result array to yaml file later
 require 'yaml'
 # Specifies the hook. This determines in which step of the build process this script will be run.
-Jekyll::Hooks.register :site, :pre_render do |site|
+Jekyll::Hooks.register :site, :post_read do |site|
+    puts "Running plugin generate_tag_list..."
     # Create arrays to hold area names and tags and topic names and tags
     $first_level = []
     $second_level = []

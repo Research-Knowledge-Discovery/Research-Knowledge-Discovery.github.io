@@ -1,6 +1,7 @@
 ---
 nr: "4"
 title: "PRIOR - PRepublicatIOn Radar"
+abbr: "prior"
 duration:
   beginning: "2017"
   end: "2018"
@@ -8,8 +9,8 @@ partners:
   - name: "Science Media Center"
     link: "https://www.sciencemediacenter.de/"
 funding:
-  name: "Google Digital News Initiative"
-  link: "http://www.digitalnewsinitiative.com/"
+  - name: "Google Digital News Initiative"
+    link: "http://www.digitalnewsinitiative.com/"
 description: ""
 main-logo: "../assets/images/projects/logos/dni.png"
 people:

@@ -5,7 +5,7 @@ layout: custom_default
     <div class="columns is-desktop custom">
         <div class="column">
             <div class="basicinfo">
-                <h2 class="name title is-5">{{ page.title }}</h1>
+                <h2 class="name title is-3">{{ page.title }}</h1>
             {% for category in page.research-areas %}
                 <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
             {% endfor %}<br/>
@@ -24,7 +24,7 @@ layout: custom_default
                     <li>Duration:</li>
                     <li>{{ page.duration.beginning }} - {{ page.duration.end }}</li>
                     <li>Funded by:</li>
-                    <li>{{ page.funding.name }}</li>
+                    <li><a href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
                     <li>Contact:</li>
                     <li>Abc</li>
                 </ul>
@@ -75,10 +75,12 @@ layout: custom_default
             {%- endfor -%}
         </div>
         <div class="content-2">
-            <h2 class="title is-6">Resources</h2>
+            <h2 class="title is-4">Resources</h2>
             <ul>
                 <li>...</li>
             </ul>
+            <h3 class="title is-5">Publications</h3>
+            {% include publications/{{ page.abbr }}.html %}
         </div>
     </div>
 </div>

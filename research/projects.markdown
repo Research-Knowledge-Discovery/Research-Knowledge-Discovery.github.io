@@ -55,7 +55,9 @@
                         {%- unless forloop.last -%},&#32;{%- endunless -%}
                     {%- endfor -%}
                     </li>
-                <li>Funded by: <a href="{{ project.funding.link }}">{{ project.funding.name }}</a></li>
+                <li>Funded by: 
+                    <a href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a>
+                </li>
             </ul>
         </div>
         <div class="emptydiv"></div>

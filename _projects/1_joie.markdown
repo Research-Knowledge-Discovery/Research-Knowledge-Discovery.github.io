@@ -1,6 +1,7 @@
 ---
 nr: "1"
 title: "JoIE - Journalistic Information Extraction"
+abbr: "joie"
 duration:
   beginning: "2020"
   end: "2023"
@@ -8,8 +9,8 @@ partners:
   - name: "Science Media Center"
     link: "https://www.sciencemediacenter.de/"
 funding: 
-  name: "Klaus Tschira Stiftung"
-  link: "https://www.klaus-tschira-stiftung.de/"
+  - name: "Klaus Tschira Stiftung"
+    link: "https://www.klaus-tschira-stiftung.de/"
 description: ""
 main-logo: "../assets/images/projects/logos/kts.png"
 people:

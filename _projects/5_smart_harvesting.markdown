@@ -1,6 +1,7 @@
 ---
 nr: "5"
 title: "Smart Harvesting II"
+abbr: "sh2"
 duration:
   beginning: "2016"
   end: "2019"
@@ -10,8 +11,8 @@ partners:
   - name: "GESIS - Leibniz Institute for the Social Sciences "
     link: "http://www.gesis.org/"
 funding:
-  name: "DFG - Deutsche Forschungsgemeinschaft"
-  link: "http://www.dfg.de/"
+  - name: "DFG - Deutsche Forschungsgemeinschaft"
+    link: "http://www.dfg.de/"
 description: ""
 main-logo: "../assets/images/projects/logos/dfg.png"
 people:

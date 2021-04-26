@@ -1,6 +1,7 @@
 ---
 nr: "7"
 title: "PREFECT - Development and evaluation of prediction models for the probability of famine catastrophes using data analytics techniques"
+abbr: "prefect"
 duration:
   beginning: "2018"
   end: "2019"
@@ -8,14 +9,14 @@ partners:
   - name: "Prof. Dr. Roberto Ivo da Rocha Lima Filho, Federal University of Rio de Janeiro, Brazil"
     link: "#"
 funding:
+  - name: "Engagement Global"
+    link: "https://www.engagement-global.de/"
   - name: "BMZ - Federal Ministry for Economic Cooperation and Development"
     link: "https://www.bmz.de/de"
   - name: "ASA Programme"
     link: "https://asa.engagement-global.de/start.html"
-  - name: "Project Sponsor: Engagement Global"
-    link: "https://www.engagement-global.de/"
 description: ""
-main-logo: "../assets/images/projects/logos/bmz.png"
+main-logo: "../assets/images/projects/logos/engagement-global.jpg"
 people: 
   - name: "Prof. Dr. Gernot Heisenberg"
   - name: "Regina Wirtz"

@@ -1,6 +1,7 @@
 ---
 nr: "3"
 title: "ESUPOL - Einfluss von Suchmaschinen auf die politische Meinungsbildung"
+abbr: "esupol"
 duration:
   beginning: "2018"
   end: "2022"
@@ -8,8 +9,8 @@ partners:
   - name: "University of Cologne"
     link: "http://www.uni-koeln.de/"
 funding:
-  name: "Ministerium für Kultur und Wissenschaft NRW"
-  link: "http://www.mkw.nrw/"
+  - name: "Ministerium für Kultur und Wissenschaft NRW"
+    link: "http://www.mkw.nrw/"
 description: ""
 main-logo: "../assets/images/projects/logos/nrw-mkw.png"
 people:

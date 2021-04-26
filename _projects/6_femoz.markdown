@@ -1,9 +1,10 @@
 ---
 nr: "6"
 title: "FEMOZ - Strengthening the Resilience of Rural Food Environments in the Context of Disaster Risk and Climate Change in MOZambique"
+abbr: "femoz"
 duration:
-  beginning: "?"
-  end: "?"
+  beginning: "2021"
+  end: "2024"
 partners:
   - name: "ITT - Institute for Technology and Resources Management in the Tropics and Subtropics"
     link: "https://www.th-koeln.de/en/spatial-development-and-infrastructure-systems/institute-for-technology-and-resources-management-in-the-tropics-and-subtropics_72473.php"
@@ -22,8 +23,8 @@ partners:
   - name: "Solar Power Stores"
     link: "#"
 funding:
-  name: "BLE - Federal Office for Agriculture and Food"
-  link: "https://www.ble.de/DE/Startseite/startseite_node.html"
+  - name: "BLE - Federal Office for Agriculture and Food"
+    link: "https://www.ble.de/DE/Startseite/startseite_node.html"
 description: ""
 main-logo: "../assets/images/projects/logos/ble.png"
 people:
