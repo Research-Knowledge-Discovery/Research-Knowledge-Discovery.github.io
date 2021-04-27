@@ -2,6 +2,9 @@
 # (=begin starts a multiline comment, =end ends it)
 # YAML: needed to convert result array to yaml file later
 require 'yaml'
+if !File.exist?('_data/auto_tags.yml')
+    File.open("_data/auto_tags.yml", 'w') {}
+end
 # Specifies the hook. This determines in which step of the build process this script will be run.
 Jekyll::Hooks.register :site, :post_read do |site|
     puts "Running plugin generate_tag_list..."
@@ -61,6 +64,14 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # funtion later
     $alltags = {  'research-areas' => { 'areas' => $first_level_sorted, 'topics' => $second_level_sorted }}
     # Convert the array to YAML and write to file
-    File.open("_data/auto_tags.yml", 'w') {|f| f.write($alltags.to_yaml) }
+    if !site.data['auto_tags']
+        File.open("_data/auto_tags.yml", 'w') {|f| f.write($alltags.to_yaml) }
+    else
+        
+        if $alltags != site.data['auto_tags']
+            puts "Used tags and internal tag list do not match. Updating..."
+            File.open("_data/auto_tags.yml", 'w') {|f| f.write($alltags.to_yaml) }
+        end
+    end
 end
 #=end

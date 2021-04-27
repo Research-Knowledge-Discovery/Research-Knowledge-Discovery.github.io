@@ -14,8 +14,6 @@
       link: /research/research-areas.html
     - name: Projects
       link: /research/projects.html
-    - name: Publications
-      link: /research/publications.html
 - name: Theses &amp; Jobs
   link: /theses-and-jobs/
   dropdown:

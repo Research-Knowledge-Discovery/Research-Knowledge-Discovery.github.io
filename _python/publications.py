@@ -2,8 +2,8 @@
 
 import requests
 import os
+from bs4 import BeautifulSoup
 
-os.makedirs('../_includes/publications', exist_ok=True)
 os.makedirs('../_includes/publications', exist_ok=True)
 
 #tags_ir = ['schaer','haak','neumann','bonart','breuer','sh2','esupol','prior','stella','joie','engelmann']
@@ -23,8 +23,17 @@ with open(filename_nlp) as f_nlp:
 tags_nlp = [x.rstrip('\n') for x in tags_nlp] 
 
 # base = 'https://www.bibsonomy.org/layout/harvardhtmlyear/user/irgroup_thkoeln'
+base_ds = 'https://www.gernotheisenberg.de/publikationen.html'
 base_ir = 'https://www.bibsonomy.org/layout/publist-year-en/user/irgroup_thkoeln'
-base_nlp = 'https://www.bibsonomy.org/layout/publist-year-en/user/lepsky'
+base_nlp = 'https://www.bibsonomy.org/layout/publist-year-en/user/lepsky/myown'
+
+page = requests.get(base_ds)
+ds_raw = page.content
+ds_fullhtml = BeautifulSoup(ds_raw, 'html.parser')
+ds_html = ds_fullhtml.findAll('div', class_='entry-content clearfix')
+for content in ds_html:
+    print(str(content))
+    with open('../_includes/publications/heisenberg.html', mode='w', encoding='utf-8') as localfile: localfile.write(str(content))
 
 # get single publists per tag (ir)
 for tag in tags_ir:
@@ -32,8 +41,12 @@ for tag in tags_ir:
     page = requests.get(url)
     with open('../_includes/publications/'+ tag +'.html', mode='wb') as localfile: localfile.write(page.content)
 
+# get nlp myown publist and assign to professor lepsky
+page = requests.get(base_nlp)
+with open('../_includes/publications/lepsky.html', mode='wb') as localfile: localfile.write(page.content)
+
 # get single publists per tag (nlp)
 for tag in tags_nlp:
-    url = base_nlp + "/" + tag + '?resourcetype=publication&items=500&duplicates=merged'
+    url = base_nlp + " " + tag + '?resourcetype=publication&items=500&duplicates=merged'
     page = requests.get(url)
     with open('../_includes/publications/'+ tag +'.html', mode='wb') as localfile: localfile.write(page.content)
