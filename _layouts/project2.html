@@ -6,13 +6,11 @@ layout: custom_default
         <div class="column">
             <div class="basicinfo">
                 <h2 class="name title is-3">{{ page.title }}</h1>
-            {% for category in page.research-areas %}
+            {% for category in page.research-areas.areas %}
                 <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
             {% endfor %}<br/>
-            {% for category in page.research-areas %}
-                {% for topic in category.topics %}
+            {% for topic in page.research-areas.topics %}
                 <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
-                {% endfor %}
             {% endfor %}
             </div>
             <div class="content"><p>{{ content }}</p></div>
@@ -22,11 +20,27 @@ layout: custom_default
             <div class ="factlist-1">
                 <ul class="singlelist no-icon">
                     <li>Duration:</li>
-                    <li>{{ page.duration.beginning }} - {{ page.duration.end }}</li>
+                    <li>{{ page.duration.beginning.year }}{% if page.duration.beginning.month != "" %}-{{ page.duration.beginning.month }}{% endif %} - {{ page.duration.end.year }}{% if page.duration.end.month != "" %}-{{ page.duration.end.month }}{% endif %}</li>
                     <li>Funded by:</li>
                     <li><a href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
                     <li>Contact:</li>
-                    <li>Abc</li>
+                    <li>
+                        {%- assign found_contact = false -%}
+                        {%- for member in site.people -%}
+                        <!-- If the names match, add a link to the member's personal data -->
+                            {%- if member.title == page.contact -%}
+                                <p>
+                                    <a href="{{ member.url }}">{{ page.contact }}</a>
+                                </p>
+                                {%- assign found_contact = true -%}
+                                <!-- Break to prevent further execution of the for loop if the according member has already been found -->
+                                {%- break -%}
+                            {%- endif -%}
+                        {%- endfor -%}
+                        {%- if found_contact != true -%}
+                            <p>{{- page.contact -}}</p>
+                        {%- endif -%}
+                    </li>
                 </ul>
             </div>
         </div>

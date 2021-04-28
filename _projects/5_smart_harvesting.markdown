@@ -3,8 +3,12 @@ nr: "5"
 title: "Smart Harvesting II"
 abbr: "sh2"
 duration:
-  beginning: "2016"
-  end: "2019"
+  beginning: 
+    year: "2016"
+    month: ""
+  end: 
+    year: "2019"
+    month: ""
 partners:
   - name: "dblp - Computer Science Bibliography @ University of Trier"
     link: "http://dblp.uni-trier.de/"
@@ -19,15 +23,18 @@ people:
   - name: "Prof. Dr. Philipp Schaer"
   - name: "Mandy Neumann (Technische Hochschule Köln)"
     externallink: "#"
+contact: "Prof. Dr. Philipp Schaer"
 research-areas:
     areas: 
       - name: "Information Retrieval"
         tag: "ir"
     topics:
-      - name: "Tag 3 IR"
-        tag: "tag3_ir"
-      - name: "Tag 4 IR"
-        tag: "tag4_ir"
+      - name: "Web Scraping"
+        tag: "web_scraping"
+      - name: "Digital Library"
+        tag: "digital_library"
+      - name: "DBLP"
+        tag: "dblp"
 ---
 <!--more-->In the project “Smart Harvesting II”, software-based solutions for the collection and processing of bibliographic data from the web are developed. We would like to develop a 'smart' set of tools and workflows to allow non-programmers to build a rich set of web scrapers to build online bibliographies out of freely available web resources.<!--more-->
 

@@ -3,8 +3,12 @@ nr: "2"
 title: "STELLA - Infrastructures for Living Labs"
 abbr: "stella"
 duration:
-  beginning: "2018"
-  end: "2021"
+  beginning: 
+    year: "2018"
+    month: ""
+  end: 
+    year: "2021"
+    month: ""
 partners:
   - name: "GESIS - Leibniz Institute for the Social Sciences"
     link: "http://www.gesis.org/"
@@ -26,6 +30,7 @@ people:
     externallink: "https://www.gesis.org/person/johann.schaible"
   - name: "Narges Tavakolpoursaleh (GESIS)"
     externallink: "https://www.gesis.org/person/narges.tavakolpoursaleh"
+contact: "Prof. Dr. Philipp Schaer"
 research-areas:
     areas:
       - name: "Information Retrieval"

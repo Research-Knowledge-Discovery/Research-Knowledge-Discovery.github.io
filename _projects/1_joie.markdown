@@ -3,8 +3,12 @@ nr: "1"
 title: "JoIE - Journalistic Information Extraction"
 abbr: "joie"
 duration:
-  beginning: "2020"
-  end: "2023"
+  beginning: 
+    year: "2020"
+    month: ""
+  end: 
+    year: "2023"
+    month: ""
 partners:
   - name: "Science Media Center"
     link: "https://www.sciencemediacenter.de/"
@@ -18,6 +22,7 @@ people:
   - name: "M.Sc. Björn Engelmann"
   - name: "Dr. Meik Bittkowski (Science Media Center)"
     externallink: "https://www.sciencemediacenter.de/das-smc/team/"
+contact: "Prof. Dr. Philipp Schaer"
 research-areas:
     areas: 
       - name: "Information Retrieval"

@@ -3,8 +3,12 @@ nr: "7"
 title: "PREFECT - Development and evaluation of prediction models for the probability of famine catastrophes using data analytics techniques"
 abbr: "prefect"
 duration:
-  beginning: "2018"
-  end: "2019"
+  beginning: 
+    year: "2018"
+    month: ""
+  end: 
+    year: "2019"
+    month: ""
 partners:
   - name: "Prof. Dr. Roberto Ivo da Rocha Lima Filho, Federal University of Rio de Janeiro, Brazil"
     link: "#"
@@ -23,11 +27,20 @@ people:
   - name: "Lisa Koeritz"
   - name: "M.Sc. Sven Wöhrle"
   - name: "Lars Caspersen"
+contact: "Prof. Dr. Gernot Heisenberg"
 research-areas:
   areas: 
-    - name: ""
-      tag: ""
-  topics: ""
+    - name: "Data Science"
+      tag: "ds"
+  topics:
+    - name: "Food Security"
+      tag: "food_security"
+    - name: "Nutrition"
+      tag: "nutrition"
+    - name: "Disaster Management"
+      tag: "disaster_management"
+    - name: "Predictive Modeling"
+      tag: "predictive_modeling"
 ---
 <!--more-->This project aims at increasing the lead time prior to famine catastrophes, and thus supporting aid organizations in consistent and sustainable planning of countermeasures, by developing a mathematical prediction model that is able to compute the probability of a famine catastrophe by learning from data.
 <!--more-->

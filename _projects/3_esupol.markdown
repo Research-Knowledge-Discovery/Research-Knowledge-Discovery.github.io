@@ -3,8 +3,12 @@ nr: "3"
 title: "ESUPOL - Einfluss von Suchmaschinen auf die politische Meinungsbildung"
 abbr: "esupol"
 duration:
-  beginning: "2018"
-  end: "2022"
+  beginning: 
+    year: "2018"
+    month: ""
+  end: 
+    year: "2022"
+    month: ""
 partners:
   - name: "University of Cologne"
     link: "http://www.uni-koeln.de/"
@@ -22,6 +26,7 @@ people:
     externallink: "http://www.cccp.uni-koeln.de/de/team/doctoral-researchers/franziska-pradel/"
   - name: "M.Sc. Malte Bonart (until 12/2019) (Technische Hochschule Köln)"
     externallink: "https://ir.web.th-koeln.de/people/malte-bonart"
+contact: "Prof. Dr. Philipp Schaer"
 research-areas:
     areas:
       - name: "Information Retrieval"

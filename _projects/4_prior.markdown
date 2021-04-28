@@ -3,8 +3,12 @@ nr: "4"
 title: "PRIOR - PRepublicatIOn Radar"
 abbr: "prior"
 duration:
-  beginning: "2017"
-  end: "2018"
+  beginning: 
+    year: "2017"
+    month: "03"
+  end: 
+    year: "2018"
+    month: "03"
 partners:
   - name: "Science Media Center"
     link: "https://www.sciencemediacenter.de/"
@@ -23,15 +27,20 @@ people:
     externallink: "#"
   - name: "Ralph Willrich (Technische Hochschule Köln)"
     externallink: "#"
+contact: "Prof. Dr. Philipp Schaer"
 research-areas:
   areas:
-    - name: "Data Science"
-      tag: "ds"
     - name: "Information Retrieval"
       tag: "ir"
   topics:
-    - name: "Topic 1"
-      tag: "topic1"
+    - name: "Science Journalism"
+      tag: "science_journalism"
+    - name: "Information Extraction"
+      tag: "information_extraction"
+    - name: "Semi-structured Documents"
+      tag: "sem-structured_documents"
+    - name: "Google"
+      tag: "google"
 ---
 Journalists who report about science or fight “alternative facts” need fast access to up-to-date and reliable scientific information. Nowadays one research paper is published every 13 seconds. Due to this ever increasing amount of new scientific papers published every day journalists face the issue of information overload. PRIOR will be a tool to ease this problem by identifying relevant studies within an incoming stream of announcements of scientific publications. It will increase the probability for science journalists to identify the major breakthroughs relevant to the broader public.
 

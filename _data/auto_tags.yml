@@ -16,16 +16,24 @@ research-areas:
     tag: cnn
   - name: Computers and Society
     tag: computers_society
+  - name: DBLP
+    tag: dblp
   - name: Data Journalism
     tag: data_journalism
+  - name: Digital Library
+    tag: digital_library
   - name: Digital Societies
     tag: digital_societies
+  - name: Disaster Management
+    tag: disaster_management
   - name: Disaster Risk Management
     tag: disaster_risk_management
   - name: Evaluation
     tag: evaluation
   - name: Food Security
     tag: food_security
+  - name: Google
+    tag: google
   - name: Human-Computer-Interaction
     tag: hci
   - name: Information Extraction
@@ -34,10 +42,16 @@ research-areas:
     tag: nutrition
   - name: Online Evaluation
     tag: online_evaluation
+  - name: Predictive Modeling
+    tag: predictive_modeling
   - name: Ranking
     tag: ranking
   - name: Recommendation Services
     tag: recommendation_services
+  - name: Science Journalism
+    tag: science_journalism
+  - name: Semi-structured Documents
+    tag: sem-structured_documents
   - name: Tag 1 DS
     tag: tag1_ds
   - name: Tag 3 DS
@@ -46,11 +60,9 @@ research-areas:
     tag: tag3_ir
   - name: Tag 3 NLP
     tag: tag3_nlp
-  - name: Tag 4 IR
-    tag: tag4_ir
-  - name: Topic 1
-    tag: topic1
   - name: Upscaling
     tag: upscaling
+  - name: Web Scraping
+    tag: web_scraping
   - name: e-Research
     tag: e-research

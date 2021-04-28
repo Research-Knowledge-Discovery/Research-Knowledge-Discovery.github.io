@@ -3,8 +3,12 @@ nr: "6"
 title: "FEMOZ - Strengthening the Resilience of Rural Food Environments in the Context of Disaster Risk and Climate Change in MOZambique"
 abbr: "femoz"
 duration:
-  beginning: "2021"
-  end: "2024"
+  beginning: 
+    year: "2021"
+    month: "03"
+  end: 
+    year: "2024"
+    month: "03"
 partners:
   - name: "ITT - Institute for Technology and Resources Management in the Tropics and Subtropics"
     link: "https://www.th-koeln.de/en/spatial-development-and-infrastructure-systems/institute-for-technology-and-resources-management-in-the-tropics-and-subtropics_72473.php"
@@ -30,6 +34,7 @@ main-logo: "../assets/images/projects/logos/ble.png"
 people:
   - name: "Prof. Dr. Gernot Heisenberg"
   - name: "M.Sc. Sven Wöhrle"
+contact: "Prof. Dr. Gernot Heisenberg"
 research-areas:
   areas: 
     - name: "Data Science"
