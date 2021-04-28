@@ -1,0 +1,39 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% assign pages_sorted = site.pages | sort: 'url' %}
+{% for page in pages_sorted %}
+    {% unless page.url == '/assets/css/app.css' or page.url == '/assets/js/filter.js' or page.url == '/robots.txt' %}
+        <url>
+        <loc>https://research-knowledge-discovery.github.io{{ page.url }}</loc>
+        <lastmod></lastmod>
+        </url>
+    {% endunless %}
+{% endfor %}
+{% for person in site.people %}
+    <url>
+      <loc>https://research-knowledge-discovery.github.io{{ person.url }}</loc>
+      <lastmod></lastmod>
+    </url>
+{% endfor %}
+{% for project in site.projects %}
+    <url>
+      <loc>https://research-knowledge-discovery.github.io{{ project.url }}</loc>
+      <lastmod></lastmod>
+    </url>
+{% endfor %}
+{% for thesis in site.bsc-msc-theses %}
+    <url>
+      <loc>https://research-knowledge-discovery.github.io{{ thesis.url }}</loc>
+      <lastmod></lastmod>
+    </url>
+{% endfor %}
+{% for home_news in site.news %}
+    <url>
+      <loc>https://research-knowledge-discovery.github.io{{ home_news.url }}</loc>
+      <lastmod></lastmod>
+    </url>
+{% endfor %}
+</urlset>

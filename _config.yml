@@ -30,14 +30,14 @@ github_username:  jekyll
 # Build settings
 plugins:
   - jekyll-feed
- # - jekyll-remote-theme
+  - jekyll-remote-theme
 
 # Default-Theme "Primer" is automatically added by GitHub Pages when no theme has been
 # defined using the "theme" key even when a remote theme is set. To prevent confusing logs 
 # in development (as the used theme is logged in the terminal), theme is set null here.
 
-theme: bulma-clean-theme
-#remote_theme:  "chrisrhymes/bulma-clean-theme"
+#theme: bulma-clean-theme
+remote_theme:  "chrisrhymes/bulma-clean-theme"
 
 # Defining front matter defaults. This provides default values for front matters and prevents 
 # having to manually set, for example, a layout on every file. Empty front matters must still

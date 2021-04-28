@@ -1,0 +1,14 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{% for file in site.static_files %}
+    {% if file.path contains "/assets/images" %}
+    <url>
+    <loc>https://research-knowledge-discovery.github.io{{ file.path }}</loc>
+    <lastmod></lastmod>
+    </url>
+    {% endif %}
+{% endfor %}
+</urlset>
