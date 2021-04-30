@@ -1,14 +1,1 @@
----
-layout: null
----
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-{% for file in site.static_files %}
-    {% if file.path contains "/assets/images" %}
-    <url>
-    <loc>https://research-knowledge-discovery.github.io{{ file.path }}</loc>
-    <lastmod></lastmod>
-    </url>
-    {% endif %}
-{% endfor %}
-</urlset>
+<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://research-knowledge-discovery.github.io/assets/images/home_img1.png</loc><lastmod>2021-04-15T14:49:21+02:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/postimage.png</loc><lastmod>2021-03-08T14:45:23+01:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/ble.png</loc><lastmod>2021-04-20T14:58:50+02:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/bmz.png</loc><lastmod>2021-04-20T14:53:51+02:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dfg.png</loc><lastmod>2021-04-20T15:03:23+02:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dni.png</loc><lastmod>2021-04-20T14:41:39+02:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/kts.png</loc><lastmod>2021-04-20T14:41:58+02:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/nrw-mkw.png</loc><lastmod>2021-04-20T14:41:48+02:00</lastmod></url><url><loc>https://research-knowledge-discovery.github.io/assets/images/testimage.png</loc><lastmod>2021-02-16T13:31:21+01:00</lastmod></url></urlset>

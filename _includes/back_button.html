@@ -1,0 +1,21 @@
+<div id="backlink-area">
+    <a href="" id="backlink"><i class="arrow left"></i>Back to overview</a>
+</div>
+<script>
+    var loc = window.location.href;
+    var parts = loc.split('/');
+    parts.pop();
+    var backlink = "";
+    console.log(parts);
+    for (var i = 0; i < parts.length; i++) {
+        backlink = backlink + parts[i];
+        if (i != parts.length - 1)
+            backlink = backlink + "/";
+    }
+    backlink = backlink + ".html";
+    console.log(backlink);
+    link_element = document.getElementById('backlink');
+    link_element.href = backlink;
+    //var area = document.getElementById('backlink-area');
+    //area.appendChild(link_element);
+</script>

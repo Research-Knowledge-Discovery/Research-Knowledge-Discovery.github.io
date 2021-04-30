@@ -31,15 +31,37 @@ body {
     padding: 1.5rem;
 }
 
+@media screen and (min-width: 1408px) {
+    .sidebar.column.is-4-desktop.is-12-tablet {
+        max-width: 1500px;
+    }
+}
+
+.container:not(.is-max-desktop):not(.is-max-widescreen) {
+    max-width: 1500px;
+}
+
 @media screen and (min-width: 769px) {
+    // To delete. Sidebar is hidden up until a width of 1024, other rules apply then
     .sidebar.column.is-4-desktop.is-12-tablet {
         width: 100%;
     }
+
+    .column.is-10, .column.is-10-tablet {
+        flex: none;
+        width: 100%;
+    }
+
 }
 
 @media screen and (min-width: 1024px) {
     .sidebar.column.is-4-desktop.is-12-tablet {
         width: 15%;
+    }
+
+    .column.is-10, .column.is-10-tablet {
+        flex: none;
+        width: 80%;
     }
 }
 
@@ -442,6 +464,7 @@ div.entry-content h4 {
     flex-wrap: wrap;
     background-color: #eee;
     padding: 10px;
+    margin: 0px 10px;
 }
 
 .second-level div.tagcontainer {
@@ -454,15 +477,39 @@ div.entry-content h4 {
     text-align: center;
     background-color: #ddd;
     padding: 10px 0px;
+    padding: 10px 20px;
+    margin-left: 10px;
 }
 
 .toggle:hover {
     color: #6b6b6b;
+    background-color: #eee;
 }
 
 .toggle.main-toggle {
     margin-bottom: 1.5rem;
     display: none;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-right: 6px;
+    margin-bottom: 1px;
 }
 
 #submit_filters {

@@ -63,12 +63,14 @@ defaults:
       type: "people"
     values:
       layout: "person2"
+      show_back_button: true
   -
     scope:
       path: ""
       type: "projects"
     values:
       layout: "project2"
+      show_back_button: true
 
 # Adding collections. Collections provide an easy to set up an architecture for group related
 # content, such as members of a group or talks at a conference. New entries to a collection
