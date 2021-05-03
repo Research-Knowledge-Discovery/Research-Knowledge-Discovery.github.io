@@ -23,7 +23,7 @@ for (var z = 0; z < to_toggle.length; z++) {
             // If it is visible, hide it and vice versa
             var filter_container = e.target.nextElementSibling;
             if (checkVisibility(filter_container) == 'none') {
-                toggleVisibility(filter_container, 'flex')
+                toggleVisibility(filter_container, 'block')
                 // When filter container content is shown, change the toggle element's text to "Hide filters"
                 e.target.innerHTML = "- Hide filters -";
             }
@@ -56,6 +56,31 @@ for (var z = 0; z < to_toggle.length; z++) {
         }
     }); 
 }
+
+function resetVisibility_desktop(mediaQuery) {
+    // If page is resized past a breakpoint:
+    if (mediaQuery.matches) {
+        var filter_container = document.getElementsByClassName("filter-container")[0];
+        if (checkVisibility(filter_container) == 'none')
+            toggleVisibility(filter_container, 'block');
+    }
+}
+
+function resetVisibility_mobile(mediaQuery) {
+    // If page is resized past a breakpoint:
+    if (mediaQuery.matches) {
+        var filter_container = document.getElementsByClassName("filter-container")[0];
+        if (checkVisibility(filter_container) == 'block')
+            toggleVisibility(filter_container, 'none')
+            var main_toggle = document.getElementsByClassName("main-toggle")[0];
+            main_toggle.innerHTML = "- Show filters -";
+    }
+}
+
+var mediaQuery_desktop = window.matchMedia("(min-width: 1024px)");
+var mediaQuery_mobile = window.matchMedia("(max-width: 1024px)");
+mediaQuery_mobile.addListener(resetVisibility_mobile);
+mediaQuery_desktop.addListener(resetVisibility_desktop);
 
 // Second: prepare project lists and checkboxes list to filter later
 

@@ -14,7 +14,6 @@ title: "People"
                     <h2 class="title is-5"><a href="{{ person.url }}">{{ person.firstname }} {{ person.lastname }}</a></h2>
                     <h3 class="subtitle">{{ person.role }}</h3>
                 </div>
-                <!-- Maybe add a description to every person -->
                 {% assign excerpt = person.description | split: site.excerpt_separator %}
                 <p class="description overview to-hide">{% if excerpt.size > 0 %}{{ excerpt[0] }}{% elsif person.description != null %}{{ person.description }}{% else %}{% endif %}</p>
             <div class="emptydiv" style=""></div>

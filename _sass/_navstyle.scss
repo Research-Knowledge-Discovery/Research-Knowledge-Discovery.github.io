@@ -126,13 +126,41 @@ body {
         grid-column-start: 1;
         grid-column-end: 3;
     }    
+
+    .image.profile.detail {
+        grid-area: image;
+    }
+
+    .factlist-1.person {
+        grid-area: contact;
+    }
+
+    .factlist-2.person {
+        grid-area: social;
+    }
+
+    .column.is-narrow {
+        display: grid;
+        grid-template-areas: 
+            "image contact"
+            "image social";
+    }
+
+    .image.profile.overview {
+        justify-self: end;
+    }
+
+    // TODO: Show breadcrumb (maybe)
+}
+
+@media screen and (max-width: 768px), print {
     
     .description.overview.to-hide {
         display: none;
         margin-left: 1rem;
     }
-    // TODO: Show breadcrumb (maybe)
 }
+
 
 #first-heading {
     margin-bottom: 2.5rem
@@ -147,6 +175,7 @@ body {
     align-self: center;
     height: auto;
     box-shadow: 5px 5px 10px #bbb;
+    margin-bottom: 1.5rem;
 }
 
 .image.profile.overview {
@@ -397,9 +426,9 @@ div.entry-content h4 {
         display: grid;
         grid-template-areas:
             "basicinfo image"
-            "description description"
-            "factlist-1 factlist-1"
+            "factlist-1 image"
             "factlist-2 factlist-2"
+            "description description"
             "link .";
     }
 
@@ -492,7 +521,7 @@ div.entry-content h4 {
 }
 
 .arrow {
-    border: solid black;
+    border: solid #4a4a4a;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
@@ -541,7 +570,8 @@ div.entry-content h4 {
 }
 
 .factlist-2 {
-    grid-area: factlist-2
+    grid-area: factlist-2;
+    font-size: 0.8rem;
 }
 
 .content-1 {
@@ -554,6 +584,7 @@ div.entry-content h4 {
 
 .description {
     grid-area: description;
+    margin-bottom: 1.5rem;
 }
 
 .factlist-1 {
@@ -609,6 +640,11 @@ div.entry-content h4 {
     
     .filter-container {
         display: none;
+    }
+
+    .second-level div.tagcontainer {
+        flex-basis: 40%;
+        margin: 5px 5px;
     }
 
     .area {

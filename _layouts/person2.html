@@ -8,22 +8,35 @@ layout: custom_default
             <h3 class="position title is-6">{{ page.role }}</h3>
         </div>
         <p class="description">{{ page.description }}</p>
+        <div class="content-1">
+            <h2 class="title is-6">Projects</h2>
+            {%- for project in site.projects -%}
+                {%- for person in project.people -%}
+                    {%- if person.name == page.title -%}
+                    <p>
+                        <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+                    </p>
+                    {%- break -%}
+                    {%- endif -%}
+                {%- endfor -%}
+            {%- endfor -%}
+        </div>
     </div>
     <div class="column is-narrow">
         {% assign escaped_fn = page.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
         {% assign escaped_ln = page.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
         <img class="image center-cropped profile detail" src="../../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
-        <div class ="factlist-1">
-            <p>Contact:</p>
+        <div class ="factlist-1 person">
+            <!--<p>Contact:</p>-->
             <ul class="singlelist">
-                <li>{{ page.contact.address }}</li>
-                <li>{{ page.contact.phone }}</li>
+                <li class="address">{{ page.contact.address }}</li>
+                <li class="phone">{{ page.contact.phone }}</li>
                 <li>{{ page.contact.fax }}</li>
-                <li>{{ page.contact.mail }}</li>
+                <li class="mail">{{ page.contact.mail }}</li>
             </ul>
         </div>
-        <div class="factlist-2">
-            <p>Social Media:</p> 
+        <div class="factlist-2 person">
+            <!--<p>Social Media:</p> -->
             <ul class="singlelist">
                 <li>{{ page.social_media.linkedin }}</li>
                 <li>{{ page.social_media.twitter }}</li>
@@ -32,20 +45,8 @@ layout: custom_default
         </div>
     </div>
 </div>
+<hr/>
 <div>
-    <div class="content-1">
-        <h2 class="title is-6">Projects</h2>
-        {%- for project in site.projects -%}
-            {%- for person in project.people -%}
-                {%- if person.name == page.title -%}
-                <p>
-                    <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
-                </p>
-                {%- break -%}
-                {%- endif -%}
-            {%- endfor -%}
-        {%- endfor -%}
-    </div>
     <div class="content-2">
         <h2 class="title is-6">Publications</h2>
         {% assign ln_downcase = page.lastname | downcase %}
