@@ -1,7 +1,6 @@
 _site/2021/03/01/test.html
 _site/404.html
 _site/about-us/infrastructure.markdown
-_site/about-us/organisation.markdown
 _site/about-us/people/1-woehrle-sven.html
 _site/about-us/people/2-heisenberg-gernot.html
 _site/about-us/people/3-schaer-philipp.html

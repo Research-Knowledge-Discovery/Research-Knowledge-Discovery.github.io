@@ -31,6 +31,10 @@ body {
     padding: 1.5rem;
 }
 
+.footer {
+    background-color: #e9e9e9;
+}
+
 @media screen and (min-width: 1408px) {
     .sidebar.column.is-4-desktop.is-12-tablet {
         max-width: 1500px;
@@ -153,11 +157,35 @@ body {
     // TODO: Show breadcrumb (maybe)
 }
 
-@media screen and (max-width: 768px), print {
+@media screen and (max-width: 768px) {
+    .partners {
+        display: none;
+    }
+
+    .funding {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px), print {
     
     .description.overview.to-hide {
         display: none;
-        margin-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px), print {
+    
+    .image.profile.overview {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 450px), print {
+    
+    .column.is-narrow {
+        display: none;
     }
 }
 
@@ -204,13 +232,12 @@ body {
     grid-template-rows: auto auto;
 }
 
-.person>div {
+/*.person>div {
     margin: 0.5rem 1rem;
-}
+}*/
 
 .description.overview {
     display: block;
-    margin-left: 1rem;
 }
 
 .name_desc {
@@ -237,9 +264,14 @@ body {
     grid-area: link;
 }
 
+.personlink {
+    display: flex;
+    flex-direction: column;
+}
+
 .person {
     margin-bottom: 2.5rem;
-    display: grid;
+    //display: grid;
     grid-template-areas:
         "image basicinfo"
         "image description"
@@ -423,7 +455,7 @@ div.entry-content h4 {
 
     .person {
         margin-bottom: 2.5rem;
-        display: grid;
+        //display: grid;
         grid-template-areas:
             "basicinfo image"
             "factlist-1 image"
@@ -660,10 +692,10 @@ div.entry-content h4 {
 
 @media screen and (max-width: 1300px) {
     
-    .factlist-1 {
+    /*.factlist-1 {
         font-size: 1em;
         max-width: 100%;
-    }
+    }*/
     
    
 }
@@ -672,6 +704,9 @@ div.entry-content h4 {
   
     .columns.is-desktop.custom {
         display: block;
+    }
+    .image.main-logo {
+        max-width: 180px;
     }
 
 }
@@ -682,4 +717,7 @@ div.entry-content h4 {
         display: flex;
     }
 
+    .readmore {
+        display: none;
+    }
 }

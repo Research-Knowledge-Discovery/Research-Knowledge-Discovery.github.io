@@ -16,4 +16,7 @@ social_media:
   linkedin: "abc"
   twitter: "abc"
   researchgate: "abc"
+links:
+  ext-profile: https://ir.web.th-koeln.de/people/bjoern-engelmann/
+  th-koeln: https://www.th-koeln.de/personen/bjoern.engelmann/
 ---

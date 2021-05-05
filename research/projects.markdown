@@ -25,13 +25,14 @@
                 <img class="image main-logo" src="{{ project.main-logo }}"/>
                 <div class="lists">
                     <ul>
-                        <li>Duration: {{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {{ project.duration.end.year }}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}</li>
+                        <li class="duration">Duration: {{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {{ project.duration.end.year }}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}</li>
                         <!-- Since liquid tags print as a newline in the rendered HTML, the added whitespace is stripped here by including hyphens to liquid tags. Newlines between tags are added for better readability in the code, needed whitespace is encoded -->
-                        <li>Partners:&#32;
-                            {%- for partner in project.partners -%}
+                        <li class="partners">Partners:&#32;
+                            {%- for partner in project.partners limit: 4 -%}
                                 <a href="{{ partner.link }}">{{ partner.name }}</a><!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{% unless forloop.last %}, {% endunless %}
+                                {% if forloop.last and project.partners.size > 4 %} and {{ project.partners.size | minus: 4 }} more{%- endif -%}
                             {%- endfor -%}</li>
-                        <li>People involved:&#32;
+                        <li class="people-involved">People involved:&#32;
                             {%- for person in project.people -%}
                                 <!-- If an external link is provided in the project data, add the name with an external link -->
                                 {%- if person.externallink != null -%}
@@ -57,13 +58,15 @@
                                 {%- unless forloop.last -%},&#32;{%- endunless -%}
                             {%- endfor -%}
                             </li>
-                        <li>Funded by: 
+                        <li class="funding">Funded by: 
                             <a href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="emptydiv"></div>
+                <p><a class="readmore" href="{{ project.url }}">> Read more</a></p>
             </div>
+            <hr/>
             {% endfor %}
         {% endfor %}
         <p id="noresults">No results found.</p>

@@ -76,6 +76,11 @@ Jekyll::Hooks.register :site, :post_read do |site|
         else
             puts 'Directory structure has been changed. Updating sitemap...'
             write_sitemap $sitemap, "sitemap"
+            # Update reference file
+            File.open("sitemap-reference.txt", 'w') {}
+            $sitemap.each do |item|
+                File.open("sitemap-reference.txt", 'a') {|f| f.write(item + "\n")}
+            end
         end
     end
 
@@ -96,6 +101,10 @@ Jekyll::Hooks.register :site, :post_read do |site|
         else
             puts 'Directory structure has been changed. Updating image sitemap...'
             write_sitemap $sitemap_img, "sitemap-image"
+            File.open("sitemap-img-reference.txt", 'w') {}
+            $sitemap_img.each do |item|
+                File.open("sitemap-img-reference.txt", 'a') {|f| f.write(item + "\n")}
+            end
         end
     end    
 end

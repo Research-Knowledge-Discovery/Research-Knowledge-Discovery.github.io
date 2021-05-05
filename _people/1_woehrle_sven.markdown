@@ -5,7 +5,7 @@ firstname: "Sven"
 lastname: "Wöhrle"
 role: "Research Coordinator / PhD Student"
 research-interests:
-description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+description: "Sven Wöhrle is the coordinator of the research focus Research Knowledge Discovery. He is responsible for the organization of the research focus and writes proposals, organizes meetings like the Research Colloquium and is in charge of the research data management.<!--more--> Furthermore he is a research associate and PhD Student as part of the team led by Prof. Dr. Gernot Heisenberg. With his geographical background he is researching food security in the Femoz program from a data analytic point of view, using socioeconomic, health and remote sensing data. With the ASA exchange program he participated in the Prefect-project focusing on food security at the Horn of Africa in 2019."
 contact:
   address: "1"
   phone: "2"
@@ -15,4 +15,6 @@ social_media:
   linkedin: "abc"
   twitter: "abc"
   researchgate: "abc"
+links:
+  th-koeln: https://www.th-koeln.de/personen/sven.woehrle/
 ---

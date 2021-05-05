@@ -1,8 +1,6 @@
 - name: About Us
   link: /about-us/
   dropdown:
-    - name: Organisation
-      link: /about-us/organisation.html
     - name: People
       link: /about-us/people.html
     - name: Infrastructure
@@ -14,10 +12,12 @@
       link: /research/research-areas.html
     - name: Projects
       link: /research/projects.html
-- name: Theses &amp; Jobs
-  link: /theses-and-jobs/
-  dropdown:
-    - name: BSc-/MSc-Theses
-      link: /theses-and-jobs/bsc-msc-theses.html
-    - name: Open Positions
-      link: /theses-and-jobs/open-positions.html
+#- name: Theses &amp; Jobs
+#  link: /theses-and-jobs/
+#  dropdown:
+#    - name: BSc-/MSc-Theses
+#      link: /theses-and-jobs/bsc-msc-theses.html
+#    - name: Open Positions
+#      link: /theses-and-jobs/open-positions.html
+#- name: News
+#  link: /news.html
