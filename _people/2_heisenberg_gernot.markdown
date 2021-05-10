@@ -17,4 +17,5 @@ social_media:
   researchgate: "abc"
 links:
   th-koeln: https://www.th-koeln.de/personen/gernot.heisenberg/
+  private-site: https://www.gernotheisenberg.de/
 ---

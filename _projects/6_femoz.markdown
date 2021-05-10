@@ -1,7 +1,7 @@
 ---
 nr: "6"
 title: "FEMOZ - Strengthening the Resilience of Rural Food Environments in the Context of Disaster Risk and Climate Change in MOZambique"
-abbr: "femoz"
+abbr: "FEMOZ"
 duration:
   beginning: 
     year: "2021"

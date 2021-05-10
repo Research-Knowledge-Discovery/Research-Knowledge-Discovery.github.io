@@ -54,6 +54,11 @@ defaults:
       show_sidebar: true # Enabling a sidebar on all files of type "pages" (not posts or collections)
   -
     scope:
+      path: "index.markdown"
+    values:
+      show_sidebar: false # Disabling sidebar on page "Home"
+  -
+    scope:
       path: ""
     values:
       layout: "custom_default" # Setting a default layout to all pages

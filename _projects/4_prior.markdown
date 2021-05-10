@@ -1,7 +1,7 @@
 ---
 nr: "4"
 title: "PRIOR - PRepublicatIOn Radar"
-abbr: "prior"
+abbr: "PRIOR"
 duration:
   beginning: 
     year: "2017"

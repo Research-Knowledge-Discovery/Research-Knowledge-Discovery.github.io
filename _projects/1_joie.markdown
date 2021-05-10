@@ -1,7 +1,7 @@
 ---
 nr: "1"
 title: "JoIE - Journalistic Information Extraction"
-abbr: "joie"
+abbr: "JoIE"
 duration:
   beginning: 
     year: "2020"
@@ -12,7 +12,8 @@ duration:
 partners:
   - name: "Science Media Center"
     link: "https://www.sciencemediacenter.de/"
-funding: 
+funding: # Implemented as an array even if there is only one entry, 
+# so in a reference to this field no check for whether there are multiple entries or not is needed
   - name: "Klaus Tschira Stiftung"
     link: "https://www.klaus-tschira-stiftung.de/"
 description: ""

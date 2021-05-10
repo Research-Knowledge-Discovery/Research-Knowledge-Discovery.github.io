@@ -1,7 +1,7 @@
 ---
 nr: "5"
 title: "Smart Harvesting II"
-abbr: "sh2"
+abbr: "SH2"
 duration:
   beginning: 
     year: "2016"

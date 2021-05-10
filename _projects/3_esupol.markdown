@@ -1,7 +1,7 @@
 ---
 nr: "3"
 title: "ESUPOL - Einfluss von Suchmaschinen auf die politische Meinungsbildung"
-abbr: "esupol"
+abbr: "ESUPOL"
 duration:
   beginning: 
     year: "2018"

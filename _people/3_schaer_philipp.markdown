@@ -21,4 +21,5 @@ social_media:
 links:
   ext-profile: https://ir.web.th-koeln.de/people/philipp-schaer/
   th-koeln: https://www.th-koeln.de/personen/philipp.schaer/
+  private-site: https://ir.web.th-koeln.de/
 ---

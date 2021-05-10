@@ -15,4 +15,6 @@ social_media:
   linkedin: "abc"
   twitter: "abc"
   researchgate: "abc"
+links:
+  private-site: https://www.indexierung-retrieval.de/
 ---

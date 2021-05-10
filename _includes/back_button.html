@@ -2,20 +2,22 @@
     <a href="" id="backlink"><i class="arrow left"></i>Back to overview</a>
 </div>
 <script>
+    // Get the url of the page currently shown and remove the last part up until a slash
     var loc = window.location.href;
     var parts = loc.split('/');
     parts.pop();
     var backlink = "";
     console.log(parts);
+    // Put the parts back together into a string
     for (var i = 0; i < parts.length; i++) {
         backlink = backlink + parts[i];
         if (i != parts.length - 1)
             backlink = backlink + "/";
     }
+    // Append .html to properly adress the HTML file to show (omitting .html, e.g. https://[baseurl]/projects, creates bugs)
     backlink = backlink + ".html";
     console.log(backlink);
     link_element = document.getElementById('backlink');
+    // Set the backlink's href attribute accordingly
     link_element.href = backlink;
-    //var area = document.getElementById('backlink-area');
-    //area.appendChild(link_element);
 </script>

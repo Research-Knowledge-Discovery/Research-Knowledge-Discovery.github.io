@@ -5,7 +5,14 @@ layout: custom_default
     <div class="columns is-desktop custom">
         <div class="column">
             <div class="basicinfo">
-                <h2 class="name title is-3">{{ page.title }}</h1>
+                <!-- Split the title by " - " if it exists in the string to separate title and subtitle from
+                one another. If all of the title is displayed in the page header it becomes too big, so part
+                of the title is displayed in the actual content section of the page -->
+                {% if page.title contains " - " %}
+                    {% assign title_array = page.title | split: " - " %}
+                    {% assign subtitle = title_array[1] %}
+                {% endif %}
+                <h3 class="name title is-5">{{ subtitle }}</h3>
             {% for category in page.research-areas.areas %}
                 <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
             {% endfor %}<br/>
@@ -13,6 +20,7 @@ layout: custom_default
                 <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
             {% endfor %}
             </div>
+            <hr/>
             <div class="content"><p>{{ content }}</p></div>
         </div>
         <div class="column is-narrow-desktop">
@@ -20,6 +28,7 @@ layout: custom_default
             <div class ="factlist-1">
                 <ul class="singlelist no-icon">
                     <li>Duration:</li>
+                    <!-- Also show month if it exists -->
                     <li>{{ page.duration.beginning.year }}{% if page.duration.beginning.month != "" %}-{{ page.duration.beginning.month }}{% endif %} - {{ page.duration.end.year }}{% if page.duration.end.month != "" %}-{{ page.duration.end.month }}{% endif %}</li>
                     <li>Funded by:</li>
                     <li><a href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
@@ -29,9 +38,15 @@ layout: custom_default
                         {%- for member in site.people -%}
                         <!-- If the names match, add a link to the member's personal data -->
                             {%- if member.title == page.contact -%}
-                                <p>
-                                    <a href="{{ member.url }}">{{ page.contact }}</a>
-                                </p>
+                                {% if member.links.ext-profile %}
+                                    <p>
+                                        <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ page.contact }} <i class="fas fa-external-link-alt"></i></a>
+                                    </p>
+                                {% else %}
+                                    <p>
+                                        <a href="{{ member.url }}">{{ page.contact }}</a>
+                                    </p>
+                                {% endif %}
                                 {%- assign found_contact = true -%}
                                 <!-- Break to prevent further execution of the for loop if the according member has already been found -->
                                 {%- break -%}
@@ -63,9 +78,9 @@ layout: custom_default
         <div class="content-1">
             <h2 class="title is-6">People involved</h2>
             {%- for person in page.people -%}
-                {%- if person.externallink != null -%}
+                {%- if person.externallink != null and person.externallink != "#" -%}
                     <p>
-                        <a href="{{ person.externallink }}">{{ person.name }}</a>
+                        <a href="{{ person.externallink }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
                     </p>
                 {%- else -%} <!-- If no external link is given, the person in question is either a staff member or no further personal data can be provided -->
                     <!-- Check if person's name can be found in collection 'people' -->
@@ -73,15 +88,22 @@ layout: custom_default
                     {%- for member in site.people -%}
                         <!-- If the names match, add a link to the member's personal data -->
                         {%- if member.title == person.name -%}
-                            <p>
-                                <a href="{{ member.url }}">{{ person.name }}</a>
-                            </p>
+                            {%- if member.links.ext-profile -%}
+                                <p>
+                                    <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                                </p>
+                            {%- else -%}
+                                <p>
+                                    <a href="{{ member.url }}">{{ person.name }}</a>
+                                </p>
+                            {%- endif -%}
                             {%- assign found = true -%}
                             <!-- Break to prevent further execution of the for loop if the according member has already been found -->
                             {%- break -%}
                         {%- endif -%}
                     {%- endfor -%}
-                    <!-- If the person's name did not match any of the staff members, simply add the name in plain text -->
+                    <!-- If the person's name did not match any of the staff members and did not include an external link,
+                    simply add the name in plain text -->
                     {%- if found != true -%}
                         <p>{{- person.name -}}</p>
                     {%- endif -%}
@@ -94,7 +116,9 @@ layout: custom_default
                 <li>...</li>
             </ul>
             <h3 class="title is-5">Publications</h3>
-            {% include publications/{{ page.abbr }}.html %}
+            <!-- Include publications. The fitting file name is provided by reading the project's abbreviation 
+                from the front matter-->
+            {% include publications/{{ page.abbr | downcase }}.html %}
         </div>
     </div>
 </div>

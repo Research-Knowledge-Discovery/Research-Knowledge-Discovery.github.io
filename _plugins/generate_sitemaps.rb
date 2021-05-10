@@ -1,6 +1,6 @@
 require 'pathname'
 
-Jekyll::Hooks.register :site, :post_read do |site|
+Jekyll::Hooks.register :site, :post_write do |site|
    
     $sitemap = []
     $sitemap_img = []

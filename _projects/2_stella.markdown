@@ -1,7 +1,7 @@
 ---
 nr: "2"
 title: "STELLA - Infrastructures for Living Labs"
-abbr: "stella"
+abbr: "STELLA"
 duration:
   beginning: 
     year: "2018"

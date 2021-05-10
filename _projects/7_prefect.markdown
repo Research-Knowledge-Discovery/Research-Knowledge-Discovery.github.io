@@ -1,7 +1,7 @@
 ---
 nr: "7"
 title: "PREFECT - Development and evaluation of prediction models for the probability of famine catastrophes using data analytics techniques"
-abbr: "prefect"
+abbr: "PREFECT"
 duration:
   beginning: 
     year: "2018"

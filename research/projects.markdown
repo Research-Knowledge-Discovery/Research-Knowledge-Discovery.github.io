@@ -1,13 +1,16 @@
 ---
+title: "Projects"
 ---
-# Projects
-{: #first-heading .title}
+<!--# Projects
+{: #first-heading .title}-->
 <div>
     {% include filters.html %}
     <hr/>
     <div>
+        <!-- Grouping projects by year -->
         {% assign grouped_projects = site.projects | group_by: 'duration.beginning.year' | sort: 'name' | reverse %}
         {% for p in grouped_projects %}
+            <!-- Sorting projects by month (reverse) -->
             {% assign projects_sorted = p.items | sort: "duration.beginning.month" | reverse %}
             {% for project in projects_sorted %}
                 <div id="{{ project.nr }}" class="singleproject">
@@ -19,14 +22,20 @@
                     {% for topic in project.research-areas.topics %}
                         <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
                     {% endfor %}
+                    <!-- Creating an excerpt by splitting at the excerpt separator (see _config.yml). If the split
+                    returned more than one element (= the description contained the separator), insert the excerpt.
+                    Project excerpts begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
+                    If no excerpt has been found, insert the default description (content) it it exists. -->
                     {%- assign excerpt = project.content | split: site.excerpt_separator -%}
                     <p>{%- if excerpt.size > 1 -%}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" }}{%- elsif project.content != null -%}{{ project.content }}{%- else -%}{%- endif -%}</p>
                 </div>
                 <img class="image main-logo" src="{{ project.main-logo }}"/>
-                <div class="lists">
+                <div class="lists mobile">
                     <ul>
                         <li class="duration">Duration: {{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {{ project.duration.end.year }}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}</li>
-                        <!-- Since liquid tags print as a newline in the rendered HTML, the added whitespace is stripped here by including hyphens to liquid tags. Newlines between tags are added for better readability in the code, needed whitespace is encoded -->
+                        <!-- (Todo: When does whitespace from liquid tags actually need to be stripped? Be consistent across all files)
+                        Since liquid tags print as a newline in the rendered HTML, the added whitespace is stripped here by including hyphens to liquid tags. 
+                        Newlines between tags are added for better readability in the code, needed whitespace is encoded -->
                         <li class="partners">Partners:&#32;
                             {%- for partner in project.partners limit: 4 -%}
                                 <a href="{{ partner.link }}">{{ partner.name }}</a><!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{% unless forloop.last %}, {% endunless %}
@@ -35,15 +44,19 @@
                         <li class="people-involved">People involved:&#32;
                             {%- for person in project.people -%}
                                 <!-- If an external link is provided in the project data, add the name with an external link -->
-                                {%- if person.externallink != null -%}
-                                    <a href="{{ person.externallink }}">{{ person.name }}</a>
+                                {%- if person.externallink != null and person.externallink != "#" -%}
+                                    <a href="{{ person.externallink }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
                                 {%- else -%} <!-- If no external link is given, the person in question is either a staff member or no further personal data can be provided -->
                                     <!-- Check if person's name can be found in collection 'people' -->
                                     {%- assign found = false -%}
                                     {%- for member in site.people -%}
                                         <!-- If the names match, add a link to the member's personal data -->
                                         {%- if member.title == person.name -%}
-                                            <a href="{{ member.url }}">{{ person.name }}</a>
+                                            {%- if member.links.ext-profile -%}
+                                                <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                                            {%- else -%}
+                                                <a href="{{ member.url }}">{{ person.name }}</a>
+                                            {%- endif -%}
                                             {%- assign found = true -%}
                                             <!-- Break to prevent further execution of the for loop if the according member has already been found -->
                                             {%- break -%}
@@ -65,8 +78,8 @@
                 </div>
                 <div class="emptydiv"></div>
                 <p><a class="readmore" href="{{ project.url }}">> Read more</a></p>
+                <hr/>
             </div>
-            <hr/>
             {% endfor %}
         {% endfor %}
         <p id="noresults">No results found.</p>

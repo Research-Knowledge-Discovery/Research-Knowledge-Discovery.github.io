@@ -42,7 +42,7 @@ body {
 }
 
 .container:not(.is-max-desktop):not(.is-max-widescreen) {
-    max-width: 1500px;
+    //max-width: 1500px;
 }
 
 @media screen and (min-width: 769px) {
@@ -86,23 +86,25 @@ body {
 }
 
 @media screen and (min-width: 769px), print {
-    .column.is-12, .column.is-12-tablet {
+    /*.column.is-12, .column.is-12-tablet {
         flex: 0 1 auto;
         width: 100%;
-    }
+    }*/
 }
 
 // Temporärer mobile Hero Style, noch zu erproben
 
 @media screen and (min-width: 769px), print {
     .hero.is-medium .hero-body {
-        padding: 5rem 1.5rem;
+        padding: 3rem 1.5rem;
+        //padding: 5rem 1.5rem;
     }
 }
 
 @media screen and (max-width: 450px), print {
     .hero.is-medium .hero-body {
-        padding: 5rem 1.5rem;
+        padding: 3rem 1.5rem;
+        //padding: 5rem 1.5rem;
     }
 }
 
@@ -143,11 +145,15 @@ body {
         grid-area: social;
     }
 
+    .columns.person div.column.image {
+        // Todo
+    } 
+
     .column.is-narrow {
-        display: grid;
-        grid-template-areas: 
-            "image contact"
-            "image social";
+        //display: grid;
+        //grid-template-areas: 
+        //    "image contact"
+        //    "image social";
     }
 
     .image.profile.overview {
@@ -157,7 +163,7 @@ body {
     // TODO: Show breadcrumb (maybe)
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px), print {
     .partners {
         display: none;
     }
@@ -165,6 +171,11 @@ body {
     .funding {
         display: none;
     }
+
+    .lists.mobile ul {
+        display: block;
+    }
+    
 }
 
 @media screen and (max-width: 700px), print {
@@ -177,6 +188,7 @@ body {
 @media screen and (max-width: 500px), print {
     
     .image.profile.overview {
+        // Max-width?
         width: 120px;
         height: 120px;
     }
@@ -222,14 +234,14 @@ body {
 }
 
 .person {
-    margin-bottom: 2.5rem;
-    display: grid;
+    //margin-bottom: 2.5rem;
+    //display: grid;
     // Ensure correct display of columns when image is missing. Without specifying a
     // width for the second column, grid sizes will vary if description texts are
     // too short to wrap. In that case, less than the full container width will be
     // used.
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
+    //grid-template-columns: auto 1fr;
+    //grid-template-rows: auto auto;
 }
 
 /*.person>div {
@@ -267,23 +279,33 @@ body {
 .personlink {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .person {
-    margin-bottom: 2.5rem;
+    //margin-bottom: 2.5rem;
     //display: grid;
-    grid-template-areas:
-        "image basicinfo"
-        "image description"
-        "image factlist-1"
-        "image factlist-2"
-        ". link";
+    //grid-template-areas:
+    //    "image basicinfo"
+    //    "image description"
+    //    "image factlist-1"
+    //    "image factlist-2"
+    //    ". link";
 }
 
 .singleproject {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
+}
+
+.singleproject hr {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+}
+
+hr {
+    background-color: #ededed;
 }
 
 // Kein Margin für singleproject wegen enthaltener div
@@ -403,10 +425,11 @@ div.entry-content h4 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .filter-container {
-    flex-direction: column;
+    //flex-direction: column;
     display: block;
 }
 
@@ -454,7 +477,7 @@ div.entry-content h4 {
     }
 
     .person {
-        margin-bottom: 2.5rem;
+        //margin-bottom: 2.5rem;
         //display: grid;
         grid-template-areas:
             "basicinfo image"
@@ -499,8 +522,9 @@ div.entry-content h4 {
 
 .area {
     flex-basis: calc(33.3333% - 20px);
-    margin: 0px 10px;
-    background-color: #407f92;
+    //margin: 0px 10px;
+    //background-color: #407f92;
+    background-color: #4c607f;
     border-radius: 3px;
     padding: 10px;
     color: white;
@@ -525,7 +549,7 @@ div.entry-content h4 {
     flex-wrap: wrap;
     background-color: #eee;
     padding: 10px;
-    margin: 0px 10px;
+    //margin: 0px 10px;
 }
 
 .second-level div.tagcontainer {
@@ -539,7 +563,7 @@ div.entry-content h4 {
     background-color: #ddd;
     padding: 10px 0px;
     padding: 10px 20px;
-    margin-left: 10px;
+    //margin-left: 10px;
 }
 
 .toggle:hover {
@@ -640,6 +664,10 @@ div.entry-content h4 {
 */
 
 .column div {
+    margin-bottom: 1.5rem;
+}
+
+.column.personinfo div:not(:last-child) {
     margin-bottom: 1.5rem;
 }
 
