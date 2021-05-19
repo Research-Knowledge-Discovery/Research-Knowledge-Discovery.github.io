@@ -11,6 +11,8 @@ layout: custom_default
                 {% if page.title contains " - " %}
                     {% assign title_array = page.title | split: " - " %}
                     {% assign subtitle = title_array[1] %}
+                {% else %}
+                    {% assign subtitle = page.title %}
                 {% endif %}
                 <h3 class="name title is-5">{{ subtitle }}</h3>
             {% for category in page.research-areas.areas %}
@@ -29,8 +31,8 @@ layout: custom_default
                 <ul class="singlelist no-icon">
                     <li>Duration:</li>
                     <!-- Also show month if it exists -->
-                    <li>{{ page.duration.beginning.year }}{% if page.duration.beginning.month != "" %}-{{ page.duration.beginning.month }}{% endif %} - {{ page.duration.end.year }}{% if page.duration.end.month != "" %}-{{ page.duration.end.month }}{% endif %}</li>
-                    <li>Funded by:</li>
+                    <li>{{ page.duration.beginning.year }}{% if page.duration.beginning.month != "" %}-{{ page.duration.beginning.month }}{% endif %} - {% if page.duration.end.year == "" %}today{% else %}{{ page.duration.end.year }}{% endif %}{% if page.duration.end.month != "" %}-{{ page.duration.end.month }}{% endif %}</li>
+                    <li>Client/Sponsor:</li>
                     <li><a href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
                     <li>Contact:</li>
                     <li>
@@ -62,18 +64,20 @@ layout: custom_default
     </div>
     <div>
         <div class="factlist-2">
-            <p>Partners:</p> 
-            <ul class="singlelist">
-                {%- for partner in page.partners -%}
-                    <li>
-                        {% if partner.link != null and partner.link != '#' %}
-                        <a href="{{ partner.link }}">{{ partner.name }}</a>
-                        {% else %}
-                        {{ partner.name }}
-                        {% endif %}
-                    </li>
-                {%- endfor -%}
-            </ul>
+            {% if page.partners %}
+                <p>Partners:</p> 
+                <ul class="singlelist">
+                    {%- for partner in page.partners -%}
+                        <li>
+                            {% if partner.link != null and partner.link != '#' %}
+                            <a href="{{ partner.link }}">{{ partner.name }}</a>
+                            {% else %}
+                            {{ partner.name }}
+                            {% endif %}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            {% endif %}
         </div>
         <div class="content-1">
             <h2 class="title is-6">People involved</h2>
@@ -117,8 +121,22 @@ layout: custom_default
             </ul>
             <h3 class="title is-5">Publications</h3>
             <!-- Include publications. The fitting file name is provided by reading the project's abbreviation 
-                from the front matter-->
-            {% include publications/{{ page.abbr | downcase }}.html %}
+                from the front matter and substituting forbidden characters (same procedure as when publication
+                files are created -->
+                {% assign abbr_new = page.abbr %}
+                {% if abbr_new contains "ö" %}
+                    {% assign abbr_new = abbr_new | replace: "ö", "oe" %}
+                {% endif %}
+                {% if abbr_new contains "ä" %}
+                    {% assign abbr_new = abbr_new | replace: "ä", "ae" %}
+                {% endif %}
+                {% if abbr_new contains "ü" %}
+                    {% assign abbr_new = abbr_new | replace: "ü", "ue" %}
+                {% endif %}
+                {% if abbr_new contains "ß" %}
+                    {% assign abbr_new = abbr_new | replace: "ß", "ss" %}
+                {% endif %}
+            {% include publications/{{ abbr_new }}.html %}
         </div>
     </div>
 </div>

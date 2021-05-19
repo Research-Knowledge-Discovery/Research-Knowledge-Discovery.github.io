@@ -10,6 +10,13 @@
 
 body {
     font-family: "Arial";
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
 }
 
 .hero.is-primary.is-bold {
@@ -35,38 +42,9 @@ body {
     background-color: #e9e9e9;
 }
 
-@media screen and (min-width: 1408px) {
-    .sidebar.column.is-4-desktop.is-12-tablet {
-        max-width: 1500px;
-    }
-}
 
 .container:not(.is-max-desktop):not(.is-max-widescreen) {
     //max-width: 1500px;
-}
-
-@media screen and (min-width: 769px) {
-    // To delete. Sidebar is hidden up until a width of 1024, other rules apply then
-    .sidebar.column.is-4-desktop.is-12-tablet {
-        width: 100%;
-    }
-
-    .column.is-10, .column.is-10-tablet {
-        flex: none;
-        width: 100%;
-    }
-
-}
-
-@media screen and (min-width: 1024px) {
-    .sidebar.column.is-4-desktop.is-12-tablet {
-        width: 15%;
-    }
-
-    .column.is-10, .column.is-10-tablet {
-        flex: none;
-        width: 80%;
-    }
 }
 
 .sidebar-heading {
@@ -85,121 +63,6 @@ body {
     margin: 3px 0px;
 }
 
-@media screen and (min-width: 769px), print {
-    /*.column.is-12, .column.is-12-tablet {
-        flex: 0 1 auto;
-        width: 100%;
-    }*/
-}
-
-// Temporärer mobile Hero Style, noch zu erproben
-
-@media screen and (min-width: 769px), print {
-    .hero.is-medium .hero-body {
-        padding: 3rem 1.5rem;
-        //padding: 5rem 1.5rem;
-    }
-}
-
-@media screen and (max-width: 450px), print {
-    .hero.is-medium .hero-body {
-        padding: 3rem 1.5rem;
-        //padding: 5rem 1.5rem;
-    }
-}
-
-// Styles for small devices
-@media screen and (max-width: 1024px) {
-    // Have all dropdowns be closed initially
-    .navbar-item.has-dropdown div.navbar-dropdown {
-        display: none;
-    }
-    // Hide sidebar
-    .sidebar {
-        display: none;
-    }
-
-    .lowerrow {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-    
-    .emptydiv {
-        display: none;
-    }
-
-    .lists {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }    
-
-    .image.profile.detail {
-        grid-area: image;
-    }
-
-    .factlist-1.person {
-        grid-area: contact;
-    }
-
-    .factlist-2.person {
-        grid-area: social;
-    }
-
-    .columns.person div.column.image {
-        // Todo
-    } 
-
-    .column.is-narrow {
-        //display: grid;
-        //grid-template-areas: 
-        //    "image contact"
-        //    "image social";
-    }
-
-    .image.profile.overview {
-        justify-self: end;
-    }
-
-    // TODO: Show breadcrumb (maybe)
-}
-
-@media screen and (max-width: 768px), print {
-    .partners {
-        display: none;
-    }
-
-    .funding {
-        display: none;
-    }
-
-    .lists.mobile ul {
-        display: block;
-    }
-    
-}
-
-@media screen and (max-width: 700px), print {
-    
-    .description.overview.to-hide {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 500px), print {
-    
-    .image.profile.overview {
-        // Max-width?
-        width: 120px;
-        height: 120px;
-    }
-}
-
-@media screen and (max-width: 450px), print {
-    
-    .column.is-narrow {
-        display: none;
-    }
-}
 
 
 #first-heading {
@@ -306,6 +169,11 @@ body {
 
 hr {
     background-color: #ededed;
+}
+
+.annotation {
+    font-style: italic;
+    font-weight: bold;
 }
 
 // Kein Margin für singleproject wegen enthaltener div
@@ -433,7 +301,345 @@ div.entry-content h4 {
     display: block;
 }
 
+
+
+/*.field {
+    display: flex; 
+    flex-direction: column;
+    //align-items: center;
+    flex-grow: 0;   
+    flex-shrink: 0;
+    flex-basis: 200px;
+    margin-right: 2rem;
+}
+*/
+
+.area {
+    flex-basis: calc(33.3333% - 20px);
+    //margin: 0px 10px;
+    //background-color: #407f92;
+    background-color: #4c607f;
+    border-radius: 3px;
+    padding: 10px;
+    color: white;
+    display: flex;
+}
+
+.area label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.area label span {
+    margin: 0px auto;
+    text-align: center;
+    align-self: center;
+}
+
+.buttons.horizontal-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons.buttons.horizontal-center :first-child {
+    margin-right: 15px;
+}
+
+#reset_filters {
+    display: none;
+}
+
+.second-level {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    //justify-content: space-between;
+    background-color: #eee;
+    padding: 10px;
+    //margin: 0px 10px;
+}
+
+.second-level div.tagcontainer {
+    flex-basis: 15%;
+    margin: 5px 5px;
+}
+
+#disable_all {
+    margin: 5px;
+}
+
+.toggle{
+    cursor: pointer;
+    text-align: center;
+    background-color: #ddd;
+    padding: 10px 0px;
+    padding: 10px 20px;
+    //margin-left: 10px;
+    flex-basis: 100%;
+}
+
+.toggle:hover {
+    color: #6b6b6b;
+    background-color: #eee;
+}
+
+.toggle.main-toggle {
+    margin-bottom: 1.5rem;
+    display: none;
+}
+
+.arrow {
+    border: solid #4a4a4a;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-right: 6px;
+    margin-bottom: 1px;
+}
+
+#submit_filters {
+    padding: 10px 20px;
+    font-size: 16px;
+    //margin-top: 1.5rem;
+    align-self: center;
+}
+
+#noresults {
+    display: none;
+}
+
+.basicinfo {
+    grid-area: basic-info;
+}
+
+.main-grid .image {
+    grid-area: image;
+    align-self: center;
+}
+
+.image.main-logo {
+    max-width: 250px;
+    margin-bottom: 2rem;
+}
+
+.factlist-1 {
+    grid-area: factlist-1
+}
+
+.factlist-2 {
+    grid-area: factlist-2;
+    font-size: 0.8rem;
+}
+
+.content-1 {
+    grid-area: content-1
+}
+
+.content-2 {
+    grid-area: content-2
+}
+
+.description {
+    grid-area: description;
+    margin-bottom: 1.5rem;
+}
+
+.factlist-1 {
+    font-size: 0.8em;
+    max-width: 250px;
+}
+
+/*.main-grid {
+    display: grid;
+    grid-template-columns: 4fr auto;
+    row-gap: 2rem;
+    column-gap: 2rem;
+    justify-content: center;
+    grid-template-areas:
+            "basic-info image"
+            "description factlist-1"
+            "factlist-2 factlist-2"
+            "content-1 content-1"
+            "content-2 content-2"
+}
+*/
+
+.column div {
+    margin-bottom: 1.5rem;
+}
+
+.column.personinfo div:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar.column.is-4-desktop.is-12-tablet {
+    width: 15%;
+}
+
+.column.is-10, .column.is-10-tablet {
+    flex: none;
+    width: 80%;
+}
+
+.columns.is-desktop.custom {
+    display: flex;
+}
+
+.readmore {
+    display: none;
+}
+
+.hero.is-medium .hero-body {
+    padding: 3rem 1.5rem;
+    //padding: 5rem 1.5rem;
+}
+
+// Additional media queries
+
+// Styles up to desktop
+
+@media screen and (max-width: 1300px) {
+    
+    /*.factlist-1 {
+        font-size: 1em;
+        max-width: 100%;
+    }*/
+  
+    .columns.is-desktop.custom {
+        display: block;
+    }
+    .image.main-logo {
+        max-width: 180px;
+    }
+
+    //.columns.is-desktop.custom {
+    //    display: flex;
+    //}
+
+    .readmore {
+        display: block;
+    }
+
+}
+
+// Styles up to tablet
+
 @media screen and (max-width: 1024px) {
+
+    .column.is-10, .column.is-10-tablet {
+        // Revise this rule, not specific enough, breaks desktop layout
+        //flex: none;
+        width: 100%;
+    }
+
+    .main-grid .image {
+        grid-area: image;
+        grid-row: 1 / span 1;
+        justify-self: end;
+    }
+
+    .basicinfo {
+        align-self: center;
+    }
+
+    .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+                "basic-info image"
+                "description description"
+                "factlist-1 factlist-1"
+                "factlist-2 factlist-2"
+                "content-1 content-1"
+                "content-2 content-2"
+    }
+    
+    .toggle.main-toggle {
+        display: block;
+    }
+    
+    .filter-container {
+        display: none;
+    }
+
+    .second-level div.tagcontainer {
+        flex-basis: 25%;
+        margin: 5px 5px;
+    }
+
+    .area {
+        flex-basis: 100%;
+        margin: 5px 0px;
+    }
+
+    .factlist-1 {
+        font-size: 1em;
+        max-width: 100%;
+    }
+
+    // Have all dropdowns be closed initially
+    .navbar-item.has-dropdown div.navbar-dropdown {
+        display: none;
+    }
+    // Hide sidebar
+    .sidebar {
+        display: none;
+    }
+
+    .lowerrow {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
+    .emptydiv {
+        display: none;
+    }
+
+    .lists {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }    
+
+    .image.profile.detail {
+        grid-area: image;
+    }
+
+    .factlist-1.person {
+        grid-area: contact;
+    }
+
+    .factlist-2.person {
+        grid-area: social;
+    }
+
+    .columns.person div.column.image {
+        // Todo
+    } 
+
+    .column.is-narrow {
+        //display: grid;
+        //grid-template-areas: 
+        //    "image contact"
+        //    "image social";
+    }
+
+    .image.profile.overview {
+        justify-self: end;
+    }
+
     /*.filters {
         display: grid;
         row-gap: 5px;
@@ -508,244 +714,99 @@ div.entry-content h4 {
     }
 }
 
+// Styles portrait tablet and up
 
-/*.field {
-    display: flex; 
-    flex-direction: column;
-    //align-items: center;
-    flex-grow: 0;   
-    flex-shrink: 0;
-    flex-basis: 200px;
-    margin-right: 2rem;
-}
-*/
+@media screen and (min-width: 769px) {
+    // To delete. Sidebar is hidden up until a width of 1024, other rules apply then
+    //.sidebar.column.is-4-desktop.is-12-tablet {
+    //    width: 100%;
+    //}
 
-.area {
-    flex-basis: calc(33.3333% - 20px);
-    //margin: 0px 10px;
-    //background-color: #407f92;
-    background-color: #4c607f;
-    border-radius: 3px;
-    padding: 10px;
-    color: white;
-    display: flex;
-}
-
-.area label {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.area label span {
-    margin: 0px auto;
-    text-align: center;
-    align-self: center;
-}
-
-.second-level {
-    display: none;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #eee;
-    padding: 10px;
-    //margin: 0px 10px;
-}
-
-.second-level div.tagcontainer {
-    flex-basis: 15%;
-    margin: 5px 5px;
-}
-
-.toggle{
-    cursor: pointer;
-    text-align: center;
-    background-color: #ddd;
-    padding: 10px 0px;
-    padding: 10px 20px;
-    //margin-left: 10px;
-}
-
-.toggle:hover {
-    color: #6b6b6b;
-    background-color: #eee;
-}
-
-.toggle.main-toggle {
-    margin-bottom: 1.5rem;
-    display: none;
-}
-
-.arrow {
-    border: solid #4a4a4a;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-}
-
-.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    margin-left: 10px;
-    margin-bottom: 3px;
-}
-
-.left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    margin-right: 6px;
-    margin-bottom: 1px;
-}
-
-#submit_filters {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-top: 2rem;
-    align-self: center;
-}
-
-#noresults {
-    display: none;
-}
-
-.basicinfo {
-    grid-area: basic-info;
-}
-
-.main-grid .image {
-    grid-area: image;
-    align-self: center;
-}
-
-.image.main-logo {
-    max-width: 250px;
-}
-
-.factlist-1 {
-    grid-area: factlist-1
-}
-
-.factlist-2 {
-    grid-area: factlist-2;
-    font-size: 0.8rem;
-}
-
-.content-1 {
-    grid-area: content-1
-}
-
-.content-2 {
-    grid-area: content-2
-}
-
-.description {
-    grid-area: description;
-    margin-bottom: 1.5rem;
-}
-
-.factlist-1 {
-    font-size: 0.8em;
-    max-width: 250px;
-}
-
-/*.main-grid {
-    display: grid;
-    grid-template-columns: 4fr auto;
-    row-gap: 2rem;
-    column-gap: 2rem;
-    justify-content: center;
-    grid-template-areas:
-            "basic-info image"
-            "description factlist-1"
-            "factlist-2 factlist-2"
-            "content-1 content-1"
-            "content-2 content-2"
-}
-*/
-
-.column div {
-    margin-bottom: 1.5rem;
-}
-
-.column.personinfo div:not(:last-child) {
-    margin-bottom: 1.5rem;
-}
-
-@media screen and (max-width: 1024px) {
-    .main-grid .image {
-        grid-area: image;
-        grid-row: 1 / span 1;
-        justify-self: end;
+    .column.is-10, .column.is-10-tablet {
+        // Revise this rule, not specific enough, breaks desktop layout
+        //flex: none;
+        //width: 100%;
     }
 
-    .basicinfo {
-        align-self: center;
-    }
+    /*.column.is-12, .column.is-12-tablet {
+        flex: 0 1 auto;
+        width: 100%;
+    }*/
 
-    .main-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-                "basic-info image"
-                "description description"
-                "factlist-1 factlist-1"
-                "factlist-2 factlist-2"
-                "content-1 content-1"
-                "content-2 content-2"
+    // Mobile hero bugfix
+    .hero.is-medium .hero-body {
+        padding: 3rem 1.5rem;
+        //padding: 5rem 1.5rem;
     }
-    
-    .toggle.main-toggle {
-        display: block;
-    }
-    
-    .filter-container {
+}
+
+
+
+// Styles up to portrait tablet
+
+
+@media screen and (max-width: 768px), print {
+    .partners {
         display: none;
+    }
+
+    .funding {
+        display: none;
+    }
+
+    .lists.mobile ul {
+        display: block;
     }
 
     .second-level div.tagcontainer {
         flex-basis: 40%;
         margin: 5px 5px;
     }
-
-    .area {
-        flex-basis: 100%;
-        margin: 5px 0px;
-    }
-
-    .factlist-1 {
-        font-size: 1em;
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 1300px) {
     
-    /*.factlist-1 {
-        font-size: 1em;
-        max-width: 100%;
-    }*/
+}
+
+@media screen and (max-width: 700px), print {
     
-   
-}
-
-@media screen and (max-width: 1300px) {
-  
-    .columns.is-desktop.custom {
-        display: block;
-    }
-    .image.main-logo {
-        max-width: 180px;
-    }
-
-}
-
-@media screen and (min-width: 1300px) {
-  
-    .columns.is-desktop.custom {
-        display: flex;
-    }
-
-    .readmore {
+    .description.overview.to-hide {
         display: none;
+    }
+}
+
+@media screen and (max-width: 500px), print {
+    
+    .image.profile.overview {
+        // Max-width?
+        width: 120px;
+        height: 120px;
+    }
+
+    .second-level div.tagcontainer {
+        flex-basis: 90%;
+        margin: 5px 5px;
+    }
+}
+
+
+// Repeated for testing purposes. Will be cleaned up
+@media screen and (max-width: 500px), print {
+
+    .second-level div.tagcontainer {
+        flex-basis: 90%;
+        margin: 5px 5px;
+    }
+}
+
+
+// Styles up to mobile
+
+@media screen and (max-width: 450px), print {
+    
+    .column.is-narrow {
+        display: none;
+    }
+
+    .hero.is-medium .hero-body {
+        //padding: 3rem 1.5rem;
+        //padding: 5rem 1.5rem;
     }
 }

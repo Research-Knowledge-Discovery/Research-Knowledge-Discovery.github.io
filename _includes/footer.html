@@ -1,18 +1,14 @@
 <footer class="footer">
     <div class="container">
-        
-        {% if site.footer_menu %}
         <div class="columns is-multiline">
-            {% for item in site.data[site.footer_menu] %}
             <div class="column has-text-centered">
                 <div>
-                    <a href="{{ item.link | relative_url }}" class="link">{{ item.name }}</a>
+                    <a href="https://www.th-koeln.de/hochschule/impressum_8159.php" class="link">Imprint (German)</a>
+                    <span> | </span>
+                    <a href="{{ site.baseurl }}/privacy-policy.html" class="link">Privacy Policy</a>
                 </div>
             </div>
-            {% endfor %}
         </div>
-        {% endif %}
-
         <div class="content is-small has-text-centered">
             <p class=""><!--Originally Copyright--></p>
         </div>

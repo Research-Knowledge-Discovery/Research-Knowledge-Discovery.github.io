@@ -1,6 +1,6 @@
 _site/2021/03/01/test.html
 _site/404.html
-_site/about-us/infrastructure.markdown
+_site/about-us/infrastructure.html
 _site/about-us/people/1-woehrle-sven.html
 _site/about-us/people/2-heisenberg-gernot.html
 _site/about-us/people/3-schaer-philipp.html
@@ -14,6 +14,7 @@ _site/feed.xml
 _site/index.html
 _site/jekyll/update/2021/01/28/welcome-to-jekyll.html
 _site/news.html
+_site/privacy-policy.html
 _site/README.md
 _site/research/projects/1-joie.html
 _site/research/projects/2-stella.html
@@ -22,6 +23,8 @@ _site/research/projects/4-prior.html
 _site/research/projects/5-smart-harvesting.html
 _site/research/projects/6-femoz.html
 _site/research/projects/7-prefect.html
+_site/research/projects/8-telekom.html
+_site/research/projects/9-xr-in-de.html
 _site/research/projects.html
 _site/research/publications/publication1.html
 _site/research/publications.html

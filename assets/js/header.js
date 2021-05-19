@@ -19,8 +19,10 @@ var open_menu;
 function changeSize(mediaQuery) {
     // If page is resized past a breakpoint:
     if (mediaQuery.matches) {
-        // TODO (maybe): close menu on resize past breakpoint on mobile (how?), currently stays
-        // open when window is resized to > 1024 and back
+        // Close menu on resize past breakpoint on mobile and back
+        //var navbar = document.getElementById('navMenu');
+        //if (navbar.classList.contains('is-active'))
+        //   navbar.classList.toggle('is-active');
 
         // Get all menu items with dropdowns
         var all_dropdowns = document.getElementsByClassName("navbar-item has-dropdown");

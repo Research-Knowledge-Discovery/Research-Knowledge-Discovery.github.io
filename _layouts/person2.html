@@ -8,30 +8,54 @@ layout: custom_default
             <h3 class="position title is-6">{{ page.role }}</h3>
         </div>
         <p class="description">{{ page.description }}</p>
-        <div class="content-1">
-            <h2 class="title is-6">Projects</h2>
-            {%- for project in site.projects -%}
-                {%- for person in project.people -%}
-                    {%- if person.name == page.title -%}
-                    <p>
-                        <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
-                    </p>
-                    {%- break -%}
+        {%- assign number_found = 0 -%}
+        {%- for project in site.projects -%}
+            {%- for person in project.people -%}
+                {%- if person.name == page.title -%}
+                    {%- assign number_found = number_found | plus: 1 -%}
+                    {%- if number_found == 1 -%}
+                        <div class="content-1">
+                            <h2 class="title is-6">Projects</h2>
+                            <ul>
                     {%- endif -%}
-                {%- endfor -%}
+                    <!-- Theoretical case. Right now, first if will never be true since only external people have
+                    worked on external projects up to this point. These persons' profiles are viewed on other websites
+                    and do not use this layout. -->
+                    {%- if project.externallink != null -%}
+                        <li>
+                            <a href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">{{ project.title }} <i class="fas fa-external-link-alt"></i></a>
+                        </li>
+                    {%- else -%}
+                        <li>
+                            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+                        </li>
+                    {%- endif -%}
+                    {%- break -%}
+                {%- endif -%}
             {%- endfor -%}
-        </div>
+        {%- endfor -%}
+        {%- if number_found > 0 -%}
+                </ul>
+            </div>
+        {%- endif -%}
     </div>
     <div class="column is-narrow">
-        {% assign escaped_fn = page.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
-        {% assign escaped_ln = page.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
-        <img class="image center-cropped profile detail" src="../../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
+        {% if page.placeholder-image == true %}
+            <img class="image center-cropped profile detail" src="../../assets/images/people/placeholder.png"/>
+        {% else %}
+            {% assign escaped_fn = page.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
+            {% assign escaped_ln = page.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
+            <img class="image center-cropped profile detail" src="../../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
+        {% endif %}
         <div class ="factlist-1 person">
             <!--<p>Contact:</p>-->
-            <ul class="singlelist">
-                <li class="address">{{ page.contact.address }}</li>
+            <ul class="">
+                <ul>
+                    <!--<li class="institution">{{ page.contact.address.institution }}</li>-->
+                    <li class="street">{{ page.contact.address.street }}</li>
+                    <li class="postcode">{{ page.contact.address.postcode }}</li>
+                </ul>
                 <li class="phone">{{ page.contact.phone }}</li>
-                <li>{{ page.contact.fax }}</li>
                 <li class="mail">{{ page.contact.mail }}</li>
             </ul>
         </div>

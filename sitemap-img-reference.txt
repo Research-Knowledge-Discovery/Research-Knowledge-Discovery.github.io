@@ -1,4 +1,5 @@
 _site/assets/images/home_img1.png
+_site/assets/images/people/placeholder.png
 _site/assets/images/postimage.png
 _site/assets/images/projects/logos/ble.png
 _site/assets/images/projects/logos/bmz.png
@@ -6,4 +7,5 @@ _site/assets/images/projects/logos/dfg.png
 _site/assets/images/projects/logos/dni.png
 _site/assets/images/projects/logos/kts.png
 _site/assets/images/projects/logos/nrw-mkw.png
+_site/assets/images/projects/logos/telekom.png
 _site/assets/images/testimage.png

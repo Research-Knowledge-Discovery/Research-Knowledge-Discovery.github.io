@@ -2,6 +2,7 @@
 nr: "1"
 title: "JoIE - Journalistic Information Extraction"
 abbr: "JoIE"
+externallink: "https://ir.web.th-koeln.de/projects/joie/"
 duration:
   beginning: 
     year: "2020"

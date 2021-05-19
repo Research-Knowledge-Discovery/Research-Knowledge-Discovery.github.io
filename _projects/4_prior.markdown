@@ -2,6 +2,7 @@
 nr: "4"
 title: "PRIOR - PRepublicatIOn Radar"
 abbr: "PRIOR"
+externallink: "https://ir.web.th-koeln.de/projects/prior/"
 duration:
   beginning: 
     year: "2017"
@@ -38,7 +39,7 @@ research-areas:
     - name: "Information Extraction"
       tag: "information_extraction"
     - name: "Semi-structured Documents"
-      tag: "sem-structured_documents"
+      tag: "semi-structured_documents"
     - name: "Google"
       tag: "google"
 ---

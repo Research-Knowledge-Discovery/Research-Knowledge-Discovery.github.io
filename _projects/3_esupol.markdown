@@ -2,6 +2,7 @@
 nr: "3"
 title: "ESUPOL - Einfluss von Suchmaschinen auf die politische Meinungsbildung"
 abbr: "ESUPOL"
+externallink: "https://ir.web.th-koeln.de/projects/esupol/"
 duration:
   beginning: 
     year: "2018"

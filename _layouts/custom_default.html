@@ -14,43 +14,45 @@
 <html {% if site.fixed_navbar %} class="has-navbar-fixed-{{ site.fixed_navbar }}" {% endif %}>
   {% include head.html %}
   <body>
-    {% include header.html %}
-    {% unless page.hide_hero %}
-        {% include custom_hero.html %}
-    {% endunless %}
-    {% include callouts.html %}
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <!-- Moved sidebar up in the code to display it on the left
-                side instead of the right side without defining its position
-                in CSS by using flex properties -->
-                {% if page.show_sidebar %}
-                    {% include sidebar.html %}
-                {% endif %}
-                {% if page.menubar_toc %}
-                <div class="column is-4-desktop is-4-tablet">
-                    {% assign contentsTitle = page.toc_title | default: 'Contents' %}
-                    {% include toc.html html=content class='menu-list' h_min=2 h_max=3 contents_title=contentsTitle %}
-                </div>
-                {% elsif page.menubar %}
-                <div class="column is-4-desktop is-4-tablet">
-                    {% include menubar.html %}
-                </div>
-                {% endif %}
-                <div class="column {{ content_width }}">
-                    {% if page.show_back_button %}
-                        {% include back_button.html %}
+      <div class="main">
+        {% include header.html %}
+        {% unless page.hide_hero %}
+            {% include custom_hero.html %}
+        {% endunless %}
+        {% include callouts.html %}
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <!-- Moved sidebar up in the code to display it on the left
+                    side instead of the right side without defining its position
+                    in CSS by using flex properties -->
+                    {% if page.show_sidebar %}
+                        {% include sidebar.html %}
                     {% endif %}
-                    {% include tabs.html %}
-                    {% include showcase.html %}
-                    {% include sponsors.html %}
-                    {% include gallery.html %}
-                    {{ content }}
+                    {% if page.menubar_toc %}
+                    <div class="column is-4-desktop is-4-tablet">
+                        {% assign contentsTitle = page.toc_title | default: 'Contents' %}
+                        {% include toc.html html=content class='menu-list' h_min=2 h_max=3 contents_title=contentsTitle %}
+                    </div>
+                    {% elsif page.menubar %}
+                    <div class="column is-4-desktop is-4-tablet">
+                        {% include menubar.html %}
+                    </div>
+                    {% endif %}
+                    <div class="column {{ content_width }}">
+                        {% if page.show_back_button %}
+                            {% include back_button.html %}
+                        {% endif %}
+                        {% include tabs.html %}
+                        {% include showcase.html %}
+                        {% include sponsors.html %}
+                        {% include gallery.html %}
+                        {{ content }}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     {% unless page.hide_footer %}
         {% include footer.html %}
     {% endunless %}

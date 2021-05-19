@@ -19,13 +19,13 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Knowledge Discovery
-email: your-email@example.com
+#email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  [Placeholder-Description]
+  Research focus of the Technische Hochschule Köln
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+#twitter_username: jekyllrb
+#github_username:  jekyll
 
 # Build settings
 plugins:

@@ -17,8 +17,12 @@ title: "People"
         {% assign escaped_ln = person.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" | replace: "ß", "ss" %}
             <!-- First column. Narrow columns only take up as much space as their content needs -->
             <div class="column image is-narrow">
-                <!-- Inlcuding image by name -->
-                <img class="image center-cropped profile overview round" src="../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
+                {% if person.placeholder-image == true %}
+                    <img class="image center-cropped profile overview round" src="../assets/images/people/placeholder.png"/>
+                {% else %}
+                    <!-- Inlcuding image by name -->
+                    <img class="image center-cropped profile overview round" src="../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
+                {% endif %}
             </div>
             <!-- Second column -->
             <div class="column personinfo">
@@ -34,15 +38,19 @@ title: "People"
                 <!-- If the separator has been found (size of result > 0), insert excerpt. Otherwise, insert person's description in full
                 (if it exists) -->
                 <p class="description overview to-hide">{% if excerpt.size > 0 %}{{ excerpt[0] }}{% elsif person.description != null %}{{ person.description }}{% else %}{% endif %}</p>
+                {% unless person.title == "Jüri Keller" %}
                 <div class="personlink">
                 <!-- Open external links in a new tab (target="_blank") and set fitting icon (todo: explain noopener noreferrer) -->
                     <a class="profile-link" href={% if person.links.ext-profile != null %}"{{ person.links.ext-profile }}" target="_blank" rel="noopener noreferrer"{% else %}"{{ person.url }}"{% endif %}>> Profile{% if person.links.ext-profile != null %} <i class="fas fa-external-link-alt"></i>{% endif %}</a> 
                     {% if person.links.th-koeln != null %}<a class="th-koeln-link" target="_blank" rel="noopener noreferrer" href="{{ person.links.th-koeln }}">> Employee Site TH <i class="fas fa-external-link-alt"></i></a>{% endif %}
                     {% if person.links.private-link != null %}<a class="private-link" target="_blank" rel="noopener noreferrer" href="{{ person.private-site }}">> Private Page <i class="fas fa-external-link-alt"></i></a>{% endif %}
                 </div>
+                {% endunless %}
             </div>
         </div>
         <!-- Horizontal rule (separating line) -->
-        <hr/>
+        {% unless forloop.last %}
+            <hr/>
+        {% endunless %}
     {% endfor %}
 </div>

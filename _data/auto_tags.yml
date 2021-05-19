@@ -8,6 +8,8 @@ research-areas:
   - name: Natural Language Processing
     tag: nlp
   topics:
+  - name: Adressable TV
+    tag: addressable_tv
   - name: ANN
     tag: ann
   - name: Asset Wealth
@@ -16,10 +18,12 @@ research-areas:
     tag: cnn
   - name: Computers and Society
     tag: computers_society
-  - name: DBLP
-    tag: dblp
+  - name: Cross Reality
+    tag: xr
   - name: Data Journalism
     tag: data_journalism
+  - name: DBLP
+    tag: dblp
   - name: Digital Library
     tag: digital_library
   - name: Digital Societies
@@ -28,6 +32,8 @@ research-areas:
     tag: disaster_management
   - name: Disaster Risk Management
     tag: disaster_risk_management
+  - name: e-Research
+    tag: e-research
   - name: Evaluation
     tag: evaluation
   - name: Food Security
@@ -51,7 +57,9 @@ research-areas:
   - name: Science Journalism
     tag: science_journalism
   - name: Semi-structured Documents
-    tag: sem-structured_documents
+    tag: semi-structured_documents
+  - name: Smart Advertising
+    tag: smart_advertising
   - name: Tag 1 DS
     tag: tag1_ds
   - name: Tag 3 DS
@@ -60,9 +68,9 @@ research-areas:
     tag: tag3_ir
   - name: Tag 3 NLP
     tag: tag3_nlp
+  - name: Television
+    tag: television
   - name: Upscaling
     tag: upscaling
   - name: Web Scraping
     tag: web_scraping
-  - name: e-Research
-    tag: e-research

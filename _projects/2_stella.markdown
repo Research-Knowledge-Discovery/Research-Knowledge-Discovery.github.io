@@ -2,6 +2,7 @@
 nr: "2"
 title: "STELLA - Infrastructures for Living Labs"
 abbr: "STELLA"
+externallink: "https://ir.web.th-koeln.de/projects/stella/"
 duration:
   beginning: 
     year: "2018"

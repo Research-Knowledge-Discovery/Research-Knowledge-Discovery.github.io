@@ -101,7 +101,6 @@ var liquid_projects = [];
 liquid_projects.push({
     "nr": "{{ project.nr }}",
     "name": "{{ project.title }}",
-    "summary": "{{ project.description }}",
     "areas": [{%- for area in project.research-areas.areas -%}{
         "name": "{{ area.name }}",
         "tag": "{{ area.tag }}"
@@ -164,6 +163,38 @@ var submit_button = document.getElementById("submit_filters");
 var projectdiv = all_projects[0].parentElement;
 // The message (initally hidden and toggled according to results in the filtering process).
 var noresults = document.getElementById("noresults");
+
+var disable_all = document.getElementById("disable_all");
+disable_all.addEventListener('click', function () {
+    for(var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = false;
+    }
+});
+
+// Adding reset button functionality
+var reset_button = document.getElementById("reset_filters");
+reset_button.addEventListener('click', function (e) {
+    for(var i = 0; i < checkboxes.length; i++) {
+        if(checkboxes[i].checked == false)
+            checkboxes[i].checked = true;
+    }
+    // Hide possibly open second level menu
+    var second_levels = document.getElementsByClassName("second-level");
+
+    // To be removed in future update (as there now is only one second-level
+    // dropdown. This still works, though.)
+    for (var p = 0; p < second_levels.length; p++) {
+        if (checkVisibility(second_levels[p]) != 'none')
+            toggleVisibility(second_levels[p], 'none');
+    }
+    fadeOut(projectdiv, function () {
+        filterProjects(function () {
+            fadeIn(projectdiv);
+        });
+    });
+});
+
+// Adding submit button functionality
 submit_button.addEventListener('click', function () {
     // Apply fade out effect, filter and fade back in, after one another. By utilizing
     // a callback structure, the next function in line will only execute when the previous
@@ -237,9 +268,15 @@ function filterProjects(callback) {
         // Hide "no results" message
         if (checkVisibility(noresults) != 'none')
             toggleVisibility(noresults, 'none');
+        // Hide "reset filters" button (<p>)
+        if (checkVisibility(reset_button) != 'none')
+            toggleVisibility(reset_button, 'none');
     }
     // If there are unchecked boxes
     else {
+        // Show "reset filters" button (<p>)
+        if (checkVisibility(reset_button) != 'block')
+            toggleVisibility(reset_button, 'block');
         // Create an array to hold projects that have been filtered out
         var filtered_projects = [];
         // This boolean will track if any projects matched any unchecked box at all. This is

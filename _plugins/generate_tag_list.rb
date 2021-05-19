@@ -56,9 +56,10 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # Remove duplicates from arrays
     $first_level_uniq = $first_level.uniq
     $second_level_uniq = $second_level.uniq
-    # Sort arrays by 'name' property
-    $first_level_sorted = $first_level_uniq.sort_by { |hsh| hsh['name'] }
-    $second_level_sorted = $second_level_uniq.sort_by { |hsh| hsh['name'] }
+    # Sort arrays by 'name' property (downcase since otherwise, tags that start
+    # with a downcase letter are sorted after uppercase letters)
+    $first_level_sorted = $first_level_uniq.sort_by { |hsh| hsh['name'].downcase }
+    $second_level_sorted = $second_level_uniq.sort_by { |hsh| hsh['name'].downcase }
     # Add them to the result array in a certain hash structure that matches the needed YAML format
     # so it can be converted to YAML seamlessly and be processed by pages using the filtering 
     # funtion later
@@ -69,7 +70,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     else
         
         if $alltags != site.data['auto_tags']
-            puts "Used tags and internal tag list do not match. Updating..."
+            puts "Used tags and internal tag list do not match. Updating internal tag list..."
             File.open("_data/auto_tags.yml", 'w') {|f| f.write($alltags.to_yaml) }
         end
     end

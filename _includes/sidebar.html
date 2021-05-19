@@ -24,7 +24,7 @@
                     {% if item.dropdown %}
                         <ul>
                         {% for subitem in item.dropdown %}
-                            {% if page.url contains subitem.link %} 
+                            {% if page.url contains subitem.key %} 
                                 <li>{{ subitem.name }}</li>
                             {% else %}
                                 <li>

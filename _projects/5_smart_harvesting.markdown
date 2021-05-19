@@ -2,6 +2,7 @@
 nr: "5"
 title: "Smart Harvesting II"
 abbr: "SH2"
+externallink: "https://ir.web.th-koeln.de/projects/smart_harvesting_ii/"
 duration:
   beginning: 
     year: "2016"

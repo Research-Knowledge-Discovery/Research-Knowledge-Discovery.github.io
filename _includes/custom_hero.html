@@ -6,6 +6,8 @@
                         {% if page.title contains " - " %}
                             {% assign title_array = page.title | split: " - " %}
                             {% assign cropped_title = title_array[0] %}
+                        {% else %}
+                            <h1 class="title is-2">{{ page.title }}</h1>
                         {% endif %}
                         <h1 class="title is-2">{{ cropped_title }}</h1>
                     {% else %}

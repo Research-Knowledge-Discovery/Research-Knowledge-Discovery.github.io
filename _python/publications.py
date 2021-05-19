@@ -47,8 +47,10 @@ if ds_html is not None:
 if html_woehrle is not None:
     #print(html_woehrle)
     with open('../_includes/publications/woehrle.html', mode='w', encoding='utf-8') as localfile: 
+        localfile.write('<ul>')
         for item in html_woehrle:
             localfile.write(str(item))
+        localfile.write('</ul>')
 
 # get single publists per tag (ir)
 #for tag in tags_ir:

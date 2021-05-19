@@ -4,8 +4,8 @@ title: "Projects"
 <!--# Projects
 {: #first-heading .title}-->
 <div>
+    <h2 class="title is-5">Exclude projects</h2>
     {% include filters.html %}
-    <hr/>
     <div>
         <!-- Grouping projects by year -->
         {% assign grouped_projects = site.projects | group_by: 'duration.beginning.year' | sort: 'name' | reverse %}
@@ -14,8 +14,13 @@ title: "Projects"
             {% assign projects_sorted = p.items | sort: "duration.beginning.month" | reverse %}
             {% for project in projects_sorted %}
                 <div id="{{ project.nr }}" class="singleproject">
+                <hr/>
                 <div class="projectcontainer">
-                    <h2 class="title is-5"><a href="{{ project.url }}">{{ project.title }}</a></h2>
+                    {% if project.externallink != null %}
+                        <h2 class="title is-5"><a href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">{{ project.title }} <i class="fas fa-external-link-alt"></i></a></h2>
+                    {% else %}
+                        <h2 class="title is-5"><a href="{{ project.url }}">{{ project.title }}</a></h2>
+                    {% endif %}
                     {% for category in project.research-areas.areas %}
                         <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
                     {% endfor %}<br/>
@@ -32,15 +37,17 @@ title: "Projects"
                 <img class="image main-logo" src="{{ project.main-logo }}"/>
                 <div class="lists mobile">
                     <ul>
-                        <li class="duration">Duration: {{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {{ project.duration.end.year }}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}</li>
+                        <li class="duration">Duration: {{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {% if project.duration.end.year == "" %}today{% else %}{{ project.duration.end.year }}{% endif %}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}{% if project.abbr == "xr" %}, <span class="annotation">annual study</span>{% endif %}</li>
                         <!-- (Todo: When does whitespace from liquid tags actually need to be stripped? Be consistent across all files)
                         Since liquid tags print as a newline in the rendered HTML, the added whitespace is stripped here by including hyphens to liquid tags. 
                         Newlines between tags are added for better readability in the code, needed whitespace is encoded -->
-                        <li class="partners">Partners:&#32;
+                        {% if project.partners %}
+                            <li class="partners">Partners:&#32;
                             {%- for partner in project.partners limit: 4 -%}
                                 <a href="{{ partner.link }}">{{ partner.name }}</a><!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{% unless forloop.last %}, {% endunless %}
                                 {% if forloop.last and project.partners.size > 4 %} and {{ project.partners.size | minus: 4 }} more{%- endif -%}
                             {%- endfor -%}</li>
+                        {% endif %}
                         <li class="people-involved">People involved:&#32;
                             {%- for person in project.people -%}
                                 <!-- If an external link is provided in the project data, add the name with an external link -->
@@ -71,14 +78,18 @@ title: "Projects"
                                 {%- unless forloop.last -%},&#32;{%- endunless -%}
                             {%- endfor -%}
                             </li>
-                        <li class="funding">Funded by: 
+                        <li class="funding">Client/Sponsor: 
                             <a href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="emptydiv"></div>
-                <p><a class="readmore" href="{{ project.url }}">> Read more</a></p>
-                <hr/>
+                {% if project.externallink != null %}
+                    <p><a class="readmore" href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">> Read more <i class="fas fa-external-link-alt"></i></a></p>
+                {% else %}
+                    <p><a class="readmore" href="{{ project.url }}">> Read more</a></p>
+                {% endif %}
+                <!--<hr/>-->
             </div>
             {% endfor %}
         {% endfor %}
