@@ -1,7 +1,7 @@
 ---
 nr: "8"
 title: "Smart Advertising Deutsche Telekom AG"
-abbr: "smart_advertising_telekom"
+abbr: "Smart_Advertising_Telekom"
 duration:
   beginning: 
     year: "2020"

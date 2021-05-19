@@ -123,7 +123,7 @@ layout: custom_default
             <!-- Include publications. The fitting file name is provided by reading the project's abbreviation 
                 from the front matter and substituting forbidden characters (same procedure as when publication
                 files are created -->
-                {% assign abbr_new = page.abbr %}
+                {% assign abbr_new = page.abbr | downcase %}
                 {% if abbr_new contains "ö" %}
                     {% assign abbr_new = abbr_new | replace: "ö", "oe" %}
                 {% endif %}
@@ -141,5 +141,5 @@ layout: custom_default
     </div>
 </div>
 <script>
-    
+    console.log("{{abbr_new}}");
 </script>
