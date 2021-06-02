@@ -30,8 +30,8 @@ Jekyll::Hooks.register :projects, :pre_render do |project|
             'ue'
         end
     end
-    if !File.exist?("_includes/publications/" + p_newabbr + ".html")
-        puts "New project registered. Creating blank publication file " + p_newabbr + ".html"
-        File.open("_includes/publications/" + p_newabbr + ".html", 'w') {|f| f.write("<p>No publications available.</p>")}
+    if !File.exist?("_includes/publications/" + p_newabbr.downcase + ".html")
+        puts "New project registered. Creating blank publication file " + p_newabbr.downcase + ".html"
+        File.open("_includes/publications/" + p_newabbr.downcase + ".html", 'w') {|f| f.write("<p>No publications available.</p>")}
     end
 end
