@@ -17,13 +17,14 @@ _site/news.html
 _site/privacy-policy.html
 _site/README.md
 _site/research/projects/1-joie.html
+_site/research/projects/10-dlr-search.html
 _site/research/projects/2-stella.html
 _site/research/projects/3-esupol.html
 _site/research/projects/4-prior.html
 _site/research/projects/5-smart-harvesting.html
 _site/research/projects/6-femoz.html
 _site/research/projects/7-prefect.html
-_site/research/projects/8-telekom.html
+_site/research/projects/8-smart-ad-telekom.html
 _site/research/projects/9-xr-in-de.html
 _site/research/projects.html
 _site/research/publications/publication1.html

@@ -1,21 +1,6 @@
-<p class="toggle main-toggle">- Show filters -</p>
+<button class="button toggle main-toggle">- Show filters -</button>
 <div class="filter-container">
     <div class="filters">
-        <!-- Unused -->
-        <!--{% assign all_tags = "" %}
-        {% assign all_names = "" %}
-        {% for project in site.projects %}
-            {% for category in project.research-areas.areas %}
-                {% assign all_tags = all_tags | append: category.tag | append: ";" %}
-                {% assign all_names = all_names | append: category.name | append: ";" %}
-            {% endfor %}
-        {% endfor %}
-        {% assign all_tags = all_tags | split: ";" %}
-        {% assign all_names = all_names | split: ";" %}
-        {% assign all_tags = all_tags | uniq %}
-        {% assign all_names = all_names | uniq %}-->
-        <!-- Check for auto_tags file in _data folder. This file needs to exist for filters to be generated and thus,
-        so filters can be used at all -->
         {% if site.data.auto_tags %}
             {% for area in site.data.auto_tags.research-areas.areas %}
                 <div class="area {{ area.tag }}">
@@ -25,15 +10,15 @@
                     </label>
                 </div>
             {% endfor %}
-                <p class="toggle">Filter by topic <i class="arrow down"></i></p>
+                <button class="button toggle second">Filter by topic <i class="arrow down"></i></button>
                 <div class="second-level">
                 {% for topic in site.data.auto_tags.research-areas.topics %}
                     <div class="tagcontainer">
-                        <input type="checkbox" class="filter second" id="{{ topic.tag }}" checked/>
-                        <label for="{{ topic.tag }}">{{ topic.name }}</label>
+                        <button id="{{ topic.tag }}" class="button filter second" onclick="toggleActivation(this)">{{ topic.name }}</button>
                     </div>
                 {% endfor %}
-                <a id="disable_all">x Disable all</a>
+                <!--<a id="disable_all">x Disable all</a>-->
+                <a id="close">x Close</a>
             </div>
         {% else %}
         <!-- Error message. Should not come up if not in development mode -->
@@ -41,8 +26,11 @@
         {% endif %}
     </div>
     <div class="buttons horizontal-center">
-        <a id="reset_filters">x Reset filters</a>
-        <button id="submit_filters">Filter</button>
+        <button id="reset_filters" class="button">x Reset filters</button>
+        <button id="submit_filters" class="button">Apply filters</button>
+    </div>
+    <div id="active-topics">
+        
     </div>
 </div>
 <!--<script src="{{ site.baseurl }}/assets/js/toggle_filters.js"></script>-->

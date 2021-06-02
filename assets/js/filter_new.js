@@ -4,7 +4,7 @@ layout: null
 
 // Note:
 // By defining a front matter to a .js file, liquid variables can be used in the same file,
-// despite it being an outsourced oure JavaScript file and thus has no knowledge of liquid tags.
+// despite it being an outsourced pure JavaScript file and thus having no knowledge of liquid tags.
 // The layout variable needs to be set to null. Since a front matter default for the
 // layout variable is defined in _config.yml, leaving it empty here will cause the .js
 // file to be rendered as a page with the default layout applied to it. This will break
@@ -118,7 +118,7 @@ mediaQuery_desktop.addListener(resetVisibility_desktop);
 // when the liquid collection is rendered in projects.markdown.
 
 var all_projects = document.getElementsByClassName("singleproject");
-var checkboxes = document.getElementsByClassName("filter");
+var checkboxes = document.querySelectorAll("input.filter");
 var liquid_projects = [];
 // Iterate through all projects in liquid
 // Some fields are added in case they are needed in the future
@@ -177,6 +177,24 @@ checkboxes[i].addEventListener('change', function (e) {
 });
 }*/
 
+// actual buttons (DOM elements)
+var second_buttons = [];
+// tags selected (dynamic)
+var secondtags = [];
+second_buttons = document.querySelectorAll("button.filter.second");
+
+for (let i = 0; i < second_buttons.length; i++) {
+    second_buttons[i].addEventListener('click', function (e) {
+        if (secondtags.includes(e.target)) {
+            var index = secondtags.indexOf(e.target);
+            secondtags.splice(index, 1);
+        }
+        else
+            secondtags.push(e.target);
+        console.log(secondtags);
+    });
+}
+
 // Third: Add filter logic
 
 // The filtering process should start when the submit button is clicked. On click, the 
@@ -203,6 +221,13 @@ reset_button.addEventListener('click', function (e) {
         if(checkboxes[i].checked == false)
             checkboxes[i].checked = true;
     }
+    for(var j = 0; j < second_buttons.length; j++) {
+        if (second_buttons[j].classList.contains("activated"))
+            toggleActivation(second_buttons[j]);
+    }
+    secondtags = [];
+    // TODO: Remove all filter children
+    //appendActiveFilters();
     // Hide possibly open second level menu
     var second_levels = document.getElementsByClassName("second-level");
 
@@ -237,6 +262,8 @@ submit_button.addEventListener('click', function () {
         top: scroll_pos,
         behavior: 'smooth' 
     });
+
+    appendActiveFilters();
     // To be removed in future update (as there now is only one second-level
     // dropdown. This still works, though.)
     for (var p = 0; p < second_levels.length; p++) {
@@ -263,10 +290,14 @@ submit_button.addEventListener('click', function () {
 
 function filterProjects(callback) {
     console.log("done fading out");
+    console.log("Second Tags: ");
+    console.log(secondtags);
     
     var tmp_liquid_projects = liquid_projects;
-    console.log("Handler. ");
-    console.log(tmp_liquid_projects);
+    //console.log("Handler. ");
+    //console.log(tmp_liquid_projects);
+    // Buttons (second level tags) don't have a property similar to "checked",
+    // so handlers were created beforehand. Checkbox values are retrieved now.
     // Create array to store unchecked checkboxes
     var unchecked_boxes = [];
     for (var j = 0; j < checkboxes.length; j++) {
@@ -292,9 +323,11 @@ function filterProjects(callback) {
             }
         }*/
     }
+    
     console.log(unchecked_boxes);
     // If all boxes are checked, simply display all projects
-    if (unchecked_boxes.length == 0) {
+    // TODO: AND no second level tag is clicked
+    if (unchecked_boxes.length == 0 && secondtags.length == 0) {
         for (var s = 0; s < all_projects.length; s++) {
             all_projects[s].style.display = 'grid';
         }
@@ -305,13 +338,14 @@ function filterProjects(callback) {
         if (checkVisibility(reset_button) != 'none')
             toggleVisibility(reset_button, 'none');
     }
-    // If there are unchecked boxes
+    // If there are unchecked boxes or selected second level tags
     else {
         // Show "reset filters" button (<p>)
         if (checkVisibility(reset_button) != 'block')
             toggleVisibility(reset_button, 'block');
         // Create an array to hold projects that have been filtered out
         var filtered_projects = [];
+        var safeprojects = [];
         // This boolean will track if any projects matched any unchecked box at all. This is
         // for future debug purposes only.
         var results_found = false;
@@ -321,75 +355,114 @@ function filterProjects(callback) {
             // Iterate through all unchecked checkboxes...
             // ('checkboxes_check' is a label for the following for-loop. This enables breaking to this
             // specific loop later)
-            checkboxes_check:
-            for (var l = 0; l < unchecked_boxes.length; l++) {
-                // ... and check if the current project contains any tag that is filtered out,
-                // if it does, add it to the array
-                // If the current unchecked box is a first-level filter and describes a research area
-                if (unchecked_boxes[l].classList.contains('second') == false) {
-                    // Check current project's areas...
-                    for (var a = 0; a < tmp_liquid_projects[x].areas.length; a++) {
-                        // If the current area's tag matches the unchecked box's ID...
-                        if (tmp_liquid_projects[x].areas[a].tag == unchecked_boxes[l].id) {
-                            // Save the current project to array
-                            filtered_projects.push(tmp_liquid_projects[x]);
-                            // Set boolean to true since a project has been filtered, 
-                            // value will be assessed later
-                            results_found = true;
-                            // Don't continue looking at this project's next areas and instead
-                            // break back to the checkbox loop to check the next checkbox against this project
-                            break checkboxes_check;
-                        }
-                        // If the project in question does not contain any prohibited tag, do nothing.
-                    }
-                }
-                // If the current checkbox is a second-level filter, go through the same process 
-                // as above, but compare against the project's topics instead
-                else {
-                    // Iterate through this project's areas
-                    // Deprecated
-                    //for (var a = 0; a < tmp_liquid_projects[x].areas.length; a++) {
-                        // Iterate through area's topics
-                        for (var u = 0; u < tmp_liquid_projects[x].topics.length; u++) {
-                            if (tmp_liquid_projects[x].topics[u].tag == unchecked_boxes[l].id) {
-                                // Same procedure as with first-level tags
+            // Checking projects for unchecked checkboxes
+            if (unchecked_boxes.length != 0) {
+                checkboxes_check:
+                for (var l = 0; l < unchecked_boxes.length; l++) {
+                    // ... and check if the current project contains any tag that is filtered out,
+                    // if it does, add it to the array
+                    // If the current unchecked box is a first-level filter and describes a research area
+                    // TODO: get rid of check
+                    if (unchecked_boxes[l].classList.contains('second') == false) {
+                        // Check current project's areas...
+                        for (var a = 0; a < tmp_liquid_projects[x].areas.length; a++) {
+                            // If the current area's tag matches the unchecked box's ID...
+                            if (tmp_liquid_projects[x].areas[a].tag == unchecked_boxes[l].id) {
+                                // Save the current project to array
                                 filtered_projects.push(tmp_liquid_projects[x]);
+                                // Set boolean to true since a project has been filtered, 
+                                // value will be assessed later
                                 results_found = true;
+                                // Don't continue looking at this project's next areas and instead
+                                // break back to the checkbox loop to check the next checkbox against this project
                                 break checkboxes_check;
                             }
-                            // If it does not contain any prohibited tag, do nothing again
+                            // If the project in question does not contain any prohibited tag, do nothing.
                         }
-                    //}
-                }
-            }
-        }
-        // Check if a project that contained a filtered tag was found while iterating
-        // Note: This should always be the case if filters are automatically generated from
-        // tags that are actually used in projects. This check will remain here for now
-        // since automatically generated filters are not implemented yet.
-        if (results_found == true) {
-            // Find projects to display ('leftovers', i.e. projects that have not been filtered out)
-            // by comparing filtered projects agains the unfiltered list of projects
-            var leftovers = tmp_liquid_projects.filter(function(element) {
-                // The project is returned if it has not been found in the array of filtered projects
-                return filtered_projects.indexOf(element) < 0;
-            });
-            // Iterate over all filtered projects and check every project's corresponding 
-            // DOM element ('all_projects', by ID) against every filtered project. If IDs match,
-            // the corresponding project needs to be hidden.
-            for (var h = 0; h < filtered_projects.length; h++) {
-                for (var g = 0; g < all_projects.length; g++) {
-                    console.log("ID (all): " + all_projects[g].id + ", ID (display): " + filtered_projects[h].nr);
-                    if (all_projects[g].id == filtered_projects[h].nr) {
-                        toggleVisibility(all_projects[g], 'none');
+                    }
+                    // If the current checkbox is a second-level filter, go through the same process 
+                    // as above, but compare against the project's topics instead
+                    // TODO: get rid of else block
+                    else {
+                        // Iterate through this project's areas
+                        // Deprecated
+                        //for (var a = 0; a < tmp_liquid_projects[x].areas.length; a++) {
+                            // Iterate through area's topics
+                            for (var u = 0; u < tmp_liquid_projects[x].topics.length; u++) {
+                                if (tmp_liquid_projects[x].topics[u].tag == unchecked_boxes[l].id) {
+                                    // Same procedure as with first-level tags
+                                    filtered_projects.push(tmp_liquid_projects[x]);
+                                    results_found = true;
+                                    break checkboxes_check;
+                                }
+                                // If it does not contain any prohibited tag, do nothing again
+                            }
+                        //}
                     }
                 }
+            }
+            // Checking projects for clicked second tag filters
+            if (secondtags.length != 0) {
+                secondtags_check:
+                for (var l = 0; l < secondtags.length; l++) {
+                    // TODO: When found: check if project is already in filtered projects, if it is, do nothing
+                    for (var u = 0; u < tmp_liquid_projects[x].topics.length; u++) {
+                        if (tmp_liquid_projects[x].topics[u].tag == secondtags[l].id) {
+                            if (!safeprojects.includes(tmp_liquid_projects[x]))
+                                safeprojects.push(tmp_liquid_projects[x]);
+                                results_found = true;
+                            // Do nothing as this project must not be added to filtered, and break
+                            // (go to next project)
+                            break secondtags_check;
+                        }
+                        else {
+                            
+                        }
+                    }
+                }
+                // If script got here without performing a break, no selected
+                // second level tags matched this project. Thus, it needs to
+                // be filtered
+                /*if (!filtered_projects.includes(tmp_liquid_projects[x])) {
+                    filtered_projects.push(tmp_liquid_projects[x]);
+                    results_found = true;
+                }*/
+            }
+        }
+        console.log("safeprojects: ");
+        console.log(safeprojects);
+        // Check if a project that contained a filtered tag was found while iterating
+        // Note: This should always be the case if filters are automatically generated from
+        // tags that are actually used in projects. This check will remain here for now.
+        if (results_found == true) {
+            var leftovers = [];
+            // Find projects to display ('leftovers', i.e. projects that have not been filtered out)
+            // by comparing filtered projects agains the unfiltered list of projects
+            if (filtered_projects.length != 0) {
+                leftovers = tmp_liquid_projects.filter(function(element) {
+                    // The project is returned if it has not been found in the array of filtered projects
+                    return filtered_projects.indexOf(element) < 0;
+                });
+            }
+            if (safeprojects.length > 0) {
+                if (leftovers.length > 0) {
+                    leftovers = safeprojects.filter(function(element) {
+                        // The project is returned if it has been found in the array of projects to be shown
+                        return leftovers.indexOf(element) >= 0;
+                    });
+                }
+                else
+                    leftovers = safeprojects;
+                console.log("new leftovers");
+                console.log(leftovers);
             }
             // If there are projects to display (not everything has been filtered out)...
             if (leftovers.length != 0) {
                 // Hide the "no results" message, if it has been visible
                 if (checkVisibility(noresults) != 'none')
                     toggleVisibility(noresults, 'none');
+                console.log("leftovers: ");
+                console.log(leftovers);
                 // Compare leftover projects against DOM elements and, if IDs match, display project
                 for (var t = 0; t < leftovers.length; t++) {
                     for (var b = 0; b < all_projects.length; b++) {
@@ -404,6 +477,25 @@ function filterProjects(callback) {
                 if (checkVisibility(noresults) == 'none')
                     toggleVisibility(noresults, 'block');
             }
+            var to_hide = tmp_liquid_projects.filter(function(element) {
+                // The project is returned if it has been found in the array of projects to be shown
+                console.log(element);
+                console.log(", index of: " + leftovers.indexOf(element));
+                return leftovers.indexOf(element) < 0;
+            });
+            console.log("to hide: ");
+            console.log(to_hide);
+            // Iterate over all filtered projects and check every project's corresponding 
+            // DOM element ('all_projects', by ID) against every filtered project. If IDs match,
+            // the corresponding project needs to be hidden.
+            for (var h = 0; h < to_hide.length; h++) {
+                for (var g = 0; g < all_projects.length; g++) {
+                    //console.log("ID (all): " + all_projects[g].id + ", ID (display): " + filtered_projects[h].nr);
+                    if (all_projects[g].id == to_hide[h].nr) {
+                        toggleVisibility(all_projects[g], 'none');
+                    }
+                }
+            }
         }
         else {
             // If results_found is false, something went wrong. This will likely become
@@ -417,7 +509,7 @@ function filterProjects(callback) {
 // The function handling the fade out. When the fade out animation has completed,
 // the callback function that needs to be passed as a parameter, is executed.
 function fadeOut(target, callback) {
-        console.log("fading out");
+        //console.log("fading out");
         // Set opacity to 1 to represent the initial opacity of the target
         var new_opacity = 1;
         // Create a timer that executes the anonymous function every 50 milliseconds  
@@ -441,7 +533,7 @@ function fadeOut(target, callback) {
 // The process is the same as with the fade out function but the opacity is increased instead
 // of decreased over time.
 function fadeIn(target) {
-        console.log("fading in");
+        //console.log("fading in");
         var new_opacity = 0.1;
         var timer = setInterval(function () {
             if (new_opacity >= 1) {
@@ -462,4 +554,46 @@ function checkVisibility(target) {
 // should be a string containing the display type ('grid', 'block', 'none', ...)
 function toggleVisibility(target, type) {
     target.style.display = type;
+}
+
+function toggleActivation(target) {
+    target.classList.toggle('activated');
+}
+
+function appendActiveFilters() {
+    var activated = document.getElementsByClassName("activated");
+    if (activated.length != 0) {
+        var container = document.getElementsByClassName("filter-container")[0];
+        for (var i = 0; i < activated.length; i++) {
+            var to_append = document.createElement("a");
+            to_append.id = activated[i].id;
+            to_append.innerHTML = "x " + activated[i].innerHTML;
+            to_append.addEventListener('click', function (e) {
+                for (var x = 0; x < secondtags.length; x++) {
+                    console.log("secondtags length: " + secondtags.length);
+                    console.log(e.target.id + " VS. " + secondtags[x].id);
+                    if (e.target.id == secondtags[x].id) {
+                        console.log("matched");
+                        secondtags.splice(x, 1);
+                        console.log("secondtags after disabling filter:");
+                        console.log(secondtags.length);
+                        for (var z = 0; z < second_buttons.length; z++) {
+                            if (second_buttons[z].id == e.target.id) {
+                                console.log("buttoooon");   
+                                console.log(second_buttons[z]);
+                                toggleActivation(second_buttons[z]);
+                            }
+                        }
+                    }
+                }
+                container.removeChild(e.target);
+                fadeOut(projectdiv, function () {
+                    filterProjects(function () {
+                        fadeIn(projectdiv);
+                    });
+                });
+            });
+            container.appendChild(to_append);
+        }
+    }
 }

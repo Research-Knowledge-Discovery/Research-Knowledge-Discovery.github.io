@@ -2,6 +2,7 @@
 nr: "7"
 title: "PREFECT - Development and evaluation of prediction models for the probability of famine catastrophes using data analytics techniques"
 abbr: "PREFECT"
+externallink: "https://www.th-koeln.de/en/information-science-and-communication-studies/prefect---prediction-models-for-famine-catastrophes_68535.php"
 duration:
   beginning: 
     year: "2018"

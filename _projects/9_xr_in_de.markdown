@@ -1,7 +1,7 @@
 ---
 nr: "9"
 title: "XR in DE - Cross Reality Branche in Deutschland"
-abbr: "xr"
+abbr: "XR"
 duration:
   beginning: 
     year: "2017"

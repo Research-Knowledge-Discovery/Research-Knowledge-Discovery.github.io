@@ -9,7 +9,7 @@
 */
 
 body {
-    font-family: "Arial";
+    font-family: "Metrophobic", Arial, Helvetica, sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -17,6 +17,26 @@ body {
 
 .main {
     flex: 1;
+}
+
+.title {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+button {
+    font-family: "Metrophobic", Arial, Helvetica, sans-serif;
 }
 
 .hero.is-primary.is-bold {
@@ -212,9 +232,58 @@ hr {
     list-style: none;
 }
 
+.singleproject ul {
+    list-style: none;
+    color: #595959;
+}
+
 .lists ul li{
     margin-right: 1rem;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
 }
+
+p.fact {
+    margin-left: 1rem;
+}
+
+p.fact-title {
+    font-weight: bold;
+    //padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+p.fact-title::after {
+    border-bottom: 2px solid #595959;
+    display: block;
+    content: '';
+    //margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    width: 85%;
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #3f6094; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 2px 6px 2px rgba(60,64,67,.15);
+  }
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }
 
 .singlenews {
     margin-bottom: 1.5rem;
@@ -245,12 +314,31 @@ hr {
     align-items: center
 }
 
+.presentation i {
+    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+}
+
 div.entry-content ul li {
     margin-bottom: 1.5rem;
 }
 
 div.entry-content h4 {
     font-weight: bold;
+}
+
+.projectcontainer h2 {
+    //display: flex;
+    //align-items: center;
+}
+
+.projectcontainer i.fa-book-open {
+    margin-right: 10px;
+    padding-right: 8px;
+    border-right: 2px dotted black;
+    color: #4171af;
+    margin-bottom: 0px;
+    opacity: 0.4;
 }
 
 /*.area.ds{
@@ -316,13 +404,18 @@ div.entry-content h4 {
 
 .area {
     flex-basis: calc(33.3333% - 20px);
-    //margin: 0px 10px;
+    //margin-bottom: 0.5rem;
     //background-color: #407f92;
     background-color: #4c607f;
     border-radius: 3px;
     padding: 10px;
     color: white;
     display: flex;
+}
+
+// Todo: Fix margins - too aggressive
+.area:last-child {
+    margin-bottom: 1.5rem;
 }
 
 .area label {
@@ -346,6 +439,14 @@ div.entry-content h4 {
     margin-right: 15px;
 }
 
+.button:focus {
+    border-color: #8e8e8e;
+}
+
+.button:focus:not(:active) {
+    box-shadow: none;
+}
+
 #reset_filters {
     display: none;
 }
@@ -358,21 +459,51 @@ div.entry-content h4 {
     background-color: #eee;
     padding: 10px;
     //margin: 0px 10px;
+    border: 1px solid #dbdbdb;
+    margin-top: -2px;
 }
 
 .second-level div.tagcontainer {
-    flex-basis: 15%;
+    //flex-basis: 15%;
     margin: 5px 5px;
+    display: flex;
+    flex-grow: 1;
 }
 
-#disable_all {
+.tagcontainer button {
+    width: 100%;
+    border-radius: 100px;
+    //opacity: 0.5;
+}
+
+button.activated {
+    background-color: #e7f4ff;;
+    border: 1px solid #3F6094;
+}
+
+button.activated:focus {
+    border-color: #3f6094;
+}
+
+/*#disable_all {
     margin: 5px;
+}*/
+
+.removal-button {
+    margin-right: 8px;
+    padding: 10px 15px;
+    border-radius: 100px;
+    border: 1px solid grey;
+}
+
+#close {
+    margin: auto;
 }
 
 .toggle{
     cursor: pointer;
     text-align: center;
-    background-color: #ddd;
+    background-color: #eee;
     padding: 10px 0px;
     padding: 10px 20px;
     //margin-left: 10px;
@@ -381,11 +512,11 @@ div.entry-content h4 {
 
 .toggle:hover {
     color: #6b6b6b;
-    background-color: #eee;
 }
 
 .toggle.main-toggle {
     margin-bottom: 1.5rem;
+    width: 100%;
     display: none;
 }
 
@@ -407,7 +538,25 @@ div.entry-content h4 {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     margin-right: 6px;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+
+/*.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-right: 6px;
     margin-bottom: 1px;
+}*/
+
+#submit_filters:hover {
+    color: #6b6b6b;
 }
 
 #submit_filters {
@@ -415,6 +564,7 @@ div.entry-content h4 {
     font-size: 16px;
     //margin-top: 1.5rem;
     align-self: center;
+    background-color: #eee;
 }
 
 #noresults {
@@ -568,7 +718,7 @@ div.entry-content h4 {
     }
     
     .toggle.main-toggle {
-        display: block;
+        display: flex;
     }
     
     .filter-container {
@@ -653,10 +803,6 @@ div.entry-content h4 {
             "header3 arrow3"
             "dropdown3 .";
     }*/
-
-    .second-level {
-        margin-top: -5px;
-    }
 
     .name_desc {
         grid-area: basicinfo;

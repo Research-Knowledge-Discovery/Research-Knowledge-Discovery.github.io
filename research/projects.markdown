@@ -17,9 +17,9 @@ title: "Projects"
                 <hr/>
                 <div class="projectcontainer">
                     {% if project.externallink != null %}
-                        <h2 class="title is-5"><a href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">{{ project.title }} <i class="fas fa-external-link-alt"></i></a></h2>
+                        <h2 class="title is-5"><i class="fas fa-book-open"></i><a href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">{{ project.title }} <i class="fas fa-external-link-alt"></i></a></h2>
                     {% else %}
-                        <h2 class="title is-5"><a href="{{ project.url }}">{{ project.title }}</a></h2>
+                        <h2 class="title is-5"><i class="fas fa-book-open"></i><a href="{{ project.url }}">{{ project.title }}</a></h2>
                     {% endif %}
                     {% for category in project.research-areas.areas %}
                         <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
@@ -37,18 +37,25 @@ title: "Projects"
                 <img class="image main-logo" src="{{ project.main-logo }}"/>
                 <div class="lists mobile">
                     <ul>
-                        <li class="duration">Duration: {{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {% if project.duration.end.year == "" %}today{% else %}{{ project.duration.end.year }}{% endif %}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}{% if project.abbr == "xr" %}, <span class="annotation">annual study</span>{% endif %}</li>
+                        <li class="duration"><p class="fact-title">Duration:</p><p class="fact">{{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {% if project.duration.end.year == "" %}today{% else %}{{ project.duration.end.year }}{% endif %}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}{% if project.abbr == "xr" %}, <span class="annotation">annual study</span>{% endif %}</p></li>
                         <!-- (Todo: When does whitespace from liquid tags actually need to be stripped? Be consistent across all files)
                         Since liquid tags print as a newline in the rendered HTML, the added whitespace is stripped here by including hyphens to liquid tags. 
                         Newlines between tags are added for better readability in the code, needed whitespace is encoded -->
+                        <li class="funding"><p class="fact-title">Client/Sponsor:</p> 
+                            <p class="fact"><a href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a></p>
+                        </li>
                         {% if project.partners %}
-                            <li class="partners">Partners:&#32;
-                            {%- for partner in project.partners limit: 4 -%}
+                            <li class="partners"><p class="fact-title">Partners:&#32;</p>
+                            <p class="fact">
+                            {%- for partner in project.partners limit: 2 -%}
                                 <a href="{{ partner.link }}">{{ partner.name }}</a><!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{% unless forloop.last %}, {% endunless %}
-                                {% if forloop.last and project.partners.size > 4 %} and {{ project.partners.size | minus: 4 }} more{%- endif -%}
-                            {%- endfor -%}</li>
+                                {% if forloop.last and project.partners.size > 2 %} and {{ project.partners.size | minus: 2 }} more{%- endif -%}
+                            {%- endfor -%}
+                            </p>
+                            </li>
                         {% endif %}
-                        <li class="people-involved">People involved:&#32;
+                        <li class="people-involved"><p class="fact-title">People involved:&#32;</p>
+                        <p class="fact">
                             {%- for person in project.people -%}
                                 <!-- If an external link is provided in the project data, add the name with an external link -->
                                 {%- if person.externallink != null and person.externallink != "#" -%}
@@ -77,9 +84,7 @@ title: "Projects"
                                 <!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's person list -->
                                 {%- unless forloop.last -%},&#32;{%- endunless -%}
                             {%- endfor -%}
-                            </li>
-                        <li class="funding">Client/Sponsor: 
-                            <a href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a>
+                            </p>
                         </li>
                     </ul>
                 </div>
@@ -95,8 +100,10 @@ title: "Projects"
         {% endfor %}
         <p id="noresults">No results found.</p>
     </div>
+<button onclick="topFunction()" id="myBtn">Top</button> 
 </div>
-<script src="{{ site.baseurl }}/assets/js/filter.js"></script>
+<script src="{{ site.baseurl }}/assets/js/filters_final.js"></script>
+<script src="{{ site.baseurl }}/assets/js/to_top.js"></script>
 <script>
     // Hide certain filters based on whether or not the corresponding tags have been used in the
     // elements on this page (in this case, projects)
