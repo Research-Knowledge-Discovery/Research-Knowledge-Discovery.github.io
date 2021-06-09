@@ -2,10 +2,10 @@
 layout: custom_default
 ---
 <div class="columns">
-    <div class="column">
+    <div class="column content-spaced">
         <div class="basicinfo">
             <h1 class="name title is-5">{% if page.titles %}{{ page.titles }} {% endif %}{{ page.firstname }} {{ page.lastname }}</h1>
-            <h3 class="position title is-6">{{ page.role }}</h3>
+            <h3 class="subtitle is-6 position">{{ page.role }}</h3>
         </div>
         <p class="description">{{ page.description }}</p>
         {%- assign number_found = 0 -%}
@@ -71,21 +71,23 @@ layout: custom_default
 </div>
 <hr/>
 <div>
-    <div class="content-2">
-        <h2 class="title is-6">Publications</h2>
-        {% assign ln_downcase = page.lastname | downcase %}
-        {% if ln_downcase contains "ö" %}
-            {% assign ln_downcase = ln_downcase | replace: "ö", "oe" %}
-        {% endif %}
-        {% if ln_downcase contains "ä" %}
-            {% assign ln_downcase = ln_downcase | replace: "ä", "ae" %}
-        {% endif %}
-        {% if ln_downcase contains "ü" %}
-            {% assign ln_downcase = ln_downcase | replace: "ü", "ue" %}
-        {% endif %}
-        {% if ln_downcase contains "ß" %}
-            {% assign ln_downcase = ln_downcase | replace: "ß", "ss" %}
-        {% endif %}
-        {% include publications/{{ ln_downcase }}.html %}
+    <div class="content-2 padded">
+        <div class="publications">
+            <h2 class="title is-6">Publications</h2>
+            {% assign ln_downcase = page.lastname | downcase %}
+            {% if ln_downcase contains "ö" %}
+                {% assign ln_downcase = ln_downcase | replace: "ö", "oe" %}
+            {% endif %}
+            {% if ln_downcase contains "ä" %}
+                {% assign ln_downcase = ln_downcase | replace: "ä", "ae" %}
+            {% endif %}
+            {% if ln_downcase contains "ü" %}
+                {% assign ln_downcase = ln_downcase | replace: "ü", "ue" %}
+            {% endif %}
+            {% if ln_downcase contains "ß" %}
+                {% assign ln_downcase = ln_downcase | replace: "ß", "ss" %}
+            {% endif %}
+            {% include publications/{{ ln_downcase }}.html %}
+        </div>
     </div>
 </div>

@@ -23,6 +23,17 @@ body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+.title.has-text-centered.home::before {
+
+    display: block;
+    content: '';
+    width: 40px;
+    border-top: 4px solid;
+    margin: auto;
+    margin-bottom: 3rem;
+
+}
+
 h1 {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
@@ -37,6 +48,23 @@ h3 {
 
 button {
     font-family: "Metrophobic", Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+ul:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.publications ul {
+    list-style: none;
 }
 
 .hero.is-primary.is-bold {
@@ -54,7 +82,7 @@ button {
     flex-grow: 0;
 }
 
-.column {
+.columns > .column {
     padding: 1.5rem;
 }
 
@@ -82,8 +110,6 @@ button {
 .sidebar ul li {
     margin: 3px 0px;
 }
-
-
 
 #first-heading {
     margin-bottom: 2.5rem
@@ -131,6 +157,14 @@ button {
     margin: 0.5rem 1rem;
 }*/
 
+.publications li:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.basicinfo {
+    //margin-bottom: 1.5rem;
+}
+
 .description.overview {
     display: block;
 }
@@ -177,14 +211,14 @@ button {
 }
 
 .singleproject {
-    display: grid;
+    //display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
 }
 
 .singleproject hr {
-    grid-column-start: 1;
-    grid-column-end: span 2;
+    //grid-column-start: 1;
+    //grid-column-end: span 2;
 }
 
 hr {
@@ -196,11 +230,9 @@ hr {
     font-weight: bold;
 }
 
-// Kein Margin für singleproject wegen enthaltener div
-
-.singleproject * {
+/*.singleproject * {
     margin-bottom: 1rem;
-}
+}*/
 
 .singleproject .image {
     justify-self: center;
@@ -237,8 +269,13 @@ hr {
     color: #595959;
 }
 
-.lists ul li{
+.lists {
+    max-width: 85%;
+}
+
+.lists ul li {
     margin-right: 1rem;
+    margin-bottom: 0.75rem;
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
@@ -279,11 +316,11 @@ p.fact-title::after {
     border-radius: 50%; /* Rounded corners */
     font-size: 18px; /* Increase font size */
     box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 2px 6px 2px rgba(60,64,67,.15);
-  }
+}
   
-  #myBtn:hover {
+#myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
-  }
+}
 
 .singlenews {
     margin-bottom: 1.5rem;
@@ -389,8 +426,6 @@ div.entry-content h4 {
     display: block;
 }
 
-
-
 /*.field {
     display: flex; 
     flex-direction: column;
@@ -404,7 +439,7 @@ div.entry-content h4 {
 
 .area {
     flex-basis: calc(33.3333% - 20px);
-    //margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     //background-color: #407f92;
     background-color: #4c607f;
     border-radius: 3px;
@@ -571,6 +606,22 @@ button.activated:focus {
     display: none;
 }
 
+#backlink-area {
+    padding-bottom: 0.75rem;
+}
+
+.padded {
+    padding: 0.75rem;
+}
+
+.content-spaced > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.spaced {
+    margin-bottom: 2rem;
+}
+
 .basicinfo {
     grid-area: basic-info;
 }
@@ -604,7 +655,7 @@ button.activated:focus {
 
 .description {
     grid-area: description;
-    margin-bottom: 1.5rem;
+    //margin-bottom: 1.5rem;
 }
 
 .factlist-1 {
@@ -627,12 +678,16 @@ button.activated:focus {
 }
 */
 
-.column div {
+/*.column div {
+    margin-bottom: 1.5rem;
+}*/
+
+.column.personinfo {
     margin-bottom: 1.5rem;
 }
 
 .column.personinfo div:not(:last-child) {
-    margin-bottom: 1.5rem;
+    //margin-bottom: 1.5rem;
 }
 
 .sidebar.column.is-4-desktop.is-12-tablet {
@@ -706,7 +761,7 @@ button.activated:focus {
     }
 
     .main-grid {
-        display: grid;
+        //display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
                 "basic-info image"
@@ -732,7 +787,7 @@ button.activated:focus {
 
     .area {
         flex-basis: 100%;
-        margin: 5px 0px;
+        //margin: 5px 0px;
     }
 
     .factlist-1 {
@@ -852,7 +907,7 @@ button.activated:focus {
     }
 
     .singleproject {
-        display: grid;
+        //display: grid;
         grid-template-areas:
             "basicinfo basicinfo"
             "image image"
@@ -907,6 +962,10 @@ button.activated:focus {
     .second-level div.tagcontainer {
         flex-basis: 40%;
         margin: 5px 5px;
+    }
+
+    .lists {
+        max-width: 100%;
     }
     
 }

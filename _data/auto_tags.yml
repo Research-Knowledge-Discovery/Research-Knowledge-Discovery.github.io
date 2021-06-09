@@ -60,14 +60,6 @@ research-areas:
     tag: semi-structured_documents
   - name: Smart Advertising
     tag: smart_advertising
-  - name: Tag 1 DS
-    tag: tag1_ds
-  - name: Tag 3 DS
-    tag: tag3_ds
-  - name: Tag 3 IR
-    tag: tag3_ir
-  - name: Tag 3 NLP
-    tag: tag3_nlp
   - name: Television
     tag: television
   - name: Upscaling

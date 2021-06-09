@@ -205,7 +205,7 @@ function filterProjects(callback) {
     // 1. If all boxes are checked and no 2nd lvl tags are active, simply display all projects
     if (unchecked_boxes.length == 0 && secondtags.length == 0) {
         for (var s = 0; s < projects_html.length; s++) {
-            projects_html[s].style.display = 'grid';
+            projects_html[s].style.display = 'block';
         }
         if (checkVisibility(noresults) != 'none') // Hide "no results" message if visible
             toggleVisibility(noresults, 'none');
@@ -233,6 +233,7 @@ function filterProjects(callback) {
                 checkboxes_check: // ('checkboxes_check' is a label for the following for-loop. This enables breaking to this specific loop later)
                 for (var l = 0; l < unchecked_boxes.length; l++) {
                     // Iterate through project's areas (is an array)
+                    // No check whether or not areas exist on this project: there shouldn't be projects without areas
                     for (var a = 0; a < liquid_projects[x].areas.length; a++) {
                         // If the current area's tag matches the unchecked box's ID...
                         if (liquid_projects[x].areas[a].tag == unchecked_boxes[l].id) {
@@ -253,15 +254,17 @@ function filterProjects(callback) {
             if (secondtags.length != 0) {
                 secondtags_check:
                 for (var l = 0; l < secondtags.length; l++) {
-                    for (var u = 0; u < liquid_projects[x].topics.length; u++) {
-                        if (liquid_projects[x].topics[u].tag == secondtags[l].id) {
-                            if (!included_projects.includes(liquid_projects[x])) // If this project isn't already in the included projects array, add it
-                                included_projects.push(liquid_projects[x]);
-                                results_found = true;
-                            break secondtags_check;
-                        }
-                        else {
-                            
+                    if (liquid_projects[x].topics != null) {
+                        for (var u = 0; u < liquid_projects[x].topics.length; u++) {
+                            if (liquid_projects[x].topics[u].tag == secondtags[l].id) {
+                                if (!included_projects.includes(liquid_projects[x])) // If this project isn't already in the included projects array, add it
+                                    included_projects.push(liquid_projects[x]);
+                                    results_found = true;
+                                break secondtags_check;
+                            }
+                            else {
+                                
+                            }
                         }
                     }
                 }
@@ -317,7 +320,7 @@ function filterProjects(callback) {
                 for (var t = 0; t < leftovers.length; t++) {
                     for (var b = 0; b < projects_html.length; b++) {
                         if (leftovers[t].nr == projects_html[b].id) {
-                            toggleVisibility(projects_html[b], 'grid');
+                            toggleVisibility(projects_html[b], 'block');
                         }
                     }
                 }

@@ -25,7 +25,7 @@ title: "People"
                 {% endif %}
             </div>
             <!-- Second column -->
-            <div class="column personinfo">
+            <div class="column personinfo content-spaced">
                 <div class="name_desc">
                     <!--<h2 class="title is-5"><a href="{{ person.url }}">{{ person.firstname }} {{ person.lastname }}</a></h2>-->
                     <h2 class="title is-5">{{ person.firstname }} {{ person.lastname }}</h2>

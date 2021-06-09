@@ -76,7 +76,6 @@ mediaQuery_desktop.addListener(changeSize);
 document.addEventListener('click', function(e){
     // Track which DOM element was clicked
     var clicked_target = e.target;
-    console.log(clicked_target);
     
     // LANDSCAPE
     if (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024) {

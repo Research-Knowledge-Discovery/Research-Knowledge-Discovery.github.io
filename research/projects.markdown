@@ -13,20 +13,25 @@ title: "Projects"
             <!-- Sorting projects by month (reverse) -->
             {% assign projects_sorted = p.items | sort: "duration.beginning.month" | reverse %}
             {% for project in projects_sorted %}
-                <div id="{{ project.nr }}" class="singleproject">
+                <div id="{{ project.nr }}" class="singleproject spaced">
                 <hr/>
-                <div class="projectcontainer">
+                <div class="columns">
+                <div class="column projectcontainer content-spaced">
                     {% if project.externallink != null %}
                         <h2 class="title is-5"><i class="fas fa-book-open"></i><a href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">{{ project.title }} <i class="fas fa-external-link-alt"></i></a></h2>
                     {% else %}
                         <h2 class="title is-5"><i class="fas fa-book-open"></i><a href="{{ project.url }}">{{ project.title }}</a></h2>
                     {% endif %}
+                    <div class="tags">
                     {% for category in project.research-areas.areas %}
                         <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
                     {% endfor %}<br/>
-                    {% for topic in project.research-areas.topics %}
-                        <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
-                    {% endfor %}
+                    {% if project.research-areas.topics %}
+                        {% for topic in project.research-areas.topics %}
+                            <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
                     <!-- Creating an excerpt by splitting at the excerpt separator (see _config.yml). If the split
                     returned more than one element (= the description contained the separator), insert the excerpt.
                     Project excerpts begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
@@ -34,7 +39,10 @@ title: "Projects"
                     {%- assign excerpt = project.content | split: site.excerpt_separator -%}
                     <p>{%- if excerpt.size > 1 -%}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" }}{%- elsif project.content != null -%}{{ project.content }}{%- else -%}{%- endif -%}</p>
                 </div>
-                <img class="image main-logo" src="{{ project.main-logo }}"/>
+                <div class="column is-narrow">
+                    <img class="image main-logo" src="{{ project.main-logo }}"/>
+                </div>
+                </div>
                 <div class="lists mobile">
                     <ul>
                         <li class="duration"><p class="fact-title">Duration:</p><p class="fact">{{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {% if project.duration.end.year == "" %}today{% else %}{{ project.duration.end.year }}{% endif %}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}{% if project.abbr == "xr" %}, <span class="annotation">annual study</span>{% endif %}</p></li>
@@ -88,7 +96,6 @@ title: "Projects"
                         </li>
                     </ul>
                 </div>
-                <div class="emptydiv"></div>
                 {% if project.externallink != null %}
                     <p><a class="readmore" href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">> Read more <i class="fas fa-external-link-alt"></i></a></p>
                 {% else %}

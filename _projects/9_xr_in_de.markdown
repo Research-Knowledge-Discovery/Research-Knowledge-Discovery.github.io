@@ -13,7 +13,7 @@ funding:
   - name: "Mediennetzwerk NRW GmbH"
     link: "https://medien.nrw/"
 description: ""
-main-logo: "../assets/images/projects/logos/mediennetzwerk-nrw.svg"
+main-logo: "../assets/images/projects/logos/mediennetzwerk-nrw.png"
 people: 
   - name: "Prof. Dr. Gernot Heisenberg"
   - name: "Prof. Dr. Christian Zabel (Schmalenbach Institut für Wirtschaftswissenschaften der TH Köln)"

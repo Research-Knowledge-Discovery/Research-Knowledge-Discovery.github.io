@@ -1,6 +1,6 @@
 <button class="button toggle main-toggle">- Show filters -</button>
 <div class="filter-container">
-    <div class="filters">
+    <div class="filters spaced">
         {% if site.data.auto_tags %}
             {% for area in site.data.auto_tags.research-areas.areas %}
                 <div class="area {{ area.tag }}">
@@ -12,13 +12,14 @@
             {% endfor %}
                 <button class="button toggle second">Filter by topic <i class="arrow down"></i></button>
                 <div class="second-level">
+                    <div class="tags">
                 {% for topic in site.data.auto_tags.research-areas.topics %}
                     <div class="tagcontainer">
                         <button id="{{ topic.tag }}" class="button filter second" onclick="toggleActivation(this)">{{ topic.name }}</button>
                     </div>
                 {% endfor %}
-                <!--<a id="disable_all">x Disable all</a>-->
-                <a id="close">x Close</a>
+                </div>
+                <button id="close" class="delete"></button>
             </div>
         {% else %}
         <!-- Error message. Should not come up if not in development mode -->

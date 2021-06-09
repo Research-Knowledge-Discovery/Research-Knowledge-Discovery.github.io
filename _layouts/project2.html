@@ -15,15 +15,18 @@ layout: custom_default
                     {% assign subtitle = page.title %}
                 {% endif %}
                 <h3 class="name title is-5">{{ subtitle }}</h3>
-            {% for category in page.research-areas.areas %}
-                <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
-            {% endfor %}<br/>
-            {% for topic in page.research-areas.topics %}
-                <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
-            {% endfor %}
+                <div class="tags">
+                {% for category in page.research-areas.areas %}
+                    <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
+                {% endfor %}<br/>
+                {% for topic in page.research-areas.topics %}
+                    <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
+                {% endfor %}
+                </div>
             </div>
-            <hr/>
-            <div class="content"><p>{{ content }}</p></div>
+            <!--<hr/>-->
+            <!-- <p> is added automatically by inserting content -->
+            <div class="content">{{ content }}</div>
         </div>
         <div class="column is-narrow-desktop">
             <img class="image main-logo" src="../{{ page.main-logo }}"/>
@@ -62,10 +65,10 @@ layout: custom_default
             </div>
         </div>
     </div>
-    <div>
-        <div class="factlist-2">
+    <div class="padded">
+        <div class="factlist-2 spaced">
             {% if page.partners %}
-                <p>Partners:</p> 
+                <h3 class="title is-6">Partners</h3> 
                 <ul class="singlelist">
                     {%- for partner in page.partners -%}
                         <li>
@@ -79,8 +82,8 @@ layout: custom_default
                 </ul>
             {% endif %}
         </div>
-        <div class="content-1">
-            <h2 class="title is-6">People involved</h2>
+        <div class="content-1 spaced">
+            <h3 class="title is-6">People involved</h3>
             {%- for person in page.people -%}
                 {%- if person.externallink != null and person.externallink != "#" -%}
                     <p>
@@ -114,30 +117,33 @@ layout: custom_default
                 {%- endif -%}
             {%- endfor -%}
         </div>
+        <hr/>
         <div class="content-2">
-            <h2 class="title is-4">Resources</h2>
-            <ul>
-                <li>...</li>
-            </ul>
-            <h3 class="title is-5">Publications</h3>
-            <!-- Include publications. The fitting file name is provided by reading the project's abbreviation 
-                from the front matter and substituting forbidden characters (same procedure as when publication
-                files are created -->
-                {% assign abbr_new = page.abbr | downcase %}
-                {% if abbr_new contains "ö" %}
-                    {% assign abbr_new = abbr_new | replace: "ö", "oe" %}
-                {% endif %}
-                {% if abbr_new contains "ä" %}
-                    {% assign abbr_new = abbr_new | replace: "ä", "ae" %}
-                {% endif %}
-                {% if abbr_new contains "ü" %}
-                    {% assign abbr_new = abbr_new | replace: "ü", "ue" %}
-                {% endif %}
-                {% if abbr_new contains "ß" %}
-                    {% assign abbr_new = abbr_new | replace: "ß", "ss" %}
-                {% endif %}
-            {% include publications/{{ abbr_new }}.html %}
+            <div class="publications spaced">
+                <h3 class="title is-5">Publications</h3>
+                <!-- Include publications. The fitting file name is provided by reading the project's abbreviation 
+                    from the front matter and substituting umlauts (same procedure as when publication
+                    files are created) -->
+                    {% assign abbr_new = page.abbr | downcase %}
+                    {% if abbr_new contains "ö" %}
+                        {% assign abbr_new = abbr_new | replace: "ö", "oe" %}
+                    {% endif %}
+                    {% if abbr_new contains "ä" %}
+                        {% assign abbr_new = abbr_new | replace: "ä", "ae" %}
+                    {% endif %}
+                    {% if abbr_new contains "ü" %}
+                        {% assign abbr_new = abbr_new | replace: "ü", "ue" %}
+                    {% endif %}
+                    {% if abbr_new contains "ß" %}
+                        {% assign abbr_new = abbr_new | replace: "ß", "ss" %}
+                    {% endif %}
+                {% include publications/{{ abbr_new }}.html %}
+            </div>
         </div>
+        <h3 class="title is-5">Resources</h3>
+        <ul>
+            <li>...</li>
+        </ul>
     </div>
 </div>
 <script>

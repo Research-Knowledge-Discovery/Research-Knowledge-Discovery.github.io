@@ -4,24 +4,24 @@ Jekyll::Hooks.register :site, :post_write do |site|
    
     $sitemap = []
     $sitemap_img = []
+    # Save _site directory to variable to form paths correctly (relative to _site)
     $project_root  = Pathname.new("_site")
 
     # Define a function that writes a sitemap to a specified filename ("sitemap" for default sitemap, "sitemap-image" for image sitemap)
     def write_sitemap(data, filename)
-        # Create a new file, overwrite if it exists since appending does not guarantee a correct sitemap, items could be present twice
+        # Create a new file, overwrite if it exists since appending could cause items to have duplicates
         File.open(filename + ".xml", 'w') {|f| f.write('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')}
         # Iterate over passed array and append items to the empty file
+        # data should be an array of sitemap items (paths)
         if data.is_a?(Array)
             data.each do |entry|
-                #absolute_path = Pathname.new(entry['path'])
                 absolute_path = Pathname.new(entry)
-                #last_modified = entry['lastmod'].to_s
-                last_modified = File.mtime(entry).to_s
-                lastmod_formatted = DateTime.parse(last_modified).iso8601()
+                # If current filepath matches index.html, write it so sitemap as / since that's its permalink
                 if entry == '_site/index.html'
-                    File.open(filename + ".xml", 'a') {|f| f.write('<url><loc>' + 'https://research-knowledge-discovery.github.io/</loc><lastmod>' + lastmod_formatted + '</lastmod></url>')}
+                    File.open(filename + ".xml", 'a') {|f| f.write('<url><loc>' + 'https://research-knowledge-discovery.github.io/</loc></url>')}
                 else
-                    File.open(filename + ".xml", 'a') {|f| f.write('<url><loc>' + 'https://research-knowledge-discovery.github.io/' + absolute_path.relative_path_from($project_root).to_s + '</loc><lastmod>' + lastmod_formatted + '</lastmod></url>')}
+                    # relative_path_from: Forming path relative to _site directory
+                    File.open(filename + ".xml", 'a') {|f| f.write('<url><loc>' + 'https://research-knowledge-discovery.github.io/' + absolute_path.relative_path_from($project_root).to_s + '</loc></url>')}
                 end
             end
         end
@@ -31,44 +31,43 @@ Jekyll::Hooks.register :site, :post_write do |site|
 
     # Iterate through files in _site directory (** matches any directory recursively)
     Dir.glob('_site/**/*') do |filename|
-        # If the filename matches any of these conditions, skip it
+        # If the filename matches any of these conditions, skip it, they should not be included
         next if filename == '.' or filename == '..' or filename == '_site/robots.txt' or filename == '_site/sitemap.xml' or filename == '_site/sitemap-image.xml' or filename == '_site/sitemap-reference.txt' or filename == '_site/sitemap-img-reference.txt'
+        
+        # Sort filenames into correct sitemap (images oder documents)
         # If the file is located in the assets directory and the filename contains .png, add it to the image sitemap array
         if filename.include? '_site/assets/'
             if filename.include? '.png' 
-                #$sitemap_img << {'path' => filename, 'lastmod' => File.mtime(filename).to_s}
                 $sitemap_img << filename                
             end
         # Otherwise, add it to the sitemap array, after checking if it actually is a file and not a directory
         else
             if File.file?(filename)
-                #$sitemap << {'path' => filename, 'lastmod' => File.mtime(filename).to_s}
-                $sitemap << filename
+               $sitemap << filename
             end
         end
     end
-    # Compare the arrays with their respective reference files
+    # Next: Compare the arrays with their respective reference files
     # If they are identical, do nothing. If they are not, update the sitemap files and the reference files
 
-    # If no reference files exists (first time plugin runs or if they have been deleted), create and populate them.
-    # Afterwards, create sitemap.xml and sitemap-image.xml if reference files have not been existent (first time plugin runs)
-    # or overwrite them if sitemap array and reference file array don't match.
+    # If no reference files exist (first time plugin runs or if they have been deleted), create and populate them.
+    # If this is the case, newly create sitemap.xml and sitemap-image.xml, too
+
+    # First: process for general sitemap, then: process for image-sitemap
     if !File.exist?('sitemap-reference.txt')
         File.open("sitemap-reference.txt", 'w') {}
         # Populate
         $sitemap.each do |item|
             # Also add newline to line ending so File.readlines can be called later to easily process file into array later
-            #File.open("sitemap-reference.txt", 'a') {|f| f.write(item['path'] + "\n" + item['lastmod'] + "\n")}
             File.open("sitemap-reference.txt", 'a') {|f| f.write(item + "\n")}
         end
-        # Write sitemap if reference has not been existent
         write_sitemap $sitemap, "sitemap"
     # If the reference file in question already exists, read it into an array and check if it matches
     # the new array populated in the directory iteration
     else
         $sitemap_ref = File.readlines('sitemap-reference.txt')
         $sitemap_ref.each do |item|
-            # Remove previously added newlines so comparison works
+            # Newlines are preserved in reading process, so they need to be removed for comparison to works
             item.slice! "\n"
         end
         if $sitemap_ref == $sitemap
@@ -84,10 +83,10 @@ Jekyll::Hooks.register :site, :post_write do |site|
         end
     end
 
+    # Same as above
     if !File.exist?('sitemap-img-reference.txt')
         File.open("sitemap-img-reference.txt", 'w') {}
         $sitemap_img.each do |item|
-            #File.open("sitemap-img-reference.txt", 'a') {|f| f.write(item['path'] + "\n" + item['lastmod'] + "\n")}
             File.open("sitemap-img-reference.txt", 'a') {|f| f.write(item + "\n")}
         end
         write_sitemap $sitemap_img, "sitemap-image"
