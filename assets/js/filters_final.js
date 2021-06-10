@@ -276,21 +276,25 @@ function filterProjects(callback) {
         // Note: This should always be the case if filters are automatically generated from
         // tags that are actually used in projects. This check will remain here for now.
         if (results_found == true) {
-            var leftovers = [];
+            var leftovers = null;
             // Find projects to display ('leftovers', i.e. projects that have not been filtered out)
 
             // Unselected first level tags (exclude), if exist
             if (excluded_projects.length != 0) {
+                leftovers = [];
+                console.log("excluded projects was not null");
                 // "filter" function keeps all elements of an array if they fulfill the condition set (return)
                 leftovers = liquid_projects.filter(function(element) {
                     // The project is kept if it has not been found in the array of filtered projects
                     return excluded_projects.indexOf(element) < 0;
                 });
             }
+            console.log("leftovers critical: ");
+            console.log(leftovers);
             // Selected second level tags (include), if exist
             if (included_projects.length > 0) {
                 // If leftovers has already been filled by first level tag filter, filter them by included projects
-                if (leftovers.length > 0) { 
+                if (leftovers !== null) { 
                     leftovers = included_projects.filter(function(element) {
                         // The project is kept if it has been found in the array of included projects
                         return leftovers.indexOf(element) >= 0;
