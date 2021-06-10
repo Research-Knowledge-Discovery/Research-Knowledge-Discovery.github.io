@@ -1,11 +1,7 @@
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-console.log("Viewport-Width: " + vw);
-console.log("Viewport-Height: " + vh);
 var menuitems = document.getElementsByClassName('navbar-item has-dropdown');
 
 function toggleMenu(menu) {
-    // If a menu is currently displayed, close it, and vice versa
+    // If passed menu is currently displayed, close it, and vice versa
     if (window.getComputedStyle(menu, null).display == 'none')
         menu.style.display = 'block';
     else
@@ -17,18 +13,11 @@ function toggleMenu(menu) {
 var open_menu;
 
 function changeSize(mediaQuery) {
-    // If page is resized past a breakpoint:
+    // If page is resized past a breakpoint, close menu on resize past breakpoint on mobile and back
     if (mediaQuery.matches) {
-        // Close menu on resize past breakpoint on mobile and back
-        //var navbar = document.getElementById('navMenu');
-        //if (navbar.classList.contains('is-active'))
-        //   navbar.classList.toggle('is-active');
-
         // Get all menu items with dropdowns
         var all_dropdowns = document.getElementsByClassName("navbar-item has-dropdown");
         for (let i = 0; i < all_dropdowns.length; i++) {
-            console.log("Child");
-            console.log(all_dropdowns[i].children[1]);
             // Since the menu item's second child contains the respective dropdown menu,
             // .children[1] is extracted and hidden when the page is resized past a breakpoint.
 
@@ -44,24 +33,11 @@ function changeSize(mediaQuery) {
     }
   }
 
+// Setting media queries and respective handlers
 var mediaQuery_mobile = window.matchMedia("(max-width: 1024px)");
 var mediaQuery_desktop = window.matchMedia("(min-width: 1024px)");
 mediaQuery_mobile.addListener(changeSize);
 mediaQuery_desktop.addListener(changeSize);
-
-/*window.addEventListener('resize', function(event){
-    console.log("resized");
-    if (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024) {
-        var all_dropdowns = document.getElementsByClassName("has-dropdown");
-        for (let i = 0; i < all_dropdowns.length; i++) {
-            console.log(all_dropdowns[i].children[1]);
-            if (window.getComputedStyle(all_dropdowns[i].children[1], null).display == 'block') {
-                all_dropdowns[i].children[1].style.display = 'none';
-            }
-        }
-        open_menu = null;
-    }
-});*/
 
 // (Mostly landscape) Dropdown opening and closing logic.
 // Clicks on different parts of the site and their effects on (open) dropdowns are handled here

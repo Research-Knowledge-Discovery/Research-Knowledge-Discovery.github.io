@@ -361,10 +361,10 @@ function addTagRemovalButtons() {
     // If there are activated buttons, create filter removal buttons and respective event handlers
     if (activated.length != 0) {
         for (var i = 0; i < activated.length; i++) {
-            var to_append = document.createElement("a"); // The new button
+            var to_append = document.createElement("button"); // The new button
             to_append.id = activated[i].id; // Assigning the tag as ID for easy identification and comparison
-            to_append.classList.add('removal-button');
-            to_append.innerHTML = "x " + activated[i].innerHTML; // Button text
+            to_append.classList.add('button', 'removal-button', 'remove');
+            to_append.innerHTML = activated[i].innerHTML; // Button text
             to_append.addEventListener('click', function (e) {
                 // On click, remove the tag from the list of active filters, remove tag removal button and toggle activated class on tag in dropdown
                 for (var x = 0; x < secondtags.length; x++) {

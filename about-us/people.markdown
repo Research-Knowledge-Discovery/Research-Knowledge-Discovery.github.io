@@ -40,7 +40,7 @@ title: "People"
                 <p class="description overview to-hide">{% if excerpt.size > 0 %}{{ excerpt[0] }}{% elsif person.description != null %}{{ person.description }}{% else %}{% endif %}</p>
                 {% unless person.title == "Jüri Keller" %}
                 <div class="personlink">
-                <!-- Open external links in a new tab (target="_blank") and set fitting icon (todo: explain noopener noreferrer) -->
+                <!-- Open external links in a new tab (target="_blank") and set fitting icon -->
                     <a class="profile-link" href={% if person.links.ext-profile != null %}"{{ person.links.ext-profile }}" target="_blank" rel="noopener noreferrer"{% else %}"{{ person.url }}"{% endif %}>> Profile{% if person.links.ext-profile != null %} <i class="fas fa-external-link-alt"></i>{% endif %}</a> 
                     {% if person.links.th-koeln != null %}<a class="th-koeln-link" target="_blank" rel="noopener noreferrer" href="{{ person.links.th-koeln }}">> Employee Site TH <i class="fas fa-external-link-alt"></i></a>{% endif %}
                     {% if person.links.private-link != null %}<a class="private-link" target="_blank" rel="noopener noreferrer" href="{{ person.private-site }}">> Private Page <i class="fas fa-external-link-alt"></i></a>{% endif %}

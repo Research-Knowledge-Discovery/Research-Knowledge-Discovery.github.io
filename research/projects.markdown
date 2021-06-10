@@ -112,8 +112,8 @@ title: "Projects"
 <script src="{{ site.baseurl }}/assets/js/filters_final.js"></script>
 <script src="{{ site.baseurl }}/assets/js/to_top.js"></script>
 <script>
-    // Hide certain filters based on whether or not the corresponding tags have been used in the
-    // elements on this page (in this case, projects)
+    // Hide certain filters based on whether or not the corresponding tags have actually been used in the
+    // elements on this page (in this case, projects) (tags could also have been used in news articles)
     // Retrieve all project research areas and topics and store them in an array...
     // (In Liquid, they need to be appended to a string first and then split to form an array)
     {% assign used_tags = "" %}

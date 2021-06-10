@@ -528,7 +528,16 @@ button.activated:focus {
     margin-right: 8px;
     padding: 10px 15px;
     border-radius: 100px;
-    border: 1px solid grey;
+    background-color: #eee;
+}
+
+.removal-button:hover {
+    color: #6b6b6b;
+}
+
+.remove::before {
+    content: "\00d7";
+    margin-right: 5px;
 }
 
 #close {
