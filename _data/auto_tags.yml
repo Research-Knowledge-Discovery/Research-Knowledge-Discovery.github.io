@@ -2,14 +2,14 @@
 research-areas:
   areas:
   - name: Data Science
-    tag: ds
+    tag: data_science
   - name: Information Retrieval
-    tag: ir
+    tag: information_retrieval
   - name: Natural Language Processing
-    tag: nlp
+    tag: natural_language_processing
   topics:
   - name: Adressable TV
-    tag: addressable_tv
+    tag: adressable_tv
   - name: ANN
     tag: ann
   - name: Asset Wealth
@@ -17,9 +17,9 @@ research-areas:
   - name: CNN
     tag: cnn
   - name: Computers and Society
-    tag: computers_society
+    tag: computers_and_society
   - name: Cross Reality
-    tag: xr
+    tag: cross_reality
   - name: Data Journalism
     tag: data_journalism
   - name: DBLP
@@ -41,7 +41,7 @@ research-areas:
   - name: Google
     tag: google
   - name: Human-Computer-Interaction
-    tag: hci
+    tag: human-computer-interaction
   - name: Information Extraction
     tag: information_extraction
   - name: Nutrition

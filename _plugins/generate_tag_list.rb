@@ -25,7 +25,20 @@ Jekyll::Hooks.register :site, :post_read do |site|
                                     item['research-areas']['areas'].each do |area|
                                         # Use a hash to be able to differentiate tag names and their tag IDs later
                                         if area['name'] != '' and area['tag'] != ''
-                                            $first_level << {'name' => area['name'], 'tag' => area['tag']}
+                                            tag = area['name'].downcase.tr(" ", "_")
+                                            tag = tag.gsub(/[äöü]/) do |match|
+                                                case match
+                                                when "ä"
+                                                    'ae'
+                                                when "ö"
+                                                    'oe'
+                                                when "ü"
+                                                    'ue'
+                                                when "ß"
+                                                    'ss'
+                                                end
+                                            end
+                                            $first_level << {'name' => area['name'], 'tag' => tag}
                                         end
                                     end
                                 end
@@ -35,7 +48,18 @@ Jekyll::Hooks.register :site, :post_read do |site|
                                     # Do the same for topics
                                     item['research-areas']['topics'].each do |topic|
                                         if topic['name'] != '' and topic['tag'] != ''
-                                            $second_level << {'name' => topic['name'], 'tag' => topic['tag']}
+                                            tag = topic['name'].downcase.tr(" ", "_")
+                                            tag = tag.gsub(/[äöü]/) do |match|
+                                                case match
+                                                when "ä"
+                                                    'ae'
+                                                when "ö"
+                                                    'oe'
+                                                when "ü"
+                                                    'ue'
+                                                end
+                                            end
+                                            $second_level << {'name' => topic['name'], 'tag' => tag}
                                         end
                                     end
                                 end

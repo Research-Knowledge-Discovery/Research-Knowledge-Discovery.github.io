@@ -105,14 +105,48 @@ var noresults = document.getElementById("noresults");
 liquid_projects.push({
     "nr": "{{ project.nr }}",
     "name": "{{ project.title }}",
-    "areas": [{%- for area in project.research-areas.areas -%}{
+    "areas": [{%- for area in project.research-areas.areas -%}
+        {%- assign tag = area.name | downcase -%}
+        {%- if tag contains "ö" -%}
+            {%- assign tag = tag | replace: "ö", "oe" -%}
+        {%- endif -%}
+        {%- if tag contains "ä" -%}
+            {%- assign tag = tag | replace: "ä", "ae" -%}
+        {%- endif -%}
+        {%- if tag contains "ü" -%}
+            {%- assign tag = tag | replace: "ü", "ue" -%}
+        {%- endif -%}
+        {%- if tag contains "ß" -%}
+            {%- assign tag = tag | replace: "ß", "ss" -%}
+        {%- endif -%}
+        {%- if tag contains " " -%}
+            {%- assign tag = tag | replace: " ", "_" -%}
+        {%- endif -%}
+        {
         "name": "{{ area.name }}",
-        "tag": "{{ area.tag }}"
+        "tag": "{{ tag }}"
     }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]
     {% if project.research-areas.topics != null %},
-    "topics": [{% for topic in project.research-areas.topics -%}{
+    "topics": [{% for topic in project.research-areas.topics -%}
+        {%- assign tag = topic.name | downcase -%}
+        {%- if tag contains "ö" -%}
+            {%- assign tag = tag | replace: "ö", "oe" -%}
+        {%- endif -%}
+        {%- if tag contains "ä" -%}
+            {%- assign tag = tag | replace: "ä", "ae" -%}
+        {%- endif -%}
+        {%- if tag contains "ü" -%}
+            {%- assign tag = tag | replace: "ü", "ue" -%}
+        {%- endif -%}
+        {%- if tag contains "ß" -%}
+            {%- assign tag = tag | replace: "ß", "ss" -%}
+        {%- endif -%}
+        {%- if tag contains " " -%}
+            {%- assign tag = tag | replace: " ", "_" -%}
+        {%- endif -%}
+        {
         "name": "{{ topic.name }}",
-        "tag": "{{ topic.tag }}"
+        "tag": "{{ tag }}"
     }{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{%- endif %}
 });
 {% endfor %}

@@ -59,6 +59,10 @@ ul:not(:last-child) {
     margin-bottom: 2rem;
 }
 
+ul.allnews {
+    list-style: none;
+}
+
 .sidebar ul {
     list-style: none;
 }
@@ -526,9 +530,11 @@ button.activated:focus {
 
 .removal-button {
     margin-right: 8px;
+    margin-bottom: 8px;
     padding: 10px 15px;
     border-radius: 100px;
-    background-color: #eee;
+    //background-color: #eee;
+    background-color: #fff;
 }
 
 .removal-button:hover {
@@ -651,7 +657,13 @@ button.activated:focus {
 
 .factlist-2 {
     grid-area: factlist-2;
-    font-size: 0.8rem;
+    font-size: 1rem;
+}
+
+.factlist-2 ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
 
 .content-1 {
@@ -975,6 +987,12 @@ button.activated:focus {
 
     .lists {
         max-width: 100%;
+    }
+
+    .factlist-2 ul {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
     }
     
 }

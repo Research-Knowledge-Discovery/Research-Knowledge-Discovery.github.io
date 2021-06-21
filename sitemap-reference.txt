@@ -8,7 +8,7 @@ _site/about-us/people/4-lepsky-klaus.html
 _site/about-us/people/5-breuer-timo.html
 _site/about-us/people/6-engelmann-bjoern.html
 _site/about-us/people/7-haak-fabian.html
-_site/about-us/people/keller-jueri.html
+_site/about-us/people/8-keller-jueri.html
 _site/about-us/people.html
 _site/feed.xml
 _site/index.html

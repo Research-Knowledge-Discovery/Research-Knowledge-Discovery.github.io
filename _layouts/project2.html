@@ -1,9 +1,9 @@
 ---
 layout: custom_default
 ---
-<div class="none">
+<!--<div class="none">-->
     <div class="columns is-desktop custom">
-        <div class="column">
+        <div class="column content-spaced">
             <div class="basicinfo">
                 <!-- Split the title by " - " if it exists in the string to separate title and subtitle from
                 one another. If all of the title is displayed in the page header it becomes too big, so part
@@ -69,7 +69,7 @@ layout: custom_default
         <div class="factlist-2 spaced">
             {% if page.partners %}
                 <h3 class="title is-6">Partners</h3> 
-                <ul class="singlelist">
+                <ul class="">
                     {%- for partner in page.partners -%}
                         <li>
                             {% if partner.link != null and partner.link != '#' %}
@@ -145,7 +145,4 @@ layout: custom_default
             <li>...</li>
         </ul>
     </div>
-</div>
-<script>
-    console.log("{{abbr_new}}");
-</script>
+<!--</div>-->

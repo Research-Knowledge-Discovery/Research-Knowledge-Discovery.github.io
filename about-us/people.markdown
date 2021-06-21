@@ -43,7 +43,7 @@ title: "People"
                 <!-- Open external links in a new tab (target="_blank") and set fitting icon -->
                     <a class="profile-link" href={% if person.links.ext-profile != null %}"{{ person.links.ext-profile }}" target="_blank" rel="noopener noreferrer"{% else %}"{{ person.url }}"{% endif %}>> Profile{% if person.links.ext-profile != null %} <i class="fas fa-external-link-alt"></i>{% endif %}</a> 
                     {% if person.links.th-koeln != null %}<a class="th-koeln-link" target="_blank" rel="noopener noreferrer" href="{{ person.links.th-koeln }}">> Employee Site TH <i class="fas fa-external-link-alt"></i></a>{% endif %}
-                    {% if person.links.private-link != null %}<a class="private-link" target="_blank" rel="noopener noreferrer" href="{{ person.private-site }}">> Private Page <i class="fas fa-external-link-alt"></i></a>{% endif %}
+                    {% if person.links.private-site != null %}<a class="private-link" target="_blank" rel="noopener noreferrer" href="{{ person.private-site }}">> Private Page <i class="fas fa-external-link-alt"></i></a>{% endif %}
                 </div>
                 {% endunless %}
             </div>

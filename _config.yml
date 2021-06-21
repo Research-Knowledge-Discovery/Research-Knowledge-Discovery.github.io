@@ -37,7 +37,7 @@ plugins:
 # in development (as the used theme is logged in the terminal), theme is set null here.
 
 #theme: bulma-clean-theme
-remote_theme:  "chrisrhymes/bulma-clean-theme"
+remote_theme: "chrisrhymes/bulma-clean-theme"
 
 # Defining front matter defaults. This provides default values for front matters and prevents 
 # having to manually set, for example, a layout on every file. Empty front matters must still
@@ -57,6 +57,11 @@ defaults:
       path: "index.markdown"
     values:
       show_sidebar: false # Disabling sidebar on page "Home"
+  -
+    scope:
+      path: "404.html"
+    values:
+      show_sidebar: false # Disabling sidebar on page "404"
   -
     scope:
       path: ""

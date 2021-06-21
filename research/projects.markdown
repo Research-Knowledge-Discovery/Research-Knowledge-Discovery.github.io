@@ -23,12 +23,44 @@ title: "Projects"
                         <h2 class="title is-5"><i class="fas fa-book-open"></i><a href="{{ project.url }}">{{ project.title }}</a></h2>
                     {% endif %}
                     <div class="tags">
-                    {% for category in project.research-areas.areas %}
-                        <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
+                    {% for area in project.research-areas.areas %}
+                        {% assign tag = area.name | downcase %}
+                        {% if tag contains "ö" %}
+                            {% assign tag = tag | replace: "ö", "oe" %}
+                        {% endif %}
+                        {% if tag contains "ä" %}
+                            {% assign tag = tag | replace: "ä", "ae" %}
+                        {% endif %}
+                        {% if tag contains "ü" %}
+                            {% assign tag = tag | replace: "ü", "ue" %}
+                        {% endif %}
+                        {% if tag contains "ß" %}
+                            {% assign tag = tag | replace: "ß", "ss" %}
+                        {% endif %}
+                        {% if tag contains " " %}
+                            {% assign tag = tag | replace: " ", "_" %}
+                        {% endif %}
+                        <span class="tag is-primary {{ tag }}">{{ area.name }}</span>
                     {% endfor %}<br/>
                     {% if project.research-areas.topics %}
                         {% for topic in project.research-areas.topics %}
-                            <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
+                            {% assign tag = topic.name | downcase %}
+                            {% if tag contains "ö" %}
+                                {% assign tag = tag | replace: "ö", "oe" %}
+                            {% endif %}
+                            {% if tag contains "ä" %}
+                                {% assign tag = tag | replace: "ä", "ae" %}
+                            {% endif %}
+                            {% if tag contains "ü" %}
+                                {% assign tag = tag | replace: "ü", "ue" %}
+                            {% endif %}
+                            {% if tag contains "ß" %}
+                                {% assign tag = tag | replace: "ß", "ss" %}
+                            {% endif %}
+                            {% if tag contains " " %}
+                                {% assign tag = tag | replace: " ", "_" %}
+                            {% endif %}
+                            <span class="tag is-primary is-light {{ tag }}">{{ topic.name }}</span>
                         {% endfor %}
                     {% endif %}
                     </div>
@@ -119,36 +151,69 @@ title: "Projects"
     {% assign used_tags = "" %}
     {% for project in site.projects %}
         {% for area in project.research-areas.areas %}
-            {% assign used_tags = used_tags | append: area.tag | append: ";"%}
+            {% assign tag = area.name | downcase %}
+            {% if tag contains "ö" %}
+                {% assign tag = tag | replace: "ö", "oe" %}
+            {% endif %}
+            {% if tag contains "ä" %}
+                {% assign tag = tag | replace: "ä", "ae" %}
+            {% endif %}
+            {% if tag contains "ü" %}
+                {% assign tag = tag | replace: "ü", "ue" %}
+            {% endif %}
+            {% if tag contains "ß" %}
+                {% assign tag = tag | replace: "ß", "ss" %}
+            {% endif %}
+            {% if tag contains " " %}
+                {% assign tag = tag | replace: " ", "_" %}
+            {% endif %}
+            {% assign used_tags = used_tags | append: tag | append: ";"%}
         {% endfor %}
         {% for topic in project.research-areas.topics %}
-            {% assign used_tags = used_tags | append: topic.tag | append: ";" %}
+            {% assign tag = topic.name | downcase %}
+            {% if tag contains "ö" %}
+                {% assign tag = tag | replace: "ö", "oe" %}
+            {% endif %}
+            {% if tag contains "ä" %}
+                {% assign tag = tag | replace: "ä", "ae" %}
+            {% endif %}
+            {% if tag contains "ü" %}
+                {% assign tag = tag | replace: "ü", "ue" %}
+            {% endif %}
+            {% if tag contains "ß" %}
+                {% assign tag = tag | replace: "ß", "ss" %}
+            {% endif %}
+            {% if tag contains " " %}
+                {% assign tag = tag | replace: " ", "_" %}
+            {% endif %}
+            {% assign used_tags = used_tags | append: tag | append: ";" %}
         {% endfor %}
     {% endfor %}
     {% assign used_tags_arr = used_tags | split: ";" | uniq %}
     // Jsonify the result and save it in a JavaScript variable
     var used_tags_projects = {{ used_tags_arr | jsonify }};
     console.log(used_tags_projects);
-    // Get all filter checkboxes. Since checkboxes are built from all available tags, their
+    // Get all filters. Since filters are built from all available tags, their
     // IDs will represent a list of all possible tags.
     var all_boxes = document.getElementsByClassName("filter");
     // Prepare an array to store these tags
     var all_tags = [];
-    // Iterate over boxes and store their IDs in the array
+    // Iterate over filters and store their IDs in the array
     for (var boxnr = 0; boxnr < all_boxes.length; boxnr++) {
         all_tags.push(all_boxes[boxnr].id);
     }
-    // Filter all tags but those that have acutally been used in this page's elements (projects)
-    var to_disable = all_tags.filter(function(element) {
+    // Remove all tags but those that have acutally been used in this page's elements (projects) from the array
+    var to_hide = all_tags.filter(function(element) {
         // Return elements that have not been found in the used tags array, which are those that were not used
         return used_tags_projects.indexOf(element) < 0;
     });
-    // Iterate over checkboxes to disable and all boxes to match IDs
-    for (var n = 0; n < to_disable.length; n++) {
+    // Iterate over filters to hide and all filters to match IDs
+    for (var n = 0; n < to_hide.length; n++) {
         for (var m = 0; m < all_boxes.length; m++) {
-            if (all_boxes[m].id == to_disable[n])
-                // If IDs match, hide the box's parent element which in this HTML structure is
-                // the div holding the checkbox and its label. If only the box itself were hidden,
+            if (all_boxes[m].id == to_hide[n])
+                // If IDs match, hide the filters's parent element which in this HTML structure is
+                // the div holding the button or checkbox with its label. 
+                // If for checkboxes only the box itself were hidden,
                 // the label would remain visible.
                 all_boxes[m].parentElement.style.display = 'none';
         }
