@@ -16,7 +16,6 @@ partners:
 funding:
   - name: "Ministerium für Kultur und Wissenschaft NRW"
     link: "http://www.mkw.nrw/"
-description: ""
 main-logo: "../assets/images/projects/logos/nrw-mkw.png"
 people:
   - name: "Prof. Dr. Philipp Schaer"

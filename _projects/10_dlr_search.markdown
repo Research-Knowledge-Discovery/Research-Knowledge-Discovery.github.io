@@ -16,7 +16,6 @@ partners:
 funding: 
   - name: "?"
     link: 
-description: ""
 main-logo: "../assets/images/projects/logos/dlr_signet_schwarz.jpg"
 people: 
   - name: "Prof. Dr. Klaus Lepsky"

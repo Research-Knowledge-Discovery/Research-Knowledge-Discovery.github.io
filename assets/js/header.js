@@ -13,7 +13,7 @@ function toggleMenu(menu) {
 var open_menu;
 
 function changeSize(mediaQuery) {
-    // If page is resized past a breakpoint, close menu on resize past breakpoint on mobile and back
+    // If page is resized past a breakpoint, close all menus on resize past breakpoint from mobile and back
     if (mediaQuery.matches) {
         // Get all menu items with dropdowns
         var all_dropdowns = document.getElementsByClassName("navbar-item has-dropdown");

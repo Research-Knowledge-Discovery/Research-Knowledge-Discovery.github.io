@@ -6,9 +6,11 @@ import os
 from bs4 import BeautifulSoup
 import re
 
-# Creating directory holding publications as html files
+# Creating directory holding publications as html files, not throwing an error if
+# the directory already exists
 os.makedirs('../_includes/publications', exist_ok=True)
 
+# Files containing tags to search for
 filename_ir = 'tags_ir.txt'
 filename_nlp = 'tags_nlp.txt'
 
@@ -28,16 +30,23 @@ base_ds = 'https://www.gernotheisenberg.de/publikationen.html'
 base_ir = 'https://www.bibsonomy.org/layout/publist-year-en/user/irgroup_thkoeln'
 base_nlp = 'https://www.bibsonomy.org/layout/publist-year-en/user/lepsky/myown'
 
+# Getting response
 page = requests.get(base_ds)
+# Gettings response's raw page content
 ds_raw = page.content
+# Parsing the content to extract an HTML object (BeautifulSoup object, see https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 ds_fullhtml = BeautifulSoup(ds_raw, 'html.parser')
+# Find all elements of this type and class - there are two, the second one holds 
+# the needed data
 ds_snippet = ds_fullhtml.findAll('div', class_='entry-content clearfix')
-# Extracting a specific author's publications
+# Extracting a specific publications
 if ds_snippet is not None:
     html_woehrle = ds_snippet[1].findAll('li', text=re.compile("Wöhrle"))
+    # Writing all publications to file
     with open('../_includes/publications/heisenberg.html', mode='w', encoding='utf-8') as localfile: localfile.write(str(ds_snippet[1]))
 
 if html_woehrle is not None:
+    # Writing specific publications to different file in own <ul>
     with open('../_includes/publications/woehrle.html', mode='w', encoding='utf-8') as localfile: 
         localfile.write('<ul>')
         for item in html_woehrle:

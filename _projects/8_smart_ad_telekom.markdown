@@ -12,7 +12,6 @@ duration:
 funding:
   - name: "Deutsche Telekom AG"
     link: "https://www.telekom.de/ueber-das-unternehmen"
-description: ""
 main-logo: "../assets/images/projects/logos/telekom.png"
 people: 
   - name: "Prof. Dr. Gernot Heisenberg"

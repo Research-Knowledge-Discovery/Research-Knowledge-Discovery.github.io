@@ -273,7 +273,6 @@ function filterProjects(callback) {
                         if (liquid_projects[x].areas[a].tag == unchecked_boxes[l].id) {
                             // Save the current project to array
                             excluded_projects.push(liquid_projects[x]);
-                            console.log(excluded_projects);
                             results_found = true; // Debug
                             // Don't continue looking at this project's next areas and instead
                             // break back to the checkbox loop to check the next checkbox against this project

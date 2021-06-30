@@ -20,7 +20,6 @@ funding:
     link: "https://www.bmz.de/de"
   - name: "ASA Programme"
     link: "https://asa.engagement-global.de/start.html"
-description: ""
 main-logo: "../assets/images/projects/logos/engagement-global.jpg"
 people: 
   - name: "Prof. Dr. Gernot Heisenberg"

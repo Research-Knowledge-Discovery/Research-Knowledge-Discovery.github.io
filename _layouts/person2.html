@@ -1,7 +1,9 @@
 ---
 layout: custom_default
 ---
+<!-- First row: Two-column layout on desktop -->
 <div class="columns">
+    <!-- 1st column: basicinfo + description + project participation -->
     <div class="column content-spaced">
         <div class="basicinfo">
             <h1 class="name title is-5">{% if page.titles %}{{ page.titles }} {% endif %}{{ page.firstname }} {{ page.lastname }}</h1>
@@ -39,16 +41,19 @@ layout: custom_default
             </div>
         {%- endif -%}
     </div>
+    <!-- 2nd column: profile picture and contact (address, phone nr., social media) -->
     <div class="column is-narrow">
+        <!-- Placeholder, if necessary (manually set variable in person's file's front matter) -->
         {% if page.placeholder-image == true %}
             <img class="image center-cropped profile detail" src="../../assets/images/people/placeholder.png"/>
         {% else %}
+            <!-- Determining file name -->
             {% assign escaped_fn = page.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
             {% assign escaped_ln = page.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
             <img class="image center-cropped profile detail" src="../../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
         {% endif %}
         <div class ="factlist-1 person">
-            <!--<p>Contact:</p>-->
+            <!-- Contact: -->
             <ul class="">
                 <ul>
                     <!--<li class="institution">{{ page.contact.address.institution }}</li>-->
@@ -60,7 +65,7 @@ layout: custom_default
             </ul>
         </div>
         <div class="factlist-2 person">
-            <!--<p>Social Media:</p> -->
+            <!-- Social Media -->
             <ul class="singlelist">
                 <li>{{ page.social_media.linkedin }}</li>
                 <li>{{ page.social_media.twitter }}</li>

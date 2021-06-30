@@ -18,7 +18,6 @@ partners:
 funding:
   - name: "DFG - Deutsche Forschungsgemeinschaft"
     link: "http://www.dfg.de/"
-description: ""
 main-logo: "../assets/images/projects/logos/dfg.png"
 people:
   - name: "Prof. Dr. Philipp Schaer"

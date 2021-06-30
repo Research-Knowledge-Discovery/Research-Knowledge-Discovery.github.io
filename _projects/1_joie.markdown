@@ -14,10 +14,9 @@ partners:
   - name: "Science Media Center"
     link: "https://www.sciencemediacenter.de/"
 funding: # Implemented as an array even if there is only one entry, 
-# so in a reference to this field no check for whether there are multiple entries or not is needed
+# so that in a reference to this field no check for whether there are multiple entries or not is needed
   - name: "Klaus Tschira Stiftung"
     link: "https://www.klaus-tschira-stiftung.de/"
-description: ""
 main-logo: "../assets/images/projects/logos/kts.png"
 people:
   - name: "Prof. Dr. Philipp Schaer"

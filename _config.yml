@@ -37,7 +37,7 @@ plugins:
 # in development (as the used theme is logged in the terminal), theme is set null here.
 
 #theme: bulma-clean-theme
-remote_theme: "chrisrhymes/bulma-clean-theme"
+remote_theme: "chrisrhymes/bulma-clean-theme@v0.11.2  "
 
 # Defining front matter defaults. This provides default values for front matters and prevents 
 # having to manually set, for example, a layout on every file. Empty front matters must still
@@ -106,6 +106,9 @@ collections:
     permalink: "/theses-and-jobs/:collection/:name:output_ext"
   news:
     output: false
+
+
+# Custom variables
 
 excerpt_separator: "<!--more-->"
 

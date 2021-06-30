@@ -10,6 +10,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
         </tr>
         <tr>
             <td><a href="{{ thesis.url }}">{{ thesis.title }}</a></td>
+            <!-- Iterating over advisors, adding commas after each advisor except the last -->
             <td>{% for advisor in thesis.advisors %}{{ advisor }}{% unless forloop.last %}, {% endunless %}{% endfor %}</td>
             <td>{{ thesis.type }}</td>
         </tr>

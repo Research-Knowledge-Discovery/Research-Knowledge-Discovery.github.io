@@ -29,7 +29,6 @@ partners:
 funding:
   - name: "BLE - Federal Office for Agriculture and Food"
     link: "https://www.ble.de/DE/Startseite/startseite_node.html"
-description: ""
 main-logo: "../assets/images/projects/logos/ble.png"
 people:
   - name: "Prof. Dr. Gernot Heisenberg"

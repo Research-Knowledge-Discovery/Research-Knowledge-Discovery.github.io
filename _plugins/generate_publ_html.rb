@@ -3,7 +3,7 @@ puts "Running plugin generate_publ_html..."
 Jekyll::Hooks.register :people, :pre_render do |person|
     name = person.data['lastname']
     # Replacing umlauts
-    newname = name.gsub(/[äöü]/) do |match|
+    newname = name.gsub(/[äöüß]/) do |match|
         case match
         when "ä"
             'ae'
@@ -11,6 +11,8 @@ Jekyll::Hooks.register :people, :pre_render do |person|
             'oe'
         when "ü"
             'ue'
+        when "ß"
+            'ss'
         end
     end
     # Only create new publication file if it does not exist
@@ -24,7 +26,7 @@ end
 Jekyll::Hooks.register :projects, :pre_render do |project|
     # Get this project's abbreviation
     p_abbr = project.data['abbr']
-    p_newabbr = p_abbr.gsub(/[äöü]/) do |match|
+    p_newabbr = p_abbr.gsub(/[äöüß]/) do |match|
         case match
         when "ä"
             'ae'
@@ -32,6 +34,8 @@ Jekyll::Hooks.register :projects, :pre_render do |project|
             'oe'
         when "ü"
             'ue'
+        when "ß"
+            'ss'
         end
     end
     if !File.exist?("_includes/publications/" + p_newabbr.downcase + ".html")

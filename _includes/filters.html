@@ -1,24 +1,40 @@
+<!-- Main toggle button toggling all filters, mobile only -->
 <button class="button toggle main-toggle">- Show filters -</button>
+<!-- Container holding filters and buttons for resetting and submitting filters 
+as well as a list of active filters -->
 <div class="filter-container">
+    <!-- Container holding only filters (this is an extra container for styling) -->
     <div class="filters spaced">
         {% if site.data.auto_tags %}
+            <!-- Formatting all tags into filters. Tags that go unused on the current page 
+            are hidden again later (in projects.markdown) -->
+            <!-- IDs are used in the actual filtering process later. Classes are for style, but also
+            to save all filters in an array later so they can be evaluated -->
+            <!-- Areas -->
             {% for area in site.data.auto_tags.research-areas.areas %}
                 <div class="area {{ area.tag }}">
+                    <!-- Wrapping checkbox and corresponding checkbox label (span) inside a label tag
+                    to extend clickable area a user can click to toggle the filter -->
                     <label for="{{ area.tag }}">
                         <input type="checkbox" class="filter" id="{{ area.tag }}" checked/>
                         <span>{{ area.name }}</span>
                     </label>
                 </div>
             {% endfor %}
+                <!-- Button to toggle dropdown holding second level filters -->
                 <button class="button toggle second">Filter by topic <i class="arrow down"></i></button>
+                <!-- Dropdown -->
                 <div class="second-level">
+                    <!-- Container for style -->
                     <div class="tags">
-                {% for topic in site.data.auto_tags.research-areas.topics %}
-                    <div class="tagcontainer">
-                        <button id="{{ topic.tag }}" class="button filter second" onclick="toggleActivation(this)">{{ topic.name }}</button>
+                    <!-- Topics -->
+                    {% for topic in site.data.auto_tags.research-areas.topics %}
+                        <div class="tagcontainer">
+                            <button id="{{ topic.tag }}" class="button filter second" onclick="toggleActivation(this)">{{ topic.name }}</button>
+                        </div>
+                    {% endfor %}
                     </div>
-                {% endfor %}
-                </div>
+                <!-- Close button -->
                 <button id="close" class="delete"></button>
             </div>
         {% else %}
@@ -26,12 +42,13 @@
             <p>Filters could not be generated.</p>
         {% endif %}
     </div>
+    <!-- Reset and submit buttons -->
     <div class="buttons horizontal-center">
         <button id="reset_filters" class="button remove">Reset filters</button>
         <button id="submit_filters" class="button">Apply filters</button>
     </div>
+    <!-- Active filters are appended here, can be removed separately -->
     <div id="active-topics" class="spaced">
-        
     </div>
 </div>
 <!--<script src="{{ site.baseurl }}/assets/js/toggle_filters.js"></script>-->

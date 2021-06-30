@@ -1,12 +1,14 @@
 <div class="sidebar column is-4-desktop is-12-tablet">
-    <!--<p>Test</p>-->
+    <!-- Reading _data/navigation.yml -->
     {% if site.data.navigation %}
-    <!--<strong>page url: {{ page.url }}</strong>-->
+        <!-- Building sidemenu from navigation items. If current item's
+        url is contained in the currently shown page's url, show it as the sidebar heading -->
         {% for item in site.data.navigation %}
-        <!--<p>{{ item.name }}</p>
-        <p>{{ item.name }}</p>-->
             {% if page.url contains item.link %}
             <h2 class="sidebar-heading">{{ item.name }}</h2>
+                <!-- Currently inactive. Lists posts' publishing month-year combination
+                as filterable categories (links to archive pages improvised with JavaScript,
+                look to news.markdown for the corresponding function) -->
                 {% if page.title == 'News' %}
                     <ul>
                     {% assign years = "" %}
@@ -21,6 +23,8 @@
                     {% endfor %}
                     </ul>
                 {% else %}
+                <!-- If the current page is not the news page, simply list the item's subpages
+                as links -->
                     {% if item.dropdown %}
                         <ul>
                         {% for subitem in item.dropdown %}

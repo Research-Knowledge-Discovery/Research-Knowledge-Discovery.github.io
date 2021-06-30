@@ -12,7 +12,6 @@ duration:
 funding:
   - name: "Mediennetzwerk NRW GmbH"
     link: "https://medien.nrw/"
-description: ""
 main-logo: "../assets/images/projects/logos/mediennetzwerk-nrw.png"
 people: 
   - name: "Prof. Dr. Gernot Heisenberg"

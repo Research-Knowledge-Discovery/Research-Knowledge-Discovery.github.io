@@ -16,7 +16,6 @@ partners:
 funding:
   - name: "Google Digital News Initiative"
     link: "http://www.digitalnewsinitiative.com/"
-description: ""
 main-logo: "../assets/images/projects/logos/dni.png"
 people:
   - name: "Prof. Dr. Philipp Schaer"

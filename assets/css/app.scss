@@ -5,7 +5,7 @@
 // and placed at the same relative path in the _site folder as app.css (CSS file).
 // If you wish to overwrite the theme's default variables 
 // (http://versions.bulma.io/0.7.0/documentation/overview/variables/),
-// you can do so here as long as they are declared before all @imports.
+// you can do so here but they need to be declared before all @imports.
 $primary: #072451;
 @import "main";
 @import "navstyle";

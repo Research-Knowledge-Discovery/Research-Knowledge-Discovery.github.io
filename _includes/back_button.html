@@ -13,7 +13,7 @@
         if (i != parts.length - 1)
             backlink = backlink + "/";
     }
-    // Append .html to properly adress the HTML file to show (omitting .html, e.g. https://[baseurl]/projects, creates bugs)
+    // Append .html to properly adress the HTML file to show (omitting .html, e.g. https://[site-url]/projects, creates bugs)
     backlink = backlink + ".html";
     link_element = document.getElementById('backlink');
     // Set the backlink's href attribute accordingly
