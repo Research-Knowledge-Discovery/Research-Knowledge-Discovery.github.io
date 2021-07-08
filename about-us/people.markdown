@@ -27,12 +27,12 @@ title: "People"
                     <h3 class="subtitle">{{ person.role }}</h3>
                 </div>
                 <!-- Looking for the excerpt separator (see _config.yml) in this person's description. The description 
-                needs to be assigned a excerpt separator if it is too long. By cutting the description off at the separator,
-                only a certain amount of text will be shown in the people overview to prevent walls of text. -->
-                {% assign excerpt = person.description | split: site.excerpt_separator %}
-                <!-- If the separator has been found (size of result > 0), insert excerpt. Otherwise, insert person's description in full length
-                (if it exists) -->
-                <p class="description overview to-hide">{% if excerpt.size > 0 %}{{ excerpt[0] }}{% elsif person.description != null %}{{ person.description }}{% else %}{% endif %}</p>
+                needs to be assigned a excerpt separator if it is too long. -->
+                {% assign excerpt = person.content | split: site.excerpt_separator %}
+                <!-- If the separator has been found (size of result > 1), insert excerpt. Otherwise, insert person's description in full length (if it exists). 
+                Excerpts should begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
+                Descriptions come with <p></p> tags which need to be escaped to a string and removed before displaying -->
+                <p class="description overview to-hide">{% if excerpt.size > 1 %}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}{% elsif person.content != null %}{{ person.content | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}{% endif %}</p>
                 <!-- List links if any exist -->
                 {% unless person.links == null %}
                 <div class="personlink">

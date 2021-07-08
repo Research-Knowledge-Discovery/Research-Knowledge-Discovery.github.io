@@ -9,7 +9,7 @@ layout: custom_default
             <h1 class="name title is-5">{% if page.titles %}{{ page.titles }} {% endif %}{{ page.firstname }} {{ page.lastname }}</h1>
             <h3 class="subtitle is-6 position">{{ page.role }}</h3>
         </div>
-        <p class="description">{{ page.description }}</p>
+        <p class="description">{{ content }}</p>
         {%- assign number_found = 0 -%}
         {%- for project in site.projects -%}
             {%- for person in project.people -%}
@@ -48,29 +48,28 @@ layout: custom_default
             <img class="image center-cropped profile detail" src="../../assets/images/people/placeholder.png"/>
         {% else %}
             <!-- Determining file name -->
-            {% assign escaped_fn = page.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
-            {% assign escaped_ln = page.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" %}
+            {% assign escaped_fn = page.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" | replace: "ß", "ss" %}
+            {% assign escaped_ln = page.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" | replace: "ß", "ss" %}
             <img class="image center-cropped profile detail" src="../../assets/images/people/{{ escaped_ln | downcase }}_{{ escaped_fn | downcase }}.jpg"/>
         {% endif %}
         <div class ="factlist-1 person">
             <!-- Contact: -->
-            <ul class="">
-                <ul>
-                    <!--<li class="institution">{{ page.contact.address.institution }}</li>-->
-                    <li class="street">{{ page.contact.address.street }}</li>
-                    <li class="postcode">{{ page.contact.address.postcode }}</li>
-                </ul>
-                <li class="phone">{{ page.contact.phone }}</li>
-                <li class="mail">{{ page.contact.mail }}</li>
+            <ul class="fa-ul">
+                <li class="street"><i class="fas fa-map-marker-alt"></i>{{ page.contact.address.street }}, {{ page.contact.address.postcode }}</li>
+                <li class="phone"><i class="fas fa-phone-alt"></i>{{ page.contact.phone }}</li>
+                <li class="mail"><i class="fas fa-at"></i>{{ page.contact.mail }}</li>
             </ul>
         </div>
         <div class="factlist-2 person">
             <!-- Social Media -->
+            {% if page.social_media %}
             <ul class="singlelist">
-                <li>{{ page.social_media.linkedin }}</li>
-                <li>{{ page.social_media.twitter }}</li>
-                <li>{{ page.social_media.researchgate }}</li>
+                {% if page.social_media.linkedin %}<li><a href="{{ page.social_media.linkedin }}">LinkedIn</a></li>{% endif %}
+                {% if page.social_media.orcid %}<li><a href="{{ page.social_media.orcid }}">ORCID</a></li>{% endif %}
+                {% if page.social_media.researchgate %}<li><a href="{{ page.social_media.researchgate }}">ResearchGate</a></li>{% endif %}
+                {% if page.social_media.github %}<li><a href="{{ page.social_media.github }}">GitHub</a></li>{% endif %}
             </ul>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -78,6 +77,9 @@ layout: custom_default
 <div>
     <div class="content-2 padded">
         <div class="publications">
+            <!-- Include publications. The fitting file name is provided by reading the person's last name 
+                from the front matter and substituting umlauts (same procedure as when publication
+                files are created) -->
             <h2 class="title is-6">Publications</h2>
             {% assign ln_downcase = page.lastname | downcase %}
             {% if ln_downcase contains "ö" %}

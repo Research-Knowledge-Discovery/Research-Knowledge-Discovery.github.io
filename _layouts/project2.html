@@ -86,11 +86,12 @@ layout: custom_default
     </div>
     <div class="content-1 spaced">
         <h3 class="title is-6">People involved</h3>
+        <ul>
         {%- for person in page.people -%}
             {%- if person.externallink != null and person.externallink != "#" -%}
-                <p>
+                <li>
                     <a href="{{ person.externallink }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
-                </p>
+                </li>
             {%- else -%} <!-- If no external link is given, the person in question is either a staff member or no further personal data can be provided -->
                 <!-- Check if person's name can be found in collection 'people' -->
                 {%- assign found = false -%}
@@ -98,13 +99,13 @@ layout: custom_default
                     <!-- If the names match, add a link to the member's personal data -->
                     {%- if member.title == person.name -%}
                         {%- if member.links.ext-profile -%}
-                            <p>
+                            <li>
                                 <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
-                            </p>
+                            </li>
                         {%- else -%}
-                            <p>
+                            <li>
                                 <a href="{{ member.url }}">{{ person.name }}</a>
-                            </p>
+                            </li>
                         {%- endif -%}
                         {%- assign found = true -%}
                         <!-- Break to prevent further execution of the for loop if the according member has already been found -->
@@ -114,10 +115,11 @@ layout: custom_default
                 <!-- If the person's name did not match any of the staff members and did not include an external link,
                 simply add the name in plain text -->
                 {%- if found != true -%}
-                    <p>{{- person.name -}}</p>
+                    <li>{{- person.name -}}</li>
                 {%- endif -%}
             {%- endif -%}
         {%- endfor -%}
+        </ul>
     </div>
     <hr/>
     <!-- More info -->

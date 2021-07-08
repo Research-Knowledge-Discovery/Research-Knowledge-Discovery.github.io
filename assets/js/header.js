@@ -54,6 +54,8 @@ document.addEventListener('click', function(e){
     var clicked_target = e.target;
     
     // LANDSCAPE
+    // Getting viewport width cross-browser. Get the largest of these two values.
+    // If one of the values is undefined, use the other
     if (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024) {
         // Basically two cases:
         // - If the clicked element has a dropdown

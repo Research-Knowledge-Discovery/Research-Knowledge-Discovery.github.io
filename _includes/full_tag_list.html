@@ -1,0 +1,47 @@
+<!-- Possible TODO: Add if statement to check which page is currently shown.
+If it's projects.html, only gather project tags. If it's (example) tagreference.html,
+gather ALL tags used on the site (if there will be other tagged content in the future) -->
+{% assign used_areas = "" %}
+{% assign used_topics = "" %}
+{% for project in site.projects %}
+    {% for area in project.research-areas.areas %}
+        {% assign tag_id = area.name | downcase %}
+        {% if tag_id contains "ö" %}
+            {% assign tag_id = tag_id | replace: "ö", "oe" %}
+        {% endif %}
+        {% if tag_id contains "ä" %}
+            {% assign tag_id = tag_id | replace: "ä", "ae" %}
+        {% endif %}
+        {% if tag_id contains "ü" %}
+            {% assign tag_id = tag_id | replace: "ü", "ue" %}
+        {% endif %}
+        {% if tag_id contains "ß" %}
+            {% assign tag_id = tag_id | replace: "ß", "ss" %}
+        {% endif %}
+        {% if tag_id contains " " %}
+            {% assign tag_id = tag_id | replace: " ", "_" %}
+        {% endif %}
+        {% assign used_areas = used_areas | append: tag_id | append: "---" | append: area.name | append: ";" %}
+    {% endfor %}
+    {% for topic in project.research-areas.topics %}
+        {% assign tag_id = topic.name | downcase %}
+        {% if tag_id contains "ö" %}
+            {% assign tag_id = tag_id | replace: "ö", "oe" %}
+        {% endif %}
+        {% if tag_id contains "ä" %}
+            {% assign tag_id = tag_id | replace: "ä", "ae" %}
+        {% endif %}
+        {% if tag_id contains "ü" %}
+            {% assign tag_id = tag_id | replace: "ü", "ue" %}
+        {% endif %}
+        {% if tag_id contains "ß" %}
+            {% assign tag_id = tag_id | replace: "ß", "ss" %}
+        {% endif %}
+        {% if tag_id contains " " %}
+            {% assign tag_id = tag_id | replace: " ", "_" %}
+        {% endif %}
+        {% assign used_topics = used_topics | append: tag_id | append: "---" | append: topic.name | append: ";"%}
+    {% endfor %}
+{% endfor %}
+{% assign used_areas_arr = used_areas | split: ";" | uniq | sort_natural %}
+{% assign used_topics_arr = used_topics | split: ";" | uniq | sort_natural %}

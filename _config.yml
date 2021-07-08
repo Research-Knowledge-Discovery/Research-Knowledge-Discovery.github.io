@@ -27,21 +27,18 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 #github_username:  jekyll
 
+
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  #- jekyll-sitemap
+  
 
-# Default-Theme "Primer" is automatically added by GitHub Pages when no theme has been
-# defined using the "theme" key even when a remote theme is set. To prevent confusing logs 
-# in development (as the used theme is logged in the terminal), theme is set null here.
-
-#theme: bulma-clean-theme
-remote_theme: "chrisrhymes/bulma-clean-theme@v0.11.2  "
+remote_theme: "chrisrhymes/bulma-clean-theme@v0.11.2"
 
 # Defining front matter defaults. This provides default values for front matters and prevents 
-# having to manually set, for example, a layout on every file. Empty front matters must still
-# be given on pages that should be processed by Jekyll and output in the _site directory.
+# having to manually set, say, a layout on every file. 
 
 # Front matter defaults can override one another by specifity of the path given and page types.
 
@@ -49,9 +46,9 @@ defaults:
   -
     scope:
       path: ""
-      types: "pages"
+      #type: "pages"
     values:
-      show_sidebar: true # Enabling a sidebar on all files of type "pages" (not posts or collections)
+      show_sidebar: true # Enabling a sidebar on all files
   -
     scope:
       path: "index.markdown"
@@ -82,13 +79,10 @@ defaults:
       layout: "project2"
       show_back_button: true
 
-# Adding collections. Collections provide an easy to set up an architecture for group related
-# content, such as members of a group or talks at a conference. New entries to a collection
-# can be given by creating a new file in the directory the collection is stored in and providing
-# data in the frot matter.
+# Adding collections. Collections provide an easy way to set up an architecture for group related
+# content, such as members of a group or talks at a conference. 
 # output needs to be set to true so collection pages are rendered. output is set to false by
 # default.
-# Collection "news" refers so short news displayed on page "home".
 # A permalink is set to manage the output path of collection item output pages.
 
 collections:

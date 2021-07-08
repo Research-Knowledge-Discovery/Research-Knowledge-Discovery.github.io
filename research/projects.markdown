@@ -4,7 +4,7 @@ title: "Projects"
 <div>
     <!-- Filter interface -->
     <h2 class="title is-5">Exclude projects</h2>
-    {% include filters.html %}
+    {% include filters_auto.html %}
     <!-- Project list -->
     <div>
         <!-- Preparing. Grouping projects by year -->
@@ -69,12 +69,14 @@ title: "Projects"
                                     {% endfor %}
                                 {% endif %}
                                 </div>
-                            <!-- Creating an excerpt by splitting at the excerpt separator (see _config.yml). If the split
-                            returned more than one element (= the description contained the separator), insert the excerpt.
-                            Project excerpts begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
+                            <!-- Creating an excerpt by splitting at the excerpt separator (see _config.yml). 
+                            If the separator has been found (size of result > 1), insert excerpt. Otherwise, insert person's description in full length (if it exists). 
+                            Excerpts should begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
                             If no excerpt separator has been found, insert the default description (content) it it exists. -->
                             {%- assign excerpt = project.content | split: site.excerpt_separator -%}
-                            <p>{%- if excerpt.size > 1 -%}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" }}{%- elsif project.content != null -%}{{ project.content }}{%- else -%}{%- endif -%}</p>
+                            <p>{%- if excerpt.size > 1 -%}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}
+                            {%- elsif project.content != null -%}
+                            {{ project.content | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}{%- endif -%}</p>
                         </div>
                         <!-- 2nd column: Logo (narrow column so it only takes up the space it needs) -->
                         <div class="column is-narrow">
@@ -117,6 +119,7 @@ title: "Projects"
                                         {%- for member in site.people -%}
                                             <!-- If the names match, add a link to the member's personal data -->
                                             {%- if member.title == person.name -%}
+                                                <!-- If person's profile is external, insert external link, otherwise link profile normally -->
                                                 {%- if member.links.ext-profile -%}
                                                     <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
                                                 {%- else -%}
@@ -178,7 +181,7 @@ title: "Projects"
             {% if tag contains " " %}
                 {% assign tag = tag | replace: " ", "_" %}
             {% endif %}
-            {% assign used_tags = used_tags | append: tag | append: ";"%}
+            {% assign used_tags = used_tags | append: tag | append: ";" %}
         {% endfor %}
         {% for topic in project.research-areas.topics %}
             {% assign tag = topic.name | downcase %}

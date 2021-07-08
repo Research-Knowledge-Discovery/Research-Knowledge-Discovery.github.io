@@ -1,0 +1,55 @@
+{% include full_tag_list.html %}
+<!-- Main toggle button toggling all filters, mobile only -->
+<button class="button toggle main-toggle">- Show filters -</button>
+<!-- Container holding filters and buttons for resetting and submitting filters 
+as well as a list of active filters -->
+<div class="filter-container">
+    <!-- Container holding only filters (this is an extra container for styling) -->
+    <div class="filters spaced">
+        <div class="area data_science">
+            <!-- Wrapping checkbox and corresponding checkbox label (span) inside a label tag
+            to extend clickable area a user can click to toggle the filter -->
+            <label for="data_science">
+                <input type="checkbox" class="filter" id="data_science" checked/>
+                <span>Data Science</span>
+            </label>
+        </div>
+        <div class="area information_retrieval">
+            <label for="information_retrieval">
+                <input type="checkbox" class="filter" id="information_retrieval" checked/>
+                <span>Information Retrieval</span>
+            </label>
+        </div>
+        <div class="area natural_language_processing">
+            <label for="natural_language_processing">
+                <input type="checkbox" class="filter" id="natural_language_processing" checked/>
+                <span>Natural Language Processing</span>
+            </label>
+        </div>
+        <!-- Button to toggle dropdown holding second level filters -->
+        <button class="button toggle second">Filter by topic <i class="arrow down"></i></button>
+        <!-- Dropdown -->
+        <div class="second-level">
+            <!-- Container for style -->
+            <div class="tags">
+            <!-- Topics -->
+            {% for topic in used_topics_arr %}
+                {% assign parts = topic | split: "---" %}
+                <div class="tagcontainer">
+                    <button id="{{ parts[0] }}" class="button filter second" onclick="toggleActivation(this)">{{ parts[1] }}</button>
+                </div>
+            {% endfor %}
+            </div>
+            <!-- Close button -->
+            <button id="close" class="delete"></button>
+        </div>
+    </div>
+    <!-- Reset and submit buttons -->
+    <div class="buttons horizontal-center">
+        <button id="reset_filters" class="button remove">Reset filters</button>
+        <button id="submit_filters" class="button">Apply filters</button>
+    </div>
+    <!-- Active filters are appended here, can be removed separately -->
+    <div id="active-topics" class="spaced">
+    </div>
+</div>
