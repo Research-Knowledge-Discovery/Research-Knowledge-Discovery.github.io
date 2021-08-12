@@ -1,8 +1,21 @@
 <!-- Possible TODO: Add if statement to check which page is currently shown.
 If it's projects.html, only gather project tags. If it's (example) tagreference.html,
 gather ALL tags used on the site (if there will be other tagged content in the future) -->
+<!-- 
+Procedure:
+1. Initialize empty strings
+2. Escape unwanted characters in tag names to form tag IDs
+3. Concatenate tag ID with tag name separated with the string "---" and append ";"
+4. Concatenate all tags like this, resulting in two strings, each containing either all areas
+or all topics separated by ";"
+5. Split by ";" to form an array of all tags (areas or topics) and eliminate duplicates
+Files referencing this file can then split strings by "---" to separate tag ID and tag name
+from each other to use them.
+-->
+<!-- Preparing strings -->
 {% assign used_areas = "" %}
 {% assign used_topics = "" %}
+<!-- Escaping unwanted characters while adding project areas and topics to arrays -->
 {% for project in site.projects %}
     {% for area in project.research-areas.areas %}
         {% assign tag_id = area.name | downcase %}
@@ -21,6 +34,7 @@ gather ALL tags used on the site (if there will be other tagged content in the f
         {% if tag_id contains " " %}
             {% assign tag_id = tag_id | replace: " ", "_" %}
         {% endif %}
+        <!-- Appending separators and saving to string-->
         {% assign used_areas = used_areas | append: tag_id | append: "---" | append: area.name | append: ";" %}
     {% endfor %}
     {% for topic in project.research-areas.topics %}
@@ -43,5 +57,6 @@ gather ALL tags used on the site (if there will be other tagged content in the f
         {% assign used_topics = used_topics | append: tag_id | append: "---" | append: topic.name | append: ";"%}
     {% endfor %}
 {% endfor %}
+<!-- Splitting into array and eliminating duplicates -->
 {% assign used_areas_arr = used_areas | split: ";" | uniq | sort_natural %}
 {% assign used_topics_arr = used_topics | split: ";" | uniq | sort_natural %}

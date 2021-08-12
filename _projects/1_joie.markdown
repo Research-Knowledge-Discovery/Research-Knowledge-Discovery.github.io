@@ -14,7 +14,8 @@ partners:
   - name: "Science Media Center"
     link: "https://www.sciencemediacenter.de/"
 funding: # Implemented as an array even if there is only one entry, 
-# so that in a reference to this field no check for whether there are multiple entries or not is needed
+# so that in a reference to this field one can always use "funding[0]" no matter
+# how many elements funding contains
   - name: "Klaus Tschira Stiftung"
     link: "https://www.klaus-tschira-stiftung.de/"
 main-logo: "../assets/images/projects/logos/kts.png"
@@ -35,6 +36,7 @@ research-areas:
         tag: "hci"
       - name: "Information Extraction"
         tag: "information_extraction"
+sitemap: false
 ---
 Data journalism is a new journalistic discipline that focuses particularly on data-driven research and presentation formats. However, a fundamental problem of data journalism, but also of classical journalism, is that much data of journalistic interest is only available in unstructured form: as texts, tables and graphics in documents of various types (Word, PDF, e-mail, etc.) or on websites.
 

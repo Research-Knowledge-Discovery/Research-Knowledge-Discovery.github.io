@@ -6,13 +6,13 @@ title: "People"
     {% for person in site.people %}
         <!-- Two columns on desktop and mobile -->
         <div class="person columns is-mobile">
-            <!-- Replacing some (possible todo: replace more) characters that are not allowed in filenames. This is so no errors are thrown
+            <!-- Building profile picture filename. Replacing some (possible todo: replace more) characters that are not allowed in filenames. This is so no errors are thrown
             when a person's profile picture is included by using the person's name -->
             {% assign escaped_fn = person.firstname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" | replace: "ß", "ss" %}
             {% assign escaped_ln = person.lastname | replace: "ä", "ae" | replace: "ü", "ue" | replace: "ö", "oe" | replace: "ß", "ss" %}
             <!-- 1st column: image. Narrow column only takes up as much space as its content needs -->
             <div class="column image is-narrow">
-                {% if person.placeholder-image == true %}
+                {% if person.placeholder_img == true %}
                     <img class="image center-cropped profile overview round" src="../assets/images/people/placeholder.png"/>
                 {% else %}
                     <!-- Inlcuding image by name -->
@@ -32,7 +32,7 @@ title: "People"
                 <!-- If the separator has been found (size of result > 1), insert excerpt. Otherwise, insert person's description in full length (if it exists). 
                 Excerpts should begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
                 Descriptions come with <p></p> tags which need to be escaped to a string and removed before displaying -->
-                <p class="description overview to-hide">{% if excerpt.size > 1 %}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}{% elsif person.content != null %}{{ person.content | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}{% endif %}</p>
+                <p class="description overview to-hide">{{ person.description }}</p>
                 <!-- List links if any exist -->
                 {% unless person.links == null %}
                 <div class="personlink">

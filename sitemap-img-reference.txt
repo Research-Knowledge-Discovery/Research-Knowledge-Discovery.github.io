@@ -1,6 +1,4 @@
-_site/assets/images/home_img1.png
 _site/assets/images/people/placeholder.png
-_site/assets/images/postimage.png
 _site/assets/images/projects/logos/ble.png
 _site/assets/images/projects/logos/bmz.png
 _site/assets/images/projects/logos/dfg.png

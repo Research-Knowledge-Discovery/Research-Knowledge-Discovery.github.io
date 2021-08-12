@@ -40,6 +40,7 @@ research-areas:
         tag: "computers_society"
       - name: "Ranking"
         tag: "ranking"
+sitemap: false        
 ---
 Influence of Web Search Engines on Political Opinion Formation
 

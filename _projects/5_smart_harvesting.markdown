@@ -35,6 +35,7 @@ research-areas:
         tag: "digital_library"
       - name: "DBLP"
         tag: "dblp"
+sitemap: false
 ---
 <!--more-->In the project “Smart Harvesting II”, software-based solutions for the collection and processing of bibliographic data from the web are developed. We would like to develop a 'smart' set of tools and workflows to allow non-programmers to build a rich set of web scrapers to build online bibliographies out of freely available web resources.<!--more-->
 

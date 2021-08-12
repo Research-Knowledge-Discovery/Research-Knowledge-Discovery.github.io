@@ -4,7 +4,8 @@ titles: "Prof. Dr."
 firstname: "Klaus"
 lastname: "Lepsky"
 role: "Professor"
-placeholder-image: true
+placeholder_img: true
+description: "Prof. Dr. Klaus Lepsky teaches information indexing and information retrieval at the Institute of Information Science at the TH Köln. His main areas of work and interest are knowledge organization and knowledge representation, computational linguistics, automatic indexing, and information retrieval."
 contact:
   address:
     street: "Claudiusstraße 1"

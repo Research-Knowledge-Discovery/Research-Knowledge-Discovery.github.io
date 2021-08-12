@@ -4,9 +4,9 @@ title: "Projects"
 <div>
     <!-- Filter interface -->
     <h2 class="title is-5">Exclude projects</h2>
-    {% include filters_auto.html %}
+    {% include filter_ui.html %}
     <!-- Project list -->
-    <div>
+    <div id="project-list">
         <!-- Preparing. Grouping projects by year -->
         {% assign grouped_projects = site.projects | group_by: 'duration.beginning.year' | sort: 'name' | reverse %}
         {% for p in grouped_projects %}
@@ -88,7 +88,7 @@ title: "Projects"
                         <ul>
                             <!-- "Duration" (if month is given, add. If end year is not given (""), put "today", put annotation
                             "annual study" for XR project -->
-                            <li class="duration"><p class="fact-title">Duration:</p><p class="fact">{{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {% if project.duration.end.year == "" %}today{% else %}{{ project.duration.end.year }}{% endif %}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}{% if project.abbr == "xr" %}, <span class="annotation">annual study</span>{% endif %}</p></li>
+                            <li class="duration"><p class="fact-title">Duration:</p><p class="fact">{{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {% if project.duration.end.year == "" %}today{% else %}{{ project.duration.end.year }}{% endif %}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}{% if project.abbr == "XR" %}, <span class="annotation">annual study</span>{% endif %}</p></li>
                             <!-- Since liquid tags print as a newline in the rendered HTML, the added whitespace is stripped here by including hyphens to liquid tags. 
                             Newlines between tags are added for better readability in the code, needed whitespace is encoded (&#32;) -->
                             <!-- "Funding" -->
@@ -155,7 +155,7 @@ title: "Projects"
     </div>
 <button onclick="topFunction()" id="top">Top</button> 
 </div>
-<script src="{{ site.baseurl }}/assets/js/filters_final.js"></script>
+<script src="{{ site.baseurl }}/assets/js/filter.js"></script>
 <script src="{{ site.baseurl }}/assets/js/to_top.js"></script>
 <script>
     // Hide certain filters based on whether or not the corresponding tags have actually been used in the

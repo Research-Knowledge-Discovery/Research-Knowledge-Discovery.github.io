@@ -41,6 +41,7 @@ research-areas:
       tag: "disaster_management"
     - name: "Predictive Modeling"
       tag: "predictive_modeling"
+sitemap: false
 ---
 <!--more-->This project aims at increasing the lead time prior to famine catastrophes, and thus supporting aid organizations in consistent and sustainable planning of countermeasures, by developing a mathematical prediction model that is able to compute the probability of a famine catastrophe by learning from data.
 <!--more-->

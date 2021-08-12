@@ -41,6 +41,7 @@ research-areas:
       tag: "semi-structured_documents"
     - name: "Google"
       tag: "google"
+sitemap: false
 ---
 Journalists who report about science or fight “alternative facts” need fast access to up-to-date and reliable scientific information. Nowadays one research paper is published every 13 seconds. Due to this ever increasing amount of new scientific papers published every day journalists face the issue of information overload. PRIOR will be a tool to ease this problem by identifying relevant studies within an incoming stream of announcements of scientific publications. It will increase the probability for science journalists to identify the major breakthroughs relevant to the broader public.
 

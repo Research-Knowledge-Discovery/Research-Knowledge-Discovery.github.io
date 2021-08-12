@@ -1,76 +1,164 @@
 ---
 layout: custom_default
 ---
-<div class="main-grid">
-    <div class="basicinfo">
-        <h2 class="name title is-5">{{ page.title }}</h1>
-    {% for category in page.research-areas %}
-        <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
-    {% endfor %}<br/>
-    {% for category in page.research-areas %}
-        {% for topic in category.topics %}
-        <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
-        {% endfor %}
-    {% endfor %}
+{% if page.no_profile == true or page.externallink != null %}
+    <div><p>No local project page found.</p></div>
+{% else %}
+<!-- First row: Two-column layout on desktop -->
+<div class="columns is-desktop custom">
+    <!-- 1st column: Basic info + description -->
+    <div class="column content-spaced">
+        <div class="basicinfo">
+            <!-- Split the title by " - " if it exists in the string to separate title and subtitle from
+            one another. If all of the title is displayed in the page header it becomes too big, so part
+            of the title is displayed in the actual content section of the page -->
+            {% if page.title contains " - " %}
+                {% assign title_array = page.title | split: " - " %}
+                {% assign subtitle = title_array[1] %}
+            {% else %}
+                {% assign subtitle = page.title %}
+            {% endif %}
+            <h3 class="name title is-5">{{ subtitle }}</h3>
+            <div class="tags">
+            {% for category in page.research-areas.areas %}
+                <span class="tag is-primary {{ category.tag }}">{{ category.name }}</span>
+            {% endfor %}<br/>
+            {% for topic in page.research-areas.topics %}
+                <span class="tag is-primary is-light {{ topic.tag }}">{{ topic.name }}</span>
+            {% endfor %}
+            </div>
+        </div>
+        <!-- <p> tag is added automatically in this case by inserting content -->
+        <div class="content">{{ content }}</div>
     </div>
-    <div class="description content"><p>{{ page.description }}</p></div>
-    <img class="image" src="../../assets/images/testimage.png"/>
-    <div class ="factlist-1">
-        <ul class="singlelist no-icon">
-            <li>Duration:</li>
-            <li>{{ page.duration.beginning }} - {{ page.duration.end }}</li>
-            <li>Funded by:</li>
-            <li>{{ page.funding.name }}</li>
-            <li>Contact:</li>
-            <li>Abc</li>
-        </ul>
-    </div>
-    <div class="factlist-2">
-        <p>Partners:</p> 
-        <ul class="singlelist">
-            {%- for partner in page.partners -%}
+    <!-- 2nd column: logo and (on desktop) facts (duration, funding, contact) -->
+    <div class="column is-narrow-desktop">
+        <img class="image main-logo" src="../{{ page.main-logo }}"/>
+        <div class ="factlist-1">
+            <ul class="singlelist no-icon">
+                <li>Duration:</li>
+                <!-- Also show month if it exists -->
+                <li>{{ page.duration.beginning.year }}{% if page.duration.beginning.month != "" %}-{{ page.duration.beginning.month }}{% endif %} - {% if page.duration.end.year == "" %}today{% else %}{{ page.duration.end.year }}{% endif %}{% if page.duration.end.month != "" %}-{{ page.duration.end.month }}{% endif %}</li>
+                <li>Client/Sponsor:</li>
+                <li><a href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
+                <li>Contact:</li>
                 <li>
-                    {% if partner.link != null and partner.link != '#' %}
-                    <a href="{{ partner.link }}">{{ partner.name }}</a>
-                    {% else %}
-                    {{ partner.name }}
-                    {% endif %}
+                    {%- assign found_contact = false -%}
+                    {%- for member in site.people -%}
+                    <!-- If the names match, add a link to the member's personal data -->
+                        {%- if member.title == page.contact -%}
+                            {% if member.links.ext-profile %}
+                                <p>
+                                    <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ page.contact }} <i class="fas fa-external-link-alt"></i></a>
+                                </p>
+                            {% else %}
+                                <p>
+                                    <a href="{{ member.url }}">{{ page.contact }}</a>
+                                </p>
+                            {% endif %}
+                            {%- assign found_contact = true -%}
+                            <!-- Break to prevent further execution of the for loop if the according member has already been found -->
+                            {%- break -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+                    {%- if found_contact != true -%}
+                        <p>{{- page.contact -}}</p>
+                    {%- endif -%}
                 </li>
-            {%- endfor -%}
-        </ul>
+            </ul>
+        </div>
     </div>
-    <div class="content-1">
-        <h2 class="title is-6">People involved</h2>
+</div>
+<!-- Second row: more facts (partners, people involved) -->
+<div class="padded">
+    <div class="factlist-2 spaced">
+        {% if page.partners %}
+            <h3 class="title is-6">Partners</h3> 
+            <ul class="">
+                {%- for partner in page.partners -%}
+                    <li>
+                        {% if partner.link != null and partner.link != '#' %}
+                        <a href="{{ partner.link }}">{{ partner.name }}</a>
+                        {% else %}
+                        {{ partner.name }}
+                        {% endif %}
+                    </li>
+                {%- endfor -%}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="content-1 spaced">
+        <h3 class="title is-6">People involved</h3>
+        <ul>
         {%- for person in page.people -%}
-            {%- if person.externallink != null -%}
-                <p>
-                    <a href="{{ person.externallink }}">{{ person.name }}</a>
-                </p>
+            {%- if person.externallink != null and person.externallink != "#" -%}
+                <li>
+                    <a href="{{ person.externallink }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                </li>
             {%- else -%} <!-- If no external link is given, the person in question is either a staff member or no further personal data can be provided -->
                 <!-- Check if person's name can be found in collection 'people' -->
                 {%- assign found = false -%}
                 {%- for member in site.people -%}
                     <!-- If the names match, add a link to the member's personal data -->
                     {%- if member.title == person.name -%}
-                        <p>
-                            <a href="{{ member.url }}">{{ person.name }}</a>
-                        </p>
+                        {%- if member.links.ext-profile -%}
+                            <li>
+                                <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                            </li>
+                        {%- else -%}
+                            <li>
+                                <a href="{{ member.url }}">{{ person.name }}</a>
+                            </li>
+                        {%- endif -%}
                         {%- assign found = true -%}
                         <!-- Break to prevent further execution of the for loop if the according member has already been found -->
                         {%- break -%}
                     {%- endif -%}
                 {%- endfor -%}
-                <!-- If the person's name did not match any of the staff members, simply add the name in plain text -->
+                <!-- If the person's name did not match any of the staff members and did not include an external link,
+                simply add the name in plain text -->
                 {%- if found != true -%}
-                    <p>{{- person.name -}}</p>
+                    <li>{{- person.name -}}</li>
                 {%- endif -%}
             {%- endif -%}
         {%- endfor -%}
-    </div>
-    <div class="content-2">
-        <h2 class="title is-6">Resources</h2>
-        <ul>
-            <li>...</li>
         </ul>
     </div>
+    <!-- More info -->
+    <div class="content-2">
+        <hr/>
+        <!-- Only show publications if the publication list exists. If it does not exist
+        which happens when a new person entry is added directly on GitHub (without 
+        a local build to start the publication list plugin), show_publications
+        should manually be set to false to prevent build errors due to the missing include. -->
+        <div class="publications spaced">
+            <h3 class="title is-5">Publications</h3>
+            {% if page.show_publications == false %}
+            <p>No publications available.</p>
+            {% else %}
+            <!-- Include publications. The fitting file name is provided by reading the project's abbreviation 
+                from the front matter and substituting umlauts (same procedure as when publication
+                files are created) -->
+                {% assign abbr_new = page.abbr | downcase %}
+                {% if abbr_new contains "ö" %}
+                    {% assign abbr_new = abbr_new | replace: "ö", "oe" %}
+                {% endif %}
+                {% if abbr_new contains "ä" %}
+                    {% assign abbr_new = abbr_new | replace: "ä", "ae" %}
+                {% endif %}
+                {% if abbr_new contains "ü" %}
+                    {% assign abbr_new = abbr_new | replace: "ü", "ue" %}
+                {% endif %}
+                {% if abbr_new contains "ß" %}
+                    {% assign abbr_new = abbr_new | replace: "ß", "ss" %}
+                {% endif %}
+                {% include publications/{{ abbr_new }}.html %}
+            {% endif %}
+        </div>
+    </div>
+    <h3 class="title is-5">Resources</h3>
+    <ul>
+        <li>...</li>
+    </ul>
 </div>
+{% endif %}

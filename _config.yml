@@ -30,10 +30,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 plugins:
-  - jekyll-feed
-  - jekyll-remote-theme
-  #- jekyll-sitemap
-  
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
 
 remote_theme: "chrisrhymes/bulma-clean-theme@v0.11.2"
 
@@ -61,6 +60,11 @@ defaults:
       show_sidebar: false # Disabling sidebar on page "404"
   -
     scope:
+      path: "privacy-policy.markdown"
+    values:
+      show_sidebar: false # Disabling sidebar on page "Privacy Policy"
+  -
+    scope:
       path: ""
     values:
       layout: "custom_default" # Setting a default layout to all pages
@@ -69,14 +73,14 @@ defaults:
       path: ""
       type: "people"
     values:
-      layout: "person2"
+      layout: "person"
       show_back_button: true
   -
     scope:
       path: ""
       type: "projects"
     values:
-      layout: "project2"
+      layout: "project"
       show_back_button: true
 
 # Adding collections. Collections provide an easy way to set up an architecture for group related
@@ -92,14 +96,9 @@ collections:
   projects:
     output: true
     permalink: "/research/:collection/:name:output_ext"
-  publications:
-    output: true
-    permalink: "/research/:collection/:name:output_ext"
   bsc-msc-theses:
     output: true
     permalink: "/theses-and-jobs/:collection/:name:output_ext"
-  news:
-    output: false
 
 
 # Custom variables
