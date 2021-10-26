@@ -47,11 +47,9 @@ defaults:
       path: ""
     values:
       show_sidebar: true # Enabling a sidebar on all files
-  -
-    scope:
-      path: ""
-    values:
       hero_height: is-small
+      hero_image: /assets/images/th-koeln.jpg
+      hero_darken: true 
   -
     scope:
       path: "index.markdown"

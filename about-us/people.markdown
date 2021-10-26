@@ -32,15 +32,15 @@ title: "People"
                 <!-- Open external links in a new tab by setting class 'external' (see assets/externalize.js) -->
                 <!-- Repeating code for better readability -->
                     {% if person.links.ext-profile != null %}
-                    <a class="profile-link external" href="{{ person.links.ext-profile }}">> Profile</a> 
+                    <a class="profile-link external" href="{{ person.links.ext-profile }}">&#707; Profile</a> 
                     {% else %}
-                    <a class="profile-link" href="{{ person.url }}">> Profile</a>
+                    <a class="profile-link" href="{{ person.url }}">&#707; Profile</a>
                     {% endif %}
                     {% if person.links.th-koeln != null %}
-                    <a class="th-koeln-link external" href="{{ person.links.th-koeln }}">> Employee Site TH</a>
+                    <a class="th-koeln-link external" href="{{ person.links.th-koeln }}">&#707; Employee Site TH</a>
                     {% endif %}
                     {% if person.links.private-site != null %}
-                    <a class="private-link external" href="{{ person.links.private-site }}">> Private Page</a>
+                    <a class="private-link external" href="{{ person.links.private-site }}">&#707; Private Page</a>
                     {% endif %}
                 </div>
                 {% endunless %}
