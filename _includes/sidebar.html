@@ -6,38 +6,18 @@
         {% for item in site.data.navigation %}
             {% if page.url contains item.link %}
             <h2 class="sidebar-heading">{{ item.name }}</h2>
-                <!-- Currently inactive. Lists posts' publishing month-year combination
-                as filterable categories (links to archive pages improvised with JavaScript,
-                look to news.markdown for the corresponding function) -->
-                {% if page.title == 'News' %}
+                {% if item.dropdown %}
                     <ul>
-                    {% assign years = "" %}
-                    {% for post in site.posts %}
-                        {% capture post_m_y %}{{ post.date | date: "%b %Y" }}{% endcapture %}
-                        {% assign dates = dates | append: post_m_y | append: ',' %}
-                    {% endfor %}
-                    {% assign dates_arr = dates | split: ',' %}
-                    {% assign dates_arr_unique = dates_arr | uniq %}
-                    {% for item in dates_arr_unique %}
-                        <li><a href="?date={{ item | date: "%m-%Y" }}">{{ item }}</a></li>
+                    {% for subitem in item.dropdown %}
+                        {% if page.url contains subitem.key %} 
+                            <li>{{ subitem.name }}</li>
+                        {% else %}
+                            <li>
+                                <a href="{{ subitem.link }}">{{ subitem.name }}</a>
+                            </li>
+                        {% endif %}
                     {% endfor %}
                     </ul>
-                {% else %}
-                <!-- If the current page is not the news page, simply list the item's subpages
-                as links -->
-                    {% if item.dropdown %}
-                        <ul>
-                        {% for subitem in item.dropdown %}
-                            {% if page.url contains subitem.key %} 
-                                <li>{{ subitem.name }}</li>
-                            {% else %}
-                                <li>
-                                    <a href="{{ subitem.link }}">{{ subitem.name }}</a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                        </ul>
-                    {% endif %}
                 {% endif %}
             {% endif %}
         {% endfor %}

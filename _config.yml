@@ -45,9 +45,13 @@ defaults:
   -
     scope:
       path: ""
-      #type: "pages"
     values:
       show_sidebar: true # Enabling a sidebar on all files
+  -
+    scope:
+      path: ""
+    values:
+      hero_height: is-small
   -
     scope:
       path: "index.markdown"

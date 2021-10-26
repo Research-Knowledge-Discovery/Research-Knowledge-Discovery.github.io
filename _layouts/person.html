@@ -12,7 +12,7 @@ layout: custom_default
             <h1 class="name title is-5">{% if page.titles %}{{ page.titles }} {% endif %}{{ page.firstname }} {{ page.lastname }}</h1>
             <h3 class="subtitle is-6 position">{{ page.role }}</h3>
         </div>
-        <p class="description">{{ content }}</p>
+        <div class="description">{{ content }}</div>
         {%- assign number_found = 0 -%}
         {%- for project in site.projects -%}
             {%- for person in project.people -%}
@@ -67,11 +67,11 @@ layout: custom_default
             <!-- Social Media -->
             {% if page.social_media %}
             <ul class="singlelist">
-                {% if page.social_media.linkedin %}<li><a href="{{ page.social_media.linkedin }}">LinkedIn</a></li>{% endif %}
-                {% if page.social_media.xing %}<li><a href="{{ page.social_media.xing }}">XING</a></li>{% endif %}
-                {% if page.social_media.orcid %}<li><a href="{{ page.social_media.orcid }}">ORCID</a></li>{% endif %}
-                {% if page.social_media.researchgate %}<li><a href="{{ page.social_media.researchgate }}">ResearchGate</a></li>{% endif %}
-                {% if page.social_media.github %}<li><a href="{{ page.social_media.github }}">GitHub</a></li>{% endif %}
+                {% if page.social_media.linkedin %}<li><a class="external" href="{{ page.social_media.linkedin }}">LinkedIn</a></li>{% endif %}
+                {% if page.social_media.xing %}<li><a class="external" href="{{ page.social_media.xing }}">XING</a></li>{% endif %}
+                {% if page.social_media.orcid %}<li><a class="external" href="{{ page.social_media.orcid }}">ORCID</a></li>{% endif %}
+                {% if page.social_media.researchgate %}<li><a class="external" href="{{ page.social_media.researchgate }}">ResearchGate</a></li>{% endif %}
+                {% if page.social_media.github %}<li><a class="external" href="{{ page.social_media.github }}">GitHub</a></li>{% endif %}
             </ul>
             {% endif %}
         </div>
@@ -87,7 +87,7 @@ layout: custom_default
         <div class="publications">
             <h2 class="title is-6">Publications</h2>
             {% if page.show_publications == false %}
-            <p>No publications available.</p>
+                <p>No publications available.</p>
             {% else %}
                 <!-- Include publications. The fitting file name is provided by reading the person's last name 
                     from the front matter and substituting umlauts (same procedure as when publication

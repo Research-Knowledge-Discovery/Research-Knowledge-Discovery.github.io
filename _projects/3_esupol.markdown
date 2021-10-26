@@ -10,6 +10,7 @@ duration:
   end: 
     year: "2022"
     month: ""
+description: "In this project, the question of how search engines can influence political opinion-forming and political issues is to be addressed, and what influence factors such as 'filter bubbles', collaborative filtering and the lack of users' search or media competence have on these processes."
 partners:
   - name: "University of Cologne"
     link: "http://www.uni-koeln.de/"
@@ -40,11 +41,12 @@ research-areas:
         tag: "computers_society"
       - name: "Ranking"
         tag: "ranking"
-sitemap: false        
+sitemap: false
+redirect_to: "https://ir.web.th-koeln.de/projects/esupol/"
 ---
 Influence of Web Search Engines on Political Opinion Formation
 
-<!--more-->In this project, the question of how search engines can influence political opinion-forming and political issues is to be addressed, and what influence factors such as 'filter bubbles', collaborative filtering and the lack of users' search or media competence have on these processes.<!--more-->
+In this project, the question of how search engines can influence political opinion-forming and political issues is to be addressed, and what influence factors such as 'filter bubbles', collaborative filtering and the lack of users' search or media competence have on these processes.
 
 The Ministry of Culture and Science of the German State of North Rhine-Westphalia has approved funding for a state-wide graduate institute on “Digital Societies”. Philipp Schaer (Professor for Information Retrieval at TH Köln, University of Applied Sciences) and Sven-Oliver Proksch (Cologne Center for Comparative Politics) will conduct an interdisciplinary project on the influence of search engines on political opinion formation. The project will collect large amounts of web data from various search engines and analyze them using natural language processing and investigate the effects on opinion formation using laboratory experiments.
 

@@ -20,7 +20,7 @@ title: "Projects"
                         <!-- 1st column: Basic info -->
                         <div class="column projectcontainer content-spaced">
                             {% if project.externallink != null %}
-                                <h2 class="title is-5"><i class="fas fa-book-open"></i><a href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">{{ project.title }} <i class="fas fa-external-link-alt"></i></a></h2>
+                                <h2 class="title is-5"><i class="fas fa-book-open"></i><a class="external" href="{{ project.externallink }}">{{ project.title }}</a></h2>
                             {% else %}
                                 <h2 class="title is-5"><i class="fas fa-book-open"></i><a href="{{ project.url }}">{{ project.title }}</a></h2>
                             {% endif %}
@@ -69,14 +69,7 @@ title: "Projects"
                                     {% endfor %}
                                 {% endif %}
                                 </div>
-                            <!-- Creating an excerpt by splitting at the excerpt separator (see _config.yml). 
-                            If the separator has been found (size of result > 1), insert excerpt. Otherwise, insert person's description in full length (if it exists). 
-                            Excerpts should begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
-                            If no excerpt separator has been found, insert the default description (content) it it exists. -->
-                            {%- assign excerpt = project.content | split: site.excerpt_separator -%}
-                            <p>{%- if excerpt.size > 1 -%}{{ excerpt[1] | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}
-                            {%- elsif project.content != null -%}
-                            {{ project.content | escape | replace: "&lt;p&gt;", "" | replace: "&lt;/p&gt;", "" }}{%- endif -%}</p>
+                            <p>{{ project.description }}</p>
                         </div>
                         <!-- 2nd column: Logo (narrow column so it only takes up the space it needs) -->
                         <div class="column is-narrow">
@@ -93,14 +86,19 @@ title: "Projects"
                             Newlines between tags are added for better readability in the code, needed whitespace is encoded (&#32;) -->
                             <!-- "Funding" -->
                             <li class="funding"><p class="fact-title">Client/Sponsor:</p> 
-                                <p class="fact"><a href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a></p>
+                                <p class="fact"><a class="external" href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a></p>
                             </li>
                             <!-- "Partners" -->
                             {% if project.partners %}
-                                <li class="partners"><p class="fact-title">Partners:&#32;</p>
+                                <li class="partners">
+                                <p class="fact-title">Partners:&#32;</p>
                                 <p class="fact">
                                 {%- for partner in project.partners limit: 2 -%}
-                                    <a href="{{ partner.link }}">{{ partner.name }}</a><!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{% unless forloop.last %}, {% endunless %}
+                                    {%- if partner.link != null and partner.link != '#' -%}
+                                    <a class="external" href="{{ partner.link }}">{{ partner.name }}</a>
+                                    {%- else -%}
+                                    {{ partner.name }}
+                                    {%- endif -%}<!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{%- unless forloop.last -%}, {% endunless %}
                                     {% if forloop.last and project.partners.size > 2 %} and {{ project.partners.size | minus: 2 }} more{%- endif -%}
                                 {%- endfor -%}
                                 </p>
@@ -112,7 +110,7 @@ title: "Projects"
                                 {%- for person in project.people -%}
                                     <!-- If an external link is provided in the project data, add the name with an external link -->
                                     {%- if person.externallink != null and person.externallink != "#" -%}
-                                        <a href="{{ person.externallink }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                                        <a class="external" href="{{ person.externallink }}">{{ person.name }}</a>
                                     {%- else -%} <!-- If no external link is given, the person in question is either a staff member or no further personal data can be provided -->
                                         <!-- Check if person's name can be found in collection 'people' -->
                                         {%- assign found = false -%}
@@ -121,7 +119,7 @@ title: "Projects"
                                             {%- if member.title == person.name -%}
                                                 <!-- If person's profile is external, insert external link, otherwise link profile normally -->
                                                 {%- if member.links.ext-profile -%}
-                                                    <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                                                    <a class="external" href="{{ member.links.ext-profile }}">{{ person.name }}</a>
                                                 {%- else -%}
                                                     <a href="{{ member.url }}">{{ person.name }}</a>
                                                 {%- endif -%}
@@ -144,7 +142,7 @@ title: "Projects"
                     </div>
                 <!-- "Read more" -->
                 {% if project.externallink != null %}
-                    <p><a class="readmore" href="{{ project.externallink }}" target="_blank" rel="noopener noreferrer">> Read more <i class="fas fa-external-link-alt"></i></a></p>
+                    <p><a class="readmore external" href="{{ project.externallink }}">> Read more</a></p>
                 {% else %}
                     <p><a class="readmore" href="{{ project.url }}">> Read more</a></p>
                 {% endif %}
@@ -153,10 +151,8 @@ title: "Projects"
         {% endfor %}
         <p id="noresults">No results found.</p>
     </div>
-<button onclick="topFunction()" id="top">Top</button> 
 </div>
 <script src="{{ site.baseurl }}/assets/js/filter.js"></script>
-<script src="{{ site.baseurl }}/assets/js/to_top.js"></script>
 <script>
     // Hide certain filters based on whether or not the corresponding tags have actually been used in the
     // elements on this page (in this case, projects) (tags could also have been used in news articles)

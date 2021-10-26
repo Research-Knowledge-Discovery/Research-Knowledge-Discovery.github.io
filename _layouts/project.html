@@ -1,9 +1,7 @@
 ---
 layout: custom_default
 ---
-{% if page.no_profile == true or page.externallink != null %}
-    <div><p>No local project page found.</p></div>
-{% else %}
+
 <!-- First row: Two-column layout on desktop -->
 <div class="columns is-desktop custom">
     <!-- 1st column: Basic info + description -->
@@ -40,7 +38,7 @@ layout: custom_default
                 <!-- Also show month if it exists -->
                 <li>{{ page.duration.beginning.year }}{% if page.duration.beginning.month != "" %}-{{ page.duration.beginning.month }}{% endif %} - {% if page.duration.end.year == "" %}today{% else %}{{ page.duration.end.year }}{% endif %}{% if page.duration.end.month != "" %}-{{ page.duration.end.month }}{% endif %}</li>
                 <li>Client/Sponsor:</li>
-                <li><a href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
+                <li><a class="external" href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
                 <li>Contact:</li>
                 <li>
                     {%- assign found_contact = false -%}
@@ -49,7 +47,7 @@ layout: custom_default
                         {%- if member.title == page.contact -%}
                             {% if member.links.ext-profile %}
                                 <p>
-                                    <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ page.contact }} <i class="fas fa-external-link-alt"></i></a>
+                                    <a class="external" href="{{ member.links.ext-profile }}">{{ page.contact }}</a>
                                 </p>
                             {% else %}
                                 <p>
@@ -78,7 +76,7 @@ layout: custom_default
                 {%- for partner in page.partners -%}
                     <li>
                         {% if partner.link != null and partner.link != '#' %}
-                        <a href="{{ partner.link }}">{{ partner.name }}</a>
+                        <a class="external" href="{{ partner.link }}">{{ partner.name }}</a>
                         {% else %}
                         {{ partner.name }}
                         {% endif %}
@@ -93,7 +91,7 @@ layout: custom_default
         {%- for person in page.people -%}
             {%- if person.externallink != null and person.externallink != "#" -%}
                 <li>
-                    <a href="{{ person.externallink }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                    <a class="external" href="{{ person.externallink }}">{{ person.name }}</a>
                 </li>
             {%- else -%} <!-- If no external link is given, the person in question is either a staff member or no further personal data can be provided -->
                 <!-- Check if person's name can be found in collection 'people' -->
@@ -103,7 +101,7 @@ layout: custom_default
                     {%- if member.title == person.name -%}
                         {%- if member.links.ext-profile -%}
                             <li>
-                                <a href="{{ member.links.ext-profile }}" target="_blank" rel="noopener noreferrer">{{ person.name }} <i class="fas fa-external-link-alt"></i></a>
+                                <a class="external" href="{{ member.links.ext-profile }}">{{ person.name }}</a>
                             </li>
                         {%- else -%}
                             <li>
@@ -156,9 +154,9 @@ layout: custom_default
             {% endif %}
         </div>
     </div>
-    <h3 class="title is-5">Resources</h3>
+    <!-- For future use -->
+    <!--<h3 class="title is-5">Resources</h3>
     <ul>
         <li>...</li>
-    </ul>
+    </ul>-->
 </div>
-{% endif %}

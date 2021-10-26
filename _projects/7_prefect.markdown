@@ -10,6 +10,7 @@ duration:
   end: 
     year: "2019"
     month: ""
+description: "This project aims at increasing the lead time prior to famine catastrophes, and thus supporting aid organizations in consistent and sustainable planning of countermeasures, by developing a mathematical prediction model that is able to compute the probability of a famine catastrophe by learning from data."
 partners:
   - name: "Prof. Dr. Roberto Ivo da Rocha Lima Filho, Federal University of Rio de Janeiro, Brazil"
     link: "#"
@@ -42,9 +43,9 @@ research-areas:
     - name: "Predictive Modeling"
       tag: "predictive_modeling"
 sitemap: false
+redirect_to: "https://www.th-koeln.de/en/information-science-and-communication-studies/prefect---prediction-models-for-famine-catastrophes_68535.php"
 ---
-<!--more-->This project aims at increasing the lead time prior to famine catastrophes, and thus supporting aid organizations in consistent and sustainable planning of countermeasures, by developing a mathematical prediction model that is able to compute the probability of a famine catastrophe by learning from data.
-<!--more-->
+This project aims at increasing the lead time prior to famine catastrophes, and thus supporting aid organizations in consistent and sustainable planning of countermeasures, by developing a mathematical prediction model that is able to compute the probability of a famine catastrophe by learning from data.
 
 Almost all historic as well as current famine catastrophes worldwide occurred due to environmental reasons such as drought, flood, erosion, and other weather phenomena like El Nino in combination with human-made influences such as military and religious conflicts, social economic exploitation and corruption.
 

@@ -1,0 +1,21 @@
+style: is-light
+height: is-small
+items:
+  - title: People
+    icon: fa-user-alt
+    description: >
+      Meet our members.
+    call_to_action_name: Go there
+    call_to_action_link: /about-us/people/
+  - title: Projects
+    icon: fa-book-open
+    description: >
+      Explore our projects.
+    call_to_action_name: Go there
+    call_to_action_link: /research/projects/
+  - title: Infrastructure
+    icon: fa-laptop-code
+    description: >
+      Learn about our labs.
+    call_to_action_name: Go there
+    call_to_action_link: /about-us/infrastructure/

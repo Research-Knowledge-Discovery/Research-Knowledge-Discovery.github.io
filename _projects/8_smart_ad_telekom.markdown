@@ -9,6 +9,8 @@ duration:
   end: 
     year: "2020"
     month: "11"
+description: "Smart TV advertising is a key development option for the German and international advertising industry. Although the technical possibilities are already largely available and the broad mass of consumers are increasingly connected to corresponding infrastructures, there is still a great need for research into the business design and also the needs and benefits.
+The project aimed first to define which specific benefits of a smart advertising solution are relevant for advertisers and customers. In addition, suitable research designs were analyzed and developed, which will subsequently enable proof of these benefits."
 funding:
   - name: "Deutsche Telekom AG"
     link: "https://www.telekom.de/ueber-das-unternehmen"

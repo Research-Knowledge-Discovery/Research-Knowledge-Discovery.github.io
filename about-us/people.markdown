@@ -21,25 +21,27 @@ title: "People"
             </div>
             <!-- 2nd column: basic personal info (name, description (not on mobile)), profile links -->
             <div class="column personinfo content-spaced">
-                <div class="name_desc">
-                    <!--<h2 class="title is-5"><a href="{{ person.url }}">{{ person.firstname }} {{ person.lastname }}</a></h2>-->
+                <div class="name_role">
                     <h2 class="title is-5">{{ person.firstname }} {{ person.lastname }}</h2>
                     <h3 class="subtitle">{{ person.role }}</h3>
                 </div>
-                <!-- Looking for the excerpt separator (see _config.yml) in this person's description. The description 
-                needs to be assigned a excerpt separator if it is too long. -->
-                {% assign excerpt = person.content | split: site.excerpt_separator %}
-                <!-- If the separator has been found (size of result > 1), insert excerpt. Otherwise, insert person's description in full length (if it exists). 
-                Excerpts should begin and end with the excerpt separator, so index 1 of the results contains the actual excerpt.
-                Descriptions come with <p></p> tags which need to be escaped to a string and removed before displaying -->
                 <p class="description overview to-hide">{{ person.description }}</p>
                 <!-- List links if any exist -->
-                {% unless person.links == null %}
+                {% unless person.no_profile == true %}
                 <div class="personlink">
-                <!-- Open external links in a new tab (target="_blank") and set fitting icon -->
-                    <a class="profile-link" href={% if person.links.ext-profile != null %}"{{ person.links.ext-profile }}" target="_blank" rel="noopener noreferrer"{% else %}"{{ person.url }}"{% endif %}>> Profile{% if person.links.ext-profile != null %} <i class="fas fa-external-link-alt"></i>{% endif %}</a> 
-                    {% if person.links.th-koeln != null %}<a class="th-koeln-link" target="_blank" rel="noopener noreferrer" href="{{ person.links.th-koeln }}">> Employee Site TH <i class="fas fa-external-link-alt"></i></a>{% endif %}
-                    {% if person.links.private-site != null %}<a class="private-link" target="_blank" rel="noopener noreferrer" href="{{ person.links.private-site }}">> Private Page <i class="fas fa-external-link-alt"></i></a>{% endif %}
+                <!-- Open external links in a new tab by setting class 'external' (see assets/externalize.js) -->
+                <!-- Repeating code for better readability -->
+                    {% if person.links.ext-profile != null %}
+                    <a class="profile-link external" href="{{ person.links.ext-profile }}">> Profile</a> 
+                    {% else %}
+                    <a class="profile-link" href="{{ person.url }}">> Profile</a>
+                    {% endif %}
+                    {% if person.links.th-koeln != null %}
+                    <a class="th-koeln-link external" href="{{ person.links.th-koeln }}">> Employee Site TH</a>
+                    {% endif %}
+                    {% if person.links.private-site != null %}
+                    <a class="private-link external" href="{{ person.links.private-site }}">> Private Page</a>
+                    {% endif %}
                 </div>
                 {% endunless %}
             </div>

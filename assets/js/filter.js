@@ -110,7 +110,8 @@ var reset_button = document.getElementById("reset_filters");
 // The message (initally hidden and toggled according to results in the filtering process)
 var noresults = document.getElementById("noresults");
 
-// Filling project array
+// Filling project array. Projects are placed in a JSON-structure to form
+// a JavaScript-compliant array. (transforming a liquid array to a JavaScript array)
 {% for project in site.projects %}
 json_projects.push({
     "nr": "{{ project.nr }}",

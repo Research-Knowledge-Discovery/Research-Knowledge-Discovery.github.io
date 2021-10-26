@@ -1,5 +1,6 @@
 ---
 title: News
+redirect_to: /
 ---
 <ul class="allnews">
   {% for post in site.posts %}
@@ -11,16 +12,3 @@ title: News
     </li>
   {% endfor %}
 </ul>
-<script>
-      var params = new URLSearchParams(window.location.search);
-      console.log(params.get("date"));
-      if (params.get("date") != null) {
-          var all_news = document.getElementsByClassName("singlenews");
-          console.log(params.get("date"));
-          for (var i = 0; i < all_news.length; i++) {
-              if (!all_news[i].classList.contains(params.get("date"))) {
-                  all_news[i].style.display = 'none';
-              }
-          }
-      }
-</script>

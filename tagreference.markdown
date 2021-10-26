@@ -1,5 +1,6 @@
 ---
 title: "Tagreference"
+sitemap: false
 ---
 <!-- Listing all of the site's tags. IDs are automatically generated for all tag names but are still listed -->
 <div>

@@ -11,20 +11,20 @@ source "https://rubygems.org"
 # Theme
 gem "bulma-clean-theme", "~> 0.11.2"
 
-# Some gems are automatically installed and activated as a depenceny
+# Some gems are automatically installed and activated as a dependency
 # of Bulma Clean Theme (listed here: https://rubygems.org/gems/bulma-clean-theme).
+# and GitHub-Pages-Gem (listed here: https://rubygems.org/gems/github-pages/)
 
-gem "jekyll-redirect-from"
-gem "jekyll-seo-tag"
-gem "jekyll-sitemap"
+# Plugin "jekyll-redirect-from" is still listed for use with deactivated github-pages-gem
+gem "jekyll-redirect-from", "0.16.0"
 
-# If you want to use GitHub Pages, uncomment 
+# If you want to use the GitHub Pages gem, uncomment 
 # the line gem "github-pages", "~> 217". 
 # To upgrade, run `bundle update github-pages`.
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-remote-theme"
+  gem "jekyll-remote-theme", "0.4.3"
   #gem "github-pages", "~> 217"
 end
 
@@ -37,3 +37,4 @@ end
 
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
+gem "webrick", "~> 1.7"
