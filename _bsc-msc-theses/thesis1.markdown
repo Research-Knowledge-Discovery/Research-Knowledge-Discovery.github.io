@@ -1,7 +1,10 @@
 ---
-title: "testtitle"
+title: "[Title]"
 advisors:
-  - "person a"
-  - "person b"
-type: "BA"
+  - "[Advisor A]"
+  - "[Advisor B]"
+type: "[Type]"
+redirect_to: "/"
+sitemap: false
 ---
+Description

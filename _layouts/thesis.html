@@ -1,0 +1,24 @@
+---
+layout: custom_default
+---
+<!-- First row: Two-column layout on desktop -->
+<div class="columns">
+    <!-- 1st column: title, description -->
+    <div class="column content-spaced">
+        <div class="basicinfo">
+            <h1 class="name title is-5">{{ page.title }}</h1>
+        </div>
+        <div class="description">{{ content }}</div>
+    </div>
+    <!-- 2nd column: advisor(s), type -->
+    <div class="column is-narrow-desktop is-narrow-tablet">
+        <div class="factlist-1">
+            <ul class="singlelist no-icon">
+                <li>Advisor(s):</li>
+                <li>{% for advisor in page.advisors %}{{ advisor }}{% unless forloop.last %}, {% endunless %}{% endfor %}</li>
+                <li>Type:</li>
+                <li>{{ page.type }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -57,12 +57,6 @@ close_filters.addEventListener("click", function (e) {
     toggleVisibility(second_filters_dropdown, 'none');
     toggle_second_btnicon.classList.toggle('up');
     toggle_second_btnicon.classList.toggle('down');
-    scroll_pos = getOffsetTop(document.getElementById("project-list"));
-    window.scroll({
-        left: 0,
-        top: scroll_pos - 20,
-        behavior: 'smooth' 
-    });
 });
 
 // Amongst other things, prevents the filters from being invisible if screen 
@@ -212,7 +206,7 @@ submit_button.addEventListener('click', function () {
     scroll_pos = getOffsetTop(document.getElementById("project-list"));
     window.scroll({
         left: 0,
-        top: scroll_pos - 20,
+        top: scroll_pos - 80,
         behavior: 'smooth' 
     });
     // Creates buttons to easily deactivate selected second level tags

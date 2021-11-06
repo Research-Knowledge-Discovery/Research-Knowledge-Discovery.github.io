@@ -34,11 +34,15 @@ layout: custom_default
         <img class="image main-logo" src="../{{ page.main-logo }}"/>
         <div class ="factlist-1">
             <ul class="singlelist no-icon">
+            {% unless page.duration.beginning.year == "" and page.duration.end.year == "" %}
                 <li>Duration:</li>
                 <!-- Also show month if it exists -->
                 <li>{{ page.duration.beginning.year }}{% if page.duration.beginning.month != "" %}-{{ page.duration.beginning.month }}{% endif %} - {% if page.duration.end.year == "" %}today{% else %}{{ page.duration.end.year }}{% endif %}{% if page.duration.end.month != "" %}-{{ page.duration.end.month }}{% endif %}</li>
+            {% endunless %}
+            {% if page.funding %}
                 <li>Client/Sponsor:</li>
                 <li><a class="external" href="{{ page.funding[0].link }}">{{ page.funding[0].name }}</a></li>
+            {% endif %}
                 <li>Contact:</li>
                 <li>
                     {%- assign found_contact = false -%}
@@ -69,22 +73,23 @@ layout: custom_default
 </div>
 <!-- Second row: more facts (partners, people involved) -->
 <div class="padded">
+    {% if page.partners %}
     <div class="factlist-2 spaced">
-        {% if page.partners %}
-            <h3 class="title is-6">Partners</h3> 
-            <ul class="">
-                {%- for partner in page.partners -%}
-                    <li>
-                        {% if partner.link != null and partner.link != '#' %}
-                        <a class="external" href="{{ partner.link }}">{{ partner.name }}</a>
-                        {% else %}
-                        {{ partner.name }}
-                        {% endif %}
-                    </li>
-                {%- endfor -%}
-            </ul>
-        {% endif %}
+        <h3 class="title is-6">Partners</h3> 
+        <ul class="">
+            {%- for partner in page.partners -%}
+                <li>
+                    {% if partner.link != null and partner.link != '#' %}
+                    <a class="external" href="{{ partner.link }}">{{ partner.name }}</a>
+                    {% else %}
+                    {{ partner.name }}
+                    {% endif %}
+                </li>
+            {%- endfor -%}
+        </ul>
     </div>
+    {% endif %}
+    {% if page.people %}
     <div class="content-1 spaced">
         <h3 class="title is-6">People involved</h3>
         <ul>
@@ -122,6 +127,7 @@ layout: custom_default
         {%- endfor -%}
         </ul>
     </div>
+    {% endif %}
     <!-- More info -->
     <div class="content-2">
         <hr/>
@@ -154,9 +160,4 @@ layout: custom_default
             {% endif %}
         </div>
     </div>
-    <!-- For future use -->
-    <!--<h3 class="title is-5">Resources</h3>
-    <ul>
-        <li>...</li>
-    </ul>-->
 </div>

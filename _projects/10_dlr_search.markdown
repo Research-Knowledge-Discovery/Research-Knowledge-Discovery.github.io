@@ -2,21 +2,18 @@
 nr: "10"
 title: "Search and Indexing for DLR.de"
 abbr: "DLR_Search"
-externallink: "https://www.th-koeln.de/en/information-science-and-communication-studies/search-and-indexing-for-dlrde_68541.php"
 duration:
-  beginning: 
-    year: "?"
+  beginning:
+    year: ""
     month: ""
-  end: 
-    year: "?"
+  end:
+    year: ""
     month: ""
+externallink: "https://www.th-koeln.de/en/information-science-and-communication-studies/search-and-indexing-for-dlrde_68541.php"
 description: "In the project Search and Indexing DLR.de, a new indexing concept for the German Aerospace Center (DLR) is developed."
 partners:
   - name: "German Aerospace Center (DLR)"
     link: "https://www.dlr.de/EN/Home/home_node.html"
-funding: 
-  - name: "?"
-    link: 
 main-logo: "../assets/images/projects/logos/dlr_signet_schwarz.jpg"
 people: 
   - name: "Prof. Dr. Klaus Lepsky"

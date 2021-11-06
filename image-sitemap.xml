@@ -1,63 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/people/breuer_timo.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/people/engelmann_bjoern.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/people/haak_fabian.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/people/heisenberg_gernot.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/people/keller_jueri.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/people/placeholder.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/people/schaer_philipp.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/content/femoz_img1.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/ble.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/bmz.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dfg.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dlr_signet_schwarz.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dni.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/engagement-global.jpg</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/kts.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/mediennetzwerk-nrw.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/nrw-mkw.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/telekom.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/testimage.png</loc>
-</url>
-<url>
-<loc>https://research-knowledge-discovery.github.io/assets/images/th-koeln.jpg</loc>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/about-us/people.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/placeholder.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/heisenberg_gernot.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/schaer_philipp.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/breuer_timo.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/engelmann_bjoern.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/haak_fabian.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/keller_jueri.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/about-us/people/1-woehrle-sven.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/placeholder.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/about-us/people/2-heisenberg-gernot.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/heisenberg_gernot.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/about-us/people/4-lepsky-klaus.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/placeholder.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/research/research-areas.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/research_areas.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/research/projects.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/ble.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/telekom.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/kts.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/engagement-global.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/nrw-mkw.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/mediennetzwerk-nrw.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dni.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dfg.png</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/dlr_signet_schwarz.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/ble.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/research/projects/6-femoz.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/ble.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/research/projects/8-smart-ad-telekom.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/telekom.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/research/projects/9-xr-in-de.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/projects/logos/mediennetzwerk-nrw.png</image:loc>
+		</image:image>
+	</url>
 </urlset>

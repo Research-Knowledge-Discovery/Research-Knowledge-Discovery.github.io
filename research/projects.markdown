@@ -81,30 +81,33 @@ title: "Projects"
                         <ul>
                             <!-- "Duration" (if month is given, add. If end year is not given (""), put "today", put annotation
                             "annual study" for XR project -->
+                        {% unless project.duration.beginning.year == "" and project.duration.end.year == "" %}
                             <li class="duration"><p class="fact-title">Duration:</p><p class="fact">{{ project.duration.beginning.year }}{% if project.duration.beginning.month != "" %}-{{ project.duration.beginning.month }}{% endif %} - {% if project.duration.end.year == "" %}today{% else %}{{ project.duration.end.year }}{% endif %}{% if project.duration.end.month != "" %}-{{ project.duration.end.month }}{% endif %}{% if project.abbr == "XR" %}, <span class="annotation">annual study</span>{% endif %}</p></li>
-                            <!-- Since liquid tags print as a newline in the rendered HTML, the added whitespace is stripped here by including hyphens to liquid tags. 
-                            Newlines between tags are added for better readability in the code, needed whitespace is encoded (&#32;) -->
+                        {% endunless %}
                             <!-- "Funding" -->
+                        {% if project.funding %}
                             <li class="funding"><p class="fact-title">Client/Sponsor:</p> 
                                 <p class="fact"><a class="external" href="{{ project.funding[0].link }}">{{ project.funding[0].name }}</a></p>
                             </li>
+                        {% endif %}
                             <!-- "Partners" -->
-                            {% if project.partners %}
-                                <li class="partners">
-                                <p class="fact-title">Partners:&#32;</p>
-                                <p class="fact">
-                                {%- for partner in project.partners limit: 2 -%}
-                                    {%- if partner.link != null and partner.link != '#' -%}
-                                    <a class="external" href="{{ partner.link }}">{{ partner.name }}</a>
-                                    {%- else -%}
-                                    {{ partner.name }}
-                                    {%- endif -%}<!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{%- unless forloop.last -%}, {% endunless %}
-                                    {% if forloop.last and project.partners.size > 2 %} and {{ project.partners.size | minus: 2 }} more{%- endif -%}
-                                {%- endfor -%}
-                                </p>
-                                </li>
-                            {% endif %}
-                            <!-- "People involved" -->
+                        {% if project.partners %}
+                            <li class="partners">
+                            <p class="fact-title">Partners:&#32;</p>
+                            <p class="fact">
+                            {%- for partner in project.partners limit: 2 -%}
+                                {%- if partner.link != null and partner.link != '#' -%}
+                                <a class="external" href="{{ partner.link }}">{{ partner.name }}</a>
+                                {%- else -%}
+                                {{ partner.name }}
+                                {%- endif -%}<!-- Add a comma after the added name if this is not the last iteration of the for loop, i.e. the last person in this project's partner list -->{%- unless forloop.last -%}, {% endunless %}
+                                {% if forloop.last and project.partners.size > 2 %} and {{ project.partners.size | minus: 2 }} more{%- endif -%}
+                            {%- endfor -%}
+                            </p>
+                            </li>
+                        {% endif %}
+                        <!-- "People involved" -->
+                        {% if project.people %}
                             <li class="people-involved"><p class="fact-title">People involved:&#32;</p>
                             <p class="fact">
                                 {%- for person in project.people -%}
@@ -138,6 +141,7 @@ title: "Projects"
                                 {%- endfor -%}
                                 </p>
                             </li>
+                        {% endif %}
                         </ul>
                     </div>
                 <!-- "Read more" -->
@@ -155,9 +159,8 @@ title: "Projects"
 <script src="{{ site.baseurl }}/assets/js/filter.js"></script>
 <script>
     // Hide certain filters based on whether or not the corresponding tags have actually been used in the
-    // elements on this page (in this case, projects) (tags could also have been used in news articles)
-    // Retrieve all project research areas and topics and store them in an array...
-    // (In Liquid, they need to be appended to a string first and then split again to form an array)
+    // elements on this page 
+    // Retrieve all project research areas and topics 
     {% assign used_tags = "" %}
     {% for project in site.projects %}
         {% for area in project.research-areas.areas %}

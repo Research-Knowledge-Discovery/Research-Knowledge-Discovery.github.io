@@ -1,6 +1,6 @@
 ---
 layout: article
-author: abc
+author: Author
 image: "assets/images/testimage.png"
 research-areas:
   areas:

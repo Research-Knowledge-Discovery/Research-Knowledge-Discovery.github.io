@@ -8,22 +8,15 @@ function toggleMenu(menu) {
         menu.style.display = 'none';
 }
 
-// Variable to store the currently open drodown menu in order to derive which menu needs
+// Variable to store the currently open dropdown menu in order to derive which menu needs
 // to be closed when a click is placed outside the menu
 var open_menu;
 
 function changeSize(mediaQuery) {
     // If page is resized past a breakpoint, close all menus on resize past breakpoint from mobile and back
     if (mediaQuery.matches) {
-        // Get all menu items with dropdowns
         var all_dropdowns = document.getElementsByClassName("navbar-item has-dropdown");
         for (let i = 0; i < all_dropdowns.length; i++) {
-            // Since the menu item's second child contains the respective dropdown menu,
-            // .children[1] is extracted and hidden when the page is resized past a breakpoint.
-
-            // Without this solution, all dropdown menus that had been open in landscape mode
-            // would still be open upon resize and vice versa, allowing more than one menu
-            // to be open in landscape mode and breaking toggle logic.
             if (window.getComputedStyle(all_dropdowns[i].children[1], null).display == 'block') {
                 all_dropdowns[i].children[1].style.display = 'none';
             }
@@ -39,31 +32,16 @@ var mediaQuery_desktop = window.matchMedia("(min-width: 1024px)");
 mediaQuery_mobile.addListener(changeSize);
 mediaQuery_desktop.addListener(changeSize);
 
-// (Mostly landscape) Dropdown opening and closing logic.
-// Clicks on different parts of the site and their effects on (open) dropdowns are handled here
-
-// A dropdown menu needs to open when the corresponding menu item is clicked and needs to close when
-// any point outside the dropdown menu is clicked. Addinitionally, if another menu item is clicked, 
-// the corresponding dropdown needs to open instead.
-
-// On mobile, only clicks on the menu items themselves can open and close menus.
-
+// Dropdown opening and closing logic.
 // Add an event handler to all of the displayed page
 document.addEventListener('click', function(e){
     // Track which DOM element was clicked
     var clicked_target = e.target;
     
     // LANDSCAPE
-    // Getting viewport width cross-browser. Get the largest of these two values.
-    // If one of the values is undefined, use the other
+    // Getting viewport width cross-browser.
     if (Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024) {
-        // Basically two cases:
-        // - If the clicked element has a dropdown
-        // and
-        // - if the clicked element does not have a dropdown (somewhere else was clicked)
-        
         // If the clicked element is a menu item with dropdown...
-        // (Note: parentElement can be null if <html> is clicked somehow, check)
         if (clicked_target.parentElement != null && clicked_target.parentElement.className === "navbar-item has-dropdown ") {
             // If the clicked element is part of an already open dropdown but not a link...
             if (clicked_target.className == "navbar-dropdown") {

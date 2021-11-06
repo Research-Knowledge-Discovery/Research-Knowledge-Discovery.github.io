@@ -84,6 +84,13 @@ defaults:
     values:
       layout: "project"
       show_back_button: true
+  -
+    scope:
+      path: ""
+      type: "bsc-msc-theses"
+    values:
+      layout: "thesis"
+      show_back_button: true
 
 # Adding collections. Collections provide an easy way to set up an architecture for group related
 # content, such as members of a group or talks at a conference. 

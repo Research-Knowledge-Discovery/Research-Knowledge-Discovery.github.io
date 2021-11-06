@@ -3,7 +3,7 @@ title: Home
 callouts: callouts_home
 #hero_height: is-medium
 ---
-<div>
+<div class="home-text">
 <!--    <p class="content">Welcome to the Knowledge Discovery Group of the Institute for Information Sciences (IWS) at Technische Hochschule Köln (TH Köln - University of Applied Sciences in Cologne). The founders Prof. Heisenberg (Data Science), Prof. Schaer (Information Retrieval), Prof. Lepsky (Knowledge Organization) and Sven Wöhrle, M.Sc. (Research Coordination) have joined forces for merging the synergies of their individual research areas. This website lists all relevant projects and publications in this respect. Feel free to explore and contact us in case of joint research interests and research proposals.</p>
 -->
 <!-- 

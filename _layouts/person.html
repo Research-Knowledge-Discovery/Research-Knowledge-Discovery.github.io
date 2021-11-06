@@ -1,9 +1,6 @@
 ---
 layout: custom_default
 ---
-{% if page.no_profile == true or page.links.ext-profile != null %}
-    <div><p>No local profile found.</p></div>
-{% else %}
 <!-- First row: Two-column layout on desktop -->
 <div class="columns">
     <!-- 1st column: basicinfo + description + project participation -->
@@ -45,7 +42,7 @@ layout: custom_default
         {%- endif -%}
     </div>
     <!-- 2nd column: profile picture and contact (address, phone nr., social media) -->
-    <div class="column is-narrow">
+    <div class="column is-narrow-desktop is-narrow-tablet">
         <!-- Placeholder, if necessary (manually set variable in person's file's front matter) -->
         {% if page.placeholder_img == true %}
             <img class="image center-cropped profile detail" src="../../assets/images/people/placeholder.png"/>
@@ -110,4 +107,3 @@ layout: custom_default
         </div>
     </div>
 </div>
-{% endif %}
