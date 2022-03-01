@@ -10,7 +10,7 @@ items:
     icon: fa-book-open
     #description: >
     #  Explore our projects.
-    call_to_action_name: fa-user-alt;
+    call_to_action_name: Projects &#8594;
     call_to_action_link: /research/projects.html
   - title: Infrastructure
     call_to_action_name: Infrastructure &#8594;
