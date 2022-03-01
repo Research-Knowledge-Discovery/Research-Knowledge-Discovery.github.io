@@ -1,17 +1,16 @@
 style: is-light
 height: is-small
 items:
-  - call_to_action_name:
-      title: People
-      icon: fa-user-alt
-      description: >
+  - call_to_action_name: People
+    icon: fa-user-alt
+    description: >
         Meet our members.
     #call_to_action_name: People &#8594;
     call_to_action_link: /about-us/people.html
   - title: Projects
     icon: fa-book-open
-    description: >
-      Explore our projects.
+    #description: >
+    #  Explore our projects.
     call_to_action_name: fa-user-alt;
     call_to_action_link: /research/projects.html
   - title: Infrastructure
