@@ -5,13 +5,13 @@ items:
     icon: fa-user-alt
     description: >
       Meet our members.
-    call_to_action_name: Go there &#8594;
+    #call_to_action_name: Go there &#8594;
     call_to_action_link: /about-us/people.html
   - title: Projects
     icon: fa-book-open
     description: >
       Explore our projects.
-    call_to_action_name: Go there &#8594;
+    #call_to_action_name: Go there &#8594;
     call_to_action_link: /research/projects.html
   - title: Infrastructure
     icon: fa-laptop-code
