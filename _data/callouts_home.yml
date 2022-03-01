@@ -17,5 +17,5 @@ items:
     icon: fa-laptop-code
     description: >
       Learn about our labs.
-    call_to_action_name: Go there &#8594;
+    #call_to_action_name: Go there &#8594;
     call_to_action_link: /about-us/infrastructure.html
