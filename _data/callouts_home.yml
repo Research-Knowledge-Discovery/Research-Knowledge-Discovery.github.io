@@ -1,20 +1,21 @@
 style: is-light
 height: is-small
 items:
-  - icon: fa-user-alt
-    call_to_action_name: People &#8594;
+  - title: People
+    icon: fa-user-alt
+    call_to_action_name: Meet our members &#8594;
     call_to_action_link: /about-us/people.html
-    description: >
-        Meet our members.
+    #description: >
+    #    Meet our members.
   - title: Projects
     icon: fa-book-open
     #description: >
     #  Explore our projects.
-    call_to_action_name: Projects &#8594;
+    call_to_action_name: Explore our Projects &#8594;
     call_to_action_link: /research/projects.html
-  - title: Infrastructure
-    call_to_action_name: Infrastructure &#8594;
-    call_to_action_link: /about-us/infrastructure.html
-    icon: fa-laptop-code
-    description: >
-      Learn about our labs.
+  - title: Research Areas
+    icon: fa-book-reader
+    call_to_action_name: Learn about our research focus &#8594;
+    call_to_action_link: /research/research-areas.html
+    #description: >
+    #  Learn about our labs.
