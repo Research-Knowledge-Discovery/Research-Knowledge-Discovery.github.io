@@ -2,10 +2,10 @@ style: is-light
 height: is-small
 items:
   - title: People
-    #icon: fa-user-alt
+    icon: fa-user-alt
     description: >
       Meet our members.
-    call_to_action_name: icon: fa-user-alt;
+    call_to_action_name: icon;
     call_to_action_link: /about-us/people.html
   - title: Projects
     icon: fa-book-open
