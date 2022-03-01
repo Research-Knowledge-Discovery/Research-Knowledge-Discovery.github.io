@@ -3,13 +3,13 @@ height: is-small
 items:
   - title: People
     icon: fa-user-alt
-    call_to_action_name: Meet our members;
+    call_to_action_name: Meet our members
     call_to_action_link: /about-us/people.html
   - title: Research Areas
     icon: fa-book-reader
-    call_to_action_name: Learn about our research focus;
+    call_to_action_name: Learn about our research focus
     call_to_action_link: /research/research-areas.html
   - title: Projects
     icon: fa-book-open
-    call_to_action_name: Explore our Projects;
+    call_to_action_name: Explore our Projects
     call_to_action_link: /research/projects.html
