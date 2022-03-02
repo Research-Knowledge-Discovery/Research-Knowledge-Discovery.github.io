@@ -3,7 +3,7 @@ title: "BSc- &amp; MSc-Theses"
 sitemap: false
 ---
 
-Here you can find the BSc.- and MSc.
+Here you can find the BSc.- and MSc. theses we are offering.
 
 Sometimes you can only find a short teaser, feel free to ask us for details. You can also **always** come to us with a topic you are interested in!
 
@@ -14,6 +14,10 @@ These are the theses we are offering right now:
 ### Food Security and Remote Sensing Topics
 
 ### Other Topics
+
+[Analyse der Prediction-Performance von Recurrent Neural Networks am Beispiel von Finanzmarktdaten](https://www.gernotheisenberg.de/abschlussarbeit.1.html)
+
+[Analyse der Auswirkung der Codierung von Fragenbogenskalen (insbesondere Likert-Skalen) auf den Untersuchungsgegenstand](https://www.gernotheisenberg.de/abschlussarbeit.2.html)
 
 ## Prof. Dr. Philipp Schaer
 
