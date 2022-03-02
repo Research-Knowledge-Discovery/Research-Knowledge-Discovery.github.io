@@ -9,7 +9,7 @@ We, the members of the Knowledge Discovery research focus, are **committed to th
 * **A**ccessible
 * **I**nteroperable
 * **R**eusable
-* 
+
 These principles are the cornerstone of transparent scientific work, aiming at open collaboration, verifiability and reusability of scientific content.
 
 We consider research data to be any data that is generated in the course of a research project. In addition, we intend to apply the following guidelines to **all other research artifacts, especially code, research data and publications.**
@@ -41,8 +41,9 @@ To ensure compliance with **FAIR principles**, we will also adhere to the follow
 
 **Further read:**
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-(https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/ "DFG GWP - Good Scientific Practice (German)")
 
-Handout for the use of research software: https://zenodo.org/record/1172970
+[Hi](https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/ "DFG GWP - Good Scientific Practice (German)")
+
+(https://zenodo.org/record/1172970 "Zenodos handout for the use of research software (German)")
 
 ACM Guidelines - Artifact Review and Badging: https://www.acm.org/publications/policies/artifact-review-and-badging-current
