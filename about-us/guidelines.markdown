@@ -10,12 +10,11 @@ We, the members of the Knowledge Discovery research focus, are committed to the 
 * **R**eusable
 
 These principles are the cornerstone of transparent scientific work, aiming at open collaboration, verifiability and reusability of scientific content.
-
 We consider research data to be any data that is generated in the course of a research project. In addition, we intend to apply the following guidelines to all other research artifacts, especially code, research data and publications.
-
 With the help of these guidelines, we want to ensure that all members of the research focus have access to all internal research artifacts and all external researchers and interested parties have access to all published research data, code and publications. In doing so, we are committed to the ideas of open access and open science, i.e., we will publish all publications, their associated research data (excluding input data) and other research artifacts open access and, in the case of code, open source.
 
 To ensure compliance with FAIR principles, we will also adhere to the following guidelines:
+
 **Findable:
 * Use of standard repositories, e.g. Zenodo or subject-specific established repositories.
 * Creation of meaningful metadata
