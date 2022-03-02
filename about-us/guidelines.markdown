@@ -41,8 +41,6 @@ To ensure compliance with **FAIR principles**, we will also adhere to the follow
 
 **Further read:**
 
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
 [DFG GWP - Good Scientific Practice (German)](https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/)
 
 [Zenodos handout for the use of research software (German)](https://zenodo.org/record/1172970)
