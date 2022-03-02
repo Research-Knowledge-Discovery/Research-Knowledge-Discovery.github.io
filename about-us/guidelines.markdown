@@ -43,15 +43,11 @@ To ensure compliance with FAIR principles, we will also adhere to the following 
 * Ensuring availability of metadata when datasets are not yet available (e.g., embargo periods, etc.)
 
 ### Interoperable:
-
 * Use of standard file types to the greatest possible extent and avoidance of proprietary formats
-
 * Use of established and appropriate metadata standards (e.g., Dublin Core) with controlled vocabularies
 
 ### Reusable:
-
 * (Short) documentation of code as well as self-generated data.
-
 * Use of clear Open Access licenses (e.g. Creative Commons or OSI-compatible licenses)
 
 
