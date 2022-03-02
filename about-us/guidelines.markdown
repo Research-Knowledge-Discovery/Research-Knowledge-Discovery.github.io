@@ -43,8 +43,8 @@ To ensure compliance with **FAIR principles**, we will also adhere to the follow
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
-[Hi](https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/ "DFG GWP - Good Scientific Practice (German)")
+[DFG GWP - Good Scientific Practice (German)](https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/)
 
-(https://zenodo.org/record/1172970 "Zenodos handout for the use of research software (German)")
+[Zenodos handout for the use of research software (German)](https://zenodo.org/record/1172970)
 
-ACM Guidelines - Artifact Review and Badging: https://www.acm.org/publications/policies/artifact-review-and-badging-current
+[ACM Guidelines - Artifact Review and Badging](https://www.acm.org/publications/policies/artifact-review-and-badging-current)
