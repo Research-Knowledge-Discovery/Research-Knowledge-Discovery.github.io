@@ -1,6 +1,6 @@
 ---
 title: "BSc- &amp; MSc-Theses"
-sitemap: false
+sitemap: true
 ---
 
 Here you can find the BSc.- and MSc. theses we are offering right now.
