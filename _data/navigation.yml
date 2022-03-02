@@ -7,9 +7,9 @@
     - name: Infrastructure
       link: /about-us/infrastructure.html
       key: infrastructure
-    - name: Open Science and Research Data Management
+    - name: Open Science Guideline
       link: /about-us/guidelines.html
-      key: guidel
+      key: guideline
 - name: Research
   link: /research/
   dropdown: 
@@ -19,15 +19,15 @@
     - name: Projects
       link: /research/projects.html
       key: projects
-#- name: Theses &amp; Jobs
-#  link: /theses-and-jobs/
-#  dropdown:
-#    - name: BSc-/MSc-Theses
-#      link: /theses-and-jobs/bsc-msc-theses.html
-#      key: bsc-msc-theses
-#    - name: Open Positions
-#      link: /theses-and-jobs/open-positions.html
-#      key: open-positions
+- name: Theses &amp; Jobs
+  link: /theses-and-jobs/
+  dropdown:
+    - name: BSc-/MSc-Theses
+      link: /theses-and-jobs/bsc-msc-theses.html
+      key: bsc-msc-theses
+    - name: Open Positions
+      link: /theses-and-jobs/open-positions.html
+      key: open-positions
 #- name: News
 #  link: /news.html
 #  key: news
