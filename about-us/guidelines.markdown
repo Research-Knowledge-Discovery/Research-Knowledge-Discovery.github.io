@@ -4,11 +4,11 @@ title: Open Science and Research Data Management
 
 ## Guidelines for Open Science and Research Data Management of the Research Cluster Knowledge Discovery
 We, the members of the Knowledge Discovery research focus, are **committed to the Open Science idea with all its facets (including Open Access, Open Data, Open Source, Open Methodology)** and the **FAIR principles of Research Data Management (RDM):**
+
 * **F**indable
 * **A**ccessible
 * **I**nteroperable
 * **R**eusable
-
 These principles are the cornerstone of transparent scientific work, aiming at open collaboration, verifiability and reusability of scientific content.
 
 We consider research data to be any data that is generated in the course of a research project. In addition, we intend to apply the following guidelines to **all other research artifacts, especially code, research data and publications.**
@@ -32,6 +32,7 @@ To ensure compliance with **FAIR principles**, we will also adhere to the follow
 **Interoperable:**
 * Use of standard file types to the greatest possible extent and avoidance of proprietary formats
 * Use of established and appropriate metadata standards (e.g., Dublin Core) with controlled vocabularies
+
 **Reusable:**
 * (Short) documentation of code as well as self-generated data.
 * Use of clear Open Access licenses (e.g. Creative Commons or OSI-compatible licenses)
