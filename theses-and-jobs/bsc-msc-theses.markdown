@@ -1,6 +1,5 @@
 ---
 title: "BSc- &amp; MSc-Theses"
-redirect_to: /
 sitemap: false
 ---
 
