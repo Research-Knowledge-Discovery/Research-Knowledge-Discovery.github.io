@@ -40,6 +40,7 @@ To ensure compliance with **FAIR principles**, we will also adhere to the follow
 
 
 **Further read:**
+
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
 [Hi](https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/ "DFG GWP - Good Scientific Practice (German)")
