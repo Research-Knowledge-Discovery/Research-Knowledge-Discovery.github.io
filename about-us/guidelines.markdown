@@ -6,13 +6,10 @@ title: Open Science and Research Data Management
 
 We, the members of the Knowledge Discovery research focus, are committed to the Open Science idea with all its facets (including Open Access, Open Data, Open Source, Open Methodology) and the FAIR principles of Research Data Management (RDM):
 
-Findable
-
-Accessible
-
-Interoperable
-
-Reusable
+* Findable
+* Accessible
+* Interoperable
+* Reusable
 
 These principles are the cornerstone of transparent scientific work, aiming at open collaboration, verifiability and reusability of scientific content.
 
@@ -23,23 +20,15 @@ With the help of these guidelines, we want to ensure that all members of the res
 To ensure compliance with FAIR principles, we will also adhere to the following guidelines:
 
 ### Findable:
-
 * Use of standard repositories, e.g. Zenodo or subject-specific established repositories.
-
 * Creation of meaningful metadata
-
 * Generation of persistent identifiers for research data and publications (e.g. DOI)
-
 * Linking of data and code in publications
-
 * Generation of an overview of papers, research data, code links, and other research artifacts on the research focus website
 
 ### Accessible:
-
 * Archiving of research data, code and publications according to DFG recommendations for at least 10 years (cf. DFG GWP).
-
 * Accessibility of metadata also via the same persistent identifiers (e.g. DOI) as the data itself (even if the data have been deleted again)
-
 * Ensuring availability of metadata when datasets are not yet available (e.g., embargo periods, etc.)
 
 ### Interoperable:
