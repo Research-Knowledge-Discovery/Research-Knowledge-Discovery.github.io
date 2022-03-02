@@ -9,6 +9,7 @@ We, the members of the Knowledge Discovery research focus, are **committed to th
 * **A**ccessible
 * **I**nteroperable
 * **R**eusable
+* 
 These principles are the cornerstone of transparent scientific work, aiming at open collaboration, verifiability and reusability of scientific content.
 
 We consider research data to be any data that is generated in the course of a research project. In addition, we intend to apply the following guidelines to **all other research artifacts, especially code, research data and publications.**
@@ -18,14 +19,14 @@ With the help of these guidelines, we want to ensure that all members of the res
 To ensure compliance with **FAIR principles**, we will also adhere to the following guidelines:
 
 **Findable:**
-* Use of standard repositories, e.g. Zenodo or subject-specific established repositories.
+* Use of standard repositories, e.g. Zenodo or subject-specific established repositories
 * Creation of meaningful metadata
 * Generation of persistent identifiers for research data and publications (e.g. DOI)
 * Linking of data and code in publications
 * Generation of an overview of papers, research data, code links, and other research artifacts on the research focus website
 
 **Accessible:**
-* Archiving of research data, code and publications according to DFG recommendations for at least 10 years (cf. DFG GWP).
+* Archiving of research data, code and publications according to DFG recommendations for at least 10 years (cf. DFG GWP)
 * Accessibility of metadata also via the same persistent identifiers (e.g. DOI) as the data itself (even if the data have been deleted again)
 * Ensuring availability of metadata when datasets are not yet available (e.g., embargo periods, etc.)
 
@@ -34,13 +35,13 @@ To ensure compliance with **FAIR principles**, we will also adhere to the follow
 * Use of established and appropriate metadata standards (e.g., Dublin Core) with controlled vocabularies
 
 **Reusable:**
-* (Short) documentation of code as well as self-generated data.
+* (Short) documentation of code as well as self-generated data
 * Use of clear Open Access licenses (e.g. Creative Commons or OSI-compatible licenses)
 
 
 **Further read:**
-
-DFG GWP - Good Scientific Practice (German): https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+(https://www.dfg.de/en/research_funding/principles_dfg_funding/good_scientific_practice/ "DFG GWP - Good Scientific Practice (German)")
 
 Handout for the use of research software: https://zenodo.org/record/1172970
 
