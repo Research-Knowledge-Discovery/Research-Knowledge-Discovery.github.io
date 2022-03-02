@@ -7,6 +7,9 @@
     - name: Infrastructure
       link: /about-us/infrastructure.html
       key: infrastructure
+    - name: Open Science and Research Data Management
+      link: /about-us/guidelines.html
+      key: guidel
 - name: Research
   link: /research/
   dropdown: 
