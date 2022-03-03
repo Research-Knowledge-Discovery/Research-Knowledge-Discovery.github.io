@@ -1,7 +1,8 @@
 ---
 title: "BSc- &amp; MSc-Theses"
-sitemap: true
 ---
+
+## Our BSc. and MSc Theses
 
 Here you can find the BSc.- and MSc. theses we are offering right now.
 
@@ -11,17 +12,18 @@ These are the theses we are offering right now:
 
 ### Prof. Dr. Gernot Heisenberg
 
-(https://www.gernotheisenberg.de/abschlussarbeiten.html)
+[www.gernotheisenberg.de/abschlussarbeiten.html](https://www.gernotheisenberg.de/abschlussarbeiten.html)
 
 [Analyse der Prediction-Performance von Recurrent Neural Networks am Beispiel von Finanzmarktdaten](https://www.gernotheisenberg.de/abschlussarbeit.1.html)
 
 [Analyse der Auswirkung der Codierung von Fragenbogenskalen (insbesondere Likert-Skalen) auf den Untersuchungsgegenstand](https://www.gernotheisenberg.de/abschlussarbeit.2.html)
 
-## Prof. Dr. Philipp Schaer
+### Prof. Dr. Philipp Schaer
 
-(https://ir.web.th-koeln.de/theses)
+[ir.web.th-koeln.de/theses](https://ir.web.th-koeln.de/theses)
 
-## Prof. Dr. Klaus Lepsky
+### Prof. Dr. Klaus Lepsky
 
 Coming soon:
+
 Erstellung und/oder Erweiterung eines Thesaurus mittels wissenschaftlichen Datenbanken für ein Recommender-System der TH Köln
