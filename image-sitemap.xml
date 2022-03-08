@@ -24,6 +24,9 @@
 		<image:image>
 			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/keller_jueri.jpg</image:loc>
 		</image:image>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/foerstner_konrad.jpg</image:loc>
+		</image:image>		
 	</url>
 	<url>
 		<loc>https://research-knowledge-discovery.github.io/about-us/people/1-woehrle-sven.html</loc>
@@ -49,6 +52,13 @@
 			<image:loc>https://research-knowledge-discovery.github.io/assets/images/research_areas.png</image:loc>
 		</image:image>
 	</url>
+	<url>
+		<loc>https://research-knowledge-discovery.github.io/about-us/people/9-foerstner_konrad.html</loc>
+		<image:image>
+			<image:loc>https://research-knowledge-discovery.github.io/assets/images/people/foerstner_konrad.jpg</image:loc>
+		</image:image>
+	</url>
+	
 	<url>
 		<loc>https://research-knowledge-discovery.github.io/research/projects.html</loc>
 		<image:image>
