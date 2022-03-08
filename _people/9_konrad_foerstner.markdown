@@ -4,7 +4,7 @@ titles: "Prof. Dr."
 firstname: "Konrad"
 lastname: "Förstner"
 role: "Professor"
-description: "Philipp Schaer is Professor for Information Retrieval with the Institute of Information Science at TH Köln (University of Applied Sciences) where he teaches courses on Information Retrieval, Database Systems, and Search Engine Technology."
+description: "Prof. Dr. Konrad Förstner holds a joint professorship for Data and Information Literary at ZB MED - Information Center for Life Sciences and TH Köln."
 links:
   ext-profile: https://www.zbmed.de/en/research/research-at-zb-med/research-data-science-and-services/
   th-koeln: //www.th-koeln.de/personen/philipp.schaer/
