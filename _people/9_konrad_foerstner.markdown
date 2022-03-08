@@ -1,0 +1,29 @@
+---
+title: "Prof. Dr. Konrad U. Förstner"
+titles: "Prof. Dr."
+firstname: "Konrad"
+lastname: "Förstner"
+role: "Professor"
+description: "Philipp Schaer is Professor for Information Retrieval with the Institute of Information Science at TH Köln (University of Applied Sciences) where he teaches courses on Information Retrieval, Database Systems, and Search Engine Technology."
+links:
+  ext-profile: https://www.zbmed.de/en/research/research-at-zb-med/research-data-science-and-services/
+  th-koeln: //www.th-koeln.de/personen/philipp.schaer/
+  private-site: https://konrad.foerstner.org/
+redirect_to: https://ir.web.th-koeln.de/people/philipp-schaer/
+sitemap: false
+---
+
+Prof. Dr. Konrad Förstner holds a joint professorship for Data and
+Information Literary at [ZB MED - Information Center for Life
+Sciences](https://www.zbmed.de/en/research/research-at-zb-med/research-data-science-and-services/)
+and [TH Köln](https://www.th-koeln.de/). The research of his group
+covers a broad spectrum of applications of data science,
+bioinformatics and systems biology methods in the life sciences. This
+includes the integration and interpretation of large data sets -
+mainly generated using high-throughput sequencing technologies but
+also biomedical text corpora - with the aim to translate them into
+novel biological and medical insights. Additionally, the groups runs
+projects that use and extend the knowledge commons by making research
+outcomes more open and FAIR. Among other activities Prof. Förstner is
+the speaker of the NFDI consortium
+[NFDI4Microbiota](https://nfdi4microbiota.de/).
