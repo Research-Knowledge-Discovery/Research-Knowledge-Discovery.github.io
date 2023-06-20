@@ -31,8 +31,8 @@ callouts: callouts_home
     <p>Knowledge discovery describes the process of automatically searching and processing large amounts of data for patterns that can be considered knowledge about the data. The processes and approaches have evolved from and are closely related to the data mining domain, both methodologically and terminologically.
     Knowledge Discovery is lived at our institute as an agile process model, in which different techniques and procedures are used at different points in time. In the KD research group, these include the following disciplines, each of which is covered by a different group member:</p>
     <ul>
-        <li>Information Organization: Enhancing existing data with structures and annotations and making them data by means of structures and annotations, e.g. by means of data enrichment, Natural Language Processing and Knowledge Organization Systems (Prof. Dr. Klaus Lepsky).</li>
-        <li>Information Access: Selection of relevant data and information e.g. by web crawling, information retrieval and recommender systems (Prof. Dr. Philipp Schaer).</li>
-    <li>Knowledge Acquisition: analysis of pre-processed data and information with quantitative statistical methods, using text/data mining and machine/deep learning techniques (Prof. Dr. Gernot Heisenberg).</li>
+        <li>Information Organization: Enhancing existing data with structures and annotations and making them data by means of structures and annotations, e.g. by means of data enrichment, Natural Language Processing and Knowledge Organization Systems.</li>
+        <li>Information Access: Selection of relevant data and information e.g. by web crawling, information retrieval and recommender systems.</li>
+    <li>Knowledge Acquisition: analysis of pre-processed data and information with quantitative statistical methods, using text/data mining and machine/deep learning techniques.</li>
     </ul>
 </div>
