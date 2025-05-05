@@ -8,7 +8,7 @@ duration:
     year: "2018"
     month: ""
   end: 
-    year: "2019"
+    year: "2022"
     month: ""
 description: "This project aims at increasing the lead time prior to famine catastrophes, and thus supporting aid organizations in consistent and sustainable planning of countermeasures, by developing a mathematical prediction model that is able to compute the probability of a famine catastrophe by learning from data."
 partners:
