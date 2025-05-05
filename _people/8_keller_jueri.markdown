@@ -6,9 +6,9 @@ lastname: "Keller"
 role: "Research Associate / PhD Student"
 description: "Jüri Keller is a research associate at the Institute of Information Science at TH Köln (University of Applied Sciences). As a member of Prof. Philipp Schaer’s team, he actively contributes to the field of information retrieval and recommender systems."
 links:
-  ext-profile: https://ir.web.th-koeln.de/people/jueri-keller/
+  ext-profile: https://ir.web.th-koeln.de/people/juri-keller/
   th-koeln: https://www.th-koeln.de/personen/jueri.keller/
-redirect_to: https://ir.web.th-koeln.de/people/jueri-keller/
+redirect_to: https://ir.web.th-koeln.de/people/juri-keller/
 sitemap: false
 ---
 Jüri Keller is a research associate at the Institute of Information Science at TH Köln (University of Applied Sciences). As a member of Prof. Philipp Schaer’s team, he actively contributes to the field of information retrieval and recommender systems.
