@@ -10,7 +10,7 @@ duration:
   end: 
     year: "2025"
     month: ""
-description: "The project Journalistic Information Extraction (JoIE) aims to address the problem of information extraction from unstructured sources, that are relevant for (data) journalism. Based on the two state-of-the-art tools Workbench and Fonduer, a solution is going to be developed that can handle the above-mentioned data sources and makes them usable for journalism by putting them into a structured and thus analyzable form."
+description: "Preprints are a relatively new pathway of making scientific results available to the wider research community even before peer review. Meanwhile, thereis are a large number of different preprint servers used by the research community, which differ both technically and in terms of content."
 partners:
   - name: "ZB MED"
     link: "https://www.zbmed.de/"
@@ -37,6 +37,8 @@ research-areas:
         tag: "hci"
       - name: "Information Extraction"
         tag: "information_extraction"
+      - name: "Preprints"
+        tag: "preprints"
 sitemap: false
 redirect_to: "https://ir.web.th-koeln.de/projects/pixls/"
 ---
