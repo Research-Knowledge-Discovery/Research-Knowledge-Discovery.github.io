@@ -22,7 +22,7 @@ funding: # Implemented as an array even if there is only one entry,
 main-logo: "../assets/images/projects/logos/dfg.png"
 people:
   - name: "Prof. Dr. Philipp Schaer"
-    - name: "Prof. Dr. Konrad Förstner"
+  - name: "Prof. Dr. Konrad Förstner"
   - name: "M.Sc. Fabian Haak"
   - name: "M.Sc. Benjamin Wolff (ZB MED)"
 contact: "Prof. Dr. Philipp Schaer"
