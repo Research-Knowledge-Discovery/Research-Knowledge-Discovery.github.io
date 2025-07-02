@@ -10,7 +10,7 @@ duration:
   end: 
     year: "2025"
     month: ""
-description: "The STELLA project aims to create an evaluation infrastructure that allows to evaluate search and recommendation services within productive web-based search systems with real users. STELLA provides an integrated e-Research environment that allows researchers in the field of information retrieval and recommendation services to conduct studies with real users in real environments. The experimental set-ups differ considerably from classical TREC studies, which can only be carried out offline, or also from user studies, which only allow laboratory experiments, and thus enable researchers to use an evaluation method that was previously reserved only for industrial research or the operators of large online platforms."
+description: "STELLA creates an evaluation infrastructure for testing search and recommendation services with real users in live web environments. It offers researchers an e-Research platform for conducting studies that bridge the gap between controlled lab experiments and real-world applications, providing evaluation methods typically only available to large online platforms."
 partners:
   - name: "GESIS - Leibniz Institute for the Social Sciences"
     link: "http://www.gesis.org/"

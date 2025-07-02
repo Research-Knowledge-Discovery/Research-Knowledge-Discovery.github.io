@@ -9,7 +9,7 @@ duration:
   end: 
     year: "2026"
     month: "06"
-description: "The AI4SusCo project develops AI-based solutions for efficient and accurate coffee certification, contributing to sustainable coffee production, rainforest conservation, and climate protection through advanced remote sensing and deep learning technologies."
+description: "The AI4SusCo project develops AI-based solutions for efficient and accurate coffee certification, contributing to sustainable coffee production, rainforest conservation and deforestation monitoring through advanced remote sensing and deep learning technologies."
 partners:
   - name: "GRAS Global Risk Assessment Services GmbH"
     link: "https://www.gras-system.org/"

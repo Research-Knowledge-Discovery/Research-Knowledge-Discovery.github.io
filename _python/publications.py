@@ -48,19 +48,36 @@ ds_fullhtml = BeautifulSoup(ds_raw, 'html.parser')
 # Find all elements of this type and class - there are two, the second one holds 
 # the needed data
 ds_snippet = ds_fullhtml.find_all('div', class_='entry-content clearfix')
-# Extracting a specific publications
+# Extracting and processing publications
 if ds_snippet is not None:
-    html_woehrle = ds_snippet[1].find_all('li', text=re.compile("Wöhrle"))
-    # Writing all publications to file
-    with open('../_includes/publications/heisenberg.html', mode='w', encoding='utf-8') as localfile: localfile.write(str(ds_snippet[1]))
+    # Get all publication items
+    all_publications = ds_snippet[1].find_all('li')
+    
+    # Filter publications for Wöhrle (case insensitive)
+    html_woehrle = [item for item in all_publications 
+                    if 'Wöhrle' in item.text or 'Woehrle' in item.text or 'woehrle' in item.text.lower()]
+    
+    # Write all publications to Heisenberg's file
+    with open('../_includes/publications/heisenberg.html', mode='w', encoding='utf-8') as localfile: 
+        localfile.write(str(ds_snippet[1]))
 
-if html_woehrle is not None:
-    # Writing specific publications to different file in own <ul>
-    with open('../_includes/publications/woehrle.html', mode='w', encoding='utf-8') as localfile: 
-        localfile.write('<ul>')
-        for item in html_woehrle:
-            localfile.write(str(item))
-        localfile.write('</ul>')
+    # Write Wöhrle's publications to his file
+    if html_woehrle:
+        with open('../_includes/publications/woehrle.html', mode='w', encoding='utf-8') as localfile: 
+            localfile.write('<div class="entry-content clearfix">')
+            # Add the same heading structure as in the original file
+            localfile.write('<h4 class="highlight-col">Journals papers</h4><ul>')
+            
+            # Write each publication
+            for item in html_woehrle:
+                localfile.write(str(item))
+            
+            # Close the list and div
+            localfile.write('</ul></div>')
+    else:
+        # If no publications found, create an empty file with a message
+        with open('../_includes/publications/woehrle.html', mode='w', encoding='utf-8') as localfile:
+            localfile.write('<p>No publications available.</p>')
 
 # Not currently in use as IR publications are shown on an external website
 

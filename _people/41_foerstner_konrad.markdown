@@ -6,10 +6,10 @@ lastname: "Förstner"
 role: "Professor"
 description: "Prof. Dr. Konrad Förstner holds a joint professorship for Data and Information Literacy at TH Köln and ZB MED - Information Center for Life Sciences "
 links:
-  ext-profile: https://www.zbmed.de/en/research/research-at-zb-med/research-data-science-and-services/
-  th-koeln: //www.th-koeln.de/personen/philipp.schaer/
+  ext-profile: https://www.zbmed.de/en/contact-details/konrad-foerstner
+  th-koeln: https://www.th-koeln.de/personen/konrad.foerstner/
   private-site: https://konrad.foerstner.org/
-redirect_to: https://ir.web.th-koeln.de/people/philipp-schaer/
+redirect_to: https://www.zbmed.de/en/contact-details/konrad-foerstner
 sitemap: false
 ---
 
