@@ -1,5 +1,5 @@
 ---
-title: "Prof. Dr. Konrad U. Förstner"
+title: "Prof. Dr. Konrad Förstner"
 titles: "Prof. Dr."
 firstname: "Konrad"
 lastname: "Förstner"
