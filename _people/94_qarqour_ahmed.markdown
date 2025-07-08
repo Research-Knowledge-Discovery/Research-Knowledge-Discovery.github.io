@@ -1,6 +1,6 @@
 ---
 title: "Ahmed Qarqour"
-titles: "M.Sc.Ja"
+titles: "M.Sc."
 firstname: "Ahmed"
 lastname: "Qarqour"
 role: "PhD Student / Researcher"
