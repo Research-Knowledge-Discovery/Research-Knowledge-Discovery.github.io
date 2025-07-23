@@ -4,7 +4,7 @@ titles: "M.Sc."
 firstname: "Andreas"
 lastname: "Kruff"
 role: "Research Associate / PhD Student"
-placeholder_img: true
+placeholder_img: false
 description: "Andreas Kruff is a research associate at the Institute of Information Science at TH Köln (University of Applied Sciences). He is part of the team led by Prof. Philipp Schaer. He works in the area of information retrieval and recommender systems."
 links:
   ext-profile: https://ir.web.th-koeln.de/people/andreas-kruff/
