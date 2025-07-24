@@ -1,7 +1,7 @@
 ---
-title: "M.Sc. Nolween Bernard"
+title: "M.Sc. Nolwenn Bernard"
 titles: "M.Sc."
-firstname: "Nolween"
+firstname: "Nolwenn"
 lastname: "Bernard"
 role: "Research Associate / PhD Student"
 placeholder_img: false
